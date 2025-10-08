@@ -1,3 +1,3 @@
 lua << EOF
-  require('pantheon').setup()
+  require("pantheon").setup()
 EOF

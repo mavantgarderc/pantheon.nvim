@@ -11,7 +11,7 @@ M.defaults = {
     },
 
     overrides = {
-        colors = {}, -- e.g., { base0B = "#custom" }
+        colors = {},     -- e.g., { base0B = "#custom" }
         highlights = {}, -- e.g., { Comment = { fg = "#custom" } }
     },
 
