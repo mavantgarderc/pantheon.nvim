@@ -4,123 +4,171 @@ local function hl(group, opts)
     vim.api.nvim_set_hl(0, group, opts)
 end
 
-M.apply = function(colors, config)
-    local c = colors
+M.apply = function(theme, config)
+    local s = theme.semantic -- Semantic colors
+    local p = theme.palette  -- Rich palette (if available)
+    local c = theme.colors   -- Base16 colors (fallback)
     local styles = config.styles
 
-    -- Editor UI
-    hl('Normal', { fg = c.base05, bg = c.base00 })
-    hl('NormalFloat', { fg = c.base05, bg = c.base01 })
-    hl('NormalNC', { fg = c.base05, bg = c.base00 })
+    -- ============================================================================
+    -- EDITOR UI
+    -- ============================================================================
+
+    hl('Normal', { fg = s.ui.fg, bg = s.ui.bg })
+    hl('NormalFloat', { fg = s.ui.fg, bg = s.ui.float })
+    hl('NormalNC', { fg = s.ui.fg_dim, bg = s.ui.bg })
 
     -- Cursor
-    hl('Cursor', { fg = c.base00, bg = c.base05 })
-    hl('CursorLine', { bg = c.base01 })
-    hl('CursorColumn', { bg = c.base01 })
-    hl('ColorColumn', { bg = c.base01 })
+    hl('Cursor', { fg = s.ui.bg, bg = s.ui.fg })
+    hl('CursorLine', { bg = s.ui.cursorline })
+    hl('CursorColumn', { bg = s.ui.cursorline })
+    hl('ColorColumn', { bg = s.ui.bg_dim })
 
     -- Line numbers
-    hl('LineNr', { fg = c.base03 })
-    hl('CursorLineNr', { fg = c.base0B, bold = true })
-    hl('SignColumn', { fg = c.base03, bg = c.base00 })
+    hl('LineNr', { fg = s.ui.line_nr })
+    hl('CursorLineNr', { fg = s.ui.line_nr_active, bold = true })
+    hl('SignColumn', { fg = s.ui.line_nr, bg = s.ui.bg })
 
     -- Selection
-    hl('Visual', { bg = c.base02 })
-    hl('VisualNOS', { bg = c.base02 })
+    hl('Visual', { bg = s.ui.selection })
+    hl('VisualNOS', { bg = s.ui.selection })
 
     -- Search
-    hl('Search', { fg = c.base00, bg = c.base0A })
-    hl('IncSearch', { fg = c.base00, bg = c.base09 })
-    hl('Substitute', { fg = c.base00, bg = c.base0A })
+    hl('Search', { fg = s.ui.bg, bg = s.syn.type })
+    hl('IncSearch', { fg = s.ui.bg, bg = s.syn.number })
+    hl('Substitute', { fg = s.ui.bg, bg = s.syn.type })
 
-    -- Splits & Windows
-    hl('VertSplit', { fg = c.base02 })
-    hl('WinSeparator', { fg = c.base02 })
+    -- Splits & Borders
+    hl('VertSplit', { fg = s.ui.border })
+    hl('WinSeparator', { fg = s.ui.border })
+    hl('FloatBorder', { fg = s.ui.border, bg = s.ui.float })
 
     -- Statusline
-    hl('StatusLine', { fg = c.base04, bg = c.base01 })
-    hl('StatusLineNC', { fg = c.base03, bg = c.base01 })
+    hl('StatusLine', { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+    hl('StatusLineNC', { fg = s.ui.line_nr, bg = s.ui.bg_dim })
 
     -- Tabline
-    hl('TabLine', { fg = c.base03, bg = c.base01 })
-    hl('TabLineFill', { bg = c.base01 })
-    hl('TabLineSel', { fg = c.base0B, bg = c.base02 })
+    hl('TabLine', { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+    hl('TabLineFill', { bg = s.ui.bg_dim })
+    hl('TabLineSel', { fg = s.ui.line_nr_active, bg = s.ui.bg_highlight })
 
-    -- Popups
-    hl('Pmenu', { fg = c.base05, bg = c.base01 })
-    hl('PmenuSel', { fg = c.base00, bg = c.base0B })
-    hl('PmenuSbar', { bg = c.base02 })
-    hl('PmenuThumb', { bg = c.base04 })
+    -- Popups & Completion
+    hl('Pmenu', { fg = s.ui.fg, bg = s.ui.bg_dim })
+    hl('PmenuSel', { fg = s.ui.bg, bg = s.ui.line_nr_active })
+    hl('PmenuSbar', { bg = s.ui.bg_highlight })
+    hl('PmenuThumb', { bg = s.ui.fg_dim })
 
-    -- Syntax (Base16 semantic mapping)
-    hl('Comment', vim.tbl_extend('force', { fg = c.base03 }, styles.comments))
-    hl('Constant', { fg = c.base09 })
-    hl('String', { fg = c.base0B })
-    hl('Character', { fg = c.base0B })
-    hl('Number', { fg = c.base09 })
-    hl('Boolean', { fg = c.base09 })
-    hl('Float', { fg = c.base09 })
+    -- ============================================================================
+    -- SYNTAX HIGHLIGHTING
+    -- ============================================================================
 
-    hl('Identifier', { fg = c.base08 })
-    hl('Function', vim.tbl_extend('force', { fg = c.base0D }, styles.functions))
+    hl('Comment', vim.tbl_extend('force', { fg = s.syn.comment }, styles.comments))
 
-    hl('Statement', { fg = c.base0E })
-    hl('Conditional', { fg = c.base0E })
-    hl('Repeat', { fg = c.base0E })
-    hl('Label', { fg = c.base0E })
-    hl('Operator', { fg = c.base05 })
-    hl('Keyword', vim.tbl_extend('force', { fg = c.base0E }, styles.keywords))
-    hl('Exception', { fg = c.base0E })
+    hl('Constant', { fg = s.syn.constant })
+    hl('String', { fg = s.syn.string })
+    hl('Character', { fg = s.syn.string })
+    hl('Number', { fg = s.syn.number })
+    hl('Boolean', { fg = s.syn.boolean })
+    hl('Float', { fg = s.syn.number })
 
-    hl('PreProc', { fg = c.base0A })
-    hl('Include', { fg = c.base0D })
-    hl('Define', { fg = c.base0E })
-    hl('Macro', { fg = c.base08 })
-    hl('PreCondit', { fg = c.base0A })
+    hl('Identifier', { fg = s.syn.variable })
+    hl('Function', vim.tbl_extend('force', { fg = s.syn.func }, styles.functions))
 
-    hl('Type', { fg = c.base0A })
-    hl('StorageClass', { fg = c.base0A })
-    hl('Structure', { fg = c.base0E })
-    hl('Typedef', { fg = c.base0A })
+    hl('Statement', { fg = s.syn.keyword })
+    hl('Conditional', { fg = s.syn.keyword })
+    hl('Repeat', { fg = s.syn.keyword })
+    hl('Label', { fg = s.syn.keyword })
+    hl('Operator', { fg = s.syn.operator })
+    hl('Keyword', vim.tbl_extend('force', { fg = s.syn.keyword }, styles.keywords))
+    hl('Exception', { fg = s.syn.keyword })
 
-    hl('Special', { fg = c.base0C })
-    hl('SpecialChar', { fg = c.base0F })
-    hl('Tag', { fg = c.base0A })
-    hl('Delimiter', { fg = c.base0F })
-    hl('SpecialComment', { fg = c.base08 })
-    hl('Debug', { fg = c.base08 })
+    hl('PreProc', { fg = s.syn.type })
+    hl('Include', { fg = s.syn.func })
+    hl('Define', { fg = s.syn.keyword })
+    hl('Macro', { fg = s.syn.variable })
+    hl('PreCondit', { fg = s.syn.type })
 
-    -- Diagnostics
-    hl('DiagnosticError', { fg = c.base08 })
-    hl('DiagnosticWarn', { fg = c.base0E })
-    hl('DiagnosticInfo', { fg = c.base0C })
-    hl('DiagnosticHint', { fg = c.base0D })
+    hl('Type', { fg = s.syn.type })
+    hl('StorageClass', { fg = s.syn.type })
+    hl('Structure', { fg = s.syn.keyword })
+    hl('Typedef', { fg = s.syn.type })
 
-    -- Git
-    hl('DiffAdd', { fg = c.base0B, bg = c.base00 })
-    hl('DiffChange', { fg = c.base0E, bg = c.base00 })
-    hl('DiffDelete', { fg = c.base08, bg = c.base00 })
-    hl('DiffText', { fg = c.base0D, bg = c.base01 })
+    hl('Special', { fg = s.syn.special })
+    hl('SpecialChar', { fg = s.syn.special })
+    hl('Tag', { fg = s.syn.type })
+    hl('Delimiter', { fg = s.syn.operator })
+    hl('SpecialComment', { fg = s.syn.special })
+    hl('Debug', { fg = s.diag.error })
 
-    -- TreeSitter (basic support for now)
-    hl('@variable', vim.tbl_extend('force', { fg = c.base05 }, styles.variables))
-    hl('@variable.builtin', { fg = c.base09 })
-    hl('@variable.parameter', { fg = c.base08 })
-    hl('@variable.member', { fg = c.base08 })
+    -- ============================================================================
+    -- DIAGNOSTICS
+    -- ============================================================================
+
+    hl('DiagnosticError', { fg = s.diag.error })
+    hl('DiagnosticWarn', { fg = s.diag.warning })
+    hl('DiagnosticInfo', { fg = s.diag.info })
+    hl('DiagnosticHint', { fg = s.diag.hint })
+
+    hl('DiagnosticUnderlineError', { sp = s.diag.error, undercurl = true })
+    hl('DiagnosticUnderlineWarn', { sp = s.diag.warning, undercurl = true })
+    hl('DiagnosticUnderlineInfo', { sp = s.diag.info, undercurl = true })
+    hl('DiagnosticUnderlineHint', { sp = s.diag.hint, undercurl = true })
+
+    -- ============================================================================
+    -- GIT & DIFF
+    -- ============================================================================
+
+    hl('DiffAdd', { fg = s.diff.add, bg = s.ui.bg })
+    hl('DiffChange', { fg = s.diff.change, bg = s.ui.bg })
+    hl('DiffDelete', { fg = s.diff.delete, bg = s.ui.bg })
+    hl('DiffText', { fg = s.diff.text, bg = s.ui.bg_dim })
+
+    hl('GitSignsAdd', { fg = s.git.add })
+    hl('GitSignsChange', { fg = s.git.change })
+    hl('GitSignsDelete', { fg = s.git.delete })
+
+    -- ============================================================================
+    -- TREESITTER
+    -- ============================================================================
+
+    hl('@variable', vim.tbl_extend('force', { fg = s.syn.variable }, styles.variables))
+    hl('@variable.builtin', { fg = s.syn.constant })
+    hl('@variable.parameter', { fg = s.syn.variable })
+    hl('@variable.member', { fg = s.syn.variable })
 
     hl('@function', { link = 'Function' })
-    hl('@function.call', { fg = c.base0D })
-    hl('@function.builtin', { fg = c.base0D })
+    hl('@function.call', { fg = s.syn.func })
+    hl('@function.builtin', { fg = s.syn.func })
+    hl('@function.macro', { fg = s.syn.special })
 
     hl('@keyword', { link = 'Keyword' })
-    hl('@keyword.return', { fg = c.base0E })
-    hl('@keyword.function', { fg = c.base0E })
+    hl('@keyword.return', { fg = s.syn.keyword })
+    hl('@keyword.function', { fg = s.syn.keyword })
+    hl('@keyword.operator', { fg = s.syn.operator })
 
     hl('@string', { link = 'String' })
     hl('@number', { link = 'Number' })
     hl('@boolean', { link = 'Boolean' })
     hl('@type', { link = 'Type' })
     hl('@operator', { link = 'Operator' })
+    hl('@comment', { link = 'Comment' })
+
+    hl('@constant', { fg = s.syn.constant })
+    hl('@constant.builtin', { fg = s.syn.constant })
+
+    hl('@punctuation.delimiter', { fg = s.syn.operator })
+    hl('@punctuation.bracket', { fg = s.syn.operator })
+
+    -- ============================================================================
+    -- LSP SEMANTIC TOKENS
+    -- ============================================================================
+
+    hl('@lsp.type.function', { link = '@function' })
+    hl('@lsp.type.method', { link = '@function' })
+    hl('@lsp.type.variable', { link = '@variable' })
+    hl('@lsp.type.parameter', { link = '@variable.parameter' })
+    hl('@lsp.type.type', { link = '@type' })
+    hl('@lsp.type.keyword', { link = '@keyword' })
 
     -- Apply user highlight overrides
     for group, opts in pairs(config.overrides.highlights) do
@@ -129,25 +177,26 @@ M.apply = function(colors, config)
 end
 
 -- Apply terminal colors
-M.apply_terminal = function(colors)
-    vim.g.terminal_color_0 = colors.base00
-    vim.g.terminal_color_1 = colors.base08
-    vim.g.terminal_color_2 = colors.base0B
-    vim.g.terminal_color_3 = colors.base0A
-    vim.g.terminal_color_4 = colors.base0D
-    vim.g.terminal_color_5 = colors.base0E
-    vim.g.terminal_color_6 = colors.base0C
-    vim.g.terminal_color_7 = colors.base05
-    vim.g.terminal_color_8 = colors.base03
-    vim.g.terminal_color_9 = colors.base08
-    vim.g.terminal_color_10 = colors.base0B
-    vim.g.terminal_color_11 = colors.base0A
-    vim.g.terminal_color_12 = colors.base0D
-    vim.g.terminal_color_13 = colors.base0E
-    vim.g.terminal_color_14 = colors.base0C
-    vim.g.terminal_color_15 = colors.base07
-    vim.g.terminal_color_background = colors.base00
-    vim.g.terminal_color_foreground = colors.base05
+M.apply_terminal = function(theme)
+    local c = theme.colors
+    vim.g.terminal_color_0 = c.base00
+    vim.g.terminal_color_1 = c.base08
+    vim.g.terminal_color_2 = c.base0B
+    vim.g.terminal_color_3 = c.base0A
+    vim.g.terminal_color_4 = c.base0D
+    vim.g.terminal_color_5 = c.base0E
+    vim.g.terminal_color_6 = c.base0C
+    vim.g.terminal_color_7 = c.base05
+    vim.g.terminal_color_8 = c.base03
+    vim.g.terminal_color_9 = c.base08
+    vim.g.terminal_color_10 = c.base0B
+    vim.g.terminal_color_11 = c.base0A
+    vim.g.terminal_color_12 = c.base0D
+    vim.g.terminal_color_13 = c.base0E
+    vim.g.terminal_color_14 = c.base0C
+    vim.g.terminal_color_15 = c.base07
+    vim.g.terminal_color_background = c.base00
+    vim.g.terminal_color_foreground = c.base05
 end
 
 return M
