@@ -6,6 +6,7 @@ local function get_theme_path(universe, variant)
         ["lantern-corps"] = "dc.lantern-corps",
         ["justice-league"] = "dc.justice-league",
         ["bat-family"] = "dc.bat-family",
+        ["society-of-shadows"] = "dc.society-of-shadows",
     }
 
     local mapped = universe_map[universe]
