@@ -1,3 +1,4 @@
+
 local colors_util = require("pantheon.utils.colors")
 
 local palette = {

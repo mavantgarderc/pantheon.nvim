@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""tiny CLI: counts lines in files or stdin"""
+
 import sys
 def count_lines(files):
     if not files:

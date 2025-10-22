@@ -1,4 +1,3 @@
-// dotnet run — top-level statements (C# 9+)
 using System;
 using System.Text.Json;
 
@@ -13,6 +12,5 @@ Console.WriteLine(
     JsonSerializer.Serialize(person, new JsonSerializerOptions { WriteIndented = true })
 );
 
-// small function
 int Square(int x) => x * x;
 Console.WriteLine($"Square(7) = {Square(7)}");

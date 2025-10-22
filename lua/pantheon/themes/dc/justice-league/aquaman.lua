@@ -2,29 +2,25 @@ local colors_util = require("pantheon.utils.colors")
 
 -- Aquaman: regal ocean blues, coral accent, gold trident
 local palette = {
-    cosmicBlack = "#04101a",
-    voidBlack = "#091520",
-    starlightGray = "#121922",
-    nebulaGray = "#16232c",
-
-    deepSea = "#0f5f7a",
-    tridentGold = "#ffd05a",
-    coral = "#ff7a66",
-    kelpGreen = "#228866",
-    surfCyan = "#44d9ff",
-
-    aquamarine = "#66d9c8",
-    stoneGray = "#a9c3c8",
-    shadowGray = "#243033",
-    dimGray = "#58646a",
-
-    accentPearl = "#eaf9ff",
-    accentBronze = "#b07a3a",
-    lightGray = "#e6f7f9",
-
-    dangerRed = "#ff6677",
-    warningOrange = "#ffc870",
-    infoBlue = "#61afef",
+  cosmicBlack = "#04101a",
+  voidBlack = "#091520",
+  starlightGray = "#121922",
+  nebulaGray = "#16232c",
+  deepSea = "#0f5f7a",
+  tridentGold = "#ffd05a",
+  coral = "#ff7a66",
+  kelpGreen = "#228866",
+  surfCyan = "#44d9ff",
+  aquamarine = "#66d9c8",
+  stoneGray = "#a9c3c8",
+  shadowGray = "#243033",
+  dimGray = "#58646a",
+  accentPearl = "#eaf9ff",
+  accentBronze = "#b07a3a",
+  lightGray = "#e6f7f9",
+  dangerRed = "#ff6677",
+  warningOrange = "#ffc870",
+  infoBlue = "#61afef",
 }
 
 return {
