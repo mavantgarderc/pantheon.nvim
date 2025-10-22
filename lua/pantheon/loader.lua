@@ -1,17 +1,18 @@
 local M = {}
+
 local theme_cache = {}
 
 local function get_theme_path(universe, variant)
     local universe_map = {
         ["lantern-corps"] = "dc.lantern-corps",
-        ["justice-league"] = "dc.justice-league",
-        ["bat-family"] = "dc.bat-family",
-        ["society-of-shadows"] = "dc.society-of-shadows",
+        ["batman"] = "dc.batman",
+        ["superman"] = "dc.superman",
+        ["spider-verse"] = "marvel.spider-verse",
     }
 
     local mapped = universe_map[universe]
     if not mapped then
-        error("Unknown universe: " .. universe)
+        error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map)))
     end
 
     return "pantheon.themes." .. mapped .. "." .. variant
@@ -31,7 +32,6 @@ local function load_theme_module(universe, variant)
         error("Failed to load theme: " .. cache_key .. "\n" .. theme_spec)
     end
 
-    -- Convert theme spec to full theme using palette system
     local theme = require("pantheon.palette").create_theme(theme_spec)
 
     theme_cache[cache_key] = theme
@@ -43,7 +43,6 @@ M.load = function(theme_spec)
     local theme = load_theme_module(universe, variant)
     local config = _G.pantheon_config or require("pantheon.config").defaults
 
-    -- Apply color overrides
     if config.overrides.colors then
         theme.colors = vim.tbl_deep_extend("force", theme.colors, config.overrides.colors)
     end
@@ -58,9 +57,11 @@ M.load = function(theme_spec)
 
     require("pantheon.core.highlights").apply(theme, config)
 
-    if config.terminal_colors then
-        require("pantheon.core.highlights").apply_terminal(theme)
+    if config.terminal.enabled then
+        require("pantheon.core.terminal").apply(theme)
     end
+
+    require("pantheon.core.terminal").auto_export(theme, config)
 
     vim.notify("Pantheon: Loaded " .. theme.name, vim.log.levels.INFO)
 end

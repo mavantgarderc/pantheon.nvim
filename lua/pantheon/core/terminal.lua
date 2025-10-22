@@ -78,22 +78,15 @@ M.write_ghostty_config = function(theme, config_path)
 end
 
 M.reload_ghostty = function()
-
-    -- Method 1: Check if ghostty-reload command exists
-    local has_reload = vim.fn.executable("ghostty-reload") == 1
-    if has_reload then
-        vim.fn.system("ghostty-reload")
-        return true
-    end
-
-    -- Method 2: Try to send SIGHUP to ghostty process
-    local result = vim.fn.system("pgrep -x ghostty | xargs -r kill -HUP")
+    -- Ghostty supports reloading config via SIGUSR2 (available in recent versions)
+    -- Try pgrep and kill -USR2
+    local result = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
     if vim.v.shell_error == 0 then
         return true
     end
 
-    -- Method 3: Try pkill
-    result = vim.fn.system("pkill -HUP ghostty")
+    -- Fallback to pkill
+    result = vim.fn.system("pkill -USR2 ghostty")
     if vim.v.shell_error == 0 then
         return true
     end
@@ -117,15 +110,14 @@ M.auto_export = function(theme, config)
         local success = M.write_ghostty_config(theme, emulator_config.config_path)
 
         if success then
-            vim.notify("Pantheon: Exported to Ghostty", vim.log.levels.INFO)
+            -- Silent: No notify for export
 
             if emulator_config.auto_reload then
                 local reloaded = M.reload_ghostty()
-                if reloaded then
-                    vim.notify("Pantheon: Ghostty reloaded", vim.log.levels.INFO)
-                else
-                    vim.notify("Pantheon: Ghostty exported (restart Ghostty to apply)", vim.log.levels.WARN)
+                if not reloaded then
+                    vim.notify("Pantheon: Failed to reload Ghostty automatically (manual reload needed)", vim.log.levels.WARN)
                 end
+                -- Silent: No success notify
             end
         end
     elseif emulator == "kitty" then
