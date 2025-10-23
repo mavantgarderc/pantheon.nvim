@@ -12,7 +12,9 @@ local function get_theme_path(universe, variant)
   }
 
   local mapped = universe_map[universe]
-  if not mapped then error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map))) end
+  if not mapped then
+    error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map)))
+  end
 
   return "pantheon.themes." .. mapped .. "." .. variant
 end
@@ -25,7 +27,9 @@ local function load_theme_module(universe, variant)
   local theme_path = get_theme_path(universe, variant)
   local ok, theme_spec = pcall(require, theme_path)
 
-  if not ok then error("Failed to load theme: " .. cache_key .. "\n" .. theme_spec) end
+  if not ok then
+    error("Failed to load theme: " .. cache_key .. "\n" .. tostring(theme_spec))
+  end
 
   local theme = require("pantheon.palette").create_theme(theme_spec)
 
@@ -33,12 +37,20 @@ local function load_theme_module(universe, variant)
   return theme
 end
 
-M.load = function(theme_spec)
+M.load = function(theme_spec, force_reload)
   local universe, variant = require("pantheon.config").parse_theme(theme_spec)
-  local theme = load_theme_module(universe, variant)
   local config = _G.pantheon_config or require("pantheon.config").defaults
 
-  if config.overrides.colors then theme.colors = vim.tbl_deep_extend("force", theme.colors, config.overrides.colors) end
+  -- Invalidate cache if force_reload
+  if force_reload then
+    theme_cache[universe .. "/" .. variant] = nil
+  end
+
+  local theme = load_theme_module(universe, variant)
+
+  if config.overrides.colors then
+    theme.colors = vim.tbl_deep_extend("force", theme.colors, config.overrides.colors)
+  end
 
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
@@ -48,9 +60,20 @@ M.load = function(theme_spec)
 
   require("pantheon.core.highlights").apply(theme, config)
 
-  if config.terminal.enabled then require("pantheon.core.terminal").apply(theme) end
+  if config.terminal.enabled then
+    require("pantheon.core.terminal").apply(theme)
+    require("pantheon.core.terminal").auto_export(theme, config)
+  end
 
-  require("pantheon.core.terminal").auto_export(theme, config)
+  -- Reapply highlights after plugins load (e.g., for Treesitter/LSP overrides)
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      vim.cmd("hi clear")
+      if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
+      require("pantheon.core.highlights").apply(theme, config)
+    end,
+    once = true,
+  })
 
   vim.notify("Pantheon: Loaded " .. theme.name, vim.log.levels.INFO)
 end
