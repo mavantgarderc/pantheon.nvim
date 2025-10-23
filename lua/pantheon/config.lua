@@ -1,7 +1,7 @@
 local M = {}
 
 M.defaults = {
-  theme = "lantern-corps/phantom-corrupted",
+  theme = "justice-league/wonder-woman",
 
   styles = {
     comments = { italic = true },
