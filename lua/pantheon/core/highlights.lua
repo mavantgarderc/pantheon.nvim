@@ -3,46 +3,46 @@ local M = {}
 local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
 M.apply = function(theme, config)
-  local s = theme.semantic -- Semantic colors
-  local p = theme.palette -- Rich palette (if available)
-  local c = theme.colors -- Base16 colors (fallback)
+  local s = theme.semantic
+  local p = theme.palette
+  local c = theme.colors
   local styles = config.styles
 
   -- ============================================================================
   -- EDITOR UI (Expanded for full coverage)
   -- ============================================================================
 
-  hl("Normal", { fg = s.ui.fg, bg = s.ui.bg, ctermfg = 15, ctermbg = 0 })  -- Added cterm
+  hl("Normal", { fg = s.ui.fg, bg = s.ui.bg, ctermfg = 15, ctermbg = 0 })
   hl("NormalFloat", { fg = s.ui.fg, bg = s.ui.float })
   hl("NormalNC", { fg = s.ui.fg_dim, bg = s.ui.bg })
-  hl("FloatTitle", { fg = s.ui.fg, bg = s.ui.float, bold = true })  -- New: Float titles
-  hl("FloatShadow", { bg = s.ui.bg_dim })  -- New: Shadows for floats
+  hl("FloatTitle", { fg = s.ui.fg, bg = s.ui.float, bold = true })
+  hl("FloatShadow", { bg = s.ui.bg_dim })
 
   -- Cursor & Columns
   hl("Cursor", { fg = s.ui.bg, bg = s.ui.fg })
-  hl("lCursor", { fg = s.ui.bg, bg = s.ui.fg })  -- New: Language cursor
-  hl("CursorIM", { fg = s.ui.bg, bg = s.ui.fg })  -- New: IME cursor
+  hl("lCursor", { fg = s.ui.bg, bg = s.ui.fg })
+  hl("CursorIM", { fg = s.ui.bg, bg = s.ui.fg })
   hl("CursorLine", { bg = s.ui.cursorline })
   hl("CursorColumn", { bg = s.ui.cursorline })
   hl("ColorColumn", { bg = s.ui.bg_dim })
 
   -- Line numbers & Signs
   hl("LineNr", { fg = s.ui.line_nr })
-  hl("LineNrAbove", { fg = s.ui.line_nr_dim })  -- New: Above current
-  hl("LineNrBelow", { fg = s.ui.line_nr_dim })  -- New: Below current
+  hl("LineNrAbove", { fg = s.ui.line_nr_dim })
+  hl("LineNrBelow", { fg = s.ui.line_nr_dim })
   hl("CursorLineNr", { fg = s.ui.line_nr_active, bold = true })
   hl("SignColumn", { fg = s.ui.line_nr, bg = s.ui.bg })
-  hl("CursorLineSign", { fg = s.ui.line_nr_active })  -- New: Sign on cursor line
-  hl("CursorLineFold", { fg = s.ui.line_nr_active })  -- New: Fold on cursor line
+  hl("CursorLineSign", { fg = s.ui.line_nr_active })
+  hl("CursorLineFold", { fg = s.ui.line_nr_active })
 
   -- Selection & Matches
   hl("Visual", { bg = s.ui.selection })
   hl("VisualNOS", { bg = s.ui.selection })
-  hl("MatchParen", { fg = s.syn.special, bg = s.ui.bg_highlight, bold = true })  -- New: Matching parens
+  hl("MatchParen", { fg = s.syn.special, bg = s.ui.bg_highlight, bold = true })
 
   -- Search
   hl("Search", { fg = s.ui.bg, bg = s.syn.type })
-  hl("CurSearch", { fg = s.ui.bg, bg = s.syn.number })  -- New: Current search
+  hl("CurSearch", { fg = s.ui.bg, bg = s.syn.number })
   hl("IncSearch", { fg = s.ui.bg, bg = s.syn.number })
   hl("Substitute", { fg = s.ui.bg, bg = s.syn.type })
 
@@ -50,17 +50,17 @@ M.apply = function(theme, config)
   hl("VertSplit", { fg = s.ui.border })
   hl("WinSeparator", { fg = s.ui.border })
   hl("FloatBorder", { fg = s.ui.border, bg = s.ui.float })
-  hl("WinBar", { fg = s.ui.fg, bg = s.ui.bg_dim })  -- New: Window bar
-  hl("WinBarNC", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })  -- New: Inactive winbar
+  hl("WinBar", { fg = s.ui.fg, bg = s.ui.bg_dim })
+  hl("WinBarNC", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
 
   -- Statusline & Modes
   hl("StatusLine", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
   hl("StatusLineNC", { fg = s.ui.line_nr, bg = s.ui.bg_dim })
-  hl("ModeMsg", { fg = s.ui.fg })  -- New: -- INSERT -- etc.
-  hl("MsgArea", { fg = s.ui.fg_dim })  -- New: Command line msg area
-  hl("MsgSeparator", { fg = s.ui.border })  -- New: Msg separator
-  hl("MoreMsg", { fg = s.syn.type })  -- New: More prompts
-  hl("Question", { fg = s.syn.type })  -- New: Questions
+  hl("ModeMsg", { fg = s.ui.fg })
+  hl("MsgArea", { fg = s.ui.fg_dim })
+  hl("MsgSeparator", { fg = s.ui.border })
+  hl("MoreMsg", { fg = s.syn.type })
+  hl("Question", { fg = s.syn.type })
 
   -- Tabline
   hl("TabLine", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
@@ -72,24 +72,24 @@ M.apply = function(theme, config)
   hl("PmenuSel", { fg = s.ui.bg, bg = s.ui.line_nr_active })
   hl("PmenuSbar", { bg = s.ui.bg_highlight })
   hl("PmenuThumb", { bg = s.ui.fg_dim })
-  hl("PmenuKind", { fg = s.syn.type })  -- New: Kind icons in cmp
-  hl("PmenuExtra", { fg = s.syn.comment })  -- New: Extra text in cmp
-  hl("WildMenu", { fg = s.ui.bg, bg = s.ui.line_nr_active })  -- New: Cmdline completion
+  hl("PmenuKind", { fg = s.syn.type })
+  hl("PmenuExtra", { fg = s.syn.comment })
+  hl("WildMenu", { fg = s.ui.bg, bg = s.ui.line_nr_active })
 
   -- Folds
-  hl("Folded", { fg = s.syn.comment, bg = s.ui.bg_dim })  -- New: Folded text
-  hl("FoldColumn", { fg = s.ui.line_nr })  -- New: Fold column
+  hl("Folded", { fg = s.syn.comment, bg = s.ui.bg_dim })
+  hl("FoldColumn", { fg = s.ui.line_nr })
 
   -- Misc UI
-  hl("NonText", { fg = s.ui.nontext or s.ui.bg_highlight })  -- New: ~ and @ at eol
-  hl("SpecialKey", { fg = s.ui.nontext or s.ui.bg_highlight })  -- New: Unprintable chars
-  hl("EndOfBuffer", { fg = s.ui.bg })  -- New: Filler lines
-  hl("Directory", { fg = s.syn.type })  -- New: Netrw dirs
-  hl("ErrorMsg", { fg = s.diag.error })  -- New: Error messages
-  hl("WarningMsg", { fg = s.diag.warning })  -- New: Warnings
-  hl("Title", { fg = s.syn.keyword, bold = true })  -- New: Titles
-  hl("Conceal", { fg = s.syn.comment })  -- New: Concealed text
-  hl("SpellBad", { sp = s.diag.error, undercurl = true })  -- New: Spelling
+  hl("NonText", { fg = s.ui.nontext or s.ui.bg_highlight })
+  hl("SpecialKey", { fg = s.ui.nontext or s.ui.bg_highlight })
+  hl("EndOfBuffer", { fg = s.ui.bg })
+  hl("Directory", { fg = s.syn.type })
+  hl("ErrorMsg", { fg = s.diag.error })
+  hl("WarningMsg", { fg = s.diag.warning })
+  hl("Title", { fg = s.syn.keyword, bold = true })
+  hl("Conceal", { fg = s.syn.comment })
+  hl("SpellBad", { sp = s.diag.error, undercurl = true })
   hl("SpellCap", { sp = s.diag.warning, undercurl = true })
   hl("SpellRare", { sp = s.diag.info, undercurl = true })
   hl("SpellLocal", { sp = s.diag.hint, undercurl = true })
@@ -135,10 +135,10 @@ M.apply = function(theme, config)
   hl("Delimiter", { fg = s.syn.operator })
   hl("SpecialComment", { fg = s.syn.special })
   hl("Debug", { fg = s.diag.error })
-  hl("Underlined", { underline = true })  -- New: Underlined text
-  hl("Ignore", { fg = s.ui.bg })  -- New: Ignored
-  hl("Error", { fg = s.diag.error })  -- New: Errors
-  hl("Todo", { fg = s.syn.special, bold = true })  -- New: TODOs
+  hl("Underlined", { underline = true })
+  hl("Ignore", { fg = s.ui.bg })
+  hl("Error", { fg = s.diag.error })
+  hl("Todo", { fg = s.syn.special, bold = true })
 
   -- ============================================================================
   -- DIAGNOSTICS (Expanded with virtual text/lines)
@@ -148,21 +148,21 @@ M.apply = function(theme, config)
   hl("DiagnosticWarn", { fg = s.diag.warning })
   hl("DiagnosticInfo", { fg = s.diag.info })
   hl("DiagnosticHint", { fg = s.diag.hint })
-  hl("DiagnosticOk", { fg = s.syn.type })  -- New: OK diagnostics
+  hl("DiagnosticOk", { fg = s.syn.type })
 
   hl("DiagnosticUnderlineError", { sp = s.diag.error, undercurl = true })
   hl("DiagnosticUnderlineWarn", { sp = s.diag.warning, undercurl = true })
   hl("DiagnosticUnderlineInfo", { sp = s.diag.info, undercurl = true })
   hl("DiagnosticUnderlineHint", { sp = s.diag.hint, undercurl = true })
-  hl("DiagnosticUnderlineOk", { sp = s.syn.type, undercurl = true })  -- New
+  hl("DiagnosticUnderlineOk", { sp = s.syn.type, undercurl = true })
 
-  hl("DiagnosticVirtualTextError", { fg = s.diag.error, bg = s.ui.bg_dim })  -- New: Inline virtual text
+  hl("DiagnosticVirtualTextError", { fg = s.diag.error, bg = s.ui.bg_dim })
   hl("DiagnosticVirtualTextWarn", { fg = s.diag.warning, bg = s.ui.bg_dim })
   hl("DiagnosticVirtualTextInfo", { fg = s.diag.info, bg = s.ui.bg_dim })
   hl("DiagnosticVirtualTextHint", { fg = s.diag.hint, bg = s.ui.bg_dim })
   hl("DiagnosticVirtualTextOk", { fg = s.syn.type, bg = s.ui.bg_dim })
 
-  hl("DiagnosticSignError", { fg = s.diag.error })  -- New: Signs
+  hl("DiagnosticSignError", { fg = s.diag.error })
   hl("DiagnosticSignWarn", { fg = s.diag.warning })
   hl("DiagnosticSignInfo", { fg = s.diag.info })
   hl("DiagnosticSignHint", { fg = s.diag.hint })
@@ -180,7 +180,7 @@ M.apply = function(theme, config)
   hl("GitSignsAdd", { fg = s.git.add })
   hl("GitSignsChange", { fg = s.git.change })
   hl("GitSignsDelete", { fg = s.git.delete })
-  hl("GitSignsAddInline", { fg = s.git.add, reverse = true })  -- New: Inline
+  hl("GitSignsAddInline", { fg = s.git.add, reverse = true })
   hl("GitSignsChangeInline", { fg = s.git.change, reverse = true })
   hl("GitSignsDeleteInline", { fg = s.git.delete, reverse = true })
 
@@ -192,49 +192,49 @@ M.apply = function(theme, config)
   hl("@variable.builtin", { fg = s.syn.constant })
   hl("@variable.parameter", { fg = s.syn.variable })
   hl("@variable.member", { fg = s.syn.variable })
-  hl("@field", { fg = s.syn.variable })  -- New: Fields
-  hl("@property", { fg = s.syn.variable })  -- New: Properties
+  hl("@field", { fg = s.syn.variable })
+  hl("@property", { fg = s.syn.variable })
 
   hl("@function", { link = "Function" })
   hl("@function.call", { fg = s.syn.func })
   hl("@function.builtin", { fg = s.syn.func })
   hl("@function.macro", { fg = s.syn.special })
-  hl("@method", { fg = s.syn.func })  -- New: Methods
-  hl("@method.call", { fg = s.syn.func })  -- New: Method calls
-  hl("@constructor", { fg = s.syn.type })  -- New: Constructors
+  hl("@method", { fg = s.syn.func })
+  hl("@method.call", { fg = s.syn.func })
+  hl("@constructor", { fg = s.syn.type })
 
   hl("@keyword", { link = "Keyword" })
   hl("@keyword.return", { fg = s.syn.keyword })
   hl("@keyword.function", { fg = s.syn.keyword })
   hl("@keyword.operator", { fg = s.syn.operator })
-  hl("@keyword.coroutine", { fg = s.syn.keyword })  -- New: Async/await
-  hl("@keyword.conditional", { fg = s.syn.keyword })  -- New: If/else
-  hl("@keyword.repeat", { fg = s.syn.keyword })  -- New: Loops
+  hl("@keyword.coroutine", { fg = s.syn.keyword })
+  hl("@keyword.conditional", { fg = s.syn.keyword })
+  hl("@keyword.repeat", { fg = s.syn.keyword })
 
   hl("@string", { link = "String" })
-  hl("@string.escape", { fg = s.syn.special })  -- New: Escapes
-  hl("@string.special", { fg = s.syn.special })  -- New: Special strings
+  hl("@string.escape", { fg = s.syn.special })
+  hl("@string.special", { fg = s.syn.special })
   hl("@number", { link = "Number" })
   hl("@boolean", { link = "Boolean" })
   hl("@type", { link = "Type" })
-  hl("@type.builtin", { fg = s.syn.type })  -- New: Built-in types
-  hl("@type.definition", { fg = s.syn.type })  -- New: Type defs
-  hl("@type.qualifier", { fg = s.syn.keyword })  -- New: Qualifiers
+  hl("@type.builtin", { fg = s.syn.type })
+  hl("@type.definition", { fg = s.syn.type })
+  hl("@type.qualifier", { fg = s.syn.keyword })
   hl("@operator", { link = "Operator" })
   hl("@comment", { link = "Comment" })
-  hl("@comment.documentation", { fg = s.syn.comment })  -- New: Docs
+  hl("@comment.documentation", { fg = s.syn.comment })
 
   hl("@constant", { fg = s.syn.constant })
   hl("@constant.builtin", { fg = s.syn.constant })
-  hl("@constant.macro", { fg = s.syn.special })  -- New: Macro consts
+  hl("@constant.macro", { fg = s.syn.special })
 
   hl("@punctuation.delimiter", { fg = s.syn.operator })
   hl("@punctuation.bracket", { fg = s.syn.operator })
-  hl("@punctuation.special", { fg = s.syn.special })  -- New: Special punct
-  hl("@attribute", { fg = s.syn.type })  -- New: Attributes/annotations
-  hl("@error", { fg = s.diag.error })  -- New: Syntax errors
-  hl("@todo", { fg = s.syn.special })  -- New: TODO in comments
-  hl("@none", { fg = "NONE" })  -- New: No highlight
+  hl("@punctuation.special", { fg = s.syn.special })
+  hl("@attribute", { fg = s.syn.type })
+  hl("@error", { fg = s.diag.error })
+  hl("@todo", { fg = s.syn.special })
+  hl("@none", { fg = "NONE" })
 
   -- ============================================================================
   -- LSP SEMANTIC TOKENS (Expanded)
@@ -246,25 +246,24 @@ M.apply = function(theme, config)
   hl("@lsp.type.parameter", { link = "@variable.parameter" })
   hl("@lsp.type.type", { link = "@type" })
   hl("@lsp.type.keyword", { link = "@keyword" })
-  hl("@lsp.type.class", { fg = s.syn.type })  -- New: Classes
-  hl("@lsp.type.interface", { fg = s.syn.type })  -- New: Interfaces
-  hl("@lsp.type.struct", { fg = s.syn.type })  -- New: Structs
-  hl("@lsp.type.enum", { fg = s.syn.type })  -- New: Enums
-  hl("@lsp.type.enumMember", { fg = s.syn.constant })  -- New: Enum members
-  hl("@lsp.type.property", { fg = s.syn.variable })  -- New: Properties
-  hl("@lsp.type.namespace", { fg = s.syn.type })  -- New: Namespaces/modules
-  hl("@lsp.type.macro", { fg = s.syn.special })  -- New: Macros
-  hl("@lsp.type.decorator", { fg = s.syn.func })  -- New: Decorators
-  hl("@lsp.type.comment", { link = "@comment" })  -- New: Comments
-  hl("@lsp.mod.deprecated", { strikethrough = true })  -- New: Deprecated
-  hl("@lsp.mod.readonly", { fg = s.syn.constant })  -- New: Readonly
-  hl("@lsp.mod.async", { fg = s.syn.keyword })  -- New: Async
+  hl("@lsp.type.class", { fg = s.syn.type })
+  hl("@lsp.type.interface", { fg = s.syn.type })
+  hl("@lsp.type.struct", { fg = s.syn.type })
+  hl("@lsp.type.enum", { fg = s.syn.type })
+  hl("@lsp.type.enumMember", { fg = s.syn.constant })
+  hl("@lsp.type.property", { fg = s.syn.variable })
+  hl("@lsp.type.namespace", { fg = s.syn.type })
+  hl("@lsp.type.macro", { fg = s.syn.special })
+  hl("@lsp.type.decorator", { fg = s.syn.func })
+  hl("@lsp.type.comment", { link = "@comment" })
+  hl("@lsp.mod.deprecated", { strikethrough = true })
+  hl("@lsp.mod.readonly", { fg = s.syn.constant })
+  hl("@lsp.mod.async", { fg = s.syn.keyword })
 
   -- ============================================================================
   -- COMMON PLUGINS (Conditional to avoid errors if not installed)
   -- ============================================================================
 
-  -- Telescope
   if package.loaded["telescope"] then
     hl("TelescopeNormal", { fg = s.ui.fg, bg = s.ui.float })
     hl("TelescopeBorder", { fg = s.ui.border, bg = s.ui.float })
@@ -274,7 +273,6 @@ M.apply = function(theme, config)
     hl("TelescopePreviewNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
   end
 
-  -- NvimTree
   if package.loaded["nvim-tree"] then
     hl("NvimTreeNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
     hl("NvimTreeFolderName", { fg = s.syn.type })
@@ -284,14 +282,109 @@ M.apply = function(theme, config)
     hl("NvimTreeGitDeleted", { fg = s.git.delete })
   end
 
-  -- Lualine (basic, assumes default components)
   if package.loaded["lualine"] then
     hl("lualine_a_normal", { fg = s.ui.bg, bg = s.ui.line_nr_active })
     hl("lualine_b_normal", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
-    -- Add more sections as needed
   end
 
-  -- Apply user highlight overrides
+  if package.loaded["cmp"] then
+    hl("CmpItemAbbr", { fg = s.ui.fg })
+    hl("CmpItemAbbrDeprecated", { fg = s.syn.comment, strikethrough = true })
+    hl("CmpItemAbbrMatch", { fg = s.syn.keyword, bold = true })
+    hl("CmpItemAbbrMatchFuzzy", { fg = s.syn.keyword })
+    hl("CmpItemKind", { fg = s.syn.type })
+    hl("CmpItemKindFunction", { fg = s.syn.func })
+    hl("CmpItemKindMethod", { fg = s.syn.func })
+    hl("CmpItemKindVariable", { fg = s.syn.variable })
+    hl("CmpItemKindConstant", { fg = s.syn.constant })
+    hl("CmpItemKindClass", { fg = s.syn.type })
+    hl("CmpItemKindInterface", { fg = s.syn.type })
+    hl("CmpItemKindModule", { fg = s.syn.keyword })
+    hl("CmpItemKindProperty", { fg = s.syn.variable })
+    hl("CmpItemKindField", { fg = s.syn.variable })
+    hl("CmpItemKindEnum", { fg = s.syn.type })
+    hl("CmpItemKindKeyword", { fg = s.syn.keyword })
+    hl("CmpItemKindSnippet", { fg = s.syn.special })
+    hl("CmpItemKindText", { fg = s.syn.string })
+    hl("CmpItemMenu", { fg = s.syn.comment })
+    hl("CmpItemKindDefault", { fg = s.ui.fg_dim })
+  end
+
+  if package.loaded["dap"] then
+    hl("DapBreakpoint", { fg = s.diag.error })
+    hl("DapBreakpointCondition", { fg = s.diag.warn })
+    hl("DapBreakpointRejected", { fg = s.diag.hint })
+    hl("DapLogPoint", { fg = s.syn.special })
+    hl("DapStopped", { bg = s.ui.bg_highlight })
+    if package.loaded["dapui"] then
+      hl("DapUIVariable", { fg = s.syn.variable })
+      hl("DapUIValue", { fg = s.syn.constant })
+      hl("DapUIFrameName", { fg = s.syn.func })
+      hl("DapUIThread", { fg = s.syn.keyword })
+      hl("DapUIWatchesEmpty", { fg = s.syn.comment })
+      hl("DapUIWatchesValue", { fg = s.syn.string })
+      hl("DapUIWatchesError", { fg = s.diag.error })
+    end
+  end
+
+  if package.loaded["mini"] then
+    hl("MiniDiffSignAdd", { fg = s.git.add })
+    hl("MiniDiffSignChange", { fg = s.git.change })
+    hl("MiniDiffSignDelete", { fg = s.git.delete })
+    hl("MiniDiffOverAdd", { bg = s.git.add, blend = 20 })
+    hl("MiniDiffOverChange", { bg = s.git.change, blend = 20 })
+    hl("MiniDiffOverDelete", { bg = s.git.delete, blend = 20 })
+    hl("MiniHipatternsFixme", { fg = s.diag.error, bold = true })
+    hl("MiniHipatternsHack", { fg = s.diag.warn, bold = true })
+    hl("MiniHipatternsTodo", { fg = s.syn.special, bold = true })
+    hl("MiniHipatternsNote", { fg = s.diag.info, bold = true })
+    hl("MiniTablineCurrent", { fg = s.ui.line_nr_active, bg = s.ui.bg_highlight })
+    hl("MiniTablineVisible", { fg = s.ui.fg, bg = s.ui.bg_dim })
+    hl("MiniTablineHidden", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+    hl("MiniTablineModifiedCurrent", { fg = s.git.change, bg = s.ui.bg_highlight })
+    hl("MiniStatuslineModeNormal", { fg = s.ui.bg, bg = s.syn.type })
+    hl("MiniStatuslineModeInsert", { fg = s.ui.bg, bg = s.diag.info })
+  end
+
+  if package.loaded["ibl"] then
+    hl("IblIndent", { fg = s.ui.line_nr_dim })
+    hl("IblWhitespace", { fg = s.ui.nontext })
+    hl("IblScope", { fg = s.ui.line_nr_active })
+  end
+
+  if package.loaded["which-key"] then
+    hl("WhichKey", { fg = s.syn.func })
+    hl("WhichKeyGroup", { fg = s.syn.keyword })
+    hl("WhichKeyDesc", { fg = s.syn.variable })
+    hl("WhichKeySeparator", { fg = s.syn.operator })
+    hl("WhichKeyFloat", { bg = s.ui.float })
+    hl("WhichKeyValue", { fg = s.syn.constant })
+  end
+
+  if package.loaded["flash"] then
+    hl("FlashBackdrop", { fg = s.syn.comment })
+    hl("FlashMatch", { fg = s.ui.fg, bg = s.ui.bg_highlight })
+    hl("FlashCurrent", { fg = s.ui.bg, bg = s.syn.type })
+    hl("FlashLabel", { fg = s.ui.bg, bg = s.syn.number, bold = true })
+    hl("FlashPrompt", { fg = s.ui.fg, bg = s.ui.bg_dim })
+  end
+
+  if package.loaded["oil"] then
+    hl("OilDir", { fg = s.syn.type, bold = true })
+    hl("OilDirIcon", { fg = s.syn.type })
+    hl("OilFile", { fg = s.ui.fg })
+    hl("OilLink", { fg = s.syn.string, underline = true })
+    hl("OilSocket", { fg = s.syn.special })
+    hl("OilCreate", { fg = s.git.add })
+    hl("OilDelete", { fg = s.git.delete })
+    hl("OilMove", { fg = s.git.change })
+    hl("OilCopy", { fg = s.syn.func })
+    hl("OilChange", { fg = s.syn.keyword })
+    hl("OilRestore", { fg = s.diag.hint })
+    hl("OilTrash", { fg = s.diag.error })
+    hl("OilTrashSource", { fg = s.diag.warn })
+  end
+
   for group, opts in pairs(config.overrides.highlights) do
     hl(group, opts)
   end
