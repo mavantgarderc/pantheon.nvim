@@ -185,7 +185,7 @@ M.apply = function(theme, config)
   hl("GitSignsDeleteInline", { fg = s.git.delete, reverse = true })
 
   -- ============================================================================
-  -- TREESITTER (Expanded with more groups)
+  -- TREESITTER
   -- ============================================================================
 
   hl("@variable", vim.tbl_extend("force", { fg = s.syn.variable }, styles.variables))
@@ -237,7 +237,7 @@ M.apply = function(theme, config)
   hl("@none", { fg = "NONE" })
 
   -- ============================================================================
-  -- LSP SEMANTIC TOKENS (Expanded)
+  -- LSP SEMANTIC TOKENS
   -- ============================================================================
 
   hl("@lsp.type.function", { link = "@function" })
@@ -256,6 +256,21 @@ M.apply = function(theme, config)
   hl("@lsp.type.macro", { fg = s.syn.special })
   hl("@lsp.type.decorator", { fg = s.syn.func })
   hl("@lsp.type.comment", { link = "@comment" })
+  hl("@lsp.type.builtinType", { fg = s.syn.type })
+  hl("@lsp.type.selfParameter", { fg = s.syn.variable })
+  hl("@lsp.type.typeParameter", { fg = s.syn.type })
+  hl("@lsp.type.unresolvedReference", { fg = s.diag.warning })
+  hl("@lsp.type.operator", { link = "@operator" })
+  hl("@lsp.type.string", { link = "@string" })
+  hl("@lsp.type.number", { link = "@number" })
+  hl("@lsp.type.boolean", { link = "@boolean" })
+  hl("@lsp.type.array", { fg = s.syn.type })
+  hl("@lsp.type.object", { fg = s.syn.type })
+  hl("@lsp.type.key", { fg = s.syn.variable })
+  hl("@lsp.type.null", { fg = s.syn.constant })
+  hl("@lsp.type.enumConstant", { fg = s.syn.constant })
+  hl("@lsp.type.event", { fg = s.syn.func })
+  hl("@lsp.type.regexp", { fg = s.syn.special })
   hl("@lsp.mod.deprecated", { strikethrough = true })
   hl("@lsp.mod.readonly", { fg = s.syn.constant })
   hl("@lsp.mod.async", { fg = s.syn.keyword })
@@ -264,6 +279,7 @@ M.apply = function(theme, config)
   -- COMMON PLUGINS (Conditional to avoid errors if not installed)
   -- ============================================================================
 
+  -- Telescope
   if package.loaded["telescope"] then
     hl("TelescopeNormal", { fg = s.ui.fg, bg = s.ui.float })
     hl("TelescopeBorder", { fg = s.ui.border, bg = s.ui.float })
@@ -273,6 +289,7 @@ M.apply = function(theme, config)
     hl("TelescopePreviewNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
   end
 
+  -- NvimTree
   if package.loaded["nvim-tree"] then
     hl("NvimTreeNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
     hl("NvimTreeFolderName", { fg = s.syn.type })
@@ -282,11 +299,14 @@ M.apply = function(theme, config)
     hl("NvimTreeGitDeleted", { fg = s.git.delete })
   end
 
+  -- Lualine (basic, assumes default components)
   if package.loaded["lualine"] then
     hl("lualine_a_normal", { fg = s.ui.bg, bg = s.ui.line_nr_active })
     hl("lualine_b_normal", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+    -- Add more sections as needed
   end
 
+  -- nvim-cmp (completion menu)
   if package.loaded["cmp"] then
     hl("CmpItemAbbr", { fg = s.ui.fg })
     hl("CmpItemAbbrDeprecated", { fg = s.syn.comment, strikethrough = true })
@@ -310,12 +330,14 @@ M.apply = function(theme, config)
     hl("CmpItemKindDefault", { fg = s.ui.fg_dim })
   end
 
+  -- nvim-dap (debugging)
   if package.loaded["dap"] then
     hl("DapBreakpoint", { fg = s.diag.error })
     hl("DapBreakpointCondition", { fg = s.diag.warn })
     hl("DapBreakpointRejected", { fg = s.diag.hint })
     hl("DapLogPoint", { fg = s.syn.special })
     hl("DapStopped", { bg = s.ui.bg_highlight })
+    -- For dap-ui if installed
     if package.loaded["dapui"] then
       hl("DapUIVariable", { fg = s.syn.variable })
       hl("DapUIValue", { fg = s.syn.constant })
@@ -327,17 +349,21 @@ M.apply = function(theme, config)
     end
   end
 
+  -- mini.nvim (various modules; add more as needed)
   if package.loaded["mini"] then
+    -- mini.diff
     hl("MiniDiffSignAdd", { fg = s.git.add })
     hl("MiniDiffSignChange", { fg = s.git.change })
     hl("MiniDiffSignDelete", { fg = s.git.delete })
     hl("MiniDiffOverAdd", { bg = s.git.add, blend = 20 })
     hl("MiniDiffOverChange", { bg = s.git.change, blend = 20 })
     hl("MiniDiffOverDelete", { bg = s.git.delete, blend = 20 })
+    -- mini.hipatterns
     hl("MiniHipatternsFixme", { fg = s.diag.error, bold = true })
     hl("MiniHipatternsHack", { fg = s.diag.warn, bold = true })
     hl("MiniHipatternsTodo", { fg = s.syn.special, bold = true })
     hl("MiniHipatternsNote", { fg = s.diag.info, bold = true })
+    -- mini.tabline / mini.statusline (if using)
     hl("MiniTablineCurrent", { fg = s.ui.line_nr_active, bg = s.ui.bg_highlight })
     hl("MiniTablineVisible", { fg = s.ui.fg, bg = s.ui.bg_dim })
     hl("MiniTablineHidden", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
@@ -346,12 +372,14 @@ M.apply = function(theme, config)
     hl("MiniStatuslineModeInsert", { fg = s.ui.bg, bg = s.diag.info })
   end
 
+  -- indent-blankline.nvim (indent guides)
   if package.loaded["ibl"] then
     hl("IblIndent", { fg = s.ui.line_nr_dim })
     hl("IblWhitespace", { fg = s.ui.nontext })
     hl("IblScope", { fg = s.ui.line_nr_active })
   end
 
+  -- which-key.nvim (keybinding popup)
   if package.loaded["which-key"] then
     hl("WhichKey", { fg = s.syn.func })
     hl("WhichKeyGroup", { fg = s.syn.keyword })
@@ -361,6 +389,7 @@ M.apply = function(theme, config)
     hl("WhichKeyValue", { fg = s.syn.constant })
   end
 
+  -- flash.nvim (enhanced motions)
   if package.loaded["flash"] then
     hl("FlashBackdrop", { fg = s.syn.comment })
     hl("FlashMatch", { fg = s.ui.fg, bg = s.ui.bg_highlight })
@@ -369,6 +398,7 @@ M.apply = function(theme, config)
     hl("FlashPrompt", { fg = s.ui.fg, bg = s.ui.bg_dim })
   end
 
+  -- oil.nvim (file explorer)
   if package.loaded["oil"] then
     hl("OilDir", { fg = s.syn.type, bold = true })
     hl("OilDirIcon", { fg = s.syn.type })
@@ -385,6 +415,17 @@ M.apply = function(theme, config)
     hl("OilTrashSource", { fg = s.diag.warn })
   end
 
+  -- fidget.nvim (LSP progress)
+  if package.loaded["fidget"] then
+    hl("FidgetTitle", { fg = s.syn.keyword, bold = true })
+    hl("FidgetTask", { fg = s.diag.warning })
+    hl("FidgetDone", { fg = s.syn.constant })
+    hl("FidgetIcon", { fg = s.diag.hint })
+    hl("FidgetGroupSeparator", { fg = s.syn.comment })
+    hl("FidgetWindow", { fg = s.ui.fg_dim, bg = s.ui.float })
+  end
+
+  -- Apply user highlight overrides
   for group, opts in pairs(config.overrides.highlights) do
     hl(group, opts)
   end
