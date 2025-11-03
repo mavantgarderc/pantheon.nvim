@@ -2,6 +2,120 @@
 
 - [ ] DC Comics
 
+    - [ ] Arkham Asylum
+        - [ ] Amadeus Arkham
+        - [ ] Black Mask
+        - [ ] Calendar Man
+        - [ ] Captain Boomerang
+        - [ ] Clay Face
+        - [ ] Death Shot
+        - [ ] Firefly
+        - [ ] Gorilla Grodd
+        - [ ] Harley Quinn
+        - [ ] Hush
+        - [ ] James Gordon Jr.
+        - [ ] Joker
+        - [ ] Killer Croc
+        - [ ] Manbat
+        - [ ] Mr. Freeze
+        - [ ] Neo Joker
+        - [ ] Poison Ivy
+        - [ ] Prometheus
+        - [ ] Scarecrow
+        - [ ] Solomon Grundy
+        - [ ] The Penguin
+        - [ ] The Riddler
+        - [ ] Two Face
+        - [ ] White Knight (Lewis Bayard)
+
+    - [X] Bat Family
+        - [ ] Azrael
+        - [X] Alfred Pennyworth
+        - [ ] Barbara Gordon (Oracle)
+        - [X] Batgirl
+        - [ ] Batman 1000000
+        - [X] Batman Beyond
+        - [X] Batman Classic
+        - [X] Batman, Dark Knight
+        - [X] Batwing
+        - [ ] Batwoman
+        - [X] Bruce Wayne
+        - [ ] Blackbat (Orphan)
+        - [X] Cat Woman
+        - [ ] Cassandra Cane
+        - [ ] Damian Wayne
+        - [ ] Dick Grayson
+        - [ ] Helena Bertinelli
+        - [X] Huntress
+        - [ ] James Gordon
+        - [ ] Jason Todd
+        - [X] Lucious Fox
+        - [X] Nightwing
+        - [X] Red Hood
+        - [X] Red Robin
+        - [X] Robin
+        - [X] Selina Kyle
+        - [ ] Tim Drake
+
+    - [ ] Birds of Prey
+        - [ ] Batgirl
+        - [ ] Big Barda
+        - [ ] Black Canary
+        - [ ] Gypsy
+        - [ ] Harley Quinn
+        - [ ] Hawkgirl
+        - [ ] Katana
+        - [ ] Oracle
+        - [ ] Vixen
+        - [ ] Zealot
+
+    - [ ] Crime Syndicate
+        - [ ] Black Siren
+        - [ ] Deatheye
+        - [ ] Deathstorm
+        - [ ] Dr. Chaos
+        - [ ] Hawkwing
+        - [ ] Johnny Quick
+        - [ ] Lex Luther
+        - [ ] Martian Manhunter
+        - [ ] Ownman
+        - [ ] Sea King
+        - [ ] Sea King
+        - [ ] Sky Tyrant
+        - [ ] Superwoman
+        - [ ] Ultraman
+
+    - [ ] Gods
+        - [ ] New Gods
+        - [ ] Old Gods
+
+    - [ ] Gotham Sirens
+        - [ ] Catwoman
+        - [ ] Harley Quinn
+        - [ ] Poison Ivy
+
+    - [ ] Injustice League
+        - [ ] Bizarro
+        - [ ] Black Adam
+        - [ ] Black Manta
+        - [ ] Black Spidere
+        - [ ] Captain Cold
+        - [ ] Cheetah
+        - [ ] Deathstroke
+        - [ ] Giganta
+        - [ ] Gorilla Grodd
+        - [ ] Joker
+        - [ ] Killer Croc
+        - [ ] Killer Frost
+        - [ ] Lex Luthor
+        - [ ] Mister Terrible
+        - [ ] Mr. Freeze
+        - [ ] Multi-Man
+        - [ ] Nocturna
+        - [ ] Penguin
+        - [ ] Sinestro
+        - [ ] Two-Face
+
     - [X] Justice League
         - [X] Aquaman
         - [X] Batman
@@ -39,42 +153,128 @@
         - [X] White
         - [X] Yellow
 
-    - [X] Bat Family
-        - [X] Alfred Pennyworth
-        - [ ] Barbara Gordon
-        - [X] Batgirl
-        - [X] Batman Beyond
-        - [X] Batman Classic
-        - [X] Batman, Dark Knight
-        - [X] Batwing
-        - [X] Bruce Wayne
-        - [X] Cat Woman
-        - [ ] Damian Wayne
-        - [ ] Dick Grayson
-        - [ ] Helena Bertinelli
-        - [X] Huntress
-        - [ ] Jason Todd
-        - [X] Lucious Fox
-        - [X] Nightwing
-        - [X] Red Hood
-        - [X] Red Robin
-        - [X] Robin
-        - [X] Selina Kyle
-        - [ ] Tim Drake
-
-    - [X] Society of Shadows
+    - [X] League of Assasins
         - [X] Athanasia Al Ghul
         - [X] Bane
+        - [ ] Black Spider
+        - [ ] Blank
+        - [ ] Lady Shiva
+        - [ ] Nyssa Raatko
         - [X] Ra's Al Ghul
         - [X] Talia Al Ghul
 
+    - [ ] Titans
+        - [ ] Aquagirl
+        - [ ] Beat Boy
+        - [ ] Bette Kane
+        - [ ] Blue Beetle
+        - [ ] Cyborg
+        - [ ] Dawn Granger
+        - [ ] Nightwing
+        - [ ] Donna Troy
+        - [ ] Kon-El
+        - [ ] Raven
+        - [ ] Starfire
+        - [ ] Kid Flash
+        - [ ] Wonder Boy
+        - [ ] Wonder Girl
+
+    - [ ] Super Family
+        - [ ] Clark Kent
+        - [ ] Composite Superman
+        - [ ] Dreamer
+        - [ ] Eradicator
+        - [ ] Jon Kent
+        - [ ] Jonathan Kent
+        - [ ] Lois Lane
+        - [ ] Superman Classic
+        - [ ] Superman Kingdom Come
+        - [ ] Superman Modern
+
+    - [ ] Watchmen
+        - [ ] Dr. Manhattan
+        - [ ] Nite Owl
+        - [ ] Ozymandias
+        - [ ] Rorschach
+        - [ ] Silk Spectre
+        - [ ] The Comedian
+
 - [ ] Marvel Comics
     - [ ] Avengers
+        - [ ] Ant-Man
+        - [ ] Anti Vision
+        - [ ] Black Panther
+        - [ ] Black Widow
+        - [ ] Black Widow 2099
+        - [ ] Blade
+        - [ ] Blue Marvel
+        - [ ] Bucky Barnes
+        - [ ] Captain America
+        - [ ] Captain America 2099
+        - [ ] Captain Marvel
+        - [ ] Captain Universe
+        - [ ] Doctor Strange
+        - [ ] Elektra
+        - [ ] Emma Frost
+        - [ ] Enchantress
+        - [ ] Hawkeye
+        - [ ] Hawkeye 2099
+        - [ ] Hulkling
+        - [ ] Iron Fist
+        - [ ] Iron Man
+        - [ ] Iron Man 2099
+        - [ ] Jarvis
+        - [ ] Quicksilver
+        - [ ] Sam Wilson
+        - [ ] Scarlet Witch
+        - [ ] Thor
+        - [ ] Vision
+        - [ ] War Machine
+        - [ ] S
+        - [ ] 
+        - [ ] 
+
+    - [ ] Fantastic Four
+        - [ ] Dr. Doom
+        - [ ] Franklin Richards
+        - [ ] Human Torch
+        - [ ] Invisible Woman
+        - [ ] Mr. Fantastic
+        - [ ] Silver Surfer
+        - [ ] Thing
+        - [ ] Valeria Richards
+
+    - [ ] Guardians of Galaxy
+        - [ ] Drax, the Destroyer
+        - [ ] Gamora
+        - [ ] Groot
+        - [ ] Nova
+        - [ ] Rocket Raccoon
+        - [ ] Star Lord
+        - [ ] Yondu
+
+    - [ ] X-Men
+        - [ ] Rogue
 
 - [ ] Alternative Comics
+    - [ ] TMNT
+        - [ ] Leonardo
+        - [ ] Raphael
+        - [ ] Donatello
+        - [ ] Michelangelo
+        - [ ] Jennika
+        - [ ] Master Splinter
+        - [ ] Slash
+        - [ ] Casey Jones
+        - [ ] April O'neal
+        - [ ] Shredder
     - [ ] Sandman
 
+- Animations
+    - [ ] Ben 10
+
 - [ ] Video Games
+    - [ ] Elden Ring
     - [ ] Rayman Legends
 
 - [ ] Album Covers
