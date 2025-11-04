@@ -59,7 +59,6 @@
 
     - [ ] Birds of Prey
         - [ ] Batgirl
-        - [ ] Big Barda
         - [ ] Black Canary
         - [ ] Gypsy
         - [ ] Harley Quinn
@@ -86,8 +85,25 @@
         - [ ] Ultraman
 
     - [ ] Gods
-        - [ ] New Gods
+        - [ ] Gods of Apokolips
+            - [ ] Desaad
+            - [ ] Darkseid
+            - [ ] Grayven
+            - [ ] Heggra
+            - [ ] Kalibak
+            - [ ] Pythia
+            - [ ] Yuga Khan
+        - [ ] Gods of New Genesis
+            - [ ] Big Barda
+            - [ ] Highfather
+            - [ ] Lightray
+            - [ ] Metron
+            - [ ] Mister Miracle
+            - [ ] Orion
+            - [ ] Takion
         - [ ] Old Gods
+            - [ ] Nyctar
+            - [ ] The First Lantern
 
     - [ ] Gotham Sirens
         - [ ] Catwoman
@@ -116,23 +132,39 @@
         - [ ] Sinestro
         - [ ] Two-Face
 
-    - [X] Justice League
+    - [ ] Justice League
+        - [ ] Adam Strange
         - [X] Aquaman
         - [X] Batman
         - [X] Black Canary
         - [X] Blue Beetle
         - [X] Booster Gold
         - [X] Captain Atom
+        - [ ] Constantine
         - [X] Cyborg
         - [X] Dr. Fate
+        - [ ] Etrigan
+        - [ ] Firestorm
         - [X] Flash
         - [X] Green Arrow
+        - [ ] Green-Lantern (Guy Gardner)
+        - [ ] Green-Lantern (Hal Jordan)
+        - [ ] Green-Lantern (Jessica Cruiz)
         - [X] Green-Lantern (John Stewart)
+        - [ ] Green-Lantern (Kyle Raner)
         - [X] Hawkgirl
         - [X] Hawkman
+        - [ ] Lobo
         - [X] Martian Manhunter
+        - [ ] Mary Marvel
+        - [ ] Mera
+        - [ ] Mr. Terrific
+        - [ ] Red Tornado
+        - [ ] Shazam
+        - [ ] Spectre
         - [X] Superman
         - [X] Wonder Woman
+        - [ ] Zatanna
 
     - [X] Lantern Corps
         - [X] Black
@@ -152,6 +184,10 @@
         - [X] Violet
         - [X] White
         - [X] Yellow
+
+    - [ ] Lanterns
+        - [ ] First Lantern
+        - [ ] 
 
     - [ ] League of Assasins
         - [X] Athanasia Al Ghul
@@ -187,6 +223,7 @@
         - [ ] Jon Kent
         - [ ] Jonathan Kent
         - [ ] Lois Lane
+        - [ ] Steel
         - [ ] Superman Classic
         - [ ] Superman Kingdom Come
         - [ ] Superman Modern
@@ -334,7 +371,11 @@
     - [ ] Jungle Punk
 
 - [ ] Legacy Nvim Themes
-    - [ ] Sorbet
+    - [ ] sorbet
+    - [ ] retrobox
+    - [ ] quiet
+    - [ ] habamax
+    - [ ] desert
 
 - [ ] Paintings
     - [ ] Raphael
@@ -349,3 +390,28 @@
         - [X] Obsidian
         - [X] Storm
         - [X] Sunset
+
+- [ ] Gruvbox
+    - [ ] gruvbox dark
+    - [ ] gruvbox dark-hard
+    - [ ] gruvbox dark-medium
+    - [ ] gruvbox dark-soft
+    - [ ] gruvbox material-dark
+    - [ ] gruvbox material-dark-hard
+    - [ ] gruvbox material-dark-medium
+    - [ ] gruvbox material-dark-soft
+    - [ ] gruvbox
+
+- [ ] fox
+    - [ ] nightfox
+    - [ ] duskfox
+    - [ ] nordfox
+    - [ ] terafox
+    - [ ] carbonfox
+
+- [ ] catppuccin
+    - [ ] base16-catppuccin
+    - [ ] base16-catppuccin-macchiato
+    - [ ] base16-catppuccin-mocha
+    - [ ] base16-da-one-ocean
+
