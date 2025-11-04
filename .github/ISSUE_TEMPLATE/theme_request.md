@@ -14,7 +14,7 @@ assignees: ''
 - **Key Colors**: (e.g., Base: #ff0000 red, accents: #ffd700 gold)
 
 ## Why This Theme?
-Explain why it fits pantheon.nvim (e.g., popular hero, unique colors).
+Explain why it fits prismpunk.nvim (e.g., popular hero, unique colors).
 
 ## References
 - Images/links to color inspirations.

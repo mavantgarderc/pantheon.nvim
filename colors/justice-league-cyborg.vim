@@ -1,3 +1,3 @@
 lua << EOF
-  require("pantheon").setup({ theme = "justice-league/cyborg" })
+  require("prismpunk").setup({ theme = "justice-league/cyborg" })
 EOF

@@ -1,3 +1,3 @@
 lua << EOF
-  require("pantheon").setup({ theme = "bat-family/lucious-fox" })
+  require("prismpunk").setup({ theme = "bat-family/lucious-fox" })
 EOF

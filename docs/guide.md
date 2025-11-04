@@ -1,4 +1,4 @@
-# Pantheon.nvim - Complete User Guide 🎨
+# PrismPunk.nvim - Complete User Guide 🎨
 
 > A Neovim colorscheme plugin inspired by legendary characters from DC, Marvel, mythology, and cinema.
 
@@ -24,10 +24,10 @@
 
 ```lua
 {
-  'mavantgarderc/pantheon.nvim',
+  'mavantgarderc/prismpunk.nvim',
   priority = 1000,  -- Load before other plugins
   config = function()
-    require('pantheon').setup({
+    require('prismpunk').setup({
       theme = 'lantern-corps/green',
     })
   end,
@@ -38,9 +38,9 @@
 
 ```lua
 use {
-  'mavantgarderc/pantheon.nvim',
+  'mavantgarderc/prismpunk.nvim',
   config = function()
-    require('pantheon').setup({
+    require('prismpunk').setup({
       theme = 'lantern-corps/green',
     })
   end,
@@ -52,21 +52,21 @@ use {
 ```bash
 # Clone the repository
 cd ~/.local/share/nvim/site/pack/plugins/start/
-git clone https://github.com/mavantgarderc/pantheon.nvim
+git clone https://github.com/mavantgarderc/prismpunk.nvim
 
 # Or for local development
 cd ~/your-projects/
-git clone https://github.com/mavantgarderc/pantheon.nvim
+git clone https://github.com/mavantgarderc/prismpunk.nvim
 ```
 
 Then in your `init.lua`:
 
 ```lua
 -- Add to runtime path
-vim.opt.rtp:prepend('~/your-projects/pantheon.nvim')
+vim.opt.rtp:prepend('~/your-projects/prismpunk.nvim')
 
 -- Setup theme
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/green',
 })
 ```
@@ -79,7 +79,7 @@ require('pantheon').setup({
 
 ```lua
 -- Minimal configuration
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/green',
 })
 ```
@@ -87,7 +87,7 @@ require('pantheon').setup({
 ### Full Configuration with Options
 
 ```lua
-require('pantheon').setup({
+require('prismpunk').setup({
   -- Theme selection (choose one)
   theme = 'lantern-corps/green',  -- Recommended format
   -- theme = 'lantern-corps.green',  -- Also works
@@ -208,45 +208,6 @@ overrides = {
 
 ---
 
-## Available Themes
-
-### DC Universe
-
-#### Lantern Corps
-- `lantern-corps/green` - Willpower (Hal Jordan, John Stewart) ✅
-- `lantern-corps/yellow` - Fear (Sinestro Corps) ✅
-- `lantern-corps/red` - Rage (Red Lanterns) 🚧
-- `lantern-corps/violet` - Love (Star Sapphires) 🚧
-- `lantern-corps/orange` - Greed (Orange Lanterns) 🚧
-- `lantern-corps/blue` - Hope (Blue Lanterns) 🚧
-- `lantern-corps/indigo` - Compassion (Indigo Tribe) 🚧
-- `lantern-corps/black` - Death (Black Lanterns) 🚧
-- `lantern-corps/white` - Life (White Lanterns) 🚧
-
-#### Batman
-- `batman/classic` - Gray & Blue 🚧
-- `batman/dark-knight` - All Black 🚧
-- `batman/beyond` - Terry McGinnis 🚧
-
-#### Superman
-- `superman/classic` - Primary Colors 🚧
-
-### Marvel Universe
-
-#### Spider-Verse
-- `spider-verse/classic` - Peter Parker 🚧
-- `spider-verse/miles` - Miles Morales 🚧
-- `spider-verse/symbiote` - Black Suit 🚧
-
-#### Avengers
-- `avengers/iron-man` - Red & Gold 🚧
-- `avengers/captain-america` - Red, White, Blue 🚧
-- `avengers/thor` - Blue & Gold 🚧
-
-✅ Available | 🚧 Coming Soon
-
----
-
 ## Theme Switching
 
 ### At Runtime
@@ -254,11 +215,11 @@ overrides = {
 Switch themes without restarting Neovim:
 
 ```vim
-" Using Pantheon's load function
-:lua require('pantheon').load('lantern-corps/yellow')
+" Using prismpunk's load function
+:lua require('prismpunk').load('lantern-corps/yellow')
 
 " Using traditional colorscheme command
-:colorscheme pantheon
+:colorscheme prismpunk
 ```
 
 ### In Configuration
@@ -266,7 +227,7 @@ Switch themes without restarting Neovim:
 Change default theme in your config:
 
 ```lua
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/yellow',  -- Changed from green
 })
 ```
@@ -295,7 +256,7 @@ local function theme_picker()
   }
   
   pickers.new({}, {
-    prompt_title = 'Pantheon Themes',
+    prompt_title = 'PrismPunk Themes',
     finder = finders.new_table({
       results = themes,
     }),
@@ -303,7 +264,7 @@ local function theme_picker()
       actions.select_default:replace(function()
         local selection = action_state.get_selected_entry()
         actions.close(prompt_bufnr)
-        require('pantheon').load(selection.value)
+        require('prismpunk').load(selection.value)
       end)
       return true
     end,
@@ -311,7 +272,7 @@ local function theme_picker()
 end
 
 -- Keybinding
-vim.keymap.set('n', '<leader>pt', theme_picker, { desc = 'Pantheon: Pick theme' })
+vim.keymap.set('n', '<leader>tp', theme_picker, { desc = 'PrismPunk: Pick theme' })
 ```
 
 ---
@@ -321,7 +282,7 @@ vim.keymap.set('n', '<leader>pt', theme_picker, { desc = 'Pantheon: Pick theme' 
 ### Example: Darker Background
 
 ```lua
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/green',
   overrides = {
     colors = {
@@ -374,7 +335,7 @@ overrides = {
 
 ### Built-in Terminal Colors
 
-Pantheon automatically applies colors to Neovim's built-in terminal:
+PrismPunk automatically applies colors to Neovim's built-in terminal:
 
 ```vim
 " Open terminal
@@ -392,13 +353,13 @@ Export your theme to use in Ghostty, Kitty, Alacritty, etc:
 #### Export All Formats
 
 ```vim
-:PantheonExportAll
+:PrismpunkExportAll
 ```
 
-This creates configs in `~/.config/nvim/pantheon-exports/`:
+This creates configs in `~/.config/nvim/prismpunk-exports/`:
 
 ```
-pantheon-exports/
+prismpunk-exports/
 ├── ghostty/
 │   └── lantern-corps-green.conf
 ├── kitty/
@@ -411,10 +372,10 @@ pantheon-exports/
 
 ```vim
 " Export current theme to Ghostty
-:PantheonExportGhostty
+:PrismpunkExportGhostty
 
 " Export specific theme
-:PantheonExportGhostty lantern-corps/yellow
+:PrismpunkExportGhostty lantern-corps/yellow
 ```
 
 ### Apply to Your Terminal
@@ -423,7 +384,7 @@ pantheon-exports/
 
 ```bash
 # Copy theme
-cp ~/.config/nvim/pantheon-exports/ghostty/lantern-corps-green.conf \
+cp ~/.config/nvim/prismpunk-exports/ghostty/lantern-corps-green.conf \
    ~/.config/ghostty/themes/
 
 # Use in config
@@ -434,7 +395,7 @@ echo 'theme = lantern-corps-green' >> ~/.config/ghostty/config
 
 ```bash
 # In ~/.config/kitty/kitty.conf
-include ~/.config/nvim/pantheon-exports/kitty/lantern-corps-green.conf
+include ~/.config/nvim/prismpunk-exports/kitty/lantern-corps-green.conf
 ```
 
 #### Alacritty
@@ -443,7 +404,7 @@ include ~/.config/nvim/pantheon-exports/kitty/lantern-corps-green.conf
 # In ~/.config/alacritty/alacritty.toml
 [general]
 import = [
-  "~/.config/nvim/pantheon-exports/alacritty/lantern-corps-green.toml"
+  "~/.config/nvim/prismpunk-exports/alacritty/lantern-corps-green.toml"
 ]
 ```
 
@@ -456,17 +417,17 @@ import = [
 Reload theme without restarting Neovim (useful when creating themes):
 
 ```vim
-:PantheonReload
+:PrismpunkReload
 ```
 
 Or create a keybinding:
 
 ```lua
 vim.keymap.set('n', '<leader>pr', function()
-  require('pantheon.loader').clear_cache()
-  require('pantheon').setup(_G.pantheon_config or {})
-  vim.notify('Pantheon reloaded!', vim.log.levels.INFO)
-end, { desc = 'Reload Pantheon theme' })
+  require('prismpunk.loader').clear_cache()
+  require('prismpunk').setup(_G.prismpunk_config or {})
+  vim.notify('PrismPunk reloaded!', vim.log.levels.INFO)
+end, { desc = 'Reload PrismPunk theme' })
 ```
 
 ### Debug Colors
@@ -474,10 +435,10 @@ end, { desc = 'Reload Pantheon theme' })
 Print current theme's color palette:
 
 ```vim
-:PantheonPrintPalette
+:PrismpunkPrintPalette
 
 " Or for specific theme
-:PantheonPrintPalette lantern-corps/yellow
+:PrismpunkPrintPalette lantern-corps/yellow
 ```
 
 Output:
@@ -499,7 +460,7 @@ base01   #141200
 ### Inspect Theme Structure
 
 ```vim
-:lua print(vim.inspect(require('pantheon.core.terminal').get_palette('lantern-corps/green')))
+:lua print(vim.inspect(require('prismpunk.core.terminal').get_palette('lantern-corps/green')))
 ```
 
 ---
@@ -511,9 +472,9 @@ base01   #141200
 Create a simple theme using Base16 auto-generation:
 
 ```lua
--- lua/pantheon/themes/marvel/test-hero.lua
+-- lua/prismpunk/themes/marvel/test-hero.lua
 
-local base16 = require('pantheon.utils.base16')
+local base16 = require('prismpunk.utils.base16')
 
 return {
   name = 'Test Hero',
@@ -534,7 +495,7 @@ return {
 Create a fully customized theme:
 
 ```lua
--- lua/pantheon/themes/dc/hero/custom.lua
+-- lua/prismpunk/themes/dc/hero/custom.lua
 
 local palette = {
   -- Backgrounds
@@ -593,7 +554,7 @@ return {
 
 ### Register Theme
 
-Add to universe map in `lua/pantheon/loader.lua`:
+Add to universe map in `lua/prismpunk/loader.lua`:
 
 ```lua
 local universe_map = {
@@ -605,8 +566,8 @@ local universe_map = {
 ### Test Your Theme
 
 ```vim
-:lua require('pantheon.loader').clear_cache()
-:lua require('pantheon').load('custom-hero/custom')
+:lua require('prismpunk.loader').clear_cache()
+:lua require('prismpunk').load('custom-hero/custom')
 ```
 
 ---
@@ -617,34 +578,34 @@ local universe_map = {
 
 | Command | Description |
 |---------|-------------|
-| `:PantheonReload` | Reload current theme (dev mode) |
-| `:PantheonExportAll` | Export to all terminal formats |
-| `:PantheonExportGhostty [theme]` | Export to Ghostty format |
-| `:PantheonPrintPalette [theme]` | Print color palette |
+| `:PrismpunkReload` | Reload current theme (dev mode) |
+| `:PrismpunkExportAll` | Export to all terminal formats |
+| `:PrismpunkExportGhostty [theme]` | Export to Ghostty format |
+| `:PrismpunkPrintPalette [theme]` | Print color palette |
 
 ### Lua API
 
 ```lua
 -- Load a theme
-require('pantheon').load('lantern-corps/green')
+require('prismpunk').load('lantern-corps/green')
 
 -- Setup with config
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/green',
   -- ... options
 })
 
 -- Clear cache (development)
-require('pantheon.loader').clear_cache()
+require('prismpunk.loader').clear_cache()
 
 -- Export terminal config
-require('pantheon.core.terminal').export_all('lantern-corps/green')
+require('prismpunk.core.terminal').export_all('lantern-corps/green')
 
 -- Get theme colors
-local colors = require('pantheon.core.terminal').get_palette('lantern-corps/green')
+local colors = require('prismpunk.core.terminal').get_palette('lantern-corps/green')
 
 -- Generate Base16 colors
-local base16 = require('pantheon.utils.base16')
+local base16 = require('prismpunk.utils.base16')
 local colors = base16.generate({
   bg = '#000000',
   fg = '#ffffff',
@@ -663,18 +624,18 @@ local colors = base16.generate({
 **Solution:**
 ```vim
 " Clear module cache
-:lua for k in pairs(package.loaded) do if k:match('^pantheon') then package.loaded[k] = nil end end
+:lua for k in pairs(package.loaded) do if k:match('^prismpunk') then package.loaded[k] = nil end end
 
 " Reload
-:lua require('pantheon').setup({ theme = 'lantern-corps/green' })
+:lua require('prismpunk').setup({ theme = 'lantern-corps/green' })
 ```
 
 ### Module Not Found Error
 
-**Problem:** `module 'pantheon.themes.dc.lantern-corps.green' not found`
+**Problem:** `module 'prismpunk.themes.dc.lantern-corps.green' not found`
 
 **Solution:**
-1. Check file exists: `lua/pantheon/themes/dc/lantern-corps/green.lua`
+1. Check file exists: `lua/prismpunk/themes/dc/lantern-corps/green.lua`
 2. Check `init.lua` exists in parent dirs
 3. Verify plugin is in runtimepath:
    ```vim
@@ -701,7 +662,7 @@ local colors = base16.generate({
 
 **Solution:**
 ```lua
-require('pantheon').setup({
+require('prismpunk').setup({
   theme = 'lantern-corps/green',
   terminal_colors = true,  -- Make sure this is true
 })
@@ -715,15 +676,15 @@ require('pantheon').setup({
 
 Yes! Switch themes anytime:
 ```vim
-:lua require('pantheon').load('lantern-corps/yellow')
-:lua require('pantheon').load('lantern-corps/green')
+:lua require('prismpunk').load('lantern-corps/yellow')
+:lua require('prismpunk').load('lantern-corps/green')
 ```
 
 ### How do I make my terminal match Neovim?
 
 Use the export commands:
 ```vim
-:PantheonExportAll
+:PrismpunkExportAll
 ```
 Then apply the config to your terminal (see Terminal Integration).
 
@@ -731,7 +692,7 @@ Then apply the config to your terminal (see Terminal Integration).
 
 Use the Base16 quick generator:
 ```lua
-local base16 = require('pantheon.utils.base16')
+local base16 = require('prismpunk.utils.base16')
 local theme = base16.quick_theme(
   "My Theme",
   "#000000",  -- background
@@ -747,7 +708,7 @@ local theme = base16.quick_theme(
 3. Export terminal configs
 4. Submit a PR with screenshots
 
-### Does Pantheon support TreeSitter?
+### Does Prismpunk support TreeSitter?
 
 Yes! Full TreeSitter and LSP semantic token support included.
 
@@ -767,7 +728,7 @@ Yes! Integrations for popular plugins are built-in:
 ### Can I disable terminal colors?
 
 ```lua
-require('pantheon').setup({
+require('prismpunk').setup({
   terminal_colors = false,
 })
 ```
@@ -775,7 +736,7 @@ require('pantheon').setup({
 ### How do I reset to defaults?
 
 ```lua
-require('pantheon').setup()  -- No arguments = defaults
+require('prismpunk').setup()  -- No arguments = defaults
 ```
 
 ---
@@ -787,18 +748,18 @@ require('pantheon').setup()  -- No arguments = defaults
 ```lua
 -- Quick theme switching
 vim.keymap.set('n', '<leader>pg', function()
-  require('pantheon').load('lantern-corps/green')
+  require('prismpunk').load('lantern-corps/green')
 end, { desc = 'Green Lantern' })
 
 vim.keymap.set('n', '<leader>py', function()
-  require('pantheon').load('lantern-corps/yellow')
+  require('prismpunk').load('lantern-corps/yellow')
 end, { desc = 'Yellow Lantern' })
 
 -- Theme picker
-vim.keymap.set('n', '<leader>pt', ':Telescope pantheon<CR>', { desc = 'Pick theme' })
+vim.keymap.set('n', '<leader>pt', ':Telescope prismpunk<CR>', { desc = 'Pick theme' })
 
 -- Reload theme (development)
-vim.keymap.set('n', '<leader>pr', ':PantheonReload<CR>', { desc = 'Reload theme' })
+vim.keymap.set('n', '<leader>pr', ':PrismpunkReload<CR>', { desc = 'Reload theme' })
 ```
 
 ### Auto-switch Based on Time
@@ -810,22 +771,22 @@ local theme = hour >= 18 or hour < 6
   and 'lantern-corps/green'   -- Night: Green Lantern
   or 'lantern-corps/yellow'   -- Day: Yellow Lantern
 
-require('pantheon').setup({ theme = theme })
+require('prismpunk').setup({ theme = theme })
 ```
 
 ### Match Lualine
 
 ```lua
 -- In your lualine config
-local pantheon_colors = require('pantheon.core.terminal').get_palette('lantern-corps/green')
+local prismpunk_colors = require('prismpunk.core.terminal').get_palette('lantern-corps/green')
 
 require('lualine').setup({
   options = {
     theme = {
       normal = {
         a = { 
-          fg = pantheon_colors.base16.base00, 
-          bg = pantheon_colors.base16.base0B 
+          fg = prismpunk_colors.base16.base00, 
+          bg = prismpunk_colors.base16.base0B 
         },
       },
     },

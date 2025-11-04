@@ -1,3 +1,3 @@
 lua << EOF
-  require("pantheon").setup({ theme = "society-of-shadows/ras-al-ghul" })
+  require("prismpunk").setup({ theme = "society-of-shadows/ras-al-ghul" })
 EOF

@@ -1,9 +1,9 @@
 # CONTRIBUTING.md
 
-Thank you for considering contributing to pantheon.nvim! This is a community-driven project inspired by comic heroes, mythology, and cinema, and we welcome help to make it better.
+Thank you for considering contributing to prismpunk.nvim! This is a community-driven project inspired by comic heroes, mythology, and cinema, and we welcome help to make it better.
 
 ## Ways to Contribute
-- **Add New Themes**: Create colorschemes based on DC/Marvel characters, myths, or movies. Follow the theme file structure in `lua/pantheon/themes/`.
+- **Add New Themes**: Create colorschemes based on DC/Marvel characters, myths, or movies. Follow the theme file structure in `lua/prismpunk/themes/`.
 - **Fix Bugs**: Report or fix issues in loading, highlights, or terminal integration.
 - **Improve Documentation**: Update README, add screenshots, or enhance inline comments.
 - **Add Features**: Suggest/implement new extras (e.g., more plugin supports, utilities).
@@ -11,7 +11,7 @@ Thank you for considering contributing to pantheon.nvim! This is a community-dri
 
 ## Getting Started
 1. Fork the repository.
-2. Clone your fork: `git clone https://github.com/<your-username>/pantheon.nvim.git`
+2. Clone your fork: `git clone https://github.com/<your-username>/prismpunk.nvim.git`
 3. Create a branch: `git checkout -b feature/your-feature`
 4. Make changes and commit: `git commit -m "Add your message"`
 5. Push to your fork: `git push origin feature/your-feature`
@@ -23,9 +23,9 @@ Thank you for considering contributing to pantheon.nvim! This is a community-dri
 - Keep code modular and lightweight—avoid unnecessary dependencies.
 
 ## Theme Contributions
-- Place new themes in appropriate subdirs (e.g., `lua/pantheon/themes/dc/justice-league/wonder-woman.lua`).
+- Place new themes in appropriate subdirs (e.g., `lua/prismpunk/themes/dc/justice-league/wonder-woman.lua`).
 - Follow the Base16 + semantic structure from existing themes.
-- Test with `:lua require('pantheon').load('your-universe/variant')`
+- Test with `:lua require('prismpunk').load('your-universe/variant')`
 - Include screenshots in your PR.
 
 ## Reporting Issues

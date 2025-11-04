@@ -1,3 +1,3 @@
 lua << EOF
-  require("pantheon").setup({ theme = "kanagawa/paper-storm" })
+  require("prismpunk").setup({ theme = "kanagawa/paper-storm" })
 EOF

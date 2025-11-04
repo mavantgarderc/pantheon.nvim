@@ -28,7 +28,7 @@
         - [ ] Two Face
         - [ ] White Knight (Lewis Bayard)
 
-    - [X] Bat Family
+    - [ ] Bat Family
         - [ ] Azrael
         - [X] Alfred Pennyworth
         - [ ] Barbara Gordon (Oracle)
@@ -153,7 +153,7 @@
         - [X] White
         - [X] Yellow
 
-    - [X] League of Assasins
+    - [ ] League of Assasins
         - [X] Athanasia Al Ghul
         - [X] Bane
         - [ ] Black Spider
@@ -230,9 +230,6 @@
         - [ ] Thor
         - [ ] Vision
         - [ ] War Machine
-        - [ ] S
-        - [ ] 
-        - [ ] 
 
     - [ ] Fantastic Four
         - [ ] Dr. Doom

@@ -11,7 +11,7 @@ Please describe the changes in this PR. Include motivation, related issues (e.g.
 - [ ] Other (please specify):
 
 ## How Has This Been Tested?
-- [ ] Loaded the theme with `:lua require('pantheon').load('universe/variant')`
+- [ ] Loaded the theme with `:lua require('prismpunk').load('universe/variant')`
 - [ ] Checked highlights in various filetypes (Lua, Python, etc.)
 - [ ] Tested terminal integration (if applicable)
 - [ ] Verified no startup time impact with `:StartupTime`
