@@ -1,42 +1,31 @@
 local M = {}
 
--- Create a theme from both palette and base16 colors
--- This allows themes to be simple (Base16 only) or rich (full palette)
 M.create_theme = function(spec)
   local theme = {
-    -- Base16 colors (required for compatibility)
     colors = spec.base16 or {},
 
-    -- Rich palette (optional, for advanced themes)
     palette = spec.palette or {},
 
-    -- Semantic color groups (auto-generated from palette or base16)
     semantic = {},
 
-    -- Metadata
     name = spec.name or "Unnamed Theme",
     author = spec.author or "Unknown",
     description = spec.description or "",
   }
 
-  -- If palette exists, create semantic mappings
   if spec.semantic then
     theme.semantic = spec.semantic
   elseif next(spec.palette) then
-    -- Auto-generate semantic colors from palette
     theme.semantic = M.generate_semantic(spec.palette, spec.base16)
   else
-    -- Fall back to base16 semantic mappings
     theme.semantic = M.base16_to_semantic(spec.base16)
   end
 
   return theme
 end
 
--- Generate semantic color groups from rich palette
 M.generate_semantic = function(palette, base16)
   return {
-    -- Syntax highlighting
     syn = {
       string = palette.string or base16.base0B,
       number = palette.number or base16.base09,
@@ -51,7 +40,6 @@ M.generate_semantic = function(palette, base16)
       special = palette.special or base16.base0C,
     },
 
-    -- UI elements
     ui = {
       bg = palette.bg or base16.base00,
       bg_dim = palette.bg_dim or base16.base01,
@@ -71,7 +59,6 @@ M.generate_semantic = function(palette, base16)
       line_nr_active = palette.line_nr_active or base16.base0B,
     },
 
-    -- Diagnostics
     diag = {
       error = palette.error or base16.base08,
       warning = palette.warning or base16.base0E,
@@ -79,14 +66,12 @@ M.generate_semantic = function(palette, base16)
       hint = palette.hint or base16.base0D,
     },
 
-    -- Git
     git = {
       add = palette.git_add or base16.base0B,
       change = palette.git_change or base16.base0E,
       delete = palette.git_delete or base16.base08,
     },
 
-    -- Diff
     diff = {
       add = palette.diff_add or base16.base0B,
       change = palette.diff_change or base16.base0E,
@@ -96,7 +81,6 @@ M.generate_semantic = function(palette, base16)
   }
 end
 
--- Convert Base16 to semantic (fallback for simple themes)
 M.base16_to_semantic = function(base16)
   return {
     syn = {

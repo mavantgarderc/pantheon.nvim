@@ -1,47 +1,38 @@
--- hachiman-crimson-night variant (reddish version)
 local palette = {
-  -- Base darks
-  sumiInk0 = "#0B0A10", -- primary background
-  sumiInk1 = "#16151E", -- secondary background
-  sumiInk2 = "#22212D", -- cursorline / float
-  sumiInk3 = "#2D2C39", -- dimmed highlights / selection
-  sumiInk4 = "#4F4C5B", -- line numbers / nontext
+  sumiInk0 = "#0B0A10",
+  sumiInk1 = "#16151E",
+  sumiInk2 = "#22212D",
+  sumiInk3 = "#2D2C39",
+  sumiInk4 = "#4F4C5B",
 
-  -- Foregrounds
-  fujiWhite = "#DED9C7", -- main foreground
-  oldWhite = "#CBC3AD", -- secondary foreground
-  softGray = "#72706D", -- comments / muted UI
+  fujiWhite = "#DED9C7",
+  oldWhite = "#CBC3AD",
+  softGray = "#72706D",
 
-  -- Reds / Crimson
-  crimsonRed1 = "#B83238", -- primary keywords / error / delete (deeper)
-  crimsonRed2 = "#C94040", -- important highlights / warning (more vivid)
-  emberRed = "#FF4C4C", -- strings / virtual text (bright red)
+  crimsonRed1 = "#B83238",
+  crimsonRed2 = "#C94040",
+  emberRed = "#FF4C4C",
 
-  -- Oranges / Golds
-  emberGold = "#E6B252", -- operators / accents
-  softAmber = "#F1C67B", -- light accents / diff
+  emberGold = "#E6B252",
+  softAmber = "#F1C67B",
 
-  -- Greens
-  forestGreen = "#61835B", -- git add / hint
-  lightGreen = "#7BA278", -- git inline / ok
+  forestGreen = "#61835B",
+  lightGreen = "#7BA278",
 
-  -- Blues
-  stormBlue = "#2C4B6B", -- functions
-  waveAqua1 = "#4C8C8F", -- booleans / info
+  stormBlue = "#2C4B6B",
+  waveAqua1 = "#4C8C8F",
 
-  -- Purples
-  violet1 = "#8C77B0", -- types
-  violet2 = "#9B88C3", -- secondary type
+  violet1 = "#8C77B0",
+  violet2 = "#9B88C3",
 
-  -- Neutrals / Extras
-  ashGray = "#5B5854", -- subtle background / fold
-  darkTeal = "#204D51", -- accent / diff
-  steelGray = "#6F6B68", -- comment alternative / inactive
-  emberPink = "#D16B7C", -- optional warnings / highlights
+  ashGray = "#5B5854",
+  darkTeal = "#204D51",
+  steelGray = "#6F6B68",
+  emberPink = "#D16B7C",
 }
 
 return {
-  name = "Hachiman – Crimson Night (Reddish)",
+  name = "Hachiman – Crimson Night",
   author = "PrismPunk.nvim",
   description = "Dark, blood-red dominant theme with deep shadows and bright crimson accents.",
 

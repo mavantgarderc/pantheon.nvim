@@ -1,14 +1,12 @@
--- kanagawa-paper-dawn variant (extended)
 local palette = {
-  paperWhite = "#F2EBD9", -- background paper tone
-  lightBeige = "#EAE3D2", -- slightly darker background
-  warmIvory = "#E2DAC7", -- UI highlight / float bg
-  shadowBeige = "#D8D0BC", -- dim bg
-  inkGray = "#A8A29E", -- neutral gray for borders/comments
-  graphiteGray = "#6E6A67", -- main text gray
-  sumiInkSoft = "#4C4945", -- darker foreground
+  paperWhite = "#F2EBD9",
+  lightBeige = "#EAE3D2",
+  warmIvory = "#E2DAC7",
+  shadowBeige = "#D8D0BC",
+  inkGray = "#A8A29E",
+  graphiteGray = "#6E6A67",
+  sumiInkSoft = "#4C4945",
 
-  -- Core Kanagawa hues reinterpreted for light mode
   autumnRed = "#B4637A",
   autumnYellow = "#DFA000",
   autumnGreen = "#6B8E23",
@@ -19,17 +17,16 @@ local palette = {
   sandTan = "#CBBE9F",
   roseDust = "#C47F8E",
 
-  -- Extended dawn-specific accents
-  morningSky = "#A3BCE2", -- info/active
-  paleCoral = "#E99B8F", -- strings
-  mellowGold = "#E4B564", -- operators / highlights
-  blushPink = "#E5A4A2", -- punctuation / emphasis
-  earlyMist = "#B4ADA4", -- subtle text / dimmed
-  amberDawn = "#FFD58A", -- cursor / selection
+  morningSky = "#A3BCE2",
+  paleCoral = "#E99B8F",
+  mellowGold = "#E4B564",
+  blushPink = "#E5A4A2",
+  earlyMist = "#B4ADA4",
+  amberDawn = "#FFD58A",
 }
 
 return {
-  name = "Kanagawa Paper – Dawn (Extended)",
+  name = "Kanagawa Paper – Dawn",
   author = "PrismPunk.nvim",
   description = "Light mode – serene parchment with soft warmth and subtle ink contrast.",
 

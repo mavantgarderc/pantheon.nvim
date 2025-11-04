@@ -4,7 +4,9 @@ local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
 M.apply = function(theme, config)
   local s = theme.semantic
+  ---@diagnostic disable-next-line: unused-local
   local p = theme.palette
+  ---@diagnostic disable-next-line: unused-local
   local c = theme.colors
   local styles = config.styles
 

@@ -78,12 +78,11 @@ M.write_ghostty_config = function(theme, config_path)
 end
 
 M.reload_ghostty = function()
-  -- Ghostty supports reloading config via SIGUSR2 (available in recent versions)
-  -- Try pgrep and kill -USR2
+  ---@diagnostic disable-next-line: unused-local
   local result = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
   if vim.v.shell_error == 0 then return true end
 
-  -- Fallback to pkill
+  ---@diagnostic disable-next-line: unused-local
   result = vim.fn.system("pkill -USR2 ghostty")
   if vim.v.shell_error == 0 then return true end
 
@@ -102,14 +101,11 @@ M.auto_export = function(theme, config)
     local success = M.write_ghostty_config(theme, emulator_config.config_path)
 
     if success then
-      -- Silent: No notify for export
-
       if emulator_config.auto_reload then
         local reloaded = M.reload_ghostty()
         if not reloaded then
           vim.notify("Prismpunk: Failed to reload Ghostty automatically (manual reload needed)", vim.log.levels.WARN)
         end
-        -- Silent: No success notify
       end
     end
   elseif emulator == "kitty" then

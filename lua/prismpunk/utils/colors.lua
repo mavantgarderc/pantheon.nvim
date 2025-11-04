@@ -1,7 +1,5 @@
 local M = {}
 
--- Convert hex to RGB
--- "#1a2b3c" -> { r = 26, g = 43, b = 60 }
 M.hex_to_rgb = function(hex)
   hex = hex:gsub("#", "")
   return {
@@ -11,12 +9,8 @@ M.hex_to_rgb = function(hex)
   }
 end
 
--- Convert RGB to hex
--- { r = 26, g = 43, b = 60 } -> "#1a2b3c"
 M.rgb_to_hex = function(rgb) return string.format("#%02x%02x%02x", rgb.r, rgb.g, rgb.b) end
 
--- Darken a color by percentage (0.0 to 1.0)
--- darken("#ffffff", 0.2) -> "#cccccc"
 M.darken = function(hex, amount)
   local rgb = M.hex_to_rgb(hex)
   rgb.r = math.floor(rgb.r * (1 - amount))

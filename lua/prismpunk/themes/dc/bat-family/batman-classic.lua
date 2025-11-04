@@ -1,11 +1,8 @@
 local palette = {
-  -- Backgrounds
   cosmicBlack = "#060710",
   voidBlack = "#0b0f18",
   starlightGray = "#141a24",
   nebulaGray = "#1c212b",
-
-  -- Batman colors
   batCape = "#0d0d0d",
   batSuit = "#1a1a1a",
   batEmblem = "#ffd700",
@@ -13,14 +10,10 @@ local palette = {
   batBoots = "#1f1f1f",
   batBelt = "#d4af37",
   batHighlight = "#3a3f4c",
-
-  -- Supporting colors
   shadowGray = "#3e4451",
   dimGray = "#565c64",
   stoneGray = "#abb2bf",
   lightGray = "#c8ccd4",
-
-  -- Accents
   dangerRed = "#e06c75",
   infoBlue = "#61afef",
   tealGlow = "#00ddaa",

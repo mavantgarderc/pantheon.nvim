@@ -38,7 +38,6 @@ M.load = function(theme_spec, force_reload)
   local universe, variant = require("prismpunk.config").parse_theme(theme_spec)
   local config = _G.prismpunk_config or require("prismpunk.config").defaults
 
-  -- Invalidate cache if force_reload
   if force_reload then theme_cache[universe .. "/" .. variant] = nil end
 
   local theme = load_theme_module(universe, variant)
@@ -58,7 +57,6 @@ M.load = function(theme_spec, force_reload)
     require("prismpunk.core.terminal").auto_export(theme, config)
   end
 
-  -- Reapply highlights after plugins load (e.g., for Treesitter/LSP overrides)
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
       vim.cmd("hi clear")

@@ -1,29 +1,27 @@
--- amaterasu-eclipse variant
 local palette = {
-  sumiInk0 = "#0F0E14", -- ultra-dark background
-  sumiInk1 = "#191622", -- dark layer
-  sumiInk2 = "#242233", -- cursorline / float
-  sumiInk3 = "#2F2C44", -- dimmed highlights
-  sumiInk4 = "#5A566E", -- line numbers / nontext
+  sumiInk0 = "#0F0E14",
+  sumiInk1 = "#191622",
+  sumiInk2 = "#242233",
+  sumiInk3 = "#2F2C44",
+  sumiInk4 = "#5A566E",
 
-  fujiWhite = "#E0DCCF", -- main foreground
-  oldWhite = "#CFC7B7", -- secondary foreground
+  fujiWhite = "#E0DCCF",
+  oldWhite = "#CFC7B7",
 
-  autumnRed = "#C74C3C", -- delete / keywords
-  autumnGreen = "#6B8750", -- git add / ok
-  autumnYellow = "#E6B64A", -- change / warning / highlights
+  autumnRed = "#C74C3C",
+  autumnGreen = "#6B8750",
+  autumnYellow = "#E6B64A",
 
-  waveBlue1 = "#2A4B6F", -- functions
-  waveAqua1 = "#5F9EA0", -- booleans / info
-  springViolet1 = "#9B7ECF", -- types
-  springViolet2 = "#A88ED1", -- secondary types
-  winterYellow = "#4F4530", -- muted background accent
+  waveBlue1 = "#2A4B6F",
+  waveAqua1 = "#5F9EA0",
+  springViolet1 = "#9B7ECF",
+  springViolet2 = "#A88ED1",
+  winterYellow = "#4F4530",
 
-  -- extended warm accents
-  divineGold = "#FFD96B", -- operators / highlights
-  emberRed = "#E94E3D", -- string / important text
-  softGray = "#73716E", -- comments / dimmed UI
-  heroicCyan = "#7FB4CA", -- optional highlights / methods
+  divineGold = "#FFD96B",
+  emberRed = "#E94E3D",
+  softGray = "#73716E",
+  heroicCyan = "#7FB4CA",
 }
 
 return {

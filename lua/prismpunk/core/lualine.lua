@@ -1,5 +1,6 @@
 local M = {}
 
+---@diagnostic disable-next-line: unused-local
 function M.get(theme_name)
   local loader = require("prismpunk.loader")
   local theme = loader.load_theme_module(universe, variant)

@@ -1,32 +1,33 @@
 local palette = {
-  sumiInk0 = "#16161D", -- very dark background
-  sumiInk1 = "#1F1F28", -- dark background
-  sumiInk2 = "#2A2A37", -- background lighter shift
-  sumiInk3 = "#363646", -- cursorline/fold background
-  sumiInk4 = "#54546D", -- line numbers / non-text
-  fujiWhite = "#DCD7BA", -- default foreground
-  oldWhite = "#C8C093", -- dark foreground (statusline)
-  winterRed = "#43242B", -- diff deleted (background) – from original palette set :contentReference[oaicite:1]{index=1}
-  winterGreen = "#2B3328", -- diff added (background)
-  autumnRed = "#C34043", -- git delete
-  autumnGreen = "#76946A", -- git add
-  autumnYellow = "#DCA561", -- git change
+  sumiInk0 = "#16161D",
+  sumiInk1 = "#1F1F28",
+  sumiInk2 = "#2A2A37",
+  sumiInk3 = "#363646",
+  sumiInk4 = "#54546D",
+
+  fujiWhite = "#DCD7BA",
+  oldWhite = "#C8C093",
+  winterRed = "#43242B",
+  winterGreen = "#2B3328",
+  autumnRed = "#C34043",
+  autumnGreen = "#76946A",
+  autumnYellow = "#DCA561",
   waveBlue1 = "#465e7f",
   waveBlue2 = "#2D4F67",
   waveAqua1 = "#6A9589",
   springViolet1 = "#938AA9",
   springViolet2 = "#9CABCA",
   winterYellow = "#49443C",
-  -- Extended/custom additions:
-  heroicCyan = "#7FB4CA", -- custom: highlight/variables
-  gentlePink = "#D27E99", -- custom: string literal accent
-  calmTeal = "#7AA89F", -- custom: type names
-  subtleGold = "#C0A36E", -- custom: operators / punctuation
-  softGray = "#727169", -- custom: comments / inactive
+
+  heroicCyan = "#7FB4CA",
+  gentlePink = "#D27E99",
+  calmTeal = "#7AA89F",
+  subtleGold = "#C0A36E",
+  softGray = "#727169",
 }
 
 return {
-  name = "Kanagawa Paper – Ink (Extended)",
+  name = "Kanagawa Paper – Nightfall",
   author = "PrismPunk.nvim",
   description = "Dark mode – Ink variant of Kanagawa Paper, extended with extra semantic colour mappings.",
 

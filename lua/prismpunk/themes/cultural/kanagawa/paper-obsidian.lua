@@ -1,42 +1,33 @@
--- izanami-obsidian variant (expanded, ~20 colors)
 local palette = {
-  -- Base darks
-  sumiInk0 = "#0A0A0F", -- primary background
-  sumiInk1 = "#14141B", -- secondary background
-  sumiInk2 = "#1F1F29", -- cursorline / float
-  sumiInk3 = "#2A2A36", -- dim highlight / selection
-  sumiInk4 = "#4C4C57", -- line numbers / nontext
+  sumiInk0 = "#0A0A0F",
+  sumiInk1 = "#14141B",
+  sumiInk2 = "#1F1F29",
+  sumiInk3 = "#2A2A36",
+  sumiInk4 = "#4C4C57",
 
-  -- Foregrounds
-  fujiWhite = "#DAD6C7", -- main foreground
-  oldWhite = "#C7C2B0", -- secondary foreground
-  softGray = "#6F6C68", -- comments / muted UI
+  fujiWhite = "#DAD6C7",
+  oldWhite = "#C7C2B0",
+  softGray = "#6F6C68",
 
-  -- Reds
-  obsidianRed1 = "#A1393D", -- errors / delete
-  obsidianRed2 = "#B14B4F", -- warnings / important keywords
+  obsidianRed1 = "#A1393D",
+  obsidianRed2 = "#B14B4F",
 
-  -- Yellows / Golds
-  obsidianGold1 = "#CFA04A", -- changes / operators
-  obsidianGold2 = "#E0B55D", -- highlights / accent
+  obsidianGold1 = "#CFA04A",
+  obsidianGold2 = "#E0B55D",
 
-  -- Greens
-  obsidianGreen1 = "#5F7A50", -- add / ok
-  obsidianGreen2 = "#789262", -- lighter green for diff inline
+  obsidianGreen1 = "#5F7A50",
+  obsidianGreen2 = "#789262",
 
-  -- Blues
-  stormBlue = "#273E57", -- functions
-  waveBlue1 = "#2C4B6B", -- method / secondary function
-  waveAqua1 = "#4D8B8F", -- booleans / info
+  stormBlue = "#273E57",
+  waveBlue1 = "#2C4B6B",
+  waveAqua1 = "#4D8B8F",
 
-  -- Purples
-  thunderViolet1 = "#8679B0", -- types
-  thunderViolet2 = "#978AC4", -- secondary type / annotations
+  thunderViolet1 = "#8679B0",
+  thunderViolet2 = "#978AC4",
 
-  -- Neutrals / Extras
-  ashGray = "#535153", -- subtle backgrounds / folds
-  darkTeal = "#224D50", -- accents / git indicators
-  emberOrange = "#D76B3D", -- optional highlights / virtual text
+  ashGray = "#535153",
+  darkTeal = "#224D50",
+  emberOrange = "#D76B3D",
 }
 
 return {
