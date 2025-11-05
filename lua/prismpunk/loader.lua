@@ -9,7 +9,7 @@ local function get_theme_path(universe, variant)
     ["spider-verse"] = "marvel.spider-verse",
     ["justice-league"] = "dc.justice-league",
     ["bat-family"] = "dc.bat-family",
-    ["kanagawa"] = "cultural.kanagawa",
+    ["kanagawa"] = "kanagawa",
   }
 
   local mapped = universe_map[universe]
