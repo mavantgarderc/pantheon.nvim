@@ -3,11 +3,24 @@ local M = {}
 local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
 M.apply = function(theme, config)
-  local s = theme.semantic
-  ---@diagnostic disable-next-line: unused-local
-  local p = theme.palette
-  ---@diagnostic disable-next-line: unused-local
-  local c = theme.colors
+  local opts = config
+  if theme.get then
+    theme = theme.get(opts, theme.palette)
+  end
+  local s
+  local is_complex = false
+  if theme.semantic then
+    s = theme.semantic
+  else
+    s = {
+      syn = theme.syn,
+      ui = theme.ui,
+      diag = theme.diag,
+      git = theme.vcs or theme.git,
+      diff = theme.diff,
+    }
+    is_complex = true
+  end
   local styles = config.styles
 
   -- ============================================================================
@@ -15,17 +28,35 @@ M.apply = function(theme, config)
   -- ============================================================================
 
   hl("Normal", { fg = s.ui.fg, bg = s.ui.bg, ctermfg = 15, ctermbg = 0 })
-  hl("NormalFloat", { fg = s.ui.fg, bg = s.ui.float })
+
+  local normal_float_fg = s.ui.fg
+  local normal_float_bg = s.ui.float
+  if is_complex and type(s.ui.float) == "table" then
+    normal_float_fg = s.ui.float.fg
+    normal_float_bg = s.ui.float.bg
+  end
+  hl("NormalFloat", { fg = normal_float_fg, bg = normal_float_bg })
   hl("NormalNC", { fg = s.ui.fg_dim, bg = s.ui.bg })
-  hl("FloatTitle", { fg = s.ui.fg, bg = s.ui.float, bold = true })
+
+  local float_title_fg = s.ui.fg
+  local float_title_bg = s.ui.float
+  if is_complex and type(s.ui.float) == "table" then
+    float_title_fg = s.ui.float.fg
+    float_title_bg = s.ui.float.bg
+  end
+  hl("FloatTitle", { fg = float_title_fg, bg = float_title_bg, bold = true })
   hl("FloatShadow", { bg = s.ui.bg_dim })
 
   -- Cursor & Columns
   hl("Cursor", { fg = s.ui.bg, bg = s.ui.fg })
   hl("lCursor", { fg = s.ui.bg, bg = s.ui.fg })
   hl("CursorIM", { fg = s.ui.bg, bg = s.ui.fg })
-  hl("CursorLine", { bg = s.ui.cursorline })
-  hl("CursorColumn", { bg = s.ui.cursorline })
+  local cursorline_bg = s.ui.cursorline
+  if is_complex then
+    cursorline_bg = s.ui.bg_cursorline
+  end
+  hl("CursorLine", { bg = cursorline_bg })
+  hl("CursorColumn", { bg = cursorline_bg })
   hl("ColorColumn", { bg = s.ui.bg_dim })
 
   -- Line numbers & Signs
@@ -50,8 +81,18 @@ M.apply = function(theme, config)
 
   -- Splits & Borders
   hl("VertSplit", { fg = s.ui.border })
-  hl("WinSeparator", { fg = s.ui.border })
-  hl("FloatBorder", { fg = s.ui.border, bg = s.ui.float })
+  local win_sep_fg = s.ui.border
+  if is_complex and s.ui.win_separator then
+    win_sep_fg = s.ui.win_separator
+  end
+  hl("WinSeparator", { fg = win_sep_fg })
+  local float_border_fg = s.ui.border
+  local float_border_bg = s.ui.float
+  if is_complex and type(s.ui.float) == "table" then
+    float_border_fg = s.ui.float.fg_border
+    float_border_bg = s.ui.float.bg_border
+  end
+  hl("FloatBorder", { fg = float_border_fg, bg = float_border_bg })
   hl("WinBar", { fg = s.ui.fg, bg = s.ui.bg_dim })
   hl("WinBarNC", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
 
@@ -65,17 +106,32 @@ M.apply = function(theme, config)
   hl("Question", { fg = s.syn.type })
 
   -- Tabline
-  hl("TabLine", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
-  hl("TabLineFill", { bg = s.ui.bg_dim })
-  hl("TabLineSel", { fg = s.ui.line_nr_active, bg = s.ui.bg_highlight })
+  if is_complex and type(s.ui.tabline) == "table" then
+    hl("TabLine", { fg = s.ui.tabline.fg_inactive, bg = s.ui.tabline.bg_inactive })
+    hl("TabLineFill", { bg = s.ui.tabline.bg })
+    hl("TabLineSel", { fg = s.ui.tabline.fg_selected, bg = s.ui.tabline.bg_selected })
+  else
+    hl("TabLine", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+    hl("TabLineFill", { bg = s.ui.bg_dim })
+    hl("TabLineSel", { fg = s.ui.line_nr_active, bg = s.ui.bg_highlight })
+  end
 
   -- Popups & Completion
-  hl("Pmenu", { fg = s.ui.fg, bg = s.ui.bg_dim })
-  hl("PmenuSel", { fg = s.ui.bg, bg = s.ui.line_nr_active })
-  hl("PmenuSbar", { bg = s.ui.bg_highlight })
-  hl("PmenuThumb", { bg = s.ui.fg_dim })
-  hl("PmenuKind", { fg = s.syn.type })
-  hl("PmenuExtra", { fg = s.syn.comment })
+  if is_complex and type(s.ui.pmenu) == "table" then
+    hl("Pmenu", { fg = s.ui.pmenu.fg, bg = s.ui.pmenu.bg })
+    hl("PmenuSel", { fg = s.ui.pmenu.fg_sel, bg = s.ui.pmenu.bg_sel })
+    hl("PmenuSbar", { bg = s.ui.pmenu.bg_sbar })
+    hl("PmenuThumb", { bg = s.ui.pmenu.bg_thumb })
+    hl("PmenuKind", { fg = s.syn.type })
+    hl("PmenuExtra", { fg = s.syn.comment })
+  else
+    hl("Pmenu", { fg = s.ui.fg, bg = s.ui.bg_dim })
+    hl("PmenuSel", { fg = s.ui.bg, bg = s.ui.line_nr_active })
+    hl("PmenuSbar", { bg = s.ui.bg_highlight })
+    hl("PmenuThumb", { bg = s.ui.fg_dim })
+    hl("PmenuKind", { fg = s.syn.type })
+    hl("PmenuExtra", { fg = s.syn.comment })
+  end
   hl("WildMenu", { fg = s.ui.bg, bg = s.ui.line_nr_active })
 
   -- Folds
@@ -83,7 +139,11 @@ M.apply = function(theme, config)
   hl("FoldColumn", { fg = s.ui.line_nr })
 
   -- Misc UI
-  hl("NonText", { fg = s.ui.nontext or s.ui.bg_highlight })
+  local nontext_fg = s.ui.nontext or s.ui.bg_highlight
+  if is_complex and s.ui.nontext then
+    nontext_fg = s.ui.nontext
+  end
+  hl("NonText", { fg = nontext_fg })
   hl("SpecialKey", { fg = s.ui.nontext or s.ui.bg_highlight })
   hl("EndOfBuffer", { fg = s.ui.bg })
   hl("Directory", { fg = s.syn.type })
@@ -158,11 +218,16 @@ M.apply = function(theme, config)
   hl("DiagnosticUnderlineHint", { sp = s.diag.hint, undercurl = true })
   hl("DiagnosticUnderlineOk", { sp = s.syn.type, undercurl = true })
 
-  hl("DiagnosticVirtualTextError", { fg = s.diag.error, bg = s.ui.bg_dim })
-  hl("DiagnosticVirtualTextWarn", { fg = s.diag.warning, bg = s.ui.bg_dim })
-  hl("DiagnosticVirtualTextInfo", { fg = s.diag.info, bg = s.ui.bg_dim })
-  hl("DiagnosticVirtualTextHint", { fg = s.diag.hint, bg = s.ui.bg_dim })
-  hl("DiagnosticVirtualTextOk", { fg = s.syn.type, bg = s.ui.bg_dim })
+  local virtual_text_error = s.diag.virtual_text_error or s.diag.error
+  local virtual_text_warning = s.diag.virtual_text_warning or s.diag.warning
+  local virtual_text_info = s.diag.virtual_text_info or s.diag.info
+  local virtual_text_hint = s.diag.virtual_text_hint or s.diag.hint
+  local virtual_text_ok = s.diag.virtual_text_ok or s.diag.ok
+  hl("DiagnosticVirtualTextError", { fg = virtual_text_error, bg = s.ui.bg_dim })
+  hl("DiagnosticVirtualTextWarn", { fg = virtual_text_warning, bg = s.ui.bg_dim })
+  hl("DiagnosticVirtualTextInfo", { fg = virtual_text_info, bg = s.ui.bg_dim })
+  hl("DiagnosticVirtualTextHint", { fg = virtual_text_hint, bg = s.ui.bg_dim })
+  hl("DiagnosticVirtualTextOk", { fg = virtual_text_ok, bg = s.ui.bg_dim })
 
   hl("DiagnosticSignError", { fg = s.diag.error })
   hl("DiagnosticSignWarn", { fg = s.diag.warning })
@@ -182,9 +247,9 @@ M.apply = function(theme, config)
   hl("GitSignsAdd", { fg = s.git.add })
   hl("GitSignsChange", { fg = s.git.change })
   hl("GitSignsDelete", { fg = s.git.delete })
-  hl("GitSignsAddInline", { fg = s.git.add, reverse = true })
-  hl("GitSignsChangeInline", { fg = s.git.change, reverse = true })
-  hl("GitSignsDeleteInline", { fg = s.git.delete, reverse = true })
+  hl("GitSignsAddInline", { fg = s.git.add_inline or s.git.add, reverse = true })
+  hl("GitSignsChangeInline", { fg = s.git.change_inline or s.git.change, reverse = true })
+  hl("GitSignsDeleteInline", { fg = s.git.delete_inline or s.git.delete, reverse = true })
 
   -- ============================================================================
   -- TREESITTER
@@ -335,7 +400,7 @@ M.apply = function(theme, config)
   -- nvim-dap (debugging)
   if package.loaded["dap"] then
     hl("DapBreakpoint", { fg = s.diag.error })
-    hl("DapBreakpointCondition", { fg = s.diag.warn })
+    hl("DapBreakpointCondition", { fg = s.diag.warning })
     hl("DapBreakpointRejected", { fg = s.diag.hint })
     hl("DapLogPoint", { fg = s.syn.special })
     hl("DapStopped", { bg = s.ui.bg_highlight })
@@ -362,7 +427,7 @@ M.apply = function(theme, config)
     hl("MiniDiffOverDelete", { bg = s.git.delete, blend = 20 })
     -- mini.hipatterns
     hl("MiniHipatternsFixme", { fg = s.diag.error, bold = true })
-    hl("MiniHipatternsHack", { fg = s.diag.warn, bold = true })
+    hl("MiniHipatternsHack", { fg = s.diag.warning, bold = true })
     hl("MiniHipatternsTodo", { fg = s.syn.special, bold = true })
     hl("MiniHipatternsNote", { fg = s.diag.info, bold = true })
     -- mini.tabline / mini.statusline (if using)
@@ -414,7 +479,7 @@ M.apply = function(theme, config)
     hl("OilChange", { fg = s.syn.keyword })
     hl("OilRestore", { fg = s.diag.hint })
     hl("OilTrash", { fg = s.diag.error })
-    hl("OilTrashSource", { fg = s.diag.warn })
+    hl("OilTrashSource", { fg = s.diag.warning })
   end
 
   -- fidget.nvim (LSP progress)
@@ -427,7 +492,7 @@ M.apply = function(theme, config)
     hl("FidgetWindow", { fg = s.ui.fg_dim, bg = s.ui.float })
   end
 
-  -- Apply user highlight overrides
+  ---@diagnostic disable-next-line: redefined-local
   for group, opts in pairs(config.overrides.highlights) do
     hl(group, opts)
   end
