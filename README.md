@@ -95,6 +95,31 @@ All of these work:
 - **Caching & Live Reload**: Fast loading with cache; clear and reload for dev.
 - **Accessibility**: Base16 palette with potential for contrast checks (coming soon).
 
+## Terminal Emulator Integration
+
+### Ghostty
+
+Remove all color-codes in `~/.config/ghostty/config`, & add `theme = "prismpunk.toml"` at the end of configuration file.
+
+Then touch a file at `~/.config/ghostty/themes/` named `prismpunk.toml`
+
+(Or don't... it is automated baby :D ...)
+
+### Alacritty
+
+Remove all color-codes & related flags in `~/.config/alacritty/alacritty.toml` & add below lines:
+
+```toml
+[general]
+import = [
+  "~/.config/alacritty/prismpunk.toml"
+]
+```
+
+> If you experienced exceptions, try `alacritty migrate` command to debug.
+
+Then you touch `prismpunk.toml` at the directory you mentioned in `alacritty.toml`.
+
 ## Development
 
 ### Live Reload
