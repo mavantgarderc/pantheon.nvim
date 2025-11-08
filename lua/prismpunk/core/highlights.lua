@@ -4,9 +4,7 @@ local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
 M.apply = function(theme, config)
   local opts = config
-  if theme.get then
-    theme = theme.get(opts, theme.palette)
-  end
+  if theme.get then theme = theme.get(opts, theme.palette) end
   local s
   local is_complex = false
   if theme.semantic then
@@ -52,9 +50,7 @@ M.apply = function(theme, config)
   hl("lCursor", { fg = s.ui.bg, bg = s.ui.fg })
   hl("CursorIM", { fg = s.ui.bg, bg = s.ui.fg })
   local cursorline_bg = s.ui.cursorline
-  if is_complex then
-    cursorline_bg = s.ui.bg_cursorline
-  end
+  if is_complex then cursorline_bg = s.ui.bg_cursorline end
   hl("CursorLine", { bg = cursorline_bg })
   hl("CursorColumn", { bg = cursorline_bg })
   hl("ColorColumn", { bg = s.ui.bg_dim })
@@ -82,9 +78,7 @@ M.apply = function(theme, config)
   -- Splits & Borders
   hl("VertSplit", { fg = s.ui.border })
   local win_sep_fg = s.ui.border
-  if is_complex and s.ui.win_separator then
-    win_sep_fg = s.ui.win_separator
-  end
+  if is_complex and s.ui.win_separator then win_sep_fg = s.ui.win_separator end
   hl("WinSeparator", { fg = win_sep_fg })
   local float_border_fg = s.ui.border
   local float_border_bg = s.ui.float
@@ -140,9 +134,7 @@ M.apply = function(theme, config)
 
   -- Misc UI
   local nontext_fg = s.ui.nontext or s.ui.bg_highlight
-  if is_complex and s.ui.nontext then
-    nontext_fg = s.ui.nontext
-  end
+  if is_complex and s.ui.nontext then nontext_fg = s.ui.nontext end
   hl("NonText", { fg = nontext_fg })
   hl("SpecialKey", { fg = s.ui.nontext or s.ui.bg_highlight })
   hl("EndOfBuffer", { fg = s.ui.bg })
