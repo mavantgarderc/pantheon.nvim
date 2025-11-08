@@ -120,7 +120,16 @@ import = [
 
 Then you touch `prismpunk.toml` at the directory you mentioned in `alacritty.toml`.
 
-> If you use tmux, use this format on your navbar elements (remove all color codes; tmux will automatically absorbs term colors). This is my partially my own tmux config:
+### Kitty
+
+TODO
+
+### Terminal Tools
+
+#### tmux
+
+If you use tmux, use this format on your navbar elements (remove all color codes; tmux will automatically absorbs term colors). This is my partially my own tmux config:
+
 ```conf
 set -g renumber-windows on   # for taste's sake :)
 set -g status on             # for taste's sake :)
@@ -158,6 +167,10 @@ set -g pane-active-border-style "fg=colour4,bold"
 
 set -g mode-style "bg=colour3,fg=colour0"
 ```
+
+#### Zellij
+
+TODO
 
 ## Configuration
 
