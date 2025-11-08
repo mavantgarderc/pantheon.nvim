@@ -18,7 +18,7 @@ local function none_to_hex() return "NONE" end
 ---@return HSLuvColor
 function Color.new(hex)
   if hex:lower() == "none" then return setmetatable({ H = 0, S = 0, L = 0, to_hex = none_to_hex }, Color_mt) end
-  local H, S, L = unpack(hex_to_hsluv(hex))
+  local H, S, L = table.unpack(hex_to_hsluv(hex))
   return setmetatable({ H = H, S = S, L = L }, Color_mt)
 end
 
@@ -29,7 +29,7 @@ function Color:to_hex() return hsluv_to_hex({ self.H, self.S, self.L }) end
 local function blendRGB(a, b, r)
   local c = {}
   for i = 1, 3 do
-    c[i] = math.sqrt((1 - r) * math.pow(a[i], 2) + r * math.pow(b[i], 2))
+    c[i] = math.sqrt((1 - r) * (a[i] * a[i]) + r * (b[i] * b[i]))
   end
   return c
 end
@@ -41,7 +41,7 @@ end
 function Color:blend(b, r)
   if b:lower() == "none" then return self end
   local c = blendRGB(self:to_rgb(), hex_to_rgb(b), r)
-  self.H, self.S, self.L = unpack(rgb_to_hsluv(c))
+  self.H, self.S, self.L = table.unpack(rgb_to_hsluv(c))
   return self
 end
 

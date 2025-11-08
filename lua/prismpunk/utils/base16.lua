@@ -43,7 +43,9 @@ M.validate = function(colors)
   for _, key in ipairs(required_keys) do
     if not colors[key] then return false, "Missing required Base16 color: " .. key end
 
-    if not colors[key]:match("^#%x%x%x%x%x%x$") then return false, "Invalid hex color for " .. key .. ": " .. colors[key] end
+    if not colors[key]:match("^#%x%x%x%x%x%x$") then
+      return false, "Invalid hex color for " .. key .. ": " .. colors[key]
+    end
   end
 
   return true, nil
