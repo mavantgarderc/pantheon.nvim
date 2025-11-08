@@ -3,6 +3,7 @@ local M = {}
 M.apply = function(theme)
   local c = theme.colors
 
+  -- luacheck: push ignore
   vim.g.terminal_color_0 = c.base00
   vim.g.terminal_color_1 = c.base08
   vim.g.terminal_color_2 = c.base0B
@@ -21,6 +22,7 @@ M.apply = function(theme)
   vim.g.terminal_color_15 = c.base07
   vim.g.terminal_color_background = c.base00
   vim.g.terminal_color_foreground = c.base05
+  -- luacheck: pop
 end
 
 M.export_ghostty_toml = function(theme)
@@ -78,12 +80,10 @@ M.write_ghostty_config = function(theme, config_path)
 end
 
 M.reload_ghostty = function()
-  ---@diagnostic disable-next-line: unused-local
-  local result = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
+  local _ = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
   if vim.v.shell_error == 0 then return true end
 
-  ---@diagnostic disable-next-line: unused-local
-  result = vim.fn.system("pkill -USR2 ghostty")
+  _ = vim.fn.system("pkill -USR2 ghostty")
   if vim.v.shell_error == 0 then return true end
 
   return false
@@ -214,8 +214,7 @@ end
 M.reload_kitty = function(config_path)
   config_path = vim.fn.expand(config_path or "~/.config/kitty/prismpunk.conf")
 
-  ---@diagnostic disable-next-line: unused-local
-  local result = vim.fn.system("kitty @ set-colors --all " .. vim.fn.shellescape(config_path))
+  local _ = vim.fn.system("kitty @ set-colors --all " .. vim.fn.shellescape(config_path))
   if vim.v.shell_error == 0 then return true end
 
   return false

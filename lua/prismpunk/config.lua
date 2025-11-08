@@ -62,8 +62,7 @@ end
 M.setup = function(user_config)
   local config = vim.tbl_deep_extend("force", M.defaults, user_config or {})
 
-  ---@diagnostic disable-next-line: unused-local
-  local ok, universe, variant = pcall(M.parse_theme, config.theme)
+  local ok, universe, _ = pcall(M.parse_theme, config.theme)
   if not ok then
     vim.notify("Prismpunk: " .. universe, vim.log.levels.ERROR)
     config.theme = M.defaults.theme
