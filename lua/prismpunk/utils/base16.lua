@@ -54,7 +54,7 @@ M.generate = function(opts)
 
   if not opts.bg or not opts.fg or not opts.accent then error("base16.generate requires: bg, fg, accent") end
 
-  local colors_util = require("prismpunk.utils.colors")
+  local colors_util = require("prismpunk.utils.color")
 
   local base00 = opts.bg
   local base01 = colors_util.lighten(base00, 0.05)

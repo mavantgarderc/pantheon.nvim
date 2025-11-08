@@ -1,6 +1,6 @@
 local M = {}
 
-local colors = require("prismpunk.utils.colors")
+local colors = require("prismpunk.utils.color")
 
 local dc_base = require("prismpunk.themes.dc")
 
