@@ -485,8 +485,8 @@ M.apply = function(theme, config)
   end
 
   ---@diagnostic disable-next-line: redefined-local
-  for group, opts in pairs(config.overrides.highlights) do
-    hl(group, opts)
+  for group, override_opts in pairs(config.overrides.highlights) do
+    hl(group, override_opts)
   end
 end
 

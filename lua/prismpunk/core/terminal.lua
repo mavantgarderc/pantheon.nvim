@@ -239,7 +239,10 @@ M.auto_export = function(theme, config)
           if emulator_config.auto_reload then
             local reloaded = M.reload_ghostty()
             if not reloaded then
-              vim.notify("Prismpunk: Failed to reload Ghostty automatically (manual reload needed)", vim.log.levels.WARN)
+              vim.notify(
+                "Prismpunk: Failed to reload Ghostty automatically (manual reload needed)",
+                vim.log.levels.WARN
+              )
             end
           end
         end
@@ -250,7 +253,10 @@ M.auto_export = function(theme, config)
           if emulator_config.auto_reload then
             local reloaded = M.reload_alacritty()
             if not reloaded then
-              vim.notify("Prismpunk: Failed to reload Alacritty automatically (manual reload needed)", vim.log.levels.WARN)
+              vim.notify(
+                "Prismpunk: Failed to reload Alacritty automatically (manual reload needed)",
+                vim.log.levels.WARN
+              )
             end
           end
         end
