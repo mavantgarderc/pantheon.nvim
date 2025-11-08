@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  luacheck:
+    name: Luacheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leafo/gh-actions-luacheck@v9
+
+  stylua:
+    name: Stylua
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JohnnyMorganz/stylua@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-path: stylua.toml
