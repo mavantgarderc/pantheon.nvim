@@ -120,6 +120,45 @@ import = [
 
 Then you touch `prismpunk.toml` at the directory you mentioned in `alacritty.toml`.
 
+> If you use tmux, use this format on your navbar elements (remove all color codes; tmux will automatically absorbs term colors). This is my partially my own tmux config:
+```conf
+set -g renumber-windows on   # for taste's sake :)
+set -g status on             # for taste's sake :)
+set -g status-position top   # for taste's sake :)
+set -g status-justify centre # for taste's sake :)
+
+set -g status-style "bg=default,fg=default"
+
+set -g status-style "bg=colour0,fg=colour15"
+
+set -g status-left "\
+#[bg=colour8,fg=colour0,bold] #S \
+#[bg=colour0,fg=colour6,bold] #(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null | awk '{print\"\"$1\"%\"}') \
+#[bg=colour0,fg=colour1,bold]%H:%M \
+#[bg=colour0,fg=colour3,bold]#(bash /home/mava/dotfiles/tmux/net_status.sh)\
+"
+
+set -g status-right "\
+#[bg=colour0,fg=colour2,bold]#(free -m | awk 'NR==2{printf \" %.0f%%\", $3*100/$2}') \
+#[bg=colour0,fg=colour5,bold]#(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null | head -1 | awk '{if(NF) printf \"󱁉 %.0f%%\", $1; else print \"󱁉 N/A\"}') \
+#[bg=colour0,fg=colour4,bold]#(grep 'cpu ' /proc/stat | awk '{u=($2+$4); t=u+$5; printf \" %.0f%%\", 100*u/t}') \
+"
+
+set -g window-status-style "bg=colour0,fg=colour8"
+set -g window-status-format " #I:#W "
+set -g window-status-separator ""
+set -g window-status-current-style "bg=colour0,fg=colour7,bold"
+set -g window-status-current-format " #I:#W "
+set -g window-status-activity-style "bg=colour0,fg=colour1"
+set -g window-status-bell-style "bg=colour0,fg=colour5,bold"
+
+# Pane settings
+set -g pane-border-style "fg=colour8"
+set -g pane-active-border-style "fg=colour4,bold"
+
+set -g mode-style "bg=colour3,fg=colour0"
+```
+
 ## Configuration
 
 ```lua
@@ -147,7 +186,7 @@ require("prismpunk").setup({
   
   terminal = {
     enabled = true,
-    emulator = {"ghostty", "alacritty"}, -- Both!
+    emulator = { "ghostty", "alacritty", "kitty" },
     
     ghostty = {
       enabled = true,
