@@ -1,7 +1,7 @@
 local M = {}
 
 M.defaults = {
-  theme = "justice-league/wonder-woman",
+  theme = "kanagawa/paper-edo",
 
   styles = {
     comments = { italic = true },
