@@ -3,7 +3,7 @@
 ---
 name: Theme Request
 about: Suggest a new character-inspired theme
-title: '[THEME] Add theme for [Character/Universe]'
+title: '[THEME] Add theme for [Universe/Character]'
 labels: enhancement, theme
 assignees: ''
 ---
