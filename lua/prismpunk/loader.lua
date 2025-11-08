@@ -13,7 +13,9 @@ local function get_theme_path(universe, variant)
   }
 
   local mapped = universe_map[universe]
-  if not mapped then error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map))) end
+  if not mapped then
+    error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map)))
+  end
 
   return "prismpunk.themes." .. mapped .. "." .. variant
 end
@@ -47,8 +49,8 @@ M.load = function(theme_spec, force_reload)
   vim.cmd("hi clear")
   if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
-  vim.g.colors_name = "prismpunk"
-  vim.o.termguicolors = true
+  vim.g.colors_name = "prismpunk" -- luacheck: ignore
+  vim.o.termguicolors = true -- luacheck: ignore
 
   require("prismpunk.core.highlights").apply(theme, config)
 
