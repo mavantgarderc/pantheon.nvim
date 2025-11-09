@@ -87,7 +87,7 @@ All of these work:
 ## Features
 - **Customizable Styles**: Toggle italics/bold for comments, keywords, functions, variables.
 - **Overrides**: Easily override colors or highlight groups.
-- **Terminal Integration**: Full support for Ghostty (export TOML, auto-reload via SIGUSR2). TODO: Kitty, Alacritty.
+- **Terminal Integration**: Full support for Ghostty (export TOML, auto-reload via SIGUSR2).
 - **Plugin Support**: Extended highlights for popular plugins including:
   - Treesitter and LSP semantic tokens (expanded coverage for classes, interfaces, async, etc.).
   - Telescope, NvimTree, Lualine, nvim-cmp, nvim-dap, mini.nvim, indent-blankline.
@@ -122,7 +122,15 @@ Then you touch `prismpunk.toml` at the directory you mentioned in `alacritty.tom
 
 ### Kitty
 
-TODO
+Add these lines at an appropriate place of your `~/.config/kitty/kitty.conf`.
+
+```conf
+include prismpunk.conf
+allow_remote_control yes
+listen_on unix:/tmp/kitty-socket
+```
+
+Then, touch the placeholder file: `prrismpunk.conf`; or don't :) .
 
 ### Terminal Tools
 
