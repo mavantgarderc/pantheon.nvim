@@ -80,10 +80,12 @@ M.write_ghostty_config = function(theme, config_path)
 end
 
 M.reload_ghostty = function()
-  local _ = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
+  ---@diagnostic disable-next-line: unused-local
+  local result = vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
   if vim.v.shell_error == 0 then return true end
 
-  _ = vim.fn.system("pkill -USR2 ghostty")
+  ---@diagnostic disable-next-line: unused-local
+  result = vim.fn.system("pkill -USR2 ghostty")
   if vim.v.shell_error == 0 then return true end
 
   return false
@@ -152,7 +154,11 @@ M.write_alacritty_config = function(theme, config_path)
   end
 end
 
-M.reload_alacritty = function() return true end
+M.reload_alacritty = function()
+  -- Alacritty watches config files and auto-reloads
+  -- Just return true since the file write itself triggers the reload
+  return true
+end
 
 M.export_kitty_conf = function(theme)
   local c = theme.colors
@@ -212,9 +218,23 @@ M.write_kitty_config = function(theme, config_path)
 end
 
 M.reload_kitty = function(config_path)
+  -- Use kitty remote control to reload colors
   config_path = vim.fn.expand(config_path or "~/.config/kitty/prismpunk.conf")
+  
+  -- Try default socket first
+  ---@diagnostic disable-next-line: unused-local
+  local result = vim.fn.system("kitty @ set-colors --all " .. vim.fn.shellescape(config_path) .. " 2>/dev/null")
+  if vim.v.shell_error == 0 then return true end
 
-  local _ = vim.fn.system("kitty @ set-colors --all " .. vim.fn.shellescape(config_path))
+  -- Try with KITTY_LISTEN_ON if set
+  local listen_on = vim.env.KITTY_LISTEN_ON
+  if listen_on then
+    result = vim.fn.system("kitty @ --to " .. vim.fn.shellescape(listen_on) .. " set-colors --all " .. vim.fn.shellescape(config_path) .. " 2>/dev/null")
+    if vim.v.shell_error == 0 then return true end
+  end
+
+  -- Fallback: send SIGUSR1 to kitty processes
+  result = vim.fn.system("pkill -USR1 kitty 2>/dev/null")
   if vim.v.shell_error == 0 then return true end
 
   return false
@@ -224,8 +244,11 @@ M.auto_export = function(theme, config)
   if not config.terminal.enabled then return end
 
   local emulators = config.terminal.emulator
-
-  if type(emulators) == "string" then emulators = { emulators } end
+  
+  -- Support both single string and array of emulators
+  if type(emulators) == "string" then
+    emulators = {emulators}
+  end
 
   for _, emulator in ipairs(emulators) do
     local emulator_config = config.terminal[emulator]
@@ -238,10 +261,7 @@ M.auto_export = function(theme, config)
           if emulator_config.auto_reload then
             local reloaded = M.reload_ghostty()
             if not reloaded then
-              vim.notify(
-                "Prismpunk: Failed to reload Ghostty automatically (manual reload needed)",
-                vim.log.levels.WARN
-              )
+              vim.notify("Prismpunk: Failed to reload Ghostty automatically (manual reload needed)", vim.log.levels.WARN)
             end
           end
         end
@@ -252,16 +272,21 @@ M.auto_export = function(theme, config)
           if emulator_config.auto_reload then
             local reloaded = M.reload_alacritty()
             if not reloaded then
-              vim.notify(
-                "Prismpunk: Failed to reload Alacritty automatically (manual reload needed)",
-                vim.log.levels.WARN
-              )
+              vim.notify("Prismpunk: Failed to reload Alacritty automatically (manual reload needed)", vim.log.levels.WARN)
             end
           end
         end
       elseif emulator == "kitty" then
-        -- TODO: Implement Kitty export
-        vim.notify("Prismpunk: Kitty export not yet implemented", vim.log.levels.WARN)
+        local success = M.write_kitty_config(theme, emulator_config.config_path)
+
+        if success then
+          if emulator_config.auto_reload then
+            local reloaded = M.reload_kitty(emulator_config.config_path)
+            if not reloaded then
+              vim.notify("Prismpunk: Failed to reload Kitty automatically (manual reload needed)", vim.log.levels.WARN)
+            end
+          end
+        end
       end
     end
   end
@@ -327,6 +352,56 @@ M.save_alacritty = function(theme_name, output_path)
 
   local theme = require("prismpunk.palette").create_theme(theme_spec)
   local success = M.write_alacritty_config(theme, output_path)
+
+  if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
+end
+
+M.export_kitty = function(theme_name)
+  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
+  local ok, theme_spec = pcall(require, theme_path)
+
+  if not ok then
+    vim.notify("Failed to load theme: " .. theme_name, vim.log.levels.ERROR)
+    return nil
+  end
+
+  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  return M.export_kitty_conf(theme)
+end
+
+M.save_kitty = function(theme_name, output_path)
+  output_path = output_path or vim.fn.expand("~/.config/kitty/prismpunk.conf")
+
+  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
+  local ok, theme_spec = pcall(require, theme_path)
+
+  if not ok then
+    vim.notify("Failed to load theme: " .. theme_name, vim.log.levels.ERROR)
+    return
+  end
+
+  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local success = M.write_kitty_config(theme, output_path)
+
+  if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
+end
+
+M.save_kitty = function(theme_name, output_path)
+  output_path = output_path or vim.fn.expand("~/.config/kitty/prismpunk.conf")
+
+  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
+  local ok, theme_spec = pcall(require, theme_path)
+
+  if not ok then
+    vim.notify("Failed to load theme: " .. theme_name, vim.log.levels.ERROR)
+    return
+  end
+
+  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local success = M.write_kitty_config(theme, output_path)
 
   if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
 end
