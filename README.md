@@ -178,7 +178,11 @@ set -g mode-style "bg=colour3,fg=colour0"
 
 #### Zellij
 
-TODO
+Remove any color-codes in your `~/.config/zellij/config.kdl`, the append: `theme "prismpunk"` somewhere.
+
+Of course, touch a placeholder file at `~/.config/zellij/themes/` named `prismpunk.kdl`; or don't :) .
+
+> There is a problem... Zellij doesn't support hot-reload; you need to restart it & this action will definitely kill the soul of PrismPunk, chief. Let's wait what devs will do to this badboy.
 
 ## Configuration
 
