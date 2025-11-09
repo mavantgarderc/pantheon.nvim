@@ -56,11 +56,14 @@ require("pantheon").setup({
       Comment = { fg = "#custom-color" },  -- Override highlight groups
     },
   },
-  
   terminal = {
-    enabled = true,  -- Apply theme to terminal
-    emulator = "ghostty",  -- Focus on Ghostty
-    auto_reload = true,  -- Auto-reload for Ghostty
+    enabled = true,
+    emulator = { "ghostty" }, -- alacrity, kitty, zellij
+
+    ghostty = {
+      enabled = true,
+      auto_reload = true,
+      config_path = vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml"), -- colorscheme file path
   },
 })
 ```
