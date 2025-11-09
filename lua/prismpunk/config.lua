@@ -24,7 +24,7 @@ M.defaults = {
 
   terminal = {
     enabled = true,
-    emulator = { "ghostty", "alacritty", "kitty" },
+    emulator = { "ghostty", "alacritty", "kitty", "zellij" },
 
     ghostty = {
       enabled = true,
@@ -42,6 +42,12 @@ M.defaults = {
       enabled = true,
       auto_reload = true,
       config_path = vim.fn.expand("~/.config/alacritty/prismpunk.toml"),
+    },
+
+    zellij = {
+      enabled = true,
+      auto_reload = false,
+      config_path = vim.fn.expand("~/.config/zellij/themes/prismpunk.kdl"),
     },
   },
 }

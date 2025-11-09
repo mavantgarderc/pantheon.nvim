@@ -25,18 +25,18 @@ local hsluv = {}
 local hexChars = "0123456789abcdef"
 
 local function safe_atan2(y, x)
-    local atan2_func = rawget(math, "atan2")
-    if atan2_func then
-        return atan2_func(y, x)
-    else
-        local angle = math.atan(y / x)
-        if x < 0 then
-            angle = angle + math.pi
-        elseif y < 0 then
-            angle = angle + 2 * math.pi
-        end
-        return angle
+  local atan2_func = rawget(math, "atan2")
+  if atan2_func then
+    return atan2_func(y, x)
+  else
+    local angle = math.atan(y / x)
+    if x < 0 then
+      angle = angle + math.pi
+    elseif y < 0 then
+      angle = angle + 2 * math.pi
     end
+    return angle
+  end
 end
 
 local distance_line_from_origin = function(line) return math.abs(line.intercept) / math.sqrt((line.slope ^ 2) + 1) end
