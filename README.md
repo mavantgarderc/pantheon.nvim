@@ -36,36 +36,45 @@ use {
 ### Setup in your init.lua
 
 ```lua
-require("pantheon").setup({
-  theme = "lantern-corps/green",  -- Choose your theme
-  
-  -- Optional: Style customization
-  styles = {
-    comments = { italic = true },
-    keywords = { bold = false },
-    functions = { bold = false },
-    variables = {},  -- Added for variable styles
-  },
-  
-  -- Optional: Color overrides
-  overrides = {
-    colors = {
-      base0B = "#custom-color",  -- Override specific Base16 colors
-    },
-    highlights = {
-      Comment = { fg = "#custom-color" },  -- Override highlight groups
-    },
-  },
-  terminal = {
-    enabled = true,
-    emulator = { "ghostty" }, -- alacrity, kitty, zellij
+return {
+  "mavantgarderc/prismpunk.nvim",
+  lazy = false,
+  priority = 1000,
 
-    ghostty = {
-      enabled = true,
-      auto_reload = true,
-      config_path = vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml"), -- colorscheme file path
-  },
-})
+  config = function()
+    require("pantheon").setup({
+      theme = "lantern-corps/green", -- Choose your theme
+
+      -- Optional: Style customization
+      styles = {
+        comments = { italic = true },
+        keywords = { bold = false },
+        functions = { bold = false },
+        variables = {}, -- Added for variable styles
+      },
+
+      -- Optional: Color overrides
+      overrides = {
+        colors = {
+          base0B = "#custom-color", -- Override specific Base16 colors
+        },
+        highlights = {
+          Comment = { fg = "#custom-color" }, -- Override highlight groups
+        },
+      },
+      terminal = {
+        enabled = true,
+        emulator = { "ghostty" }, -- alacrity, kitty, zellij
+
+        ghostty = {
+          enabled = true,
+          auto_reload = true,
+          config_path = vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml"), -- colorscheme file path
+        },
+      },
+    })
+  end,
+}
 ```
 
 ### Theme Selection Formats
