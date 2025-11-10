@@ -1,3 +1,1 @@
-lua << EOF
-  require("prismpunk").setup({ theme = "kanagawa/paper-crimsonnight" })
-EOF
+lua require("prismpunk").setup({ theme = "kanagawa/paper-crimsonnight" })
