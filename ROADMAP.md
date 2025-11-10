@@ -30,31 +30,31 @@
 
     - [ ] Bat Family
         - [ ] Azrael
-        - [X] Alfred Pennyworth
+        - [ ] Alfred Pennyworth
         - [ ] Barbara Gordon (Oracle)
-        - [X] Batgirl
+        - [ ] Batgirl
         - [ ] Batman 1000000
-        - [X] Batman Beyond
-        - [X] Batman Classic
-        - [X] Batman, Dark Knight
-        - [X] Batwing
+        - [ ] Batman Beyond
+        - [ ] Batman Classic
+        - [ ] Batman, Dark Knight
+        - [ ] Batwing
         - [ ] Batwoman
-        - [X] Bruce Wayne
+        - [ ] Bruce Wayne
         - [ ] Blackbat (Orphan)
-        - [X] Cat Woman
+        - [ ] Cat Woman
         - [ ] Cassandra Cane
         - [ ] Damian Wayne
         - [ ] Dick Grayson
         - [ ] Helena Bertinelli
-        - [X] Huntress
+        - [ ] Huntress
         - [ ] James Gordon
         - [ ] Jason Todd
-        - [X] Lucious Fox
-        - [X] Nightwing
-        - [X] Red Hood
-        - [X] Red Robin
-        - [X] Robin
-        - [X] Selina Kyle
+        - [ ] Lucious Fox
+        - [ ] Nightwing
+        - [ ] Red Hood
+        - [ ] Red Robin
+        - [ ] Robin
+        - [ ] Selina Kyle
         - [ ] Tim Drake
 
     - [ ] Birds of Prey
@@ -134,70 +134,70 @@
 
     - [ ] Justice League
         - [ ] Adam Strange
-        - [X] Aquaman
-        - [X] Batman
-        - [X] Black Canary
-        - [X] Blue Beetle
-        - [X] Booster Gold
-        - [X] Captain Atom
+        - [ ] Aquaman
+        - [ ] Batman
+        - [ ] Black Canary
+        - [ ] Blue Beetle
+        - [ ] Booster Gold
+        - [ ] Captain Atom
         - [ ] Constantine
-        - [X] Cyborg
-        - [X] Dr. Fate
+        - [ ] Cyborg
+        - [ ] Dr. Fate
         - [ ] Etrigan
         - [ ] Firestorm
-        - [X] Flash
-        - [X] Green Arrow
+        - [ ] Flash
+        - [ ] Green Arrow
         - [ ] Green-Lantern (Guy Gardner)
         - [ ] Green-Lantern (Hal Jordan)
         - [ ] Green-Lantern (Jessica Cruiz)
-        - [X] Green-Lantern (John Stewart)
+        - [ ] Green-Lantern (John Stewart)
         - [ ] Green-Lantern (Kyle Raner)
-        - [X] Hawkgirl
-        - [X] Hawkman
+        - [ ] Hawkgirl
+        - [ ] Hawkman
         - [ ] Lobo
-        - [X] Martian Manhunter
+        - [ ] Martian Manhunter
         - [ ] Mary Marvel
         - [ ] Mera
         - [ ] Mr. Terrific
         - [ ] Red Tornado
         - [ ] Shazam
         - [ ] Spectre
-        - [X] Superman
-        - [X] Wonder Woman
+        - [ ] Superman
+        - [ ] Wonder Woman
         - [ ] Zatanna
 
-    - [X] Lantern Corps
-        - [X] Black
-        - [X] Blue
-        - [X] Gold
-        - [X] Green
-        - [X] Indigo
-        - [X] Orange
-        - [X] Phantom
-            - [X] Balanced
-            - [X] Chaos
-            - [X] Corrupted
-        - [X] Red
-        - [X] Ultra-Violet
-            - [X] Veiled
-            - [X] Spectral
-        - [X] Violet
-        - [X] White
-        - [X] Yellow
+    - [ ] Lantern Corps
+        - [ ] Black
+        - [ ] Blue
+        - [ ] Gold
+        - [ ] Green
+        - [ ] Indigo
+        - [ ] Orange
+        - [ ] Phantom
+            - [ ] Balanced
+            - [ ] Chaos
+            - [ ] Corrupted
+        - [ ] Red
+        - [ ] Ultra-Violet
+            - [ ] Veiled
+            - [ ] Spectral
+        - [ ] Violet
+        - [ ] White
+        - [ ] Yellow
 
     - [ ] Lanterns
         - [ ] First Lantern
         - [ ] 
 
     - [ ] League of Assasins
-        - [X] Athanasia Al Ghul
-        - [X] Bane
+        - [ ] Athanasia Al Ghul
+        - [ ] Bane
         - [ ] Black Spider
         - [ ] Blank
         - [ ] Lady Shiva
         - [ ] Nyssa Raatko
-        - [X] Ra's Al Ghul
-        - [X] Talia Al Ghul
+        - [ ] Ra's Al Ghul
+        - [ ] Talia Al Ghul
 
     - [ ] Titans
         - [ ] Aquagirl
@@ -287,7 +287,7 @@
         - [ ] Star Lord
         - [ ] Yondu
 
-    - [ ] X-Men
+    - [ ]  -Men
         - [ ] Rogue
 
 - [ ] Alternative Comics
@@ -383,13 +383,13 @@
 
 - [ ] Kanagawa
     - [ ] Paper
-        - [X] Crimson Night
-        - [X] Dawn
-        - [X] Eclipse
-        - [X] Nightfall
-        - [X] Obsidian
-        - [X] Storm
-        - [X] Sunset
+        - [ ] Crimson Night
+        - [ ] Dawn
+        - [ ] Eclipse
+        - [ ] Nightfall
+        - [ ] Obsidian
+        - [ ] Storm
+        - [ ] Sunset
 
 - [ ] Gruvbox
     - [ ] gruvbox dark
