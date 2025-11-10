@@ -5,10 +5,6 @@ local theme_cache = {}
 local function get_theme_path(universe, variant)
   local universe_map = {
     ["lantern-corps"] = "dc.lantern-corps",
-    ["superman"] = "dc.superman",
-    ["spider-verse"] = "marvel.spider-verse",
-    ["justice-league"] = "dc.justice-league",
-    ["bat-family"] = "dc.bat-family",
     ["kanagawa"] = "kanagawa",
   }
 
@@ -68,7 +64,7 @@ M.load = function(theme_spec, force_reload)
     once = true,
   })
 
-  vim.notify("Prismpunk: Loaded " .. theme.name, vim.log.levels.INFO)
+  -- vim.notify("Prismpunk: Loaded " .. theme.name, vim.log.levels.INFO)
 end
 
 M.clear_cache = function()

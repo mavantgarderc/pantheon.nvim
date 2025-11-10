@@ -1,3 +1,1 @@
-lua << EOF
-  require("prismpunk").setup()
-EOF
+lua require("prismpunk").setup()
