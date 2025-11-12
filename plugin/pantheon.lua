@@ -1,6 +1,6 @@
 vim.api.nvim_create_user_command("PrismpunkExportGhostty", function(opts)
   local theme = opts.args ~= "" and opts.args or _G.prismpunk_config.theme
-  require("prismpunk.core.terminal").save_ghostty(theme)
+  require("prismpunk.core.terminals.init").save_ghostty(theme)
 end, {
   nargs = "?",
   desc = "Export current theme to Ghostty config",
@@ -8,7 +8,7 @@ end, {
 
 vim.api.nvim_create_user_command("PantheonPrintPalette", function(opts)
   local theme = opts.args ~= "" and opts.args or _G.prismpunk_config.theme
-  require("prismpunk.core.terminal").print_palette(theme)
+  require("prismpunk.core.terminals.init").print_palette(theme)
 end, {
   nargs = "?",
   desc = "Print theme color palette",

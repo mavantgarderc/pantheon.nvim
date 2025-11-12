@@ -3,7 +3,7 @@ local M = {}
 local punkpalette = require("prismpunk.palette")
 local punkconf = require("prismpunk.config")
 local punklights = require("prismpunk.core.highlights")
-local punkterm = require("prismpunk.core.terminal")
+local punkterm = require("prismpunk.core.terminals.init")
 
 local theme_cache = {}
 
