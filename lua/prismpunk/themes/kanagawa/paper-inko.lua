@@ -1,8 +1,3 @@
--- return {
---   name = "Kanagawa Paper Dragon",
---   author = "Port from kanagawa-paper",
---   description = "Exact port of kanagawa-paper dragon theme",
-
 local color = require("prismpunk.utils.color")
 
 local palette = {

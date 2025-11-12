@@ -1,4 +1,4 @@
-# Pantheon.nvim
+# PrismPunk.nvim
 
 A Neovim colorscheme plugin inspired by legendary characters from DC, Marvel, mythology, and cinema.
 
@@ -8,10 +8,10 @@ A Neovim colorscheme plugin inspired by legendary characters from DC, Marvel, my
 
 ```lua
 {
-  "mavantgarderc/pantheon.nvim",
+  "mavantgarderc/prismpunk.nvim",
   priority = 1000,
   config = function()
-    require("pantheon").setup({
+    require("prismpunk").setup({
       theme = "justice-league/wonder-woman",
     })
   end,
@@ -22,9 +22,9 @@ A Neovim colorscheme plugin inspired by legendary characters from DC, Marvel, my
 
 ```lua
 use {
-  "mavantgarderc/pantheon.nvim",
+  "mavantgarderc/prismpunk.nvim",
   config = function()
-    require("pantheon").setup({
+    require("prismpunk").setup({
       theme = "justice-league/wonder-woman",
     })
   end,
@@ -42,7 +42,7 @@ return {
   priority = 1000,
 
   config = function()
-    require("pantheon").setup({
+    require("prismpunk").setup({
       theme = "lantern-corps/green", -- Choose your theme
 
       -- Optional: Style customization
@@ -87,13 +87,13 @@ All of these work:
 
 ### Switch Themes Dynamically
 
-- In Neovim command mode: `:lua require("pantheon").load("lantern-corps/yellow")`
-- Or use the traditional way: `:colorscheme pantheon`
+- In Neovim command mode: `:lua require("prismpunk").load("lantern-corps/yellow")`
+- Or use the traditional way: `:colorscheme prismpunk`
 
 ### Commands
-- `:PantheonExportGhostty`: Export current theme to Ghostty config.
-- `:PantheonReload`: Clear cache and reload the current theme (for live dev changes).
-- `:PantheonListThemes`: List all available themes.
+- `:PrismpunkExportGhostty`: Export current theme to Ghostty config.
+- `:PrismpunkReload`: Clear cache and reload the current theme (for live dev changes).
+- `:PrismpunkListThemes`: List all available themes.
 - More commands coming soon for preview and random selection.
 
 ## Features
@@ -246,8 +246,8 @@ require("prismpunk").setup({
 
 ```lua
 -- Clear cache and reload theme
-require("pantheon.loader").clear_cache()
-require("pantheon").load("lantern-corps/green")
+require("prismpunk.loader").clear_cache()
+require("prismpunk").load("lantern-corps/green")
 ```
 
 ## Contributing

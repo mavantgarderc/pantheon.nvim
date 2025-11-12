@@ -22,7 +22,7 @@ M.apply = function(theme, config)
   local styles = config.styles
 
   -- ============================================================================
-  -- EDITOR UI (Expanded for full coverage)
+  -- EDITOR UI
   -- ============================================================================
 
   hl("Normal", { fg = s.ui.fg, bg = s.ui.bg, ctermfg = 15, ctermbg = 0 })
@@ -149,7 +149,7 @@ M.apply = function(theme, config)
   hl("SpellLocal", { sp = s.diag.hint, undercurl = true })
 
   -- ============================================================================
-  -- SYNTAX HIGHLIGHTING (Mostly unchanged, added a few)
+  -- SYNTAX HIGHLIGHTING
   -- ============================================================================
 
   hl("Comment", vim.tbl_extend("force", { fg = s.syn.comment }, styles.comments))
@@ -195,7 +195,7 @@ M.apply = function(theme, config)
   hl("Todo", { fg = s.syn.special, bold = true })
 
   -- ============================================================================
-  -- DIAGNOSTICS (Expanded with virtual text/lines)
+  -- DIAGNOSTICS
   -- ============================================================================
 
   hl("DiagnosticError", { fg = s.diag.error })
@@ -228,7 +228,7 @@ M.apply = function(theme, config)
   hl("DiagnosticSignOk", { fg = s.syn.type })
 
   -- ============================================================================
-  -- GIT & DIFF (Unchanged, but added more GitSigns)
+  -- GIT & DIFF
   -- ============================================================================
 
   hl("DiffAdd", { fg = s.diff.add, bg = s.ui.bg })
@@ -335,7 +335,7 @@ M.apply = function(theme, config)
   hl("@lsp.mod.async", { fg = s.syn.keyword })
 
   -- ============================================================================
-  -- COMMON PLUGINS (Conditional to avoid errors if not installed)
+  -- COMMON PLUGINS
   -- ============================================================================
 
   -- Telescope

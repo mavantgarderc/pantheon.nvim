@@ -197,7 +197,7 @@ end
 return {
   name = "Kanagawa Paper – Edo",
   author = "PrismPunk.nvim",
-  description = "Dark ink and soft paper tones inspired by Kanagawa-Paper, translated into Pantheon format.",
+  description = "Dark ink and soft paper tones inspired by Kanagawa-Paper, translated into PrismPunk format.",
 
   base16 = {
     base00 = palette.sumiInk0,
