@@ -1,85 +1,82 @@
--- lua/prismpunk/loader.lua
-local palette_m = require("prismpunk.palette")
-local log = require("prismpunk.utils.log")
+local M = {}
 
-local M = {
-  cache = {
-    themes = {},
-    palettes = {},
-    modules = {},
-  },
-  opts = {},
-}
+local punkpalette = require("prismpunk.palette")
+local punkconf = require("prismpunk.config")
+local punklights = require("prismpunk.core.highlights")
+local punkterm = require("prismpunk.core.terminals.init")
 
-local function normalize(id)
-  return tostring(id):gsub("%.", "/")
+local theme_cache = {}
+
+local function get_theme_path(universe, variant)
+  local universe_map = {
+    ["lantern-corps"] = "dc.lantern-corps",
+    ["kanagawa"] = "kanagawa",
+  }
+
+  local mapped = universe_map[universe]
+  if not mapped then
+    error("Unknown universe: " .. universe .. "\nAvailable: " .. vim.inspect(vim.tbl_keys(universe_map)))
+  end
+
+  return "prismpunk.themes." .. mapped .. "." .. variant
 end
 
-local function modpath_for_theme(id)
-  local n = normalize(id)
-  return "prismpunk.themes." .. n:gsub("/", ".")
+local function load_theme_module(universe, variant)
+  local cache_key = universe .. "/" .. variant
+
+  if theme_cache[cache_key] then return theme_cache[cache_key] end
+
+  local theme_path = get_theme_path(universe, variant)
+  local ok, theme_spec = pcall(require, theme_path)
+
+  if not ok then error("Failed to load theme: " .. cache_key .. "\n" .. tostring(theme_spec)) end
+
+  local theme = punkpalette.create_theme(theme_spec)
+
+  theme_cache[cache_key] = theme
+  return theme
 end
 
-local function modpath_for_palette(id)
-  local n = normalize(id)
-  return "prismpunk.palettes." .. n:gsub("/", ".")
+M.load = function(theme_spec, force_reload)
+  local universe, variant = punkconf.parse_theme(theme_spec)
+  local config = _G.prismpunk_config or punkconf.defaults
+
+  if force_reload then theme_cache[universe .. "/" .. variant] = nil end
+
+  local theme = load_theme_module(universe, variant)
+
+  if config.overrides.colors then theme.colors = vim.tbl_deep_extend("force", theme.colors, config.overrides.colors) end
+
+  vim.cmd("hi clear")
+  if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
+
+  vim.g.colors_name = "prismpunk" -- luacheck: ignore
+  vim.o.termguicolors = true -- luacheck: ignore
+
+  punklights.apply(theme, config)
+
+  if config.terminal.enabled then
+    punkterm.apply(theme)
+    punkterm.auto_export(theme, config)
+  end
+
+  vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+      vim.cmd("hi clear")
+      if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
+      punklights.apply(theme, config)
+    end,
+    once = true,
+  })
+
+  -- vim.notify("Prismpunk: Loaded " .. theme.name, vim.log.levels.INFO)
 end
 
---- Initialize loader (clear caches optionally)
-function M.init(opts)
-  M.opts = opts or {}
-  vim.g.prismpunk_cache = vim.g.prismpunk_cache or {}
-end
-
---- Load theme & palette by theme id.
---- Returns palette_table, theme_module_or_table
---- @param theme_id string
---- @param opts table|nil
-function M.load(theme_id, opts)
-  opts = opts or {}
-  if not theme_id or theme_id == "" then error("prismpunk.loader.load: theme_id required") end
-
-  local theme_mod = modpath_for_theme(theme_id)
-  local palette_mod = nil
-  local theme_obj
-
-  if opts.reload then
-    package.loaded[theme_mod] = nil
+M.clear_cache = function()
+  theme_cache = {}
+  for key in pairs(package.loaded) do
+    if key:match("^prismpunk%.") then package.loaded[key] = nil end
   end
-
-  local ok, res = pcall(require, theme_mod)
-  if not ok then
-    error(("prismpunk: theme '%s' not found (%s)"):format(theme_id, tostring(res)))
-  end
-  theme_obj = res
-
-  -- determine palette id
-  local palette_id = nil
-  if type(theme_obj) == "table" then
-    -- theme can export palette id in multiple ways: palette, palette_id, or require palette module itself
-    palette_id = theme_obj.palette or theme_obj.palette_id or theme_obj._palette_id
-  end
-  if not palette_id and type(theme_obj) == "table" and theme_obj.get then
-    -- try to load palette from theme's required palette module if it required one internally
-    -- best-effort: many theme files will `local palette = require('prismpunk.palettes.dc....')` themselves
-    -- we can't reliably detect that, so fallback to error if palette is missing and theme.get expects one.
-  end
-
-  if palette_id then
-    if opts.reload then package.loaded[modpath_for_palette(palette_id)] = nil end
-    local palette_ok, palette_tbl = pcall(palette_m.get_palette, palette_id)
-    if not palette_ok then
-      error(("prismpunk: palette '%s' failed to load (%s)"):format(tostring(palette_id), tostring(palette_tbl)))
-    end
-    -- cache
-    vim.g.prismpunk_cache = vim.g.prismpunk_cache or {}
-    vim.g.prismpunk_cache.palettes = vim.g.prismpunk_cache.palettes or {}
-    vim.g.prismpunk_cache.palettes[palette_id] = palette_tbl
-    return palette_tbl, theme_obj
-  end
-
-  -- If theme didn't export palette_id, return nil palette and theme_obj (theme might embed palette)
-  return nil, theme_obj
 end
 
 return M
