@@ -1,5 +1,8 @@
 local M = {}
 
+local punkpalette = require("prismpunk.palette")
+local punkconf = require("prismpunk.config")
+
 M.apply = function(theme)
   local c = theme.colors
 
@@ -346,7 +349,7 @@ M.auto_export = function(theme, config)
 end
 
 M.export_ghostty = function(theme_name)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -355,14 +358,14 @@ M.export_ghostty = function(theme_name)
     return nil
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   return M.export_ghostty_toml(theme)
 end
 
 M.save_ghostty = function(theme_name, output_path)
   output_path = output_path or vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml")
 
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -371,14 +374,14 @@ M.save_ghostty = function(theme_name, output_path)
     return
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   local success = M.write_ghostty_config(theme, output_path)
 
   if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
 end
 
 M.export_alacritty = function(theme_name)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -387,14 +390,14 @@ M.export_alacritty = function(theme_name)
     return nil
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   return M.export_alacritty_toml(theme)
 end
 
 M.save_alacritty = function(theme_name, output_path)
   output_path = output_path or vim.fn.expand("~/.config/alacritty/prismpunk.toml")
 
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -403,14 +406,14 @@ M.save_alacritty = function(theme_name, output_path)
     return
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   local success = M.write_alacritty_config(theme, output_path)
 
   if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
 end
 
 M.export_kitty = function(theme_name)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -419,14 +422,14 @@ M.export_kitty = function(theme_name)
     return nil
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   return M.export_kitty_conf(theme)
 end
 
 M.save_kitty = function(theme_name, output_path)
   output_path = output_path or vim.fn.expand("~/.config/kitty/prismpunk.conf")
 
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -435,14 +438,14 @@ M.save_kitty = function(theme_name, output_path)
     return
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   local success = M.write_kitty_config(theme, output_path)
 
   if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
 end
 
 M.export_zellij = function(theme_name)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -451,14 +454,14 @@ M.export_zellij = function(theme_name)
     return nil
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   return M.export_zellij_kdl(theme)
 end
 
 M.save_zellij = function(theme_name, output_path)
   output_path = output_path or vim.fn.expand("~/.config/zellij/themes/prismpunk.kdl")
 
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
@@ -467,20 +470,20 @@ M.save_zellij = function(theme_name, output_path)
     return
   end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   local success = M.write_zellij_config(theme, output_path)
 
   if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
 end
 
 M.get_palette = function(theme_name)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_name)
+  local universe, variant = punkconf.parse_theme(theme_name)
   local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
   local ok, theme_spec = pcall(require, theme_path)
 
   if not ok then return nil end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
   return {
     base16 = theme.colors,
     palette = theme.palette,

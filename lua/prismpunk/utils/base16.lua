@@ -1,5 +1,7 @@
 local M = {}
 
+local colors_util = require("prismpunk.utils.color")
+
 M.definitions = {
   base00 = { name = "Default Background", usage = "Main background color" },
   base01 = { name = "Lighter Background", usage = "Statusline, line numbers, selection background" },
@@ -55,8 +57,6 @@ M.generate = function(opts)
   opts = opts or {}
 
   if not opts.bg or not opts.fg or not opts.accent then error("base16.generate requires: bg, fg, accent") end
-
-  local colors_util = require("prismpunk.utils.color")
 
   local base00 = opts.bg
   local base01 = colors_util.lighten(base00, 0.05)

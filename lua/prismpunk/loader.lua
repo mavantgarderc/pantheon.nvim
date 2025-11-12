@@ -1,5 +1,10 @@
 local M = {}
 
+local punkpalette = require("prismpunk.palette")
+local punkconf = require("prismpunk.config")
+local punklights = require("prismpunk.core.highlights")
+local punkterm = require("prismpunk.core.terminal")
+
 local theme_cache = {}
 
 local function get_theme_path(universe, variant)
@@ -26,15 +31,15 @@ local function load_theme_module(universe, variant)
 
   if not ok then error("Failed to load theme: " .. cache_key .. "\n" .. tostring(theme_spec)) end
 
-  local theme = require("prismpunk.palette").create_theme(theme_spec)
+  local theme = punkpalette.create_theme(theme_spec)
 
   theme_cache[cache_key] = theme
   return theme
 end
 
 M.load = function(theme_spec, force_reload)
-  local universe, variant = require("prismpunk.config").parse_theme(theme_spec)
-  local config = _G.prismpunk_config or require("prismpunk.config").defaults
+  local universe, variant = punkconf.parse_theme(theme_spec)
+  local config = _G.prismpunk_config or punkconf.defaults
 
   if force_reload then theme_cache[universe .. "/" .. variant] = nil end
 
@@ -48,18 +53,18 @@ M.load = function(theme_spec, force_reload)
   vim.g.colors_name = "prismpunk" -- luacheck: ignore
   vim.o.termguicolors = true -- luacheck: ignore
 
-  require("prismpunk.core.highlights").apply(theme, config)
+  punklights.apply(theme, config)
 
   if config.terminal.enabled then
-    require("prismpunk.core.terminal").apply(theme)
-    require("prismpunk.core.terminal").auto_export(theme, config)
+    punkterm.apply(theme)
+    punkterm.auto_export(theme, config)
   end
 
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
       vim.cmd("hi clear")
       if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
-      require("prismpunk.core.highlights").apply(theme, config)
+      punklights.apply(theme, config)
     end,
     once = true,
   })

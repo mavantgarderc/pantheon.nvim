@@ -1,13 +1,16 @@
 local M = {}
 
+local punkconf = require("prismpunk.config")
+local punkload = require("prismpunk.loader")
+
 M.setup = function(user_config)
-  local config = require("prismpunk.config").setup(user_config or {})
+  local config = punkconf.setup(user_config or {})
 
   _G.prismpunk_config = config
 
-  require("prismpunk.loader").load(config.theme)
+  punkload.load(config.theme)
 end
 
-M.load = function(theme_name) require("prismpunk.loader").load(theme_name) end
+M.load = function(theme_name) punkload.load(theme_name) end
 
 return M

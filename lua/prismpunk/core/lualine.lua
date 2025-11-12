@@ -1,10 +1,11 @@
 local M = {}
 
+local punkconf = require("prismpunk.config")
+local punkload = require("prismpunk.loader")
+
 function M.get(theme_spec)
-  local config = require("prismpunk.config")
-  local universe, variant = config.parse_theme(theme_spec)
-  local loader = require("prismpunk.loader")
-  local theme = loader.load_theme_module(universe, variant)
+  local universe, variant = punkconf.parse_theme(theme_spec)
+  local theme = punkload.load_theme_module(universe, variant)
 
   local s = theme.semantic
 
