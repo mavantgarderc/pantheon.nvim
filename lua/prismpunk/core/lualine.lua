@@ -1,95 +1,23 @@
+-- lua/prismpunk/core/lualine.lua
+local palette_m = require("prismpunk.palette")
+
 local M = {}
 
-local punkconf = require("prismpunk.config")
-local punkload = require("prismpunk.loader")
-
-function M.get(theme_spec)
-  local universe, variant = punkconf.parse_theme(theme_spec)
-  local theme = punkload.load_theme_module(universe, variant)
-
-  local s = theme.semantic
-
-  local colors = {
-    bg = s.ui.bg_dim,
-    fg = s.ui.fg,
-    accent = s.syn.type,
-    error = s.diag.error,
-    warn = s.diag.warning,
-    info = s.diag.info,
-    hint = s.diag.hint,
-    added = s.git.add,
-    modified = s.git.change,
-    removed = s.git.delete,
-  }
-
-  return {
-    normal = {
-      a = { fg = colors.bg, bg = colors.accent, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.accent },
-    },
-    insert = {
-      a = { fg = colors.bg, bg = colors.info, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.info },
-    },
-    visual = {
-      a = { fg = colors.bg, bg = colors.warn, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.warn },
-    },
-    replace = {
-      a = { fg = colors.bg, bg = colors.error, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.error },
-    },
-    command = {
-      a = { fg = colors.bg, bg = colors.hint, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.hint },
-    },
-    terminal = {
-      a = { fg = colors.bg, bg = colors.modified, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.bg, bg = colors.modified },
-    },
-    inactive = {
-      a = { fg = colors.fg, bg = colors.bg, gui = "bold" },
-      b = { fg = colors.fg, bg = colors.bg },
-      c = { fg = colors.fg, bg = colors.bg },
-      x = { fg = colors.fg, bg = colors.bg },
-      y = { fg = colors.fg, bg = colors.bg },
-      z = { fg = colors.fg, bg = colors.bg },
-    },
-  }
-end
-
-function M.setup()
-  if package.loaded["lualine"] then
-    require("lualine").setup({
-      options = {
-        theme = M.get("lantern-corps/green"),
-      },
-    })
+--- Return a lualine theme table based on palette or theme.term
+--- @param palette_or_theme table|string
+function M.get_theme_for(palette_or_theme)
+  local p = palette_or_theme
+  if type(p) == "string" then
+    p = palette_m.get_palette(p)
   end
+  -- try to pick semantic slots; fallback safe indices/keys
+  return {
+    normal = { a = { fg = p.fg_lightest or p[2], bg = p.bg_darkest or p[1] }, b = { fg = p.fg_mid or p[3], bg = p.bg_dark or p[2] } },
+    insert = { a = { fg = p.bg_darkest or p[1], bg = p.crystalWill or p[4] } },
+    visual = { a = { fg = p.bg_darkest or p[1], bg = p.crystalRage or p[5] } },
+    replace = { a = { fg = p.bg_darkest or p[1], bg = p.crystalRage or p[6] } },
+    inactive = { a = { fg = p.fg_mid or p[8], bg = p.bg_darkest or p[1] } },
+  }
 end
 
 return M
