@@ -56,7 +56,6 @@ function M.apply(c, config)
   hl("Ignore", { fg = s.ui.bg })
   hl("Error", { fg = s.diag.error })
   hl("Todo", { fg = s.syn.special, bold = true })
-
 end
 
 return M

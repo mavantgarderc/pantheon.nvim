@@ -37,7 +37,6 @@ function M.normalize_theme(theme, config)
     if theme.semantic then print("Semantic keys: " .. vim.inspect(vim.tbl_keys(theme.semantic))) end
     error("Theme missing semantic color mappings (syn, ui, diag, git, diff)")
   end
-
 end
 
 ---@param theme table Theme colors
@@ -78,7 +77,6 @@ function M.apply(theme, config)
       hl(group, opts)
     end
   end
-
 end
 
 return M

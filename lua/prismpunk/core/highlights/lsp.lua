@@ -53,7 +53,6 @@ function M.apply(c, config)
   hl("@lsp.mod.deprecated", { strikethrough = true })
   hl("@lsp.mod.readonly", { fg = s.syn.constant })
   hl("@lsp.mod.async", { fg = s.syn.keyword })
-
 end
 
 return M

@@ -86,9 +86,7 @@ end
 
 ---@param theme_spec? string Optional theme spec (defaults to config theme)
 function M.setup(theme_spec)
-  if not package.loaded["lualine"] then
-    return
-  end
+  if not package.loaded["lualine"] then return end
 
   theme_spec = theme_spec or (_G.prismpunk_config and _G.prismpunk_config.theme) or "lantern-corps/phantom-balanced"
 

@@ -124,7 +124,6 @@ function M.apply(c, config)
   hl("SpellCap", { sp = s.diag.warning, undercurl = true })
   hl("SpellRare", { sp = s.diag.info, undercurl = true })
   hl("SpellLocal", { sp = s.diag.hint, undercurl = true })
-
 end
 
 return M

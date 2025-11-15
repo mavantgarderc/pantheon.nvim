@@ -65,7 +65,6 @@ function M.apply(c, config)
   hl("@error", { fg = s.diag.error })
   hl("@todo", { fg = s.syn.special })
   hl("@none", { fg = "NONE" })
-
 end
 
 return M

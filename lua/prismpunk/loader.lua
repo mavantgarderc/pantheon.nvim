@@ -37,7 +37,6 @@ local function load_theme_module(universe, variant)
   return theme
 end
 
-
 M.load_theme_module = load_theme_module
 
 M.load = function(theme_spec, force_reload)
@@ -67,13 +66,11 @@ M.load = function(theme_spec, force_reload)
     vim.schedule(function()
       local punklualine = require("prismpunk.core.lualine")
       local ok, lualine_theme = pcall(punklualine.get, theme_spec)
-      if ok then
-        require("lualine").setup({
-          options = {
-            theme = lualine_theme,
-          },
-        })
-      end
+      if ok then require("lualine").setup({
+        options = {
+          theme = lualine_theme,
+        },
+      }) end
     end)
   end
 
@@ -85,7 +82,6 @@ M.load = function(theme_spec, force_reload)
     end,
     once = true,
   })
-
 end
 
 M.clear_cache = function()
