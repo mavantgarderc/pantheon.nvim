@@ -50,22 +50,4 @@ return {
   accent_blue = "#8C8CAC",
   accent_violet = "#9C8CAC",
   accent_aqua = "#8CACAC",
-
-  -- Base16 mapping (for compatibility)
-  base00 = "#0A0A0A",
-  base01 = "#1A1A1A",
-  base02 = "#2A2A2A",
-  base03 = "#3A3A3A",
-  base04 = "#4A4A4A",
-  base05 = "#787878",
-  base06 = "#D8D8D8",
-  base07 = "#B8B8B8",
-  base08 = "#AC8C8C",
-  base09 = "#AC9C8C",
-  base0A = "#ACAC8C",
-  base0B = "#8CAC8C",
-  base0C = "#6C8C8C",
-  base0D = "#8C8C8C",
-  base0E = "#4C4C4C",
-  base0F = "#ACACAC",
 }
