@@ -37,6 +37,9 @@ local function load_theme_module(universe, variant)
   return theme
 end
 
+
+M.load_theme_module = load_theme_module
+
 M.load = function(theme_spec, force_reload)
   local universe, variant = punkconf.parse_theme(theme_spec)
   local config = _G.prismpunk_config or punkconf.defaults
@@ -48,8 +51,8 @@ M.load = function(theme_spec, force_reload)
   if config.overrides.colors then theme.colors = vim.tbl_deep_extend("force", theme.colors, config.overrides.colors) end
 
   vim.cmd("hi clear")
-  if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
 
+  if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
   vim.g.colors_name = "prismpunk" -- luacheck: ignore
   vim.o.termguicolors = true -- luacheck: ignore
 
@@ -58,6 +61,20 @@ M.load = function(theme_spec, force_reload)
   if config.terminal.enabled then
     punkterm.apply(theme)
     punkterm.auto_export(theme, config)
+  end
+
+  if package.loaded["lualine"] then
+    vim.schedule(function()
+      local punklualine = require("prismpunk.core.lualine")
+      local ok, lualine_theme = pcall(punklualine.get, theme_spec)
+      if ok then
+        require("lualine").setup({
+          options = {
+            theme = lualine_theme,
+          },
+        })
+      end
+    end)
   end
 
   vim.api.nvim_create_autocmd("VimEnter", {
@@ -69,7 +86,6 @@ M.load = function(theme_spec, force_reload)
     once = true,
   })
 
-  -- vim.notify("Prismpunk: Loaded " .. theme.name, vim.log.levels.INFO)
 end
 
 M.clear_cache = function()

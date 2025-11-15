@@ -3,6 +3,8 @@ local M = {}
 local punkconf = require("prismpunk.config")
 local punkload = require("prismpunk.loader")
 
+---@param theme_spec string Theme specification
+---@return table Lualine theme configuration
 function M.get(theme_spec)
   local universe, variant = punkconf.parse_theme(theme_spec)
   local theme = punkload.load_theme_module(universe, variant)
@@ -82,14 +84,19 @@ function M.get(theme_spec)
   }
 end
 
-function M.setup()
-  if package.loaded["lualine"] then
-    require("lualine").setup({
-      options = {
-        theme = M.get("lantern-corps/green"),
-      },
-    })
+---@param theme_spec? string Optional theme spec (defaults to config theme)
+function M.setup(theme_spec)
+  if not package.loaded["lualine"] then
+    return
   end
+
+  theme_spec = theme_spec or (_G.prismpunk_config and _G.prismpunk_config.theme) or "lantern-corps/phantom-balanced"
+
+  require("lualine").setup({
+    options = {
+      theme = M.get(theme_spec),
+    },
+  })
 end
 
 return M
