@@ -13,15 +13,47 @@ M.create_theme = function(spec)
     description = spec.description or "",
   }
 
-  if spec.semantic then
-    theme.semantic = spec.semantic
+  if spec.get then
+    local opts = {}
+    local semantic_data = spec.get(opts, theme.palette)
+    theme.semantic = M.ensure_complete_semantic(semantic_data, theme.colors)
+  elseif spec.semantic then
+    theme.semantic = M.ensure_complete_semantic(spec.semantic, theme.colors)
   elseif next(spec.palette) then
-    theme.semantic = M.generate_semantic(spec.palette, spec.base16)
+    local palette_semantic = M.generate_semantic(spec.palette, spec.base16)
+    theme.semantic = M.ensure_complete_semantic(palette_semantic, theme.colors)
   else
-    theme.semantic = M.base16_to_semantic(spec.base16)
+    theme.semantic = M.ensure_complete_semantic({}, theme.colors)
   end
 
   return theme
+end
+
+-- Add this new function to ensure semantic structure is complete
+M.ensure_complete_semantic = function(semantic, base16)
+  local base_semantic = M.base16_to_semantic(base16 or {})
+  
+  -- Deep merge with base_semantic as fallback
+  local function deep_merge(t1, t2)
+    if type(t1) ~= "table" then t1 = {} end
+    if type(t2) ~= "table" then return t1 end
+    
+    for k, v in pairs(t2) do
+      if type(v) == "table" then
+        if type(t1[k]) ~= "table" then
+          t1[k] = {}
+        end
+        deep_merge(t1[k], v)
+      else
+        if t1[k] == nil then
+          t1[k] = v
+        end
+      end
+    end
+    return t1
+  end
+  
+  return deep_merge(semantic or {}, base_semantic)
 end
 
 M.generate_semantic = function(palette, base16)
@@ -82,50 +114,76 @@ M.generate_semantic = function(palette, base16)
 end
 
 M.base16_to_semantic = function(base16)
+  -- Provide default fallback colors for base16
+  local defaults = {
+    base00 = "#000000", -- bg
+    base01 = "#111111", -- bg_dim
+    base02 = "#222222", -- bg_highlight
+    base03 = "#333333", -- line_nr, comment
+    base04 = "#444444", -- fg_dim
+    base05 = "#555555", -- fg, variable, operator
+    base06 = "#666666", -- fg_bright
+    base07 = "#777777", -- 
+    base08 = "#ff0000", -- error, git_delete, diff_delete
+    base09 = "#ff8800", -- number, boolean, constant
+    base0A = "#ffff00", -- type, warning, git_change, diff_change
+    base0B = "#00ff00", -- string, git_add, diff_add
+    base0C = "#00ffff", -- special, info
+    base0D = "#0000ff", -- func, hint, diff_text
+    base0E = "#ff00ff", -- keyword
+    base0F = "#8800ff", -- 
+  }
+  
+  -- Merge provided base16 with defaults
+  local merged_base16 = {}
+  for k, v in pairs(defaults) do
+    merged_base16[k] = base16[k] or v
+  end
+  
   return {
     syn = {
-      string = base16.base0B,
-      number = base16.base09,
-      boolean = base16.base09,
-      keyword = base16.base0E,
-      operator = base16.base05,
-      func = base16.base0D,
-      type = base16.base0A,
-      variable = base16.base05,
-      comment = base16.base03,
-      constant = base16.base09,
-      special = base16.base0C,
+      string = merged_base16.base0B,
+      number = merged_base16.base09,
+      boolean = merged_base16.base09,
+      keyword = merged_base16.base0E,
+      operator = merged_base16.base05,
+      func = merged_base16.base0D,
+      type = merged_base16.base0A,
+      variable = merged_base16.base05,
+      comment = merged_base16.base03,
+      constant = merged_base16.base09,
+      special = merged_base16.base0C,
     },
     ui = {
-      bg = base16.base00,
-      bg_dim = base16.base01,
-      bg_highlight = base16.base02,
-      fg = base16.base05,
-      fg_dim = base16.base04,
-      fg_bright = base16.base06,
-      border = base16.base02,
-      float = base16.base01,
-      selection = base16.base02,
-      cursorline = base16.base01,
-      line_nr = base16.base03,
-      line_nr_active = base16.base0B,
+      bg = merged_base16.base00,
+      bg_dim = merged_base16.base01,
+      bg_highlight = merged_base16.base02,
+      fg = merged_base16.base05,
+      fg_dim = merged_base16.base04,
+      fg_bright = merged_base16.base06,
+      border = merged_base16.base02,
+      float = merged_base16.base01,
+      selection = merged_base16.base02,
+      cursorline = merged_base16.base01,
+      line_nr = merged_base16.base03,
+      line_nr_active = merged_base16.base0B,
     },
     diag = {
-      error = base16.base08,
-      warning = base16.base0E,
-      info = base16.base0C,
-      hint = base16.base0D,
+      error = merged_base16.base08,
+      warning = merged_base16.base0E,
+      info = merged_base16.base0C,
+      hint = merged_base16.base0D,
     },
     git = {
-      add = base16.base0B,
-      change = base16.base0E,
-      delete = base16.base08,
+      add = merged_base16.base0B,
+      change = merged_base16.base0E,
+      delete = merged_base16.base08,
     },
     diff = {
-      add = base16.base0B,
-      change = base16.base0E,
-      delete = base16.base08,
-      text = base16.base0D,
+      add = merged_base16.base0B,
+      change = merged_base16.base0E,
+      delete = merged_base16.base08,
+      text = merged_base16.base0D,
     },
   }
 end

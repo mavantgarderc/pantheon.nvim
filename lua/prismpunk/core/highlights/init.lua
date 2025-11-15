@@ -1,5 +1,30 @@
 local M = {}
 
+local original_nvim_set_hl = vim.api.nvim_set_hl
+---@diagnostic disable-next-line: duplicate-set-field
+vim.api.nvim_set_hl = function(ns, group, opts)
+  if not opts or type(opts) ~= "table" then return end
+
+  local safe_opts = {}
+  for k, v in pairs(opts) do
+    if v ~= nil then
+      if k == "fg" or k == "bg" or k == "sp" then
+        if type(v) == "string" and v ~= "" then
+          safe_opts[k] = v
+        elseif type(v) == "number" then
+          safe_opts[k] = v
+        end
+      else
+        safe_opts[k] = v
+      end
+    end
+  end
+
+  if next(safe_opts) ~= nil then
+    return original_nvim_set_hl(ns, group, safe_opts)
+  end
+end
+
 local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
 
 ---@param theme table

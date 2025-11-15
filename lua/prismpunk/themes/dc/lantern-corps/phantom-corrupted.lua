@@ -1,51 +1,4 @@
-local color = require("prismpunk.utils.color")
-
-local palette = {
-  bg_darkest = "#0A0A0A",
-  bg_darker = "#1A1A1A",
-  bg_dark = "#2A2A2A",
-  bg_mid = "#3A3A3A",
-  bg_light = "#4A4A4A",
-  bg_lighter = "#5A5A5A",
-  bg_lightest = "#6A6A6A",
-
-  fg_lightest = "#D8D8D8",
-  fg_light = "#B8B8B8",
-  fg_mid = "#787878",
-  fg_dark = "#585858",
-
-  bg_alt1 = "#151515",
-  bg_alt2 = "#050505",
-  bg_alt3 = "#252525",
-  bg_alt4 = "#0F0F0F",
-
-  voidCore = "#8C8C8C",
-  voidGlow = "#6C6C6C",
-  voidBright = "#ACACAC",
-  voidDeep = "#4C4C4C",
-  voidDark = "#2C2C2C",
-
-  corruptedWill = "#8CAC8C",
-  corruptedHope = "#8C8CAC",
-  corruptedRage = "#AC8C8C",
-  corruptedFear = "#ACAC8C",
-  corruptedLove = "#AC8CAC",
-  corruptedAvarice = "#AC9C8C",
-  corruptedCompassion = "#9C8CAC",
-
-  entropyEffect = "#7C7C7C",
-  nullField = "#6C8C8C",
-  decayPattern = "#8C7C7C",
-
-  accent_red = "#AC8C8C",
-  accent_pink = "#AC8C9C",
-  accent_yellow = "#ACAC8C",
-  accent_orange = "#AC9C8C",
-  accent_green = "#8CAC8C",
-  accent_blue = "#8C8CAC",
-  accent_violet = "#9C8CAC",
-  accent_aqua = "#8CACAC",
-}
+local palette = require("prismpunk.palettes.dc.lantern-corps.phantom-corrupted")
 
 local M = {}
 
@@ -198,14 +151,14 @@ M.get = function(opts, palette)
       magenta = palette.corruptedLove,
       cyan = palette.decayPattern,
       white = palette.fg_light,
-      black_bright = color(palette.bg_alt3):brighten(0.6):to_hex(),
-      red_bright = color(palette.corruptedRage):brighten(0.2):to_hex(),
-      green_bright = color(palette.corruptedWill):brighten(0.1):to_hex(),
-      yellow_bright = color(palette.corruptedFear):brighten(0.2):to_hex(),
-      blue_bright = color(palette.corruptedHope):brighten(0.3):to_hex(),
-      magenta_bright = color(palette.corruptedLove):brighten(0.2):to_hex(),
-      cyan_bright = color(palette.decayPattern):brighten(0.1):to_hex(),
-      white_bright = color(palette.fg_light):brighten(0.2):to_hex(),
+      black_bright = palette.bg_light,
+      red_bright = palette.accent_red,
+      green_bright = palette.accent_green,
+      yellow_bright = palette.accent_yellow,
+      blue_bright = palette.accent_blue,
+      magenta_bright = palette.accent_violet,
+      cyan_bright = palette.accent_aqua,
+      white_bright = palette.fg_lightest,
       indexed1 = palette.voidBright,
       indexed2 = palette.corruptedRage,
     },
@@ -237,6 +190,5 @@ return {
   },
 
   palette = palette,
-
   get = M.get,
 }
