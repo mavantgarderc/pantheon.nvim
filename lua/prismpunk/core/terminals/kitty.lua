@@ -65,11 +65,11 @@ M.reload = function(path)
   end
 
   vim.fn.system(
-    "kitty @ --to " ..
-    vim.fn.shellescape(listen_on) ..
-    " set-colors --all " ..
-    vim.fn.shellescape(path) ..
-    " 2>/dev/null"
+    "kitty @ --to "
+      .. vim.fn.shellescape(listen_on)
+      .. " set-colors --all "
+      .. vim.fn.shellescape(path)
+      .. " 2>/dev/null"
   )
   return vim.v.shell_error == 0
 end

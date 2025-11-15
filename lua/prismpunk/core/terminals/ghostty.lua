@@ -60,9 +60,7 @@ end
 M.export_and_reload = function(theme, conf)
   local success = M.write_config(theme, conf.config_path)
   if success and conf.auto_reload then
-    if not M.reload() then
-      vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN)
-    end
+    if not M.reload() then vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN) end
   end
 end
 

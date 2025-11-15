@@ -63,9 +63,7 @@ M.reload = function() return true end
 
 M.export_and_reload = function(theme, conf)
   local success = M.write_config(theme, conf.config_path)
-  if success and conf.auto_reload then
-    M.reload()
-  end
+  if success and conf.auto_reload then M.reload() end
 end
 
 M.export = function(theme_name)
