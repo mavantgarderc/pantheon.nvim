@@ -32,27 +32,23 @@ end
 -- Add this new function to ensure semantic structure is complete
 M.ensure_complete_semantic = function(semantic, base16)
   local base_semantic = M.base16_to_semantic(base16 or {})
-  
+
   -- Deep merge with base_semantic as fallback
   local function deep_merge(t1, t2)
     if type(t1) ~= "table" then t1 = {} end
     if type(t2) ~= "table" then return t1 end
-    
+
     for k, v in pairs(t2) do
       if type(v) == "table" then
-        if type(t1[k]) ~= "table" then
-          t1[k] = {}
-        end
+        if type(t1[k]) ~= "table" then t1[k] = {} end
         deep_merge(t1[k], v)
       else
-        if t1[k] == nil then
-          t1[k] = v
-        end
+        if t1[k] == nil then t1[k] = v end
       end
     end
     return t1
   end
-  
+
   return deep_merge(semantic or {}, base_semantic)
 end
 
@@ -123,7 +119,7 @@ M.base16_to_semantic = function(base16)
     base04 = "#444444", -- fg_dim
     base05 = "#555555", -- fg, variable, operator
     base06 = "#666666", -- fg_bright
-    base07 = "#777777", -- 
+    base07 = "#777777", --
     base08 = "#ff0000", -- error, git_delete, diff_delete
     base09 = "#ff8800", -- number, boolean, constant
     base0A = "#ffff00", -- type, warning, git_change, diff_change
@@ -131,15 +127,15 @@ M.base16_to_semantic = function(base16)
     base0C = "#00ffff", -- special, info
     base0D = "#0000ff", -- func, hint, diff_text
     base0E = "#ff00ff", -- keyword
-    base0F = "#8800ff", -- 
+    base0F = "#8800ff", --
   }
-  
+
   -- Merge provided base16 with defaults
   local merged_base16 = {}
   for k, v in pairs(defaults) do
     merged_base16[k] = base16[k] or v
   end
-  
+
   return {
     syn = {
       string = merged_base16.base0B,
