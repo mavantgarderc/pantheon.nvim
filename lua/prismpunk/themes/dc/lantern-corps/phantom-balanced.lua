@@ -1,59 +1,5 @@
 local color = require("prismpunk.utils.color")
-
--- Define your color palette here
-local palette = {
-  -- Background shades (dark to light) - Prismatic containment field
-  bg_darkest = "#0A0A14",
-  bg_darker = "#151428",
-  bg_dark = "#201E3C",
-  bg_mid = "#2B2850",
-  bg_light = "#363264",
-  bg_lighter = "#413C78",
-  bg_lightest = "#4C468C",
-
-  -- Foreground shades - Crystalline emotional resonance
-  fg_lightest = "#E8E6F0",
-  fg_light = "#C8C6D8",
-  fg_mid = "#787688",
-  fg_dark = "#585668",
-
-  -- Additional background variants - Emotional containment layers
-  bg_alt1 = "#121220",
-  bg_alt2 = "#08080C",
-  bg_alt3 = "#1A1A30",
-  bg_alt4 = "#0D0D18",
-
-  -- Phantom Ring Prismatic energy colors
-  prismaticCore = "#7D7DAA", -- Core balanced energy (neutral)
-  prismaticGlow = "#8C8CBB", -- Glowing prismatic energy
-  prismaticBright = "#6C6C99", -- Bright prismatic energy
-  prismaticDeep = "#5C5C88", -- Deep prismatic energy
-  prismaticDark = "#3C3C66", -- Darkest prismatic energy
-
-  -- Crystalline Emotional Spectrum (contained in geometric harmony)
-  crystalWill = "#66AA88", -- Crystalline green (will)
-  crystalHope = "#6688AA", -- Crystalline blue (hope)
-  crystalRage = "#AA8866", -- Crystalline red (rage)
-  crystalFear = "#AAAA66", -- Crystalline yellow (fear)
-  crystalLove = "#AA66AA", -- Crystalline violet (love)
-  crystalAvarice = "#AA9966", -- Crystalline orange (avarice)
-  crystalCompassion = "#9966AA", -- Crystalline indigo (compassion)
-
-  -- Geometric Containment
-  geometricField = "#5566AA", -- Geometric containment field
-  stableResonance = "#66AAAA", -- Stable emotional resonance
-  harmonicPattern = "#7788AA", -- Harmonic pattern energy
-
-  -- Accent colors - Geometric emotional spectrum
-  accent_red = "#AA8866", -- Geometric red
-  accent_pink = "#AA6688", -- Geometric pink
-  accent_yellow = "#AAAA66", -- Geometric yellow
-  accent_orange = "#AA9966", -- Geometric orange
-  accent_green = "#66AA88", -- Geometric green
-  accent_blue = "#6688AA", -- Geometric blue
-  accent_violet = "#9966AA", -- Geometric violet
-  accent_aqua = "#66AAAA", -- Geometric aqua
-}
+local palette = require("prismpunk.palettes.dc.lantern-corps.phantom-balanced")
 
 local M = {}
 
@@ -64,11 +10,11 @@ local M = {}
 M.get = function(opts, palette)
   return {
     modes = {
-      normal = palette.prismaticCore, -- Core balanced energy
-      insert = palette.crystalWill, -- Will for focused insertion
-      visual = palette.geometricField, -- Geometric field for visual selection
-      replace = palette.crystalRage, -- Controlled rage for replacement
-      command = palette.prismaticBright, -- Bright energy for commands
+      normal = palette.prismaticCore,
+      insert = palette.crystalWill,
+      visual = palette.geometricField,
+      replace = palette.crystalRage,
+      command = palette.prismaticBright,
     },
 
     ui = {
@@ -88,8 +34,8 @@ M.get = function(opts, palette)
       bg_gutter = opts.gutter and palette.bg_light or "none",
       bg_cursorline = palette.bg_mid,
       bg_cursorline_alt = palette.bg_light,
-      bg_search = palette.prismaticGlow, -- Prismatic glow for search
-      bg_visual = palette.geometricField, -- Geometric containment
+      bg_search = palette.prismaticGlow,
+      bg_visual = palette.geometricField,
       bg_statusline = palette.bg_light,
       border = palette.bg_alt4,
       header1 = palette.prismaticCore,
@@ -100,9 +46,9 @@ M.get = function(opts, palette)
       win_separator = palette.prismaticCore,
       indent = palette.bg_lighter,
       indent_scope = palette.prismaticGlow,
-      picker = palette.crystalRage, -- Geometric rage for picking
-      yank = palette.crystalWill, -- Crystalline will for yank
-      mark = palette.crystalHope, -- Crystalline hope for marks
+      picker = palette.crystalRage,
+      yank = palette.crystalWill,
+      mark = palette.crystalHope,
       scrollbar = palette.bg_lighter,
       tabline = {
         bg = palette.bg_darkest,
@@ -154,26 +100,26 @@ M.get = function(opts, palette)
     syn = {
       attribute = palette.accent_yellow,
       comment = palette.fg_dark,
-      constant = palette.crystalAvarice, -- Orange for constants
+      constant = palette.crystalAvarice,
       deprecated = palette.fg_mid,
-      func = palette.crystalHope, -- Blue for functions
+      func = palette.crystalHope,
       identifier = palette.fg_lightest,
-      keyword = palette.prismaticCore, -- Prismatic for keywords
-      method = palette.crystalWill, -- Green for methods
-      number = palette.crystalAvarice, -- Orange for numbers
-      operator = palette.crystalRage, -- Red for operators
+      keyword = palette.prismaticCore,
+      method = palette.crystalWill,
+      number = palette.crystalAvarice,
+      operator = palette.crystalRage,
       parameter = palette.fg_mid,
-      preproc = palette.crystalLove, -- Violet for preproc
+      preproc = palette.crystalLove,
       punct = palette.fg_mid,
-      regex = palette.crystalFear, -- Yellow for regex
-      statement = palette.prismaticCore, -- Prismatic for statements
-      string = palette.crystalWill, -- Green for strings
-      symbol = palette.crystalRage, -- Red for symbols
-      type = palette.crystalHope, -- Blue for types
+      regex = palette.crystalFear,
+      statement = palette.prismaticCore,
+      string = palette.crystalWill,
+      symbol = palette.crystalRage,
+      type = palette.crystalHope,
       variable = "none",
-      special = palette.crystalFear, -- Yellow for special
-      special2 = palette.crystalRage, -- Red for special2
-      special3 = palette.prismaticDeep, -- Deep prismatic for special3
+      special = palette.crystalFear,
+      special2 = palette.crystalRage,
+      special3 = palette.prismaticDeep,
     },
 
     vcs = {

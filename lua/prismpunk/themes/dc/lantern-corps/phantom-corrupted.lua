@@ -292,7 +292,6 @@ M.get = function(opts, palette)
       ["@spell"] = palette.fg_lightest,
       ["@nospell"] = "none",
 
-      -- Language-specific
       ["@lsp.type.property.lua"] = palette.fg_light,
       ["@constructor.python"] = palette.corruptedHope,
       ["@constructor.javascript"] = palette.corruptedHope,
