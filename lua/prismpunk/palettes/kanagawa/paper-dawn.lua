@@ -1,0 +1,26 @@
+return {
+  paperWhite = "#F2EBD9",
+  lightBeige = "#EAE3D2",
+  warmIvory = "#E2DAC7",
+  shadowBeige = "#D8D0BC",
+  inkGray = "#A8A29E",
+  graphiteGray = "#6E6A67",
+  sumiInkSoft = "#4C4945",
+
+  autumnRed = "#B4637A",
+  autumnYellow = "#DFA000",
+  autumnGreen = "#6B8E23",
+  waveBlue1 = "#446488",
+  waveAqua1 = "#4FA6A1",
+  springViolet1 = "#8A77B7",
+  springViolet2 = "#9C88C8",
+  sandTan = "#CBBE9F",
+  roseDust = "#C47F8E",
+
+  morningSky = "#A3BCE2",
+  paleCoral = "#E99B8F",
+  mellowGold = "#E4B564",
+  blushPink = "#E5A4A2",
+  earlyMist = "#B4ADA4",
+  amberDawn = "#FFD58A",
+}

@@ -1,0 +1,27 @@
+return {
+  sumiInk0 = "#0B0A10",
+  sumiInk1 = "#16151E",
+  sumiInk2 = "#1F1D27",
+  sumiInk3 = "#2A2834",
+  sumiInk4 = "#34323E",
+  sumiInk5 = "#3F3D4B",
+  sumiInk6 = "#4B4858",
+
+  fujiWhite = "#DCD7BA",
+  oldWhite = "#C8C093",
+  dragonGray = "#727169",
+  dragonGray2 = "#9C9A91",
+  dragonBlack2 = "#1C1B24",
+  dragonBlack3 = "#1A1921",
+  dragonBlack5 = "#131217",
+  dragonBlack6 = "#0E0D12",
+
+  dragonRed = "#C84053",
+  dragonPink = "#D16D9E",
+  dragonYellow = "#C0A36E",
+  dragonOrange = "#FFA066",
+  dragonGreen = "#76946A",
+  dragonBlue = "#7E9CD8",
+  dragonViolet = "#957FB8",
+  dragonAqua = "#6A9589",
+}
