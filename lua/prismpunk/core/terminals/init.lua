@@ -10,6 +10,7 @@ local kitty = require("prismpunk.core.terminals.kitty")
 M.apply = function(theme)
   local c = theme.colors
 
+  -- luacheck: push ignore
   vim.g.terminal_color_0 = c.base00
   vim.g.terminal_color_1 = c.base08
   vim.g.terminal_color_2 = c.base0B
@@ -28,6 +29,7 @@ M.apply = function(theme)
   vim.g.terminal_color_15 = c.base07
   vim.g.terminal_color_background = c.base00
   vim.g.terminal_color_foreground = c.base05
+  -- luacheck: pop
 end
 
 M.auto_export = function(theme, config)

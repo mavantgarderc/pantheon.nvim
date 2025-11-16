@@ -121,7 +121,9 @@ return {
       if not module_name then return nil end
       local palette = load_palette(module_name)
       if not palette then return nil end
-      local key = palette_ref:match("palette%.([%w_]+)")
+      local key = palette_ref:match("plt%.([%w_]+)")
+          or palette_ref:match("palette%.([%w_]+)")
+          or palette_ref:match("p%.([%w_]+)")
       local color = key and palette[key]
       if type(color) == "string" then return color end
       if type(color) == "table" and type(color[1]) == "string" then return color[1] end
@@ -230,7 +232,9 @@ return {
           local hex = line:match("#[0-9a-fA-F]+")
           if hex then create_color_indicator(bufnr, lnum - 1, hex, hex) end
         elseif is_theme then
-          local ref = line:match("palette%.[%w_]+")
+          local ref = line:match("plt%.[%w_]+")
+              or line:match("palette%.[%w_]+")
+              or line:match("p%.[%w_]+")
           if ref then
             local hex = resolve_palette_color(bufnr, ref)
             if hex then create_color_indicator(bufnr, lnum - 1, hex, ref) end

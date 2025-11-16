@@ -4,6 +4,8 @@ local hsluv_to_hex = require("prismpunk.utils.hsluv").hsluv_to_hex
 local hex_to_rgb = require("prismpunk.utils.hsluv").hex_to_rgb
 local rgb_to_hsluv = require("prismpunk.utils.hsluv").rgb_to_hsluv
 
+local unpack = unpack or table.unpack -- luacheck: ignore
+
 ---@class HSLuvColor
 local Color = {}
 local Color_mt = {
