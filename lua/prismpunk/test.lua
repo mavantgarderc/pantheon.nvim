@@ -28,7 +28,7 @@ function M.test_theme(theme_name)
     if success then
       print("_* get() function executed successfully")
 
-      local structures = {"ui", "syn", "diag", "git", "diff"}
+      local structures = { "ui", "syn", "diag", "git", "diff" }
       for _, struct in ipairs(structures) do
         if semantic[struct] then
           print("   -| " .. struct .. " structure present")
@@ -38,11 +38,11 @@ function M.test_theme(theme_name)
       end
 
       local critical_fields = {
-        {"ui", "bg"},
-        {"ui", "fg"},
-        {"ui", "float"},
-        {"syn", "comment"},
-        {"diag", "error"}
+        { "ui", "bg" },
+        { "ui", "fg" },
+        { "ui", "float" },
+        { "syn", "comment" },
+        { "diag", "error" },
       }
 
       for _, field in ipairs(critical_fields) do
@@ -53,7 +53,6 @@ function M.test_theme(theme_name)
           print("   -| " .. category .. "." .. key .. " MISSING")
         end
       end
-
     else
       print("_* get() function failed: " .. tostring(semantic))
     end
@@ -83,7 +82,7 @@ function M.health()
   print("Config:", vim.inspect(_G.prismpunk_config or "No config found"))
   print("Current colors_name:", vim.g.colors_name or "Not set")
 
-  local test_groups = {"Normal", "Comment", "DiagnosticError"}
+  local test_groups = { "Normal", "Comment", "DiagnosticError" }
   for _, group in ipairs(test_groups) do
     local hl_info = vim.api.nvim_get_hl(0, { name = group })
     if hl_info and next(hl_info) then

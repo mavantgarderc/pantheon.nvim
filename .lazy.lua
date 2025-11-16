@@ -177,7 +177,8 @@ return {
       local indicator = color_indicators[key]
 
       if indicator then
-        local lines = { indicator.ref .. " = " .. indicator.hex }
+        local display_text = indicator.ref .. " = " .. indicator.hex
+        local lines = { display_text }
         local buf = vim.api.nvim_create_buf(false, true)
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
         local hl_name = "PrismPunkHover_" .. indicator.hex:gsub("#", "")
@@ -190,16 +191,18 @@ return {
         vim.api.nvim_buf_set_extmark(buf, PRISMPUNK_HOVER_NS, 0, 0, {
           end_line = 0,
           hl_group = hl_name,
-          end_col = #lines[1],
+          end_col = #display_text,
         })
 
         local win_id = vim.api.nvim_open_win(buf, false, {
           relative = "cursor",
-          row = 1,
+          row = 0,
           col = 0,
           style = "minimal",
           border = "rounded",
           focusable = false,
+          width = #display_text,
+          height = 1,
         })
         vim.defer_fn(function()
           if vim.api.nvim_win_is_valid(win_id) then vim.api.nvim_win_close(win_id, true) end
