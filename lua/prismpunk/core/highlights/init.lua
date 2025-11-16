@@ -1,8 +1,6 @@
 local M = {}
 
-local original_nvim_set_hl = vim.api.nvim_set_hl
----@diagnostic disable-next-line: duplicate-set-field
-vim.api.nvim_set_hl = function(ns, group, opts)
+local function safe_nvim_set_hl(ns, group, opts)
   if not opts or type(opts) ~= "table" then return end
 
   local safe_opts = {}
@@ -20,10 +18,18 @@ vim.api.nvim_set_hl = function(ns, group, opts)
     end
   end
 
-  if next(safe_opts) ~= nil then return original_nvim_set_hl(ns, group, safe_opts) end
+  if next(safe_opts) ~= nil then
+    return vim.api.nvim_set_hl(ns, group, safe_opts)
+  end
 end
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local function hl(group, opts)
+  safe_nvim_set_hl(0, group, opts)
+end
+
+M.safe_hl = safe_nvim_set_hl
+
+M.hl = hl
 
 ---@param theme table
 ---@param config table

@@ -2,7 +2,7 @@ local M = {}
 
 function M.apply(colors, config)
   local plugin_dir = debug.getinfo(1, "S").source:sub(2)
-  plugin_dir = plugin_dir:match("(.*/)") -- directory path
+  plugin_dir = plugin_dir:match("(.*/)")
 
   ---@diagnostic disable-next-line: undefined-field
   local scan = vim.loop.fs_scandir(plugin_dir)

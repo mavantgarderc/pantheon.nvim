@@ -1,12 +1,11 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Dashboard (snacks.dashboard)
   hl("SnacksDashboardHeader", { fg = s.syn.type })
   hl("SnacksDashboardDesc", { fg = s.syn.string })
   hl("SnacksDashboardKey", { fg = s.syn.keyword, bold = true })
@@ -18,11 +17,9 @@ function M.apply(c, config)
   hl("SnacksDashboardTerminal", { fg = s.syn.func })
   hl("SnacksDashboardSpecial", { fg = s.syn.special })
 
-  -- Indent (snacks.indent)
   hl("SnacksIndent", { fg = s.ui.line_nr_dim })
   hl("SnacksIndentScope", { fg = s.ui.line_nr_active })
 
-  -- Notifications (snacks.notifier)
   hl("SnacksNotifierInfo", { fg = s.diag.info })
   hl("SnacksNotifierWarn", { fg = s.diag.warning })
   hl("SnacksNotifierError", { fg = s.diag.error })
@@ -44,7 +41,6 @@ function M.apply(c, config)
   hl("SnacksNotifierBorderDebug", { fg = s.syn.comment })
   hl("SnacksNotifierBorderTrace", { fg = s.syn.special })
 
-  -- Scroll (snacks.scroll)
   hl("SnacksScrollView", { bg = s.ui.line_nr_active })
 end
 

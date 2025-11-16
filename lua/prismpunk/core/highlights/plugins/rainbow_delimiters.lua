@@ -1,12 +1,11 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Rainbow colors (you can customize these based on your theme)
   hl("RainbowDelimiterRed", { fg = s.diag.error })
   hl("RainbowDelimiterYellow", { fg = s.syn.number })
   hl("RainbowDelimiterBlue", { fg = s.syn.type })

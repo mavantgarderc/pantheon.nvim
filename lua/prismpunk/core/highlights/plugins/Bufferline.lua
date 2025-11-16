@@ -1,50 +1,41 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Background
   hl("BufferLineFill", { bg = s.ui.bg_dim })
 
-  -- Buffers (visible)
   hl("BufferLineBuffer", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
   hl("BufferLineBufferVisible", { fg = s.ui.fg, bg = s.ui.bg_dim })
   hl("BufferLineBufferSelected", { fg = s.ui.fg, bg = s.ui.bg, bold = true })
 
-  -- Tabs
   hl("BufferLineTab", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
   hl("BufferLineTabSelected", { fg = s.ui.fg, bg = s.ui.bg })
   hl("BufferLineTabSeparator", { fg = s.ui.border, bg = s.ui.bg_dim })
   hl("BufferLineTabSeparatorSelected", { fg = s.ui.border, bg = s.ui.bg })
 
-  -- Indicators
   hl("BufferLineIndicatorVisible", { fg = s.ui.line_nr, bg = s.ui.bg_dim })
   hl("BufferLineIndicatorSelected", { fg = s.ui.line_nr_active, bg = s.ui.bg })
 
-  -- Modified
   hl("BufferLineModified", { fg = s.git.change, bg = s.ui.bg_dim })
   hl("BufferLineModifiedVisible", { fg = s.git.change, bg = s.ui.bg_dim })
   hl("BufferLineModifiedSelected", { fg = s.git.change, bg = s.ui.bg })
 
-  -- Duplicates
   hl("BufferLineDuplicate", { fg = s.ui.fg_dim, bg = s.ui.bg_dim, italic = true })
   hl("BufferLineDuplicateVisible", { fg = s.ui.fg, bg = s.ui.bg_dim, italic = true })
   hl("BufferLineDuplicateSelected", { fg = s.ui.fg, bg = s.ui.bg, italic = true })
 
-  -- Close button
   hl("BufferLineCloseButton", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
   hl("BufferLineCloseButtonVisible", { fg = s.ui.fg, bg = s.ui.bg_dim })
   hl("BufferLineCloseButtonSelected", { fg = s.diag.error, bg = s.ui.bg })
 
-  -- Separator
   hl("BufferLineSeparator", { fg = s.ui.border, bg = s.ui.bg_dim })
   hl("BufferLineSeparatorVisible", { fg = s.ui.border, bg = s.ui.bg_dim })
   hl("BufferLineSeparatorSelected", { fg = s.ui.border, bg = s.ui.bg })
 
-  -- Diagnostics
   hl("BufferLineError", { fg = s.diag.error, bg = s.ui.bg_dim })
   hl("BufferLineErrorVisible", { fg = s.diag.error, bg = s.ui.bg_dim })
   hl("BufferLineErrorSelected", { fg = s.diag.error, bg = s.ui.bg })
@@ -58,7 +49,6 @@ function M.apply(c, config)
   hl("BufferLineHintVisible", { fg = s.diag.hint, bg = s.ui.bg_dim })
   hl("BufferLineHintSelected", { fg = s.diag.hint, bg = s.ui.bg })
 
-  -- Pick
   hl("BufferLinePick", { fg = s.diag.error, bg = s.ui.bg_dim, bold = true })
   hl("BufferLinePickVisible", { fg = s.diag.error, bg = s.ui.bg_dim, bold = true })
   hl("BufferLinePickSelected", { fg = s.diag.error, bg = s.ui.bg, bold = true })

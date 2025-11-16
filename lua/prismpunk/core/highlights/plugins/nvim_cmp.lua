@@ -1,18 +1,16 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Main completion items
   hl("CmpItemAbbr", { fg = s.ui.fg })
   hl("CmpItemAbbrDeprecated", { fg = s.syn.comment, strikethrough = true })
   hl("CmpItemAbbrMatch", { fg = s.syn.keyword, bold = true })
   hl("CmpItemAbbrMatchFuzzy", { fg = s.syn.keyword })
 
-  -- Kind icons
   hl("CmpItemKind", { fg = s.syn.type })
   hl("CmpItemKindFunction", { fg = s.syn.func })
   hl("CmpItemKindMethod", { fg = s.syn.func })
@@ -35,7 +33,6 @@ function M.apply(c, config)
   hl("CmpItemKindEvent", { fg = s.syn.type })
   hl("CmpItemKindTypeParameter", { fg = s.syn.type })
 
-  -- Menu and extras
   hl("CmpItemMenu", { fg = s.syn.comment })
   hl("CmpItemKindDefault", { fg = s.ui.fg_dim })
 end

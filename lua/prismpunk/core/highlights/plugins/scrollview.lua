@@ -1,9 +1,9 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
   hl("ScrollView", { bg = s.ui.line_nr_active })

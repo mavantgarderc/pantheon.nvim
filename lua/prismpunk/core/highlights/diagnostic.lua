@@ -1,26 +1,23 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Basic diagnostics
   hl("DiagnosticError", { fg = s.diag.error })
   hl("DiagnosticWarn", { fg = s.diag.warning })
   hl("DiagnosticInfo", { fg = s.diag.info })
   hl("DiagnosticHint", { fg = s.diag.hint })
   hl("DiagnosticOk", { fg = s.syn.type })
 
-  -- Underlines
   hl("DiagnosticUnderlineError", { sp = s.diag.error, undercurl = true })
   hl("DiagnosticUnderlineWarn", { sp = s.diag.warning, undercurl = true })
   hl("DiagnosticUnderlineInfo", { sp = s.diag.info, undercurl = true })
   hl("DiagnosticUnderlineHint", { sp = s.diag.hint, undercurl = true })
   hl("DiagnosticUnderlineOk", { sp = s.syn.type, undercurl = true })
 
-  -- Virtual text
   local vt_error = s.diag.virtual_text_error or s.diag.error
   local vt_warn = s.diag.virtual_text_warning or s.diag.warning
   local vt_info = s.diag.virtual_text_info or s.diag.info
@@ -33,7 +30,6 @@ function M.apply(c, config)
   hl("DiagnosticVirtualTextHint", { fg = vt_hint, bg = s.ui.bg_dim })
   hl("DiagnosticVirtualTextOk", { fg = vt_ok, bg = s.ui.bg_dim })
 
-  -- Signs
   hl("DiagnosticSignError", { fg = s.diag.error })
   hl("DiagnosticSignWarn", { fg = s.diag.warning })
   hl("DiagnosticSignInfo", { fg = s.diag.info })

@@ -1,19 +1,17 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
   hl("IblIndent", { fg = s.ui.line_nr_dim })
   hl("IblWhitespace", { fg = s.ui.nontext or s.ui.bg_highlight })
   hl("IblScope", { fg = s.ui.line_nr_active })
 
-  -- Context indent
   hl("IblScopeChar", { fg = s.ui.line_nr_active })
 
-  -- Rainbow colors (if using rainbow indent)
   hl("IblIndent1", { fg = s.ui.line_nr_dim })
   hl("IblIndent2", { fg = s.ui.line_nr_dim })
   hl("IblIndent3", { fg = s.ui.line_nr_dim })

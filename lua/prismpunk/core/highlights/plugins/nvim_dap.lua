@@ -1,19 +1,17 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Breakpoints
   hl("DapBreakpoint", { fg = s.diag.error })
   hl("DapBreakpointCondition", { fg = s.diag.warning })
   hl("DapBreakpointRejected", { fg = s.diag.hint })
   hl("DapLogPoint", { fg = s.syn.special })
   hl("DapStopped", { bg = s.ui.bg_highlight })
 
-  -- nvim-dap-ui (if loaded)
   if package.loaded["dapui"] then
     hl("DapUIVariable", { fg = s.syn.variable })
     hl("DapUIValue", { fg = s.syn.constant })

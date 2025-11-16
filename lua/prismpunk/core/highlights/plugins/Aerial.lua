@@ -1,18 +1,16 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
-  -- Window
   hl("AerialNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
   hl("AerialNormalNC", { fg = s.ui.fg, bg = s.ui.bg_dim })
   hl("AerialLine", { bg = s.ui.bg_highlight })
   hl("AerialGuide", { fg = s.ui.line_nr_dim })
 
-  -- Symbol kinds
   hl("AerialArrayIcon", { fg = s.syn.type })
   hl("AerialBooleanIcon", { fg = s.syn.boolean })
   hl("AerialClassIcon", { fg = s.syn.type })

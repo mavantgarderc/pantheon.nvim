@@ -1,15 +1,14 @@
 local M = {}
 
-local function hl(group, opts) vim.api.nvim_set_hl(0, group, opts) end
+local hl = require("prismpunk.core.highlights").hl
 
 ---@diagnostic disable-next-line: unused-local
-function M.apply(c, config)
+function M.apply(c, _config)
   local s = c
 
   hl("NavicText", { fg = s.ui.fg_dim })
   hl("NavicSeparator", { fg = s.syn.operator })
 
-  -- Icons for different symbol kinds
   hl("NavicIconsFile", { fg = s.ui.fg })
   hl("NavicIconsModule", { fg = s.syn.keyword })
   hl("NavicIconsNamespace", { fg = s.syn.type })

@@ -15,7 +15,7 @@ return {
 
     local PRISMPUNK_NS = vim.api.nvim_create_namespace("prismpunk_colors")
     ---@diagnostic disable-next-line: unused-local
-    local PRISMPUNK_ERROR_NS = vim.api.nvim_create_namespace("prismpunk_errors")
+    local PRISMPUNK_ERROR_NS = vim.api.nvim_create_namespace("prismpunk_errors") -- luacheck: ignore
     local PRISMPUNK_HOVER_NS = vim.api.nvim_create_namespace("prismpunk_hover")
 
     local function normalize_filepath(path)
@@ -66,7 +66,7 @@ return {
     end
 
     local function get_contrast_color(hex)
-      local r, g, b = unpack(hex_to_rgb(hex))
+      local r, g, b = unpack(hex_to_rgb(hex)) -- luacheck: ignore
       local luminance = 0.299 * r + 0.587 * g + 0.114 * b
       return luminance > 0.5 and "#000000" or "#FFFFFF"
     end
@@ -275,7 +275,7 @@ return {
       end
     end
 
-    local function setup_keymaps() vim.keymap.set("n", "<C-k>", show_hover, { desc = "Show color hover information" }) end
+    local function setup_keymaps() vim.keymap.set("n", "<C-k>", show_hover, { desc = "Show color hover information" }) end --luacheck: ignore
 
     vim.defer_fn(function()
       load_prismpunk_theme()
