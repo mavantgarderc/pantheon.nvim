@@ -18,14 +18,10 @@ local function safe_nvim_set_hl(ns, group, opts)
     end
   end
 
-  if next(safe_opts) ~= nil then
-    return vim.api.nvim_set_hl(ns, group, safe_opts)
-  end
+  if next(safe_opts) ~= nil then return vim.api.nvim_set_hl(ns, group, safe_opts) end
 end
 
-local function hl(group, opts)
-  safe_nvim_set_hl(0, group, opts)
-end
+local function hl(group, opts) safe_nvim_set_hl(0, group, opts) end
 
 M.safe_hl = safe_nvim_set_hl
 
