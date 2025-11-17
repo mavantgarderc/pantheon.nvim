@@ -6,12 +6,17 @@ local hl = require("prismpunk.core.highlights").hl
 function M.apply(c, _config)
   local s = c
 
-  hl("TelescopeNormal", { fg = s.ui.fg, bg = s.ui.float })
-  hl("TelescopeBorder", { fg = s.ui.border, bg = s.ui.float })
-  hl("TelescopePromptNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
-  hl("TelescopeResultsNormal", { fg = s.ui.fg_dim, bg = s.ui.float })
-  hl("TelescopeSelection", { fg = s.ui.bg, bg = s.ui.line_nr_active })
-  hl("TelescopePreviewNormal", { fg = s.ui.fg, bg = s.ui.bg_dim })
+  hl("TelescopeBorder", { fg = s.ui.border, bg = s.ui.bg })
+  hl("TelescopeNormal", { bg = s.ui.bg })
+  hl("TelescopePromptBorder", { fg = s.ui.border, bg = s.ui.bg_p1 })
+  hl("TelescopePromptNormal", { bg = s.ui.bg_p1 })
+  hl("TelescopePromptPrefix", { fg = s.diag.error, bg = s.ui.bg_p1 })
+  hl("TelescopeSelection", { fg = s.ui.fg, bg = s.ui.bg_p2, bold = true })
+  hl("TelescopeSelectionCaret", { fg = s.diag.error, bg = s.ui.bg_p2 })
+  hl("TelescopeTitle", { fg = s.ui.fg, bold = true })
+  hl("TelescopeResultsTitle", { fg = s.ui.bg, bg = s.ui.bg })
+  hl("TelescopePreviewTitle", { fg = s.ui.bg, bg = s.diag.ok })
+  hl("TelescopePromptTitle", { fg = s.ui.bg, bg = s.diag.error })
 end
 
 return M
