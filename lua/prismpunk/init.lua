@@ -34,7 +34,7 @@ function M.apply_theme(theme_name) return M.load(theme_name, { force_reload = fa
 function M.load_colorscheme(theme_spec)
   return loader.load(theme_spec, {
     force_reload = false,
-    skip_if_loaded = true, -- Don't reload if setup() already loaded it
+    skip_if_loaded = false,
   })
 end
 

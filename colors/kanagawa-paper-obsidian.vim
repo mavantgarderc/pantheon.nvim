@@ -11,7 +11,10 @@ let g:colors_name = "kanagawa/paper-obsidian"
 lua << EOF
 local ok, prismpunk = pcall(require, "prismpunk")
 if ok and prismpunk.load_colorscheme then
-  prismpunk.load_colorscheme("kanagawa/paper-obsidian")
+  local success, err = prismpunk.load_colorscheme("kanagawa/paper-obsidian")
+  if not success then
+    vim.notify("[prismpunk] Failed to load kanagawa/paper-obsidian: " .. tostring(err), vim.log.levels.ERROR)
+  end
 else
   vim.notify("[prismpunk] Plugin not loaded", vim.log.levels.ERROR)
 end
