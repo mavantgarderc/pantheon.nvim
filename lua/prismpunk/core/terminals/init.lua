@@ -1,107 +1,128 @@
+--- Terminal emulator integration
+--- Orchestrates terminal config export and reload
 local M = {}
 
-local punkpalette = require("prismpunk.palette")
-local punkconf = require("prismpunk.config")
+local config = require("prismpunk.config")
+local common = require("prismpunk.core.terminals.common")
 
-local ghostty = require("prismpunk.core.terminals.ghostty")
-local alacritty = require("prismpunk.core.terminals.alacritty")
-local kitty = require("prismpunk.core.terminals.kitty")
+--- Detect current terminal from environment
+--- @return string|nil terminal_name
+local function detect_terminal()
+  local term_program = vim.env.TERM_PROGRAM
+  local term = vim.env.TERM
 
-M.apply = function(theme)
-  local c = theme.colors
-
-  -- luacheck: push ignore
-  vim.g.terminal_color_0 = c.base00
-  vim.g.terminal_color_1 = c.base08
-  vim.g.terminal_color_2 = c.base0B
-  vim.g.terminal_color_3 = c.base0A
-  vim.g.terminal_color_4 = c.base0D
-  vim.g.terminal_color_5 = c.base0E
-  vim.g.terminal_color_6 = c.base0C
-  vim.g.terminal_color_7 = c.base05
-  vim.g.terminal_color_8 = c.base03
-  vim.g.terminal_color_9 = c.base08
-  vim.g.terminal_color_10 = c.base0B
-  vim.g.terminal_color_11 = c.base0A
-  vim.g.terminal_color_12 = c.base0D
-  vim.g.terminal_color_13 = c.base0E
-  vim.g.terminal_color_14 = c.base0C
-  vim.g.terminal_color_15 = c.base07
-  vim.g.terminal_color_background = c.base00
-  vim.g.terminal_color_foreground = c.base05
-  -- luacheck: pop
-end
-
-M.auto_export = function(theme, config)
-  if not config.terminal.enabled then return end
-
-  local emulators = config.terminal.emulator
-  if type(emulators) == "string" then emulators = { emulators } end
-
-  for _, emulator in ipairs(emulators) do
-    local conf = config.terminal[emulator]
-    if conf and conf.enabled then
-      if emulator == "ghostty" then
-        ghostty.export_and_reload(theme, conf)
-      elseif emulator == "alacritty" then
-        alacritty.export_and_reload(theme, conf)
-      elseif emulator == "kitty" then
-        kitty.export_and_reload(theme, conf)
-      end
+  if term_program then
+    if term_program:match("ghostty") then
+      return "ghostty"
+    elseif term_program:match("Alacritty") then
+      return "alacritty"
+    elseif term_program:match("kitty") then
+      return "kitty"
+      -- elseif term_program:match("iTerm") then
+      --   return "iterm"
+      -- elseif term_program:match("WezTerm") then
+      --   return "wezterm"
     end
   end
+
+  if term then
+    if term:match("kitty") then
+      return "kitty"
+    elseif term:match("alacritty") then
+      return "alacritty"
+    end
+  end
+
+  return nil
 end
 
-M.export_ghostty = ghostty.export
-M.save_ghostty = ghostty.save
+--- Get terminal module
+--- @param terminal_name string
+--- @return table|nil
+local function get_terminal_module(terminal_name)
+  local module_path = "prismpunk.core.terminals." .. terminal_name
+  local ok, module = pcall(require, module_path)
 
-M.export_alacritty = alacritty.export
-M.save_alacritty = alacritty.save
+  if ok and type(module.export) == "function" then return module end
 
-M.export_kitty = kitty.export
-M.save_kitty = kitty.save
-
-M.get_palette = function(theme_name)
-  local universe, variant = punkconf.parse_theme(theme_name)
-  local theme_path = "prismpunk.themes." .. universe:gsub("%-", "%.") .. "." .. variant
-  local ok, spec = pcall(require, theme_path)
-  if not ok then return nil end
-
-  local theme = punkpalette.create_theme(spec)
-  return {
-    base16 = theme.colors,
-    palette = theme.palette,
-    semantic = theme.semantic,
-    metadata = {
-      name = theme.name,
-      author = theme.author,
-      description = theme.description,
-    },
-  }
+  return nil
 end
 
-M.print_palette = function(theme_name)
-  local p = M.get_palette(theme_name)
-  if not p then
-    vim.notify("Failed to load theme", vim.log.levels.ERROR)
+--- Apply base16 to all configured terminals
+--- @param base16 table Base16 color table
+function M.apply(base16)
+  local conf = config.options.terminals
+
+  if not conf or not conf.enabled then return end
+
+  -- Validate base16
+  local utils_base16 = require("prismpunk.utils.base16")
+  local valid, err = utils_base16.validate(base16)
+  if not valid then
+    vim.notify(string.format("[prismpunk] Invalid base16 for terminal export: %s", err), vim.log.levels.WARN)
     return
   end
 
-  print("=== " .. p.metadata.name .. " ===\n")
+  local terminals_to_export = {}
 
-  if p.palette and next(p.palette) then
-    print("--- Rich Palette ---")
-    for name, color in pairs(p.palette) do
-      print(string.format("%-20s %s", name, color))
+  -- Auto-detect if enabled
+  if conf.auto_detect then
+    local detected = detect_terminal()
+    if detected then table.insert(terminals_to_export, detected) end
+  end
+
+  -- Add explicitly enabled terminals
+  for _, term_name in ipairs({ "alacritty", "kitty", "ghostty" }) do
+    if conf[term_name] and conf[term_name].enabled then
+      if not vim.tbl_contains(terminals_to_export, term_name) then table.insert(terminals_to_export, term_name) end
     end
-    print("")
   end
 
-  print("--- Base16 Colors ---")
-  for i = 0, 15 do
-    local key = i == 0 and "base00" or string.format("base%02X", i)
-    if p.base16[key] then print(string.format("%-8s %s", key, p.base16[key])) end
+  -- Export to each terminal
+  for _, term_name in ipairs(terminals_to_export) do
+    local module = get_terminal_module(term_name)
+    if module then
+      local term_config = conf[term_name] or {}
+      local ok, err = pcall(module.export, base16, term_config)
+      if not ok then
+        vim.notify(
+          string.format("[prismpunk] Failed to export %s config: %s", term_name, tostring(err)),
+          vim.log.levels.WARN
+        )
+      end
+    else
+      vim.notify(string.format("[prismpunk] Terminal module not found: %s", term_name), vim.log.levels.WARN)
+    end
   end
+end
+
+--- Preview terminal config without writing
+--- @param theme_name string
+--- @param terminal_name string
+--- @return string|nil
+function M.preview(theme_name, terminal_name)
+  -- Load theme to get base16
+  local loader = require("prismpunk.loader")
+  local success, theme = loader.load(theme_name, { force_reload = false })
+
+  if not success then return nil end
+
+  -- Get theme module for base16
+  local parsed = config.parse_theme(theme_name)
+  local theme_path = string.format("prismpunk.themes.%s.%s", parsed.universe or "", parsed.name)
+  local ok, theme_module = pcall(require, theme_path)
+
+  if not ok or not theme_module.base16 then return nil end
+
+  -- Get terminal module
+  local module = get_terminal_module(terminal_name)
+  if not module or not module.export_config then return nil end
+
+  -- Generate config
+  local config_ok, content = pcall(module.export_config, theme_module.base16)
+  if config_ok then return content end
+
+  return nil
 end
 
 return M
