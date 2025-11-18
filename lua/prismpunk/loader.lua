@@ -7,25 +7,20 @@ local palette = require("prismpunk.palette")
 local highlights = require("prismpunk.core.highlights")
 local terminals = require("prismpunk.core.terminals")
 
---- Module cache to avoid repeated requires
 local module_cache = {
   themes = {},
   highlights = {},
 }
 
---- Highlight cache
 local highlight_cache = {}
 
---- Track loaded themes to prevent double-loading
 local loaded_theme = nil
 
---- Cache statistics
 local cache_stats = {
   hits = 0,
   misses = 0,
 }
 
---- Get cache statistics (combined palette + highlights)
 --- @return table
 function M.get_cache_stats()
   local palette_stats = palette.get_cache_stats()
@@ -108,7 +103,6 @@ end
 --- @param spec table Normalized theme spec with variants
 --- @return string, table module_path, theme_module
 local function resolve_theme_module(spec)
-  -- Check module cache first
   local cache_key = (spec.universe or "") .. "/" .. spec.name
   if module_cache.themes[cache_key] then
     return module_cache.themes[cache_key].path, module_cache.themes[cache_key].module
@@ -116,7 +110,6 @@ local function resolve_theme_module(spec)
 
   local tries = {}
 
-  -- Build all possible module paths from variants
   if spec.variants and #spec.variants > 0 then
     for _, variant in ipairs(spec.variants) do
       if variant.universe and variant.universe ~= "" then
@@ -126,21 +119,15 @@ local function resolve_theme_module(spec)
     end
   end
 
-  -- Fallback to primary spec
   if spec.universe and spec.universe ~= "" then
     local universe_dotted = spec.universe:gsub("/", ".")
     table.insert(tries, string.format("prismpunk.themes.%s.%s", universe_dotted, spec.name))
   end
   table.insert(tries, string.format("prismpunk.themes.%s", spec.name))
 
-  -- Try each path
   for _, module_path in ipairs(tries) do
-    -- DON'T clear module cache - we want to reuse it
-    -- package.loaded[module_path] = nil  -- REMOVE THIS LINE
-
     local ok, mod = pcall(require, module_path)
     if ok and type(mod) == "table" and type(mod.get) == "function" then
-      -- Cache the result
       module_cache.themes[cache_key] = {
         path = module_path,
         module = mod,
@@ -164,7 +151,6 @@ end
 --- @param opts table
 --- Compute highlight cache key (MORE STABLE)
 local function highlight_cache_key(theme_path, palette_table, opts)
-  -- Only include relevant config options in cache key
   local cache_opts = {
     gutter = opts.gutter,
     styles = opts.styles,
@@ -173,8 +159,8 @@ local function highlight_cache_key(theme_path, palette_table, opts)
 
   local key_parts = {
     theme_path,
-    vim.fn.sha256(vim.inspect(palette_table)), -- Hash palette instead of full inspect
-    vim.fn.sha256(vim.inspect(cache_opts)), -- Only cache-relevant options
+    vim.fn.sha256(vim.inspect(palette_table)),
+    vim.fn.sha256(vim.inspect(cache_opts)),
   }
   return vim.fn.sha256(table.concat(key_parts, "||"))
 end
@@ -215,7 +201,6 @@ local function validate_contrast(theme)
   end
 end
 
---- Clear all caches
 function M.clear_cache()
   highlight_cache = {}
   cache_stats.hits = 0
@@ -223,7 +208,6 @@ function M.clear_cache()
 
   palette.clear_cache()
 
-  -- Clear disk cache
   if config.options.cache.persist_to_disk then
     local cache_dir = vim.fn.stdpath("cache") .. "/prismpunk/highlights"
     if vim.fn.isdirectory(cache_dir) == 1 then vim.fn.delete(cache_dir, "rf") end
@@ -238,22 +222,18 @@ end
 function M.load(theme_spec, opts)
   opts = opts or {}
 
-  -- Parse theme specification
   local ok, parsed = pcall(config.parse_theme, theme_spec or config.options.theme)
   if not ok then return false, string.format("[prismpunk] Invalid theme spec: %s", tostring(parsed)) end
 
   if not parsed.name then return false, "[prismpunk] No theme specified" end
 
-  -- Check if already loaded (prevent double-loading)
   local theme_key = (parsed.universe or "") .. "/" .. parsed.name
   if opts.skip_if_loaded and loaded_theme == theme_key then return true, { _cached = true } end
 
-  -- Resolve theme module
   local theme_path, theme_module
   ok, theme_path, theme_module = pcall(resolve_theme_module, parsed)
   if not ok then return false, tostring(theme_path) end
 
-  -- Load palette
   local palette_universe = parsed.universe or (theme_module.palette and theme_module.palette.universe) or nil
   local palette_name = (theme_module.palette and theme_module.palette.name) or parsed.name
 
@@ -269,29 +249,22 @@ function M.load(theme_spec, opts)
 
   if not ok then return false, string.format("[prismpunk] Failed to load palette: %s", tostring(palette_table)) end
 
-  -- Compute cache key
   local cache_key = highlight_cache_key(theme_path, palette_table, config.options)
 
-  -- Check cache (with mtime validation for disk cache)
   if config.options.cache.enable and not opts.force_reload then
-    -- Check in-memory cache
     if highlight_cache[cache_key] then
       cache_stats.hits = cache_stats.hits + 1
       local cached = highlight_cache[cache_key]
 
-      -- Apply cached highlights (PASS config.options)
-      apply_highlights(cached.theme, config.options)
+      highlights.apply(cached.theme, config.options)
 
-      -- Apply terminal configs if base16 present
       if theme_module.base16 then apply_terminals(theme_module.base16) end
 
-      -- Mark as loaded
       loaded_theme = theme_key
 
       return true, cached.theme
     end
 
-    -- Check disk cache with mtime validation
     local disk_cached = load_from_disk_cache(cache_key)
     if disk_cached then
       local file_path = theme_path:gsub("%.", "/") .. ".lua"
@@ -311,17 +284,14 @@ function M.load(theme_spec, opts)
       local cache_path = get_disk_cache_path(cache_key)
       local cache_mtime = get_mtime(cache_path)
 
-      -- Use disk cache if it's newer than source
       if not theme_mtime or (cache_mtime and cache_mtime >= theme_mtime) then
         cache_stats.hits = cache_stats.hits + 1
         highlight_cache[cache_key] = disk_cached
 
-        -- Apply cached highlights (PASS config.options)
-        apply_highlights(disk_cached.theme, config.options)
+        highlights.apply(disk_cached.theme, config.options)
 
         if theme_module.base16 then apply_terminals(theme_module.base16) end
 
-        -- Mark as loaded
         loaded_theme = theme_key
 
         return true, disk_cached.theme
@@ -331,7 +301,6 @@ function M.load(theme_spec, opts)
 
   cache_stats.misses = cache_stats.misses + 1
 
-  -- Build theme by calling theme.get()
   local theme_result
   ok, theme_result = pcall(theme_module.get, config.options, palette_table)
 
@@ -341,16 +310,13 @@ function M.load(theme_spec, opts)
     return false, string.format("[prismpunk] theme.get() must return table, got %s", type(theme_result))
   end
 
-  -- Validate contrast if enabled
   validate_contrast(theme_result)
 
-  -- Normalize theme structure
   local normalized
   ok, normalized = pcall(highlights.normalize_theme, theme_result, config.options)
 
   if not ok then return false, string.format("[prismpunk] Failed to normalize theme: %s", tostring(normalized)) end
 
-  -- Cache before applying
   if config.options.cache.enable then
     local cache_data = {
       theme = theme_result,
@@ -360,20 +326,16 @@ function M.load(theme_spec, opts)
     save_to_disk_cache(cache_key, cache_data)
   end
 
-  -- Apply highlights (PASS config.options)
-  ok, _ = pcall(apply_highlights, theme_result, config.options)
+  ok, _ = pcall(highlights.apply, theme_result, config.options)
   if not ok then return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) end
 
-  -- Apply terminal configs (async)
   if theme_module.base16 then apply_terminals(theme_module.base16) end
 
-  -- Mark as loaded
   loaded_theme = theme_key
 
   return true, theme_result
 end
 
--- Export for debugging
 M._highlight_cache = highlight_cache
 M._cache_stats = cache_stats
 
