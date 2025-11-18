@@ -1,45 +1,50 @@
+--- Lualine highlight groups
 local M = {}
 
 local hl = require("prismpunk.core.highlights").hl
 
----@diagnostic disable-next-line: unused-local
-function M.apply(c, _config)
-  local s = c
+---@param c table Normalized colors
+---@param config table Configuration
+function M.apply(c, config)
+  -- Guard: ensure modes exist
+  if not c.modes then return end
 
-  -- normal
-  hl("lualine_a_normal", { fg = s.ui.bg, bg = s.modes.normal, bold = true })
-  hl("lualine_b_normal", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_normal", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Normal mode
+  hl("lualine_a_normal", { fg = c.ui.bg, bg = c.modes.normal, bold = true })
+  hl("lualine_b_normal", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_normal", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- insert
-  hl("lualine_a_insert", { fg = s.ui.bg, bg = s.modes.insert, bold = true })
-  hl("lualine_b_insert", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_insert", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Insert mode
+  hl("lualine_a_insert", { fg = c.ui.bg, bg = c.modes.insert, bold = true })
+  hl("lualine_b_insert", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_insert", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- visual
-  hl("lualine_a_visual", { fg = s.ui.bg, bg = s.modes.visual, bold = true })
-  hl("lualine_b_visual", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_visual", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Visual mode
+  hl("lualine_a_visual", { fg = c.ui.bg, bg = c.modes.visual, bold = true })
+  hl("lualine_b_visual", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_visual", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- replace
-  hl("lualine_a_replace", { fg = s.ui.bg, bg = s.modes.replace, bold = true })
-  hl("lualine_b_replace", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_replace", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Replace mode
+  hl("lualine_a_replace", { fg = c.ui.bg, bg = c.modes.replace, bold = true })
+  hl("lualine_b_replace", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_replace", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- command
-  hl("lualine_a_command", { fg = s.ui.bg, bg = s.modes.command, bold = true })
-  hl("lualine_b_command", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_command", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Command mode
+  hl("lualine_a_command", { fg = c.ui.bg, bg = c.modes.command, bold = true })
+  hl("lualine_b_command", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_command", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- terminal
-  hl("lualine_a_terminal", { fg = s.ui.bg, bg = s.syn.special3, bold = true })
-  hl("lualine_b_terminal", { fg = s.ui.fg, bg = s.ui.bg_p1 })
-  hl("lualine_c_terminal", { fg = s.ui.fg_dim, bg = s.ui.bg })
+  -- Terminal mode
+  if c.syn and c.syn.special3 then hl("lualine_a_terminal", { fg = c.ui.bg, bg = c.syn.special3, bold = true }) end
+  hl("lualine_b_terminal", { fg = c.ui.fg, bg = c.ui.bg_p1 })
+  hl("lualine_c_terminal", { fg = c.ui.fg_dim, bg = c.ui.bg })
 
-  -- inactive
-  hl("lualine_a_inactive", { fg = s.syn.comment, bg = s.ui.bg, bold = true })
-  hl("lualine_b_inactive", { fg = s.syn.comment, bg = s.ui.bg_p1 })
-  hl("lualine_c_inactive", { fg = s.syn.comment, bg = s.ui.bg })
+  -- Inactive
+  if c.syn and c.syn.comment then
+    hl("lualine_a_inactive", { fg = c.syn.comment, bg = c.ui.bg, bold = true })
+    hl("lualine_b_inactive", { fg = c.syn.comment, bg = c.ui.bg_p1 })
+    hl("lualine_c_inactive", { fg = c.syn.comment, bg = c.ui.bg })
+  end
 end
 
 return M
