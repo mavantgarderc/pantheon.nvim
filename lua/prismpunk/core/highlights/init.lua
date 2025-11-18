@@ -1,5 +1,11 @@
+--- PrismPunk highlights coordinator
+--- Applies highlight groups to Neovim
 local M = {}
 
+--- Safely set highlight group
+--- @param ns number Namespace (0 for global)
+--- @param group string Highlight group name
+--- @param opts table Highlight options
 local function safe_nvim_set_hl(ns, group, opts)
   if not opts or type(opts) ~= "table" then return end
 
@@ -7,7 +13,7 @@ local function safe_nvim_set_hl(ns, group, opts)
   for k, v in pairs(opts) do
     if v ~= nil then
       if k == "fg" or k == "bg" or k == "sp" then
-        if type(v) == "string" and v ~= "" then
+        if type(v) == "string" and v ~= "" and v ~= "none" then
           safe_opts[k] = v
         elseif type(v) == "number" then
           safe_opts[k] = v
@@ -21,55 +27,92 @@ local function safe_nvim_set_hl(ns, group, opts)
   if next(safe_opts) ~= nil then return vim.api.nvim_set_hl(ns, group, safe_opts) end
 end
 
+--- Set highlight (convenience wrapper)
+--- @param group string
+--- @param opts table
 local function hl(group, opts) safe_nvim_set_hl(0, group, opts) end
 
 M.safe_hl = safe_nvim_set_hl
-
 M.hl = hl
 
----@param theme table
----@param config table
----@return table colors Normalized color structure
+--- Normalize theme structure
+--- Converts theme module or result into standardized color structure
+--- @param theme table Theme module or result from theme.get()
+--- @param config table Configuration
+--- @return table Normalized colors
 function M.normalize_theme(theme, config)
+  -- If theme has a .get function, it's a module - call it
   if type(theme.get) == "function" then
-    local _ok, result = pcall(theme.get, config, theme.palette)
-    if not _ok then error("theme.get() failed: " .. tostring(result)) end
+    local ok, result = pcall(theme.get, config, theme.palette)
+    if not ok then error(string.format("[prismpunk] theme.get() failed: %s", tostring(result))) end
     theme = result
   end
 
+  -- Validate theme structure
+  if not theme or type(theme) ~= "table" then error("[prismpunk] Theme must be a table") end
+
+  -- Handle semantic structure (legacy support)
   if theme.semantic then
     local semantic = theme.semantic
     return {
-      syn = semantic.syn or semantic,
+      modes = theme.modes,
       ui = semantic.ui or semantic,
-      diag = semantic.diag or semantic,
-      git = semantic.git or semantic.vcs or semantic,
+      accent = theme.accent,
+      rainbow = theme.rainbow,
+      syn = semantic.syn or semantic,
+      vcs = semantic.vcs or semantic.git,
+      git = semantic.vcs or semantic.git,
       diff = semantic.diff or semantic,
+      diag = semantic.diag or semantic,
+      term = theme.term,
+      treesitter = theme.treesitter,
+      lsp = theme.lsp,
       is_complex = true,
     }
-  elseif theme.syn and theme.ui then
+  end
+
+  -- Modern structure - preserve all keys
+  if theme.syn and theme.ui then
     return {
-      syn = theme.syn,
+      modes = theme.modes,
       ui = theme.ui,
-      diag = theme.diag,
+      accent = theme.accent,
+      rainbow = theme.rainbow,
+      syn = theme.syn,
+      vcs = theme.vcs,
       git = theme.vcs or theme.git,
       diff = theme.diff,
+      diag = theme.diag,
+      term = theme.term,
+      treesitter = theme.treesitter,
+      lsp = theme.lsp,
       is_complex = true,
     }
-  else
-    print("ERROR: Theme missing expected structure!")
-    print("Theme keys: " .. vim.inspect(vim.tbl_keys(theme)))
-    if theme.semantic then print("Semantic keys: " .. vim.inspect(vim.tbl_keys(theme.semantic))) end
-    error("Theme missing semantic color mappings (syn, ui, diag, git, diff)")
   end
+
+  -- Invalid structure
+  error(
+    string.format(
+      "[prismpunk] Theme missing required structure (syn, ui, diag). Found keys: %s",
+      vim.inspect(vim.tbl_keys(theme))
+    )
+  )
 end
 
----@param theme table Theme colors
----@param config table Configuration
+--- Apply highlights to Neovim
+--- @param theme table Theme result from theme.get()
+--- @param config table Configuration
 function M.apply(theme, config)
+  -- Normalize theme structure
   local colors = M.normalize_theme(theme, config)
-  if not colors.syn then error("Missing colors.syn - theme structure issue") end
 
+  if not colors.syn then error("[prismpunk] Normalized theme missing colors.syn") end
+
+  -- Ensure config has proper structure
+  local opts = config
+  if type(config.options) == "table" then opts = config.options end
+
+  -- Load highlight modules in order
   local modules = {
     "editor",
     "syntax",
@@ -80,26 +123,52 @@ function M.apply(theme, config)
   }
 
   for _, module_name in ipairs(modules) do
-    local hl_ok, module = pcall(require, "prismpunk.core.highlights." .. module_name)
-    if hl_ok then
-      module.apply(colors, config)
+    local module_path = "prismpunk.core.highlights." .. module_name
+    local ok, module = pcall(require, module_path)
+
+    if ok and type(module.apply) == "function" then
+      local apply_ok, err = pcall(module.apply, colors, opts)
+      if not apply_ok then
+        vim.notify(
+          string.format("[prismpunk] Highlight module %s failed: %s", module_name, tostring(err)),
+          vim.log.levels.ERROR
+        )
+        error(string.format("[prismpunk] Critical highlight module failed: %s", module_name))
+      end
     else
-      print("Failed to load: " .. module_name)
-      print("Error: " .. tostring(module))
+      vim.notify(string.format("[prismpunk] Failed to load highlight module: %s", module_name), vim.log.levels.ERROR)
+      error(string.format("[prismpunk] Critical highlight module missing: %s", module_name))
     end
   end
 
+  -- Load plugin highlights
   local plugin_ok, plugins = pcall(require, "prismpunk.core.highlights.plugins")
-  if plugin_ok then
-    plugins.apply(colors, config)
+  if plugin_ok and type(plugins.apply) == "function" then
+    local apply_ok, err = pcall(plugins.apply, colors, opts)
+    if not apply_ok then
+      vim.notify(string.format("[prismpunk] Plugin highlights failed: %s", tostring(err)), vim.log.levels.ERROR)
+      error("[prismpunk] Plugin highlights failed")
+    end
   else
-    print("Failed to load plugins")
-    print("Error: " .. tostring(plugins))
+    vim.notify("[prismpunk] Failed to load plugin highlights", vim.log.levels.WARN)
   end
 
-  if config.overrides and config.overrides.highlights then
-    for group, opts in pairs(config.overrides.highlights) do
-      hl(group, opts)
+  -- Apply global overrides (check both config and opts for overrides)
+  local overrides = opts.overrides or config.overrides
+  if overrides and overrides.highlights then
+    for group, highlight_opts in pairs(overrides.highlights) do
+      hl(group, highlight_opts)
+    end
+  end
+
+  -- Apply per-theme overrides
+  local theme_name = opts.theme or config.theme
+  if overrides and overrides.themes and theme_name then
+    local theme_overrides = overrides.themes[theme_name]
+    if theme_overrides then
+      for group, highlight_opts in pairs(theme_overrides) do
+        hl(group, highlight_opts)
+      end
     end
   end
 end
