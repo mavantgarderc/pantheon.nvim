@@ -1,74 +1,174 @@
-local hex_to_hsluv = require("prismpunk.utils.hsluv").hex_to_hsluv
-local hsluv_to_rgb = require("prismpunk.utils.hsluv").hsluv_to_rgb
-local hsluv_to_hex = require("prismpunk.utils.hsluv").hsluv_to_hex
-local hex_to_rgb = require("prismpunk.utils.hsluv").hex_to_rgb
-local rgb_to_hsluv = require("prismpunk.utils.hsluv").rgb_to_hsluv
-
-local unpack = unpack or table.unpack -- luacheck: ignore
-
----@class HSLuvColor
-local Color = {}
-local Color_mt = {
-  __index = Color,
-  __tostring = function(self) return self:to_hex() end,
-}
-
-local function none_to_hex() return "NONE" end
-
----Create a new HSLuv color object from a RGB hex string
----@param hex string Hex color
----@return HSLuvColor
-function Color.new(hex)
-  if hex:lower() == "none" then return setmetatable({ H = 0, S = 0, L = 0, to_hex = none_to_hex }, Color_mt) end
-  local H, S, L = unpack(hex_to_hsluv(hex))
-  return setmetatable({ H = H, S = S, L = L }, Color_mt)
-end
-
-function Color:to_rgb() return hsluv_to_rgb({ self.H, self.S, self.L }) end
-
-function Color:to_hex() return hsluv_to_hex({ self.H, self.S, self.L }) end
-
-local function blendRGB(a, b, r)
-  local c = {}
-  for i = 1, 3 do
-    c[i] = math.sqrt((1 - r) * (a[i] * a[i]) + r * (b[i] * b[i]))
-  end
-  return c
-end
-
---- Blend Color with another color (hex)
----@param b string Hex color
----@param r number Blend ratio [0, 1]
----@return HSLuvColor
-function Color:blend(b, r)
-  if b:lower() == "none" then return self end
-  local c = blendRGB(self:to_rgb(), hex_to_rgb(b), r)
-  self.H, self.S, self.L = unpack(rgb_to_hsluv(c))
-  return self
-end
-
----@param r number Brighten ratio [-1, 1]
----@param bg? string background color, if light, r = -r
----@return HSLuvColor
-function Color:brighten(r, bg)
-  if bg and bg:lower() == "none" then return self end
-  local bg_lightness = bg and hex_to_hsluv(bg)[3] or 0
-  r = bg_lightness > 50 and -r or r
-
-  local lspace = r > 0 and 100 - self.L or self.L
-  self.L = self.L + lspace * r
-  return self
-end
-
----@param r number Saturate ratio [-1, 1]
----@return HSLuvColor
-function Color:saturate(r)
-  local lspace = r > 0 and 100 - self.S or self.S
-  self.S = self.S + lspace * r
-  return self
-end
-
+--- Color manipulation utilities
+--- Pure functions for color transformations
 local M = {}
-return setmetatable(M, {
-  __call = function(_, ...) return Color.new(...) end,
+
+local hsluv = require("prismpunk.utils.hsluv")
+
+--- Create a color object with chainable methods
+--- @param hex string Hex color
+--- @return table Color object with methods
+--- @usage local c = color("#ff0000"):brighten(0.2):to_hex()
+function M.new(hex)
+  local obj = {
+    hex = hex,
+    rgb = hsluv.hex_to_rgb(hex),
+    hsluv = hsluv.hex_to_hsluv(hex),
+  }
+
+  --- Brighten color by factor
+  --- @param factor number 0.0 to 1.0 (0 = no change, 1 = max brightness)
+  --- @return table self
+  function obj:brighten(factor)
+    local h = self.hsluv
+    h[3] = math.max(0, math.min(100, h[3] + (factor * 100)))
+    self.hsluv = h
+    self.rgb = hsluv.hsluv_to_rgb(h)
+    self.hex = hsluv.hsluv_to_hex(h)
+    return self
+  end
+
+  --- Darken color by factor
+  --- @param factor number 0.0 to 1.0
+  --- @return table self
+  function obj:darken(factor) return self:brighten(-factor) end
+
+  --- Adjust saturation
+  --- @param factor number -1.0 to 1.0
+  --- @return table self
+  function obj:saturate(factor)
+    local h = self.hsluv
+    h[2] = math.max(0, math.min(100, h[2] + (factor * 100)))
+    self.hsluv = h
+    self.rgb = hsluv.hsluv_to_rgb(h)
+    self.hex = hsluv.hsluv_to_hex(h)
+    return self
+  end
+
+  --- Rotate hue
+  --- @param degrees number -360 to 360
+  --- @return table self
+  function obj:rotate(degrees)
+    local h = self.hsluv
+    h[1] = (h[1] + degrees) % 360
+    self.hsluv = h
+    self.rgb = hsluv.hsluv_to_rgb(h)
+    self.hex = hsluv.hsluv_to_hex(h)
+    return self
+  end
+
+  --- Get hex representation
+  --- @return string
+  function obj:to_hex() return self.hex end
+
+  --- Get RGB representation
+  --- @return table {r, g, b}
+  function obj:to_rgb() return self.rgb end
+
+  --- Get HSLuv representation
+  --- @return table {h, s, l}
+  function obj:to_hsluv() return self.hsluv end
+
+  return obj
+end
+
+-- Make color() callable
+setmetatable(M, {
+  __call = function(_, hex) return M.new(hex) end,
 })
+
+--- Convert hex to RGB
+--- @param hex string
+--- @return table {r, g, b} (0-1 range)
+function M.hex_to_rgb(hex) return hsluv.hex_to_rgb(hex) end
+
+--- Convert RGB to hex
+--- @param rgb table {r, g, b} (0-1 range)
+--- @return string
+function M.rgb_to_hex(rgb) return hsluv.rgb_to_hex(rgb) end
+
+--- Brighten hex color
+--- @param hex string
+--- @param factor number 0.0 to 1.0
+--- @return string
+function M.brighten(hex, factor) return M.new(hex):brighten(factor):to_hex() end
+
+--- Darken hex color
+--- @param hex string
+--- @param factor number 0.0 to 1.0
+--- @return string
+function M.darken(hex, factor) return M.new(hex):darken(factor):to_hex() end
+
+--- Blend two colors
+--- @param hex1 string
+--- @param hex2 string
+--- @param alpha number 0.0 to 1.0 (0 = hex1, 1 = hex2)
+--- @return string
+function M.blend(hex1, hex2, alpha)
+  local rgb1 = M.hex_to_rgb(hex1)
+  local rgb2 = M.hex_to_rgb(hex2)
+
+  local blended = {
+    rgb1[1] * (1 - alpha) + rgb2[1] * alpha,
+    rgb1[2] * (1 - alpha) + rgb2[2] * alpha,
+    rgb1[3] * (1 - alpha) + rgb2[3] * alpha,
+  }
+
+  return M.rgb_to_hex(blended)
+end
+
+--- Calculate relative luminance (WCAG formula)
+--- @param hex string
+--- @return number 0.0 to 1.0
+function M.get_luminance(hex)
+  local rgb = M.hex_to_rgb(hex)
+
+  local function adjust(c)
+    if c <= 0.03928 then
+      return c / 12.92
+    else
+      return math.pow((c + 0.055) / 1.055, 2.4)
+    end
+  end
+
+  local r = adjust(rgb[1])
+  local g = adjust(rgb[2])
+  local b = adjust(rgb[3])
+
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b
+end
+
+--- Calculate contrast ratio between two colors
+--- @param lum1 number Luminance of first color
+--- @param lum2 number Luminance of second color
+--- @return number Contrast ratio (1.0 to 21.0)
+function M.calculate_contrast(lum1, lum2)
+  local lighter = math.max(lum1, lum2)
+  local darker = math.min(lum1, lum2)
+  return (lighter + 0.05) / (darker + 0.05)
+end
+
+--- Generate terminal color table from palette
+--- @param plt table Palette
+--- @return table Terminal colors
+function M.term_from_palette(plt)
+  return {
+    black = plt.base00 or plt.bg_darkest or "#000000",
+    red = plt.base08 or plt.red or "#ff0000",
+    green = plt.base0B or plt.green or "#00ff00",
+    yellow = plt.base0A or plt.yellow or "#ffff00",
+    blue = plt.base0D or plt.blue or "#0000ff",
+    magenta = plt.base0E or plt.magenta or "#ff00ff",
+    cyan = plt.base0C or plt.cyan or "#00ffff",
+    white = plt.base05 or plt.fg or "#ffffff",
+    black_bright = M.brighten(plt.base00 or plt.bg_darkest or "#000000", 0.6),
+    red_bright = M.brighten(plt.base08 or plt.red or "#ff0000", 0.15),
+    green_bright = M.brighten(plt.base0B or plt.green or "#00ff00", 0.1),
+    yellow_bright = M.brighten(plt.base0A or plt.yellow or "#ffff00", 0.15),
+    blue_bright = M.brighten(plt.base0D or plt.blue or "#0000ff", 0.2),
+    magenta_bright = M.brighten(plt.base0E or plt.magenta or "#ff00ff", 0.15),
+    cyan_bright = M.brighten(plt.base0C or plt.cyan or "#00ffff", 0.1),
+    white_bright = M.brighten(plt.base05 or plt.fg or "#ffffff", 0.15),
+  }
+end
+
+return M
