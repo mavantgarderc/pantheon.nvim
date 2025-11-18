@@ -1,187 +1,284 @@
+--- PrismPunk palette management
+--- Handles palette loading, caching, and validation
 local M = {}
 
-M.create_theme = function(spec)
-  local theme = {
-    colors = spec.base16 or {},
+local config = require("prismpunk.config")
 
-    palette = spec.palette or {},
+--- In-memory palette cache
+local palette_cache = {}
 
-    semantic = {},
+--- Cache statistics
+local cache_stats = {
+  hits = 0,
+  misses = 0,
+}
 
-    name = spec.name or "Unnamed Theme",
-    author = spec.author or "Unknown",
-    description = spec.description or "",
-  }
-
-  if spec.get then
-    local opts = {}
-    local semantic_data = spec.get(opts, theme.palette)
-    theme.semantic = M.ensure_complete_semantic(semantic_data, theme.colors)
-  elseif spec.semantic then
-    theme.semantic = M.ensure_complete_semantic(spec.semantic, theme.colors)
-  elseif next(spec.palette) then
-    local palette_semantic = M.generate_semantic(spec.palette, spec.base16)
-    theme.semantic = M.ensure_complete_semantic(palette_semantic, theme.colors)
-  else
-    theme.semantic = M.ensure_complete_semantic({}, theme.colors)
-  end
-
-  return theme
+--- Get cache statistics
+--- @return table { hits = number, misses = number }
+function M.get_cache_stats()
+  return vim.tbl_extend("force", {}, cache_stats)
 end
 
--- Add this new function to ensure semantic structure is complete
-M.ensure_complete_semantic = function(semantic, base16)
-  local base_semantic = M.base16_to_semantic(base16 or {})
+--- Compute cache key for palette
+--- @param universe string|nil
+--- @param name string
+--- @param overrides table|nil
+--- @return string
+local function palette_cache_key(universe, name, overrides)
+  local key_parts = {
+    universe or "default",
+    name,
+    vim.inspect(overrides or {}),
+  }
+  return vim.fn.sha256(table.concat(key_parts, "::"))
+end
 
-  -- Deep merge with base_semantic as fallback
-  local function deep_merge(t1, t2)
-    if type(t1) ~= "table" then t1 = {} end
-    if type(t2) ~= "table" then return t1 end
+--- Get disk cache path for palette
+--- @param cache_key string
+--- @return string
+local function get_disk_cache_path(cache_key)
+  local cache_dir = vim.fn.stdpath("cache") .. "/prismpunk/palettes"
+  vim.fn.mkdir(cache_dir, "p")
+  return cache_dir .. "/" .. cache_key .. ".lua"
+end
 
-    for k, v in pairs(t2) do
-      if type(v) == "table" then
-        if type(t1[k]) ~= "table" then t1[k] = {} end
-        deep_merge(t1[k], v)
-      else
-        if t1[k] == nil then t1[k] = v end
+--- Load palette from disk cache
+--- @param cache_key string
+--- @return table|nil
+local function load_from_disk_cache(cache_key)
+  if not config.options.cache.persist_to_disk then
+    return nil
+  end
+  
+  local cache_path = get_disk_cache_path(cache_key)
+  
+  if vim.fn.filereadable(cache_path) == 0 then
+    return nil
+  end
+  
+  local ok, cached_data = pcall(dofile, cache_path)
+  if ok and type(cached_data) == "table" then
+    return cached_data
+  end
+  
+  return nil
+end
+
+--- Save palette to disk cache
+--- @param cache_key string
+--- @param palette table
+local function save_to_disk_cache(cache_key, palette)
+  if not config.options.cache.persist_to_disk then
+    return
+  end
+  
+  local cache_path = get_disk_cache_path(cache_key)
+  
+  local ok, serialized = pcall(function()
+    return "return " .. vim.inspect(palette)
+  end)
+  
+  if not ok then
+    return
+  end
+  
+  local file = io.open(cache_path, "w")
+  if file then
+    file:write(serialized)
+    file:close()
+  end
+end
+
+--- Get file modification time
+--- @param path string
+--- @return number|nil mtime (seconds since epoch)
+local function get_mtime(path)
+  local stat = vim.loop.fs_stat(path)
+  if stat then
+    return stat.mtime.sec
+  end
+  return nil
+end
+
+--- Resolve palette module path
+--- @param universe string|nil
+--- @param name string
+--- @return string|nil, string|nil module_path, file_path
+local function resolve_palette_module(universe, name)
+  local tries = {}
+  
+  if universe and universe ~= "" then
+    table.insert(tries, string.format("prismpunk.palettes.%s.%s", universe, name))
+  end
+  table.insert(tries, string.format("prismpunk.palettes.%s", name))
+  
+  for _, module_path in ipairs(tries) do
+    -- Convert module path to file path
+    local file_path = module_path:gsub("%.", "/") .. ".lua"
+    local full_paths = {
+      vim.fn.getcwd() .. "/lua/" .. file_path,
+      vim.fn.stdpath("config") .. "/lua/" .. file_path,
+    }
+    
+    for _, full_path in ipairs(full_paths) do
+      if vim.fn.filereadable(full_path) == 1 then
+        return module_path, full_path
       end
     end
-    return t1
+    
+    -- Try loading as module (works for installed plugins)
+    local ok, _ = pcall(require, module_path)
+    if ok then
+      return module_path, nil
+    end
   end
-
-  return deep_merge(semantic or {}, base_semantic)
+  
+  return nil, nil
 end
 
-M.generate_semantic = function(palette, base16)
-  return {
-    syn = {
-      string = palette.string or base16.base0B,
-      number = palette.number or base16.base09,
-      boolean = palette.boolean or base16.base09,
-      keyword = palette.keyword or base16.base0E,
-      operator = palette.operator or base16.base05,
-      func = palette.func or base16.base0D,
-      type = palette.type or base16.base0A,
-      variable = palette.variable or base16.base05,
-      comment = palette.comment or base16.base03,
-      constant = palette.constant or base16.base09,
-      special = palette.special or base16.base0C,
-    },
-
-    ui = {
-      bg = palette.bg or base16.base00,
-      bg_dim = palette.bg_dim or base16.base01,
-      bg_highlight = palette.bg_highlight or base16.base02,
-
-      fg = palette.fg or base16.base05,
-      fg_dim = palette.fg_dim or base16.base04,
-      fg_bright = palette.fg_bright or base16.base06,
-
-      border = palette.border or base16.base02,
-      float = palette.float_bg or base16.base01,
-
-      selection = palette.selection or base16.base02,
-      cursorline = palette.cursorline or base16.base01,
-
-      line_nr = palette.line_nr or base16.base03,
-      line_nr_active = palette.line_nr_active or base16.base0B,
-    },
-
-    diag = {
-      error = palette.error or base16.base08,
-      warning = palette.warning or base16.base0E,
-      info = palette.info or base16.base0C,
-      hint = palette.hint or base16.base0D,
-    },
-
-    git = {
-      add = palette.git_add or base16.base0B,
-      change = palette.git_change or base16.base0E,
-      delete = palette.git_delete or base16.base08,
-    },
-
-    diff = {
-      add = palette.diff_add or base16.base0B,
-      change = palette.diff_change or base16.base0E,
-      delete = palette.diff_delete or base16.base08,
-      text = palette.diff_text or base16.base0D,
-    },
-  }
-end
-
-M.base16_to_semantic = function(base16)
-  -- Provide default fallback colors for base16
-  local defaults = {
-    base00 = "#000000", -- bg
-    base01 = "#111111", -- bg_dim
-    base02 = "#222222", -- bg_highlight
-    base03 = "#333333", -- line_nr, comment
-    base04 = "#444444", -- fg_dim
-    base05 = "#555555", -- fg, variable, operator
-    base06 = "#666666", -- fg_bright
-    base07 = "#777777", --
-    base08 = "#ff0000", -- error, git_delete, diff_delete
-    base09 = "#ff8800", -- number, boolean, constant
-    base0A = "#ffff00", -- type, warning, git_change, diff_change
-    base0B = "#00ff00", -- string, git_add, diff_add
-    base0C = "#00ffff", -- special, info
-    base0D = "#0000ff", -- func, hint, diff_text
-    base0E = "#ff00ff", -- keyword
-    base0F = "#8800ff", --
-  }
-
-  -- Merge provided base16 with defaults
-  local merged_base16 = {}
-  for k, v in pairs(defaults) do
-    merged_base16[k] = base16[k] or v
+--- Load palette module
+--- @param universe string|nil
+--- @param name string
+--- @return table
+local function load_palette_module(universe, name)
+  local module_path, file_path = resolve_palette_module(universe, name)
+  
+  if not module_path then
+    error(string.format(
+      "[prismpunk] Could not find palette: %s/%s",
+      universe or "?",
+      name or "?"
+    ))
   end
-
-  return {
-    syn = {
-      string = merged_base16.base0B,
-      number = merged_base16.base09,
-      boolean = merged_base16.base09,
-      keyword = merged_base16.base0E,
-      operator = merged_base16.base05,
-      func = merged_base16.base0D,
-      type = merged_base16.base0A,
-      variable = merged_base16.base05,
-      comment = merged_base16.base03,
-      constant = merged_base16.base09,
-      special = merged_base16.base0C,
-    },
-    ui = {
-      bg = merged_base16.base00,
-      bg_dim = merged_base16.base01,
-      bg_highlight = merged_base16.base02,
-      fg = merged_base16.base05,
-      fg_dim = merged_base16.base04,
-      fg_bright = merged_base16.base06,
-      border = merged_base16.base02,
-      float = merged_base16.base01,
-      selection = merged_base16.base02,
-      cursorline = merged_base16.base01,
-      line_nr = merged_base16.base03,
-      line_nr_active = merged_base16.base0B,
-    },
-    diag = {
-      error = merged_base16.base08,
-      warning = merged_base16.base0E,
-      info = merged_base16.base0C,
-      hint = merged_base16.base0D,
-    },
-    git = {
-      add = merged_base16.base0B,
-      change = merged_base16.base0E,
-      delete = merged_base16.base08,
-    },
-    diff = {
-      add = merged_base16.base0B,
-      change = merged_base16.base0E,
-      delete = merged_base16.base08,
-      text = merged_base16.base0D,
-    },
-  }
+  
+  -- Clear module cache to ensure fresh load
+  package.loaded[module_path] = nil
+  
+  local ok, palette = pcall(require, module_path)
+  if not ok then
+    error(string.format(
+      "[prismpunk] Failed to load palette %s: %s",
+      module_path,
+      tostring(palette)
+    ))
+  end
+  
+  if type(palette) == "function" then
+    palette = palette()
+  end
+  
+  if type(palette) ~= "table" then
+    error(string.format(
+      "[prismpunk] Palette %s must return a table, got %s",
+      module_path,
+      type(palette)
+    ))
+  end
+  
+  return palette, file_path
 end
+
+--- Normalize palette (ensure all required fields exist)
+--- @param palette_spec table
+--- @return table
+local function normalize_palette(palette_spec)
+  local normalized = vim.tbl_deep_extend("force", {}, palette_spec or {})
+  
+  -- Validate that palette has color keys
+  local has_colors = false
+  for k, v in pairs(normalized) do
+    if type(v) == "string" and v:match("^#%x+$") then
+      has_colors = true
+      break
+    end
+  end
+  
+  if not has_colors then
+    vim.notify(
+      "[prismpunk] Warning: Palette appears to have no color definitions",
+      vim.log.levels.WARN
+    )
+  end
+  
+  return normalized
+end
+
+--- Create or retrieve cached palette
+--- @param universe string|nil
+--- @param name string
+--- @param overrides table|nil
+--- @return table palette
+function M.create_palette(universe, name, overrides)
+  local cache_key = palette_cache_key(universe, name, overrides)
+  
+  -- Check in-memory cache
+  if config.options.cache.enable and palette_cache[cache_key] then
+    cache_stats.hits = cache_stats.hits + 1
+    return palette_cache[cache_key]
+  end
+  
+  cache_stats.misses = cache_stats.misses + 1
+  
+  -- Check disk cache with mtime validation
+  local disk_cached = load_from_disk_cache(cache_key)
+  if disk_cached then
+    local _, file_path = resolve_palette_module(universe, name)
+    if file_path then
+      local palette_mtime = get_mtime(file_path)
+      local cache_path = get_disk_cache_path(cache_key)
+      local cache_mtime = get_mtime(cache_path)
+      
+      -- Use disk cache if it's newer than source file
+      if cache_mtime and palette_mtime and cache_mtime >= palette_mtime then
+        if config.options.cache.enable then
+          palette_cache[cache_key] = disk_cached
+        end
+        return disk_cached
+      end
+    else
+      -- No file path (installed plugin), trust disk cache
+      if config.options.cache.enable then
+        palette_cache[cache_key] = disk_cached
+      end
+      return disk_cached
+    end
+  end
+  
+  -- Load fresh palette
+  local raw_palette = load_palette_module(universe, name)
+  local normalized = normalize_palette(raw_palette)
+  
+  -- Apply overrides
+  if overrides and next(overrides) then
+    normalized = vim.tbl_deep_extend("force", {}, normalized, overrides)
+  end
+  
+  -- Cache results
+  if config.options.cache.enable then
+    palette_cache[cache_key] = normalized
+    save_to_disk_cache(cache_key, normalized)
+  end
+  
+  return normalized
+end
+
+--- Clear palette cache
+function M.clear_cache()
+  palette_cache = {}
+  cache_stats.hits = 0
+  cache_stats.misses = 0
+  
+  -- Clear disk cache
+  if config.options.cache.persist_to_disk then
+    local cache_dir = vim.fn.stdpath("cache") .. "/prismpunk/palettes"
+    if vim.fn.isdirectory(cache_dir) == 1 then
+      vim.fn.delete(cache_dir, "rf")
+    end
+  end
+end
+
+-- Export for testing
+M._cache = palette_cache
+M._stats = cache_stats
 
 return M
