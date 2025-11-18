@@ -1,11 +1,13 @@
 return {
   "prismpunk.nvim",
   dependencies = { "echasnovski/mini.hipatterns" },
+  lazy = false,
+  priority = 1000,
   config = function()
     local M = {
       module = "prismpunk",
       colorscheme = "lantern-corps-phantom-corrupted",
-      opts = { theme = "lantern-corps/phantom-corrupted" },
+      opts = { theme = "dc/lantern-corps/phantom-corrupted" },
       enabled = true,
     }
 
@@ -14,8 +16,6 @@ return {
     }
 
     local PRISMPUNK_NS = vim.api.nvim_create_namespace("prismpunk_colors")
-    ---@diagnostic disable-next-line: unused-local
-    local PRISMPUNK_ERROR_NS = vim.api.nvim_create_namespace("prismpunk_errors") -- luacheck: ignore
     local PRISMPUNK_HOVER_NS = vim.api.nvim_create_namespace("prismpunk_hover")
 
     local function normalize_filepath(path)
@@ -27,21 +27,21 @@ return {
       local ok, prismpunk = pcall(require, "prismpunk")
       if ok and prismpunk and prismpunk.setup then
         prismpunk.setup({ theme = M.opts.theme })
-        vim.cmd("colorscheme " .. M.colorscheme)
-        vim.notify("PrismPunk theme loaded: " .. M.colorscheme)
+        vim.notify("PrismPunk theme loaded: " .. M.opts.theme)
         return true
       end
+
       local dev_path = vim.fn.getcwd() .. "/lua/prismpunk/init.lua"
       if vim.fn.filereadable(dev_path) == 1 then
         package.loaded.prismpunk = nil
         ok, prismpunk = pcall(dofile, dev_path)
         if ok and prismpunk and prismpunk.setup then
           prismpunk.setup({ theme = M.opts.theme })
-          vim.cmd("colorscheme " .. M.colorscheme)
-          vim.notify("PrismPunk dev theme loaded: " .. M.colorscheme)
+          vim.notify("PrismPunk dev theme loaded: " .. M.opts.theme)
           return true
         end
       end
+
       vim.notify("prismpunk.nvim theme could not be loaded", vim.log.levels.WARN)
       return false
     end
@@ -66,7 +66,7 @@ return {
     end
 
     local function get_contrast_color(hex)
-      local r, g, b = unpack(hex_to_rgb(hex)) -- luacheck: ignore
+      local r, g, b = unpack(hex_to_rgb(hex))
       local luminance = 0.299 * r + 0.587 * g + 0.114 * b
       return luminance > 0.5 and "#000000" or "#FFFFFF"
     end
@@ -86,17 +86,20 @@ return {
 
     local function load_palette(module_name)
       if palette_cache[module_name] then return palette_cache[module_name] end
+
       local ok, palette = pcall(require, module_name)
       if ok and type(palette) == "table" then
         palette_cache[module_name] = palette
         return palette
       end
+
       local module_path = module_name:gsub("%.", "/")
       local paths = {
         "./lua/" .. module_path .. ".lua",
         "./" .. module_path .. ".lua",
         vim.fn.getcwd() .. "/lua/" .. module_path .. ".lua",
       }
+
       for _, path in ipairs(paths) do
         local norm = normalize_filepath(path)
         if vim.fn.filereadable(norm) == 1 then
@@ -113,20 +116,25 @@ return {
           end
         end
       end
+
       return nil
     end
 
     local function resolve_palette_color(bufnr, palette_ref)
       local module_name = extract_palette_module(bufnr)
       if not module_name then return nil end
+
       local palette = load_palette(module_name)
       if not palette then return nil end
+
       local key = palette_ref:match("plt%.([%w_]+)")
         or palette_ref:match("palette%.([%w_]+)")
         or palette_ref:match("p%.([%w_]+)")
+
       local color = key and palette[key]
       if type(color) == "string" then return color end
       if type(color) == "table" and type(color[1]) == "string" then return color[1] end
+
       return nil
     end
 
@@ -143,6 +151,7 @@ return {
       })
 
       local line = vim.api.nvim_buf_get_lines(bufnr, lnum, lnum + 1, false)[1]
+      if not line then return end
 
       local text_start = line:match("^%s*()")
       if not text_start then text_start = 1 end
@@ -183,6 +192,7 @@ return {
         local lines = { display_text }
         local buf = vim.api.nvim_create_buf(false, true)
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
         local hl_name = "PrismPunkHover_" .. indicator.hex:gsub("#", "")
         vim.api.nvim_set_hl(0, hl_name, {
           bg = indicator.hex,
@@ -206,6 +216,7 @@ return {
           width = #display_text,
           height = 1,
         })
+
         vim.defer_fn(function()
           if vim.api.nvim_win_is_valid(win_id) then vim.api.nvim_win_close(win_id, true) end
           if vim.api.nvim_buf_is_valid(buf) then vim.api.nvim_buf_delete(buf, { force = true }) end
@@ -215,9 +226,11 @@ return {
 
     local function process_buffer(bufnr)
       if not ensure_hipatterns() then return end
+
       local path = normalize_filepath(vim.api.nvim_buf_get_name(bufnr))
       if not path:match("prismpunk") then return end
       if processed_buffers[bufnr] then return end
+
       processed_buffers[bufnr] = true
       clear_indicators(bufnr)
 
@@ -233,6 +246,7 @@ return {
           if hex then create_color_indicator(bufnr, lnum - 1, hex, hex) end
         elseif is_theme then
           local ref = line:match("plt%.[%w_]+") or line:match("palette%.[%w_]+") or line:match("p%.[%w_]+")
+
           if ref then
             local hex = resolve_palette_color(bufnr, ref)
             if hex then create_color_indicator(bufnr, lnum - 1, hex, ref) end
@@ -246,6 +260,7 @@ return {
 
     local function setup_autocmds()
       local group = vim.api.nvim_create_augroup("PrismPunkColorIndicators", { clear = true })
+
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
         group = group,
         pattern = "*prismpunk/*.lua",
@@ -254,6 +269,7 @@ return {
           vim.defer_fn(function() process_buffer(args.buf) end, 100)
         end,
       })
+
       vim.api.nvim_create_autocmd("BufLeave", {
         group = group,
         pattern = "*prismpunk/*.lua",
@@ -263,37 +279,53 @@ return {
 
     local function toggle_indicators()
       M.enabled = not M.enabled
+
       if M.enabled then
         setup_autocmds()
         vim.notify("PrismPunk color indicators enabled")
+
         local bufnr = vim.api.nvim_get_current_buf()
         if vim.api.nvim_buf_get_name(bufnr):match("prismpunk") then process_buffer(bufnr) end
       else
-        vim.api.nvim_del_augroup_by_name("PrismPunkColorIndicators")
+        pcall(vim.api.nvim_del_augroup_by_name, "PrismPunkColorIndicators")
+
         for _, buf in ipairs(vim.api.nvim_list_bufs()) do
           if vim.api.nvim_buf_is_loaded(buf) then clear_indicators(buf) end
         end
+
         vim.notify("PrismPunk color indicators disabled")
       end
     end
 
-    local function setup_keymaps() vim.keymap.set("n", "<C-k>", show_hover, { desc = "Show color hover information" }) end --luacheck: ignore
+    local function setup_keymaps()
+      vim.keymap.set("n", "<C-k>", show_hover, {
+        desc = "Show color hover information",
+      })
+    end
 
-    vim.defer_fn(function()
-      load_prismpunk_theme()
-      if ensure_hipatterns() then
-        setup_autocmds()
-        setup_keymaps()
-        vim.api.nvim_create_user_command("PrismPunkToggleIndicators", toggle_indicators, {
-          desc = "Toggle PrismPunk color indicators",
-        })
+    -- Main execution
+    local theme_loaded = load_prismpunk_theme()
+
+    if theme_loaded and ensure_hipatterns() then
+      setup_autocmds()
+      setup_keymaps()
+
+      vim.api.nvim_create_user_command("PrismPunkToggleIndicators", toggle_indicators, {
+        desc = "Toggle PrismPunk color indicators",
+      })
+
+      -- Process current buffer if it's a prismpunk file
+      vim.defer_fn(function()
         local bufnr = vim.api.nvim_get_current_buf()
-        if vim.api.nvim_buf_get_name(bufnr):match("prismpunk") then
-          vim.defer_fn(function() process_buffer(bufnr) end, 200)
-        end
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        if bufname:match("prismpunk") then process_buffer(bufnr) end
+      end, 100)
+    else
+      if not theme_loaded then
+        vim.notify("prismpunk: Failed to load theme", vim.log.levels.ERROR)
       else
         vim.notify("prismpunk: Failed to load mini.hipatterns", vim.log.levels.ERROR)
       end
-    end, 500)
+    end
   end,
 }
