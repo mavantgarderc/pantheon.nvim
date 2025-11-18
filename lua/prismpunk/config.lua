@@ -186,97 +186,42 @@ end
 --- Auto-discovers themes by checking filesystem
 --- @param theme_spec string|table|nil
 --- @return table Normalized spec { universe = string|nil, name = string, variants = table }
+--- Parse theme specification (SIMPLE & RELIABLE VERSION)
 function M.parse_theme(theme_spec)
   if not theme_spec or theme_spec == "" then return { universe = nil, name = nil, variants = {} } end
 
   if type(theme_spec) == "string" then
     local variants = {}
 
-    -- Helper: Check if a module path exists
-    local function module_exists(path)
-      local ok, _ = pcall(require, path)
-      if ok then return true end
+    -- Split by slashes
+    local parts = vim.split(theme_spec, "/")
 
-      -- Also check filesystem
-      local file_path = path:gsub("%.", "/") .. ".lua"
-      local search_paths = {
-        vim.fn.getcwd() .. "/lua/" .. file_path,
-        vim.fn.stdpath("config") .. "/lua/" .. file_path,
-      }
-      for _, p in ipairs(search_paths) do
-        if vim.fn.filereadable(p) == 1 then return true end
+    if #parts == 3 then
+      -- Format: "dc/lantern-corps/phantom-corrupted"
+      local universe = parts[1] .. "/" .. parts[2]
+      local name = parts[3]
+      table.insert(variants, { universe = universe, name = name })
+      return { universe = universe, name = name, variants = variants }
+    elseif #parts == 2 then
+      -- Format: "lantern-corps/phantom-corrupted" or "kanagawa/paper-sunset"
+      local category = parts[1]
+      local name = parts[2]
+
+      -- Special handling for known categories
+      if category == "lantern-corps" or category == "ultraviolet" then
+        -- These belong to dc universe
+        local universe = "dc/" .. category
+        table.insert(variants, { universe = universe, name = name })
+        return { universe = universe, name = name, variants = variants }
+      else
+        -- Others (like kanagawa) are their own universe
+        table.insert(variants, { universe = category, name = name })
+        return { universe = category, name = name, variants = variants }
       end
-      return false
+    else
+      -- Plain name (no slashes)
+      return { universe = nil, name = theme_spec, variants = {} }
     end
-
-    -- Strategy 1: Try as "universe/category/name" (3 parts)
-    local part1, part2, part3 = theme_spec:match("^([^/]+)/([^/]+)/(.+)$")
-    if part1 and part2 and part3 then
-      local paths_to_try = {
-        ("prismpunk.themes.%s.%s.%s"):format(part1, part2, part3),
-        ("prismpunk.themes.%s-%s.%s"):format(part1, part2, part3),
-      }
-      for _, path in ipairs(paths_to_try) do
-        if module_exists(path) then
-          local universe = path:match("prismpunk%.themes%.(.+)%.[^%.]+$")
-          local name = part3
-          table.insert(variants, { universe = universe, name = name })
-          return { universe = universe, name = name, variants = variants }
-        end
-      end
-    end
-
-    -- Strategy 2: Try as "universe/name" (2 parts)
-    local universe, name = theme_spec:match("^([^/]+)/(.+)$")
-    if universe and name then
-      local paths_to_try = {
-        ("prismpunk.themes.%s.%s"):format(universe, name),
-        ("prismpunk.themes.%s-%s"):format(universe, name),
-      }
-      for _, path in ipairs(paths_to_try) do
-        if module_exists(path) then
-          table.insert(variants, { universe = universe, name = name })
-          return { universe = universe, name = name, variants = variants }
-        end
-      end
-    end
-
-    -- Strategy 3: Try with dash-separated parsing
-    -- "dc-lantern-corps-phantom-corrupted" → try multiple splits
-    if theme_spec:find("-") then
-      local parts = vim.split(theme_spec, "-")
-
-      -- Try different split points (last part is name, rest is universe)
-      for split_point = #parts - 1, 1, -1 do
-        local potential_universe = table.concat(vim.list_slice(parts, 1, split_point), "-")
-        local potential_name = table.concat(vim.list_slice(parts, split_point + 1), "-")
-
-        local paths_to_try = {
-          ("prismpunk.themes.%s.%s"):format(potential_universe, potential_name),
-          ("prismpunk.themes.%s.%s"):format(potential_universe:gsub("-", "."), potential_name),
-          ("prismpunk.themes.%s.%s"):format(potential_universe:gsub("-", "/"), potential_name),
-        }
-
-        for _, path in ipairs(paths_to_try) do
-          if module_exists(path) then
-            local discovered_universe = path:match("prismpunk%.themes%.(.+)%.[^%.]+$")
-            table.insert(variants, { universe = discovered_universe, name = potential_name })
-            return {
-              universe = discovered_universe,
-              name = potential_name,
-              variants = variants,
-            }
-          end
-        end
-      end
-    end
-
-    -- Strategy 4: Plain name (no universe)
-    local path = "prismpunk.themes." .. theme_spec
-    if module_exists(path) then return { universe = nil, name = theme_spec, variants = {} } end
-
-    -- Fallback: return best guess and let resolver try all variants
-    return { universe = nil, name = theme_spec, variants = {} }
   elseif type(theme_spec) == "table" then
     return {
       universe = theme_spec.universe,
@@ -288,5 +233,4 @@ function M.parse_theme(theme_spec)
     error(string.format("[prismpunk] Invalid theme_spec type: %s (expected string or table)", type(theme_spec)))
   end
 end
-
 return M

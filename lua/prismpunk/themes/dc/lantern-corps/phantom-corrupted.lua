@@ -99,6 +99,7 @@ M.get = function(opts, plt)
 
     syn = {
       attribute = plt.accent_yellow,
+      boolean = plt.corruptedAvarice,
       comment = plt.fg_dark,
       constant = plt.corruptedAvarice,
       deprecated = plt.fg_mid,

@@ -7,7 +7,7 @@ return {
     local M = {
       module = "prismpunk",
       colorscheme = "lantern-corps-phantom-corrupted",
-      opts = { theme = "dc/lantern-corps/phantom-corrupted" },
+      opts = { theme = "lantern-corps/phantom-corrupted" },
       enabled = true,
     }
 
@@ -298,7 +298,7 @@ return {
     end
 
     local function setup_keymaps()
-      vim.keymap.set("n", "<C-k>", show_hover, {
+      vim.keymap.set("n", "<leader>ch", show_hover, {
         desc = "Show color hover information",
       })
     end

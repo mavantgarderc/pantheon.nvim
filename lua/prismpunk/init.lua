@@ -24,6 +24,10 @@ function M.setup(user_config)
   return opts
 end
 
+--- Apply theme programmatically (for Raphael integration)
+--- @param theme_name string
+function M.apply_theme(theme_name) return M.load(theme_name, { force_reload = false }) end
+
 --- Load theme from colorscheme command (skip if already loaded by setup)
 --- @param theme_spec string|table
 --- @return boolean success
