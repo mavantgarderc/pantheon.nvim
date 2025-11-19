@@ -3,7 +3,7 @@
 local M = {}
 
 local config = require("prismpunk.config")
-local common = require("prismpunk.core.terminals.common")
+-- local common = require("prismpunk.core.terminals.common")
 
 --- Detect current terminal from environment
 --- @return string|nil terminal_name
@@ -57,9 +57,9 @@ function M.apply(base16)
 
   -- Validate base16
   local utils_base16 = require("prismpunk.utils.base16")
-  local valid, err = utils_base16.validate(base16)
+  local valid, b16_err = utils_base16.validate(base16)
   if not valid then
-    vim.notify(string.format("[prismpunk] Invalid base16 for terminal export: %s", err), vim.log.levels.WARN)
+    vim.notify(string.format("[prismpunk] Invalid base16 for terminal export: %s", b16_err), vim.log.levels.WARN)
     return
   end
 
@@ -83,10 +83,10 @@ function M.apply(base16)
     local module = get_terminal_module(term_name)
     if module then
       local term_config = conf[term_name] or {}
-      local ok, err = pcall(module.export, base16, term_config)
-      if not ok then
+      local termexp_ok, termcnf_err = pcall(module.export, base16, term_config)
+      if not termexp_ok then
         vim.notify(
-          string.format("[prismpunk] Failed to export %s config: %s", term_name, tostring(err)),
+          string.format("[prismpunk] Failed to export %s config: %s", term_name, tostring(termcnf_err)),
           vim.log.levels.WARN
         )
       end
@@ -103,7 +103,7 @@ end
 function M.preview(theme_name, terminal_name)
   -- Load theme to get base16
   local loader = require("prismpunk.loader")
-  local success, theme = loader.load(theme_name, { force_reload = false })
+  local success, _theme = loader.load(theme_name, { force_reload = false }) -- luacheck: ignore
 
   if not success then return nil end
 

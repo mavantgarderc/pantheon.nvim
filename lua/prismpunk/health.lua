@@ -118,7 +118,7 @@ local function check_terminals()
 
   -- auto-detect check
   if term_conf.auto_detect then
-    local terminals = require("prismpunk.core.terminals")
+    local terminals = require("prismpunk.core.terminals") -- luacheck: ignore
     health_ok("Auto-detect enabled")
 
     local term_program = vim.env.TERM_PROGRAM or vim.env.TERM or "unknown"

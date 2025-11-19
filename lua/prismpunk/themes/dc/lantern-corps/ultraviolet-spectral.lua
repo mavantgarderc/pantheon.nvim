@@ -170,9 +170,9 @@ return {
   name = "Lantern Corps - Ultraviolet (Spectral)",
   author = "PrismPunk.nvim",
   description = "In blackest day, in brightest night, "
-        .. "Beware your fears made into light. "
-        .. "Let those who try to stop what's right, "
-        .. "Burn like my power, Dawnbreaker's might!",
+    .. "Beware your fears made into light. "
+    .. "Let those who try to stop what's right, "
+    .. "Burn like my power, Dawnbreaker's might!",
 
   base16 = {
     base00 = palette.bg_darkest,

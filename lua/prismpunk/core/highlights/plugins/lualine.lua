@@ -2,7 +2,7 @@ local M = {}
 
 local hl = require("prismpunk.core.highlights").hl
 
-function M.apply(c, config)
+function M.apply(c, _config)
   if not c.modes then
     vim.notify("[prismpunk] lualine.lua: missing modes in theme", vim.log.levels.WARN)
     return

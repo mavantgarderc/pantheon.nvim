@@ -51,7 +51,7 @@ end
 --- Reload kitty colors (live reload via SIGUSR1)
 --- @param path string Config path
 --- @return boolean
-local function reload_kitty(path)
+local function reload_kitty(_path)
   local kitty_pid = vim.fn.system("pgrep -x kitty"):gsub("%s+", "")
 
   if kitty_pid and kitty_pid ~= "" then

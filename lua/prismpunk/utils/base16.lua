@@ -157,7 +157,7 @@ function M.quick_theme(name, bg, fg, accent)
     name = name,
     base16 = M.generate({ bg = bg, fg = fg, base08 = accent }),
     palette = { bg = bg, fg = fg, accent = accent },
-    get = function(opts, plt)
+    get = function(_opts, plt)
       return {
         ui = { bg = plt.bg, fg = plt.fg },
         syn = { keyword = plt.accent },
