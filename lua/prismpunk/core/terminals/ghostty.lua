@@ -42,10 +42,14 @@ function M.export_config(base16)
   return table.concat(lines, "\n")
 end
 
---- Reload ghostty
---- Ghostty supports live reload via config file watch; no manual reload needed
+--- Reload ghostty via SIGUSR2
 --- @return boolean
-local function reload_ghostty() return true end
+local function reload_ghostty()
+  vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
+  if vim.v.shell_error == 0 then return true end
+  vim.fn.system("pkill -USR2 ghostty")
+  return vim.v.shell_error == 0
+end
 
 --- Export and reload
 --- @param base16 table
@@ -54,8 +58,14 @@ local function reload_ghostty() return true end
 function M.export(base16, conf)
   conf = conf or {}
 
-  local path = conf.path or common.get_default_path("ghostty")
-  if not path then return false end
+  local path = conf.config_path or conf.path or common.get_default_path("ghostty")
+
+  if not path then
+    vim.notify("[prismpunk] Ghostty: No config path specified", vim.log.levels.WARN)
+    return false
+  end
+
+  if not path:match("themes/prismpunk%.toml$") then path = vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml") end
 
   local contents = M.export_config(base16)
   local ok, err = common.write_config(path, contents)
