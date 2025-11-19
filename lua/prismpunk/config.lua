@@ -18,17 +18,24 @@ M.defaults = {
   terminals = {
     enabled = true,
     auto_detect = true, -- Auto-detect terminal from environment
+    emulator = {}, -- List of emulators to use
     alacritty = {
       enabled = false,
       path = nil, -- Auto-detect if nil
+      config_path = nil, -- Alias for path
+      auto_reload = false,
     },
     kitty = {
       enabled = false,
       path = nil,
+      config_path = nil,
+      auto_reload = false,
     },
     ghostty = {
       enabled = false,
       path = nil,
+      config_path = nil,
+      auto_reload = true,
     },
   },
 
@@ -38,10 +45,12 @@ M.defaults = {
   },
 
   overrides = {
+    colors = {}, -- Color overrides
     highlights = {}, -- Global highlight overrides
     themes = {}, -- Per-theme overrides { ["theme-name"] = { Normal = {...} } }
   },
 
+  integrations = {}, -- Plugin integrations
   plugins = {}, -- Plugin-specific options
 }
 
@@ -69,11 +78,14 @@ local schema = {
     fields = {
       enabled = { type = "boolean" },
       auto_detect = { type = "boolean" },
+      emulator = { type = "table" },
       alacritty = {
         type = "table",
         fields = {
           enabled = { type = "boolean" },
           path = { type = { "string", "nil" } },
+          config_path = { type = { "string", "nil" } },
+          auto_reload = { type = "boolean" },
         },
       },
       kitty = {
@@ -81,6 +93,8 @@ local schema = {
         fields = {
           enabled = { type = "boolean" },
           path = { type = { "string", "nil" } },
+          config_path = { type = { "string", "nil" } },
+          auto_reload = { type = "boolean" },
         },
       },
       ghostty = {
@@ -88,6 +102,8 @@ local schema = {
         fields = {
           enabled = { type = "boolean" },
           path = { type = { "string", "nil" } },
+          config_path = { type = { "string", "nil" } },
+          auto_reload = { type = "boolean" },
         },
       },
     },
@@ -104,11 +120,13 @@ local schema = {
   overrides = {
     type = "table",
     fields = {
+      colors = { type = "table" },
       highlights = { type = "table" },
       themes = { type = "table" },
     },
   },
 
+  integrations = { type = "table" },
   plugins = { type = "table" },
 }
 
