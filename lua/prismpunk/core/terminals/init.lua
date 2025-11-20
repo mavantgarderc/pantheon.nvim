@@ -1,4 +1,3 @@
--- prismpunk/core/terminals/init.lua
 local M = {}
 
 local punkpalette = require("prismpunk.palette")
@@ -9,7 +8,6 @@ local alacritty = require("prismpunk.core.terminals.alacritty")
 local kitty = require("prismpunk.core.terminals.kitty")
 
 M.apply = function(theme)
-  -- Handle both theme object and direct base16 colors
   local c = theme.colors or theme
 
   -- luacheck: push ignore

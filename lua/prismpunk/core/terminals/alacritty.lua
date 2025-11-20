@@ -1,11 +1,9 @@
--- prismpunk/core/terminals/alacritty.lua
 local M = {}
 
 local punkpalette = require("prismpunk.palette")
 local punkconf = require("prismpunk.config")
 
 M.export_toml = function(theme)
-  -- Handle both theme object and direct base16 colors
   local c = theme.colors or theme
   local name = theme.name or "PrismPunk Theme"
 
@@ -63,23 +61,14 @@ M.write_config = function(theme, path)
   return true
 end
 
-M.reload = function()
-  -- Alacritty doesn't support live reload, user needs to restart manually
-  return true
-end
+M.reload = function() return true end
 
--- In alacritty.lua, replace the export_and_reload function:
 M.export_and_reload = function(theme, conf)
-  vim.notify("[DEBUG] Alacritty export_and_reload called", vim.log.levels.INFO)
-  vim.notify("[DEBUG] conf.config_path = " .. vim.inspect(conf.config_path), vim.log.levels.INFO)
-  vim.notify("[DEBUG] conf.enabled = " .. tostring(conf.enabled), vim.log.levels.INFO)
-
   if not conf.config_path then
     vim.notify("Prismpunk: Alacritty config_path not set", vim.log.levels.WARN)
     return
   end
 
-  vim.notify("[DEBUG] About to write config to: " .. conf.config_path, vim.log.levels.INFO)
   local success = M.write_config(theme, conf.config_path)
   vim.notify("[DEBUG] write_config returned: " .. tostring(success), vim.log.levels.INFO)
 
