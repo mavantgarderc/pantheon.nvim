@@ -146,9 +146,6 @@ local function resolve_theme_module(spec)
   )
 end
 
---- Apply highlights to Neovim
---- @param theme table
---- @param opts table
 --- Compute highlight cache key (MORE STABLE)
 local function highlight_cache_key(theme_path, palette_table, opts)
   local cache_opts = {
@@ -165,14 +162,30 @@ local function highlight_cache_key(theme_path, palette_table, opts)
   return vim.fn.sha256(table.concat(key_parts, "||"))
 end
 
---- Apply terminal configurations (async)
---- @param base16 table
-local function apply_terminals(base16)
+--- Apply terminal configurations (both Neovim and external emulators)
+--- @param theme_module table
+--- @param palette_table table
+local function apply_terminals(theme_module, palette_table)
+  -- Check if theme has base16 colors defined
+  if not theme_module.base16 then
+    vim.notify("[prismpunk] Theme missing base16 colors - skipping terminal export", vim.log.levels.WARN)
+    return
+  end
+
   vim.schedule(function()
-    local success, err = pcall(terminals.apply, base16)
+    -- Apply colors to Neovim's built-in terminal
+    local success, err = pcall(terminals.apply, { colors = theme_module.base16 })
     if not success then
-      vim.notify(string.format("[prismpunk] Terminal export warning: %s", tostring(err)), vim.log.levels.WARN)
+      vim.notify(string.format("[prismpunk] Terminal apply warning: %s", tostring(err)), vim.log.levels.WARN)
     end
+
+    -- Export to external terminal emulators (Ghostty, Alacritty, Kitty)
+    local theme_for_export = {
+      name = theme_module.name,
+      colors = theme_module.base16,
+      palette = palette_table,
+    }
+    terminals.auto_export(theme_for_export, config.options)
   end)
 end
 
@@ -258,7 +271,7 @@ function M.load(theme_spec, opts)
 
       highlights.apply(cached.theme, config.options)
 
-      if theme_module.base16 then apply_terminals(theme_module.base16) end
+      apply_terminals(theme_module, palette_table)
 
       loaded_theme = theme_key
 
@@ -290,7 +303,7 @@ function M.load(theme_spec, opts)
 
         highlights.apply(disk_cached.theme, config.options)
 
-        if theme_module.base16 then apply_terminals(theme_module.base16) end
+        apply_terminals(theme_module, palette_table)
 
         loaded_theme = theme_key
 
@@ -329,7 +342,7 @@ function M.load(theme_spec, opts)
   ok, _ = pcall(highlights.apply, theme_result, config.options)
   if not ok then return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) end
 
-  if theme_module.base16 then apply_terminals(theme_module.base16) end
+  apply_terminals(theme_module, palette_table)
 
   loaded_theme = theme_key
 
