@@ -1,0 +1,45 @@
+return {
+  sumiInkn1 = "#0F0F15",
+  sumiInk0 = "#16161D",
+  sumiInk1 = "#181820",
+  sumiInk2 = "#1A1A22",
+  sumiInk3 = "#1F1F28",
+  sumiInk4 = "#2A2A37",
+  sumiInk5 = "#363646",
+  sumiInk6 = "#54546D",
+
+  oldWhite = "#C8C093",
+  fujiWhite = "#DCD7BA",
+  fujiGray = "#727169",
+
+  dragonWhite = "#C5C9C5",
+  dragonGray = "#9E9B93",
+  dragonGray2 = "#9E9B93",
+  dragonGray3 = "#7A8382",
+
+  dragonBlack2 = "#1D1C19",
+  dragonBlack3 = "#181616",
+  dragonBlack5 = "#393836",
+  dragonBlack6 = "#625E5A",
+
+  dragonRed = "#C4746E",
+  dragonPink = "#A292A3",
+  dragonYellow = "#C4B28A",
+  dragonOrange = "#B6927B",
+  dragonOrange2 = "#B98D7B",
+  dragonGreen = "#699469",
+  dragonGreen2 = "#8A9A7B",
+  dragonBlue = "#658594",
+  dragonBlue2 = "#859FAC",
+  dragonBlue5 = "#435965",
+  dragonViolet = "#8992A7",
+  dragonAqua = "#8EA49E",
+  dragonAsh = "#737C73",
+  dragonTeal = "#949FB5",
+
+  springViolet1 = "#938AA9",
+  waveAqua1 = "#6A9589",
+  waveAqua2 = "#7AA89F",
+
+  katanaGray = "#717C7C",
+}

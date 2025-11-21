@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.kanagawa.paper-dragon")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.dragonYellow,
+      insert = plt.dragonGreen,
+      visual = plt.springViolet1,
+      replace = plt.dragonRed,
+      command = plt.dragonBlue,
+    },
+
+    ui = {
+      fg = plt.fujiWhite,
+      fg_dim = plt.dragonGray2,
+      fg_dimmer = plt.dragonBlack5,
+      fg_dark = plt.dragonBlack3,
+      fg_reverse = plt.dragonBlack2,
+      bg_m4 = plt.sumiInkn1,
+      bg_m3 = plt.sumiInk0,
+      bg_m2 = plt.sumiInk1,
+      bg_m1 = plt.sumiInk2,
+      bg_dim = plt.sumiInk1,
+      bg = plt.sumiInk3,
+      bg_p1 = plt.sumiInk4,
+      bg_p2 = plt.sumiInk5,
+      bg_gutter = opts.gutter and plt.sumiInk4 or "none",
+      bg_cursorline = plt.sumiInk4,
+      bg_cursorline_alt = plt.sumiInk5,
+      bg_search = plt.springViolet1,
+      bg_visual = plt.sumiInk5,
+      bg_statusline = plt.sumiInk4,
+      border = plt.dragonBlack6,
+      header1 = plt.dragonViolet,
+      header2 = plt.dragonOrange,
+      special = plt.dragonAqua,
+      nontext = plt.sumiInk6,
+      whitespace = plt.sumiInk6,
+      win_separator = plt.dragonViolet,
+      indent = plt.sumiInk5,
+      indent_scope = plt.dragonViolet,
+      picker = plt.dragonRed,
+      yank = plt.dragonYellow,
+      mark = plt.waveAqua2,
+      scrollbar = plt.sumiInk5,
+      tabline = {
+        bg = plt.sumiInk0,
+        fg_selected = plt.dragonWhite,
+        bg_selected = plt.sumiInk3,
+        fg_inactive = plt.dragonBlack5,
+        bg_inactive = plt.sumiInk0,
+        fg_alternate = plt.dragonPink,
+        bg_alternate = plt.sumiInk0,
+        indicator = plt.dragonBlue,
+      },
+      pmenu = {
+        fg = plt.fujiWhite,
+        fg_sel = "none",
+        fg_border = plt.sumiInk5,
+        bg_border = plt.sumiInk4,
+        bg = plt.sumiInk4,
+        bg_sel = plt.sumiInk5,
+        bg_sbar = plt.sumiInk4,
+        bg_thumb = plt.sumiInk6,
+      },
+      float = {
+        fg = plt.oldWhite,
+        bg = plt.sumiInk4,
+        fg_border = plt.sumiInk5,
+        bg_border = plt.sumiInk4,
+      },
+    },
+
+    accent = {
+      accent1 = plt.dragonBlue,
+      accent2 = plt.dragonOrange,
+      accent3 = plt.waveAqua1,
+      accent4 = plt.dragonGray3,
+      accent5 = plt.dragonRed,
+      invert = plt.sumiInk4,
+    },
+
+    rainbow = {
+      rainbow1 = plt.dragonRed,
+      rainbow2 = plt.dragonPink,
+      rainbow3 = plt.dragonBlue,
+      rainbow4 = plt.dragonOrange2,
+      rainbow5 = plt.dragonGreen,
+      rainbow6 = plt.dragonAsh,
+      rainbow7 = plt.dragonTeal,
+    },
+
+    syn = {
+      attribute = plt.dragonYellow,
+      boolean = plt.dragonPink,
+      comment = plt.fujiGray,
+      constant = plt.dragonOrange,
+      deprecated = plt.katanaGray,
+      func = plt.dragonBlue2,
+      identifier = plt.dragonYellow,
+      keyword = plt.dragonPink,
+      method = plt.dragonBlue2,
+      number = plt.dragonPink,
+      operator = plt.dragonRed,
+      parameter = plt.dragonGray,
+      preproc = plt.dragonRed,
+      punct = plt.dragonGray2,
+      regex = plt.dragonRed,
+      statement = plt.dragonViolet,
+      string = plt.dragonGreen2,
+      symbol = plt.dragonRed,
+      type = plt.dragonAqua,
+      variable = plt.fujiWhite,
+      special = plt.dragonYellow,
+      special2 = plt.dragonRed,
+      special3 = plt.springViolet1,
+    },
+
+    vcs = {
+      added = plt.dragonGreen,
+      removed = plt.dragonRed,
+      changed = plt.dragonYellow,
+    },
+
+    diff = {
+      add = plt.dragonGreen,
+      change = plt.dragonYellow,
+      delete = plt.dragonRed,
+      text = plt.dragonBlue,
+    },
+
+    diag = {
+      ok = plt.dragonGreen,
+      error = plt.dragonRed,
+      warning = plt.dragonYellow,
+      info = plt.dragonBlue,
+      hint = plt.dragonAqua,
+    },
+
+    term = {
+      black = plt.dragonBlack5,
+      red = plt.dragonRed,
+      green = plt.dragonGreen,
+      yellow = plt.dragonYellow,
+      blue = plt.dragonBlue5,
+      magenta = plt.dragonPink,
+      cyan = plt.dragonAqua,
+      white = plt.oldWhite,
+      black_bright = color(plt.dragonBlack5):brighten(0.6):to_hex(),
+      red_bright = color(plt.dragonRed):brighten(0.2):to_hex(),
+      green_bright = color(plt.dragonGreen):brighten(0.1):to_hex(),
+      yellow_bright = color(plt.dragonYellow):brighten(0.2):to_hex(),
+      blue_bright = color(plt.dragonBlue5):brighten(0.3):to_hex(),
+      magenta_bright = color(plt.dragonPink):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.dragonAqua):brighten(0.1):to_hex(),
+      white_bright = color(plt.oldWhite):brighten(0.2):to_hex(),
+      indexed1 = plt.dragonOrange,
+      indexed2 = plt.dragonRed,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.fujiGray,
+      ["@comment.documentation"] = plt.fujiGray,
+      ["@comment.error"] = plt.dragonRed,
+      ["@comment.warning"] = plt.dragonYellow,
+      ["@comment.todo"] = plt.dragonBlue,
+      ["@comment.note"] = plt.dragonAqua,
+
+      ["@constant"] = plt.dragonOrange,
+      ["@constant.builtin"] = plt.dragonOrange,
+      ["@constant.macro"] = plt.dragonYellow,
+
+      ["@string"] = plt.dragonGreen2,
+      ["@string.documentation"] = plt.dragonGreen2,
+      ["@string.regex"] = plt.dragonRed,
+      ["@string.escape"] = plt.dragonYellow,
+      ["@string.special"] = plt.dragonAqua,
+      ["@string.special.symbol"] = plt.dragonRed,
+      ["@string.special.url"] = plt.dragonBlue,
+      ["@string.special.path"] = plt.dragonAqua,
+
+      ["@character"] = plt.dragonGreen2,
+      ["@character.special"] = plt.dragonYellow,
+
+      ["@number"] = plt.dragonPink,
+      ["@number.float"] = plt.dragonPink,
+
+      ["@boolean"] = plt.dragonPink,
+
+      ["@function"] = plt.dragonBlue2,
+      ["@function.builtin"] = plt.dragonBlue2,
+      ["@function.call"] = plt.dragonBlue2,
+      ["@function.macro"] = plt.dragonViolet,
+      ["@function.method"] = plt.dragonBlue2,
+      ["@function.method.call"] = plt.dragonBlue2,
+
+      ["@constructor"] = plt.dragonAqua,
+
+      ["@parameter"] = plt.dragonGray,
+      ["@parameter.builtin"] = plt.dragonGray2,
+
+      ["@keyword"] = plt.dragonPink,
+      ["@keyword.coroutine"] = plt.dragonViolet,
+      ["@keyword.function"] = plt.dragonPink,
+      ["@keyword.operator"] = plt.dragonRed,
+      ["@keyword.return"] = plt.dragonPink,
+      ["@keyword.import"] = plt.dragonViolet,
+      ["@keyword.storage"] = plt.dragonPink,
+      ["@keyword.repeat"] = plt.dragonPink,
+      ["@keyword.conditional"] = plt.dragonPink,
+      ["@keyword.exception"] = plt.dragonRed,
+      ["@keyword.directive"] = plt.dragonViolet,
+      ["@keyword.directive.define"] = plt.dragonViolet,
+
+      ["@conditional"] = plt.dragonPink,
+      ["@conditional.ternary"] = plt.dragonPink,
+
+      ["@repeat"] = plt.dragonPink,
+
+      ["@label"] = plt.dragonViolet,
+
+      ["@operator"] = plt.dragonRed,
+
+      ["@exception"] = plt.dragonRed,
+
+      ["@variable"] = plt.fujiWhite,
+      ["@variable.builtin"] = plt.dragonViolet,
+      ["@variable.parameter"] = plt.dragonGray,
+      ["@variable.member"] = plt.oldWhite,
+
+      ["@type"] = plt.dragonAqua,
+      ["@type.builtin"] = plt.dragonAqua,
+      ["@type.definition"] = plt.dragonAqua,
+      ["@type.qualifier"] = plt.dragonPink,
+
+      ["@attribute"] = plt.dragonYellow,
+      ["@attribute.builtin"] = plt.dragonOrange,
+
+      ["@property"] = plt.oldWhite,
+
+      ["@field"] = plt.oldWhite,
+
+      ["@module"] = plt.dragonAqua,
+      ["@module.builtin"] = plt.dragonAqua,
+
+      ["@namespace"] = plt.dragonAqua,
+      ["@namespace.builtin"] = plt.dragonAqua,
+
+      ["@punctuation.delimiter"] = plt.dragonGray2,
+      ["@punctuation.bracket"] = plt.dragonGray2,
+      ["@punctuation.special"] = plt.dragonRed,
+
+      ["@tag"] = plt.dragonPink,
+      ["@tag.attribute"] = plt.dragonYellow,
+      ["@tag.delimiter"] = plt.dragonGray,
+      ["@tag.builtin"] = plt.dragonPink,
+
+      ["@markup.strong"] = { fg = plt.dragonViolet, bold = true },
+      ["@markup.italic"] = { fg = plt.oldWhite, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.fujiGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.oldWhite, underline = true },
+      ["@markup.heading"] = plt.dragonViolet,
+      ["@markup.heading.1"] = plt.dragonRed,
+      ["@markup.heading.2"] = plt.dragonOrange,
+      ["@markup.heading.3"] = plt.dragonYellow,
+      ["@markup.heading.4"] = plt.dragonGreen,
+      ["@markup.heading.5"] = plt.dragonBlue,
+      ["@markup.heading.6"] = plt.dragonViolet,
+      ["@markup.quote"] = plt.fujiGray,
+      ["@markup.math"] = plt.dragonAqua,
+      ["@markup.link"] = plt.dragonBlue,
+      ["@markup.link.label"] = plt.dragonAqua,
+      ["@markup.link.url"] = plt.dragonBlue,
+      ["@markup.raw"] = plt.dragonGreen2,
+      ["@markup.raw.block"] = plt.dragonGreen2,
+      ["@markup.list"] = plt.dragonPink,
+      ["@markup.list.checked"] = plt.dragonGreen,
+      ["@markup.list.unchecked"] = plt.dragonGray,
+
+      ["@diff.plus"] = plt.dragonGreen,
+      ["@diff.minus"] = plt.dragonRed,
+      ["@diff.delta"] = plt.dragonYellow,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.sumiInk6,
+      ["@spell"] = plt.fujiWhite,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.oldWhite,
+      ["@constructor.python"] = plt.dragonAqua,
+      ["@constructor.javascript"] = plt.dragonAqua,
+      ["@constructor.typescript"] = plt.dragonAqua,
+      ["@namespace.rust"] = plt.dragonAqua,
+      ["@type.qualifier.rust"] = plt.dragonPink,
+      ["@constant.macro.c"] = plt.dragonYellow,
+      ["@constant.macro.cpp"] = plt.dragonYellow,
+      ["@namespace.go"] = plt.dragonAqua,
+      ["@property.css"] = plt.dragonBlue2,
+      ["@type.css"] = plt.dragonPink,
+      ["@label.json"] = plt.dragonBlue2,
+      ["@field.yaml"] = plt.dragonBlue2,
+      ["@property.toml"] = plt.dragonBlue2,
+      ["@function.builtin.bash"] = plt.dragonBlue2,
+      ["@string.regexp"] = plt.dragonRed,
+      ["@character.special.regex"] = plt.dragonYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.dragonAqua,
+      ["@lsp.type.interface"] = plt.dragonAqua,
+      ["@lsp.type.struct"] = plt.dragonAqua,
+      ["@lsp.type.enum"] = plt.dragonAqua,
+      ["@lsp.type.enumMember"] = plt.dragonOrange,
+      ["@lsp.type.property"] = plt.oldWhite,
+      ["@lsp.type.namespace"] = plt.dragonAqua,
+
+      ["@lsp.type.macro"] = plt.dragonYellow,
+      ["@lsp.type.decorator"] = plt.dragonAqua,
+
+      ["@lsp.type.builtinType"] = plt.dragonAqua,
+      ["@lsp.type.selfParameter"] = plt.dragonViolet,
+      ["@lsp.type.typeParameter"] = plt.dragonAqua,
+
+      ["@lsp.type.array"] = plt.dragonAqua,
+      ["@lsp.type.object"] = plt.dragonAqua,
+      ["@lsp.type.key"] = plt.oldWhite,
+      ["@lsp.type.null"] = plt.dragonOrange,
+      ["@lsp.type.enumConstant"] = plt.dragonOrange,
+
+      ["@lsp.type.event"] = plt.dragonAqua,
+      ["@lsp.type.regexp"] = plt.dragonRed,
+      ["@lsp.type.unresolvedReference"] = plt.dragonYellow,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.katanaGray, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.dragonOrange,
+      ["@lsp.mod.async"] = plt.dragonPink,
+      ["@lsp.mod.static"] = plt.dragonViolet,
+      ["@lsp.mod.abstract"] = plt.dragonAqua,
+      ["@lsp.mod.defaultLibrary"] = plt.dragonAqua,
+      ["@lsp.mod.documentation"] = plt.fujiGray,
+    },
+  }
+end
+
+return {
+  name = "Kanagawa Paper – Ink",
+  author = "PrismPunk.nvim",
+  description = "Dark theme inspired by the colors of the dragon with mid-tone background.",
+
+  base16 = {
+    base00 = palette.sumiInk3,
+    base01 = palette.sumiInk4,
+    base02 = palette.sumiInk5,
+    base03 = palette.sumiInk6,
+    base04 = palette.dragonGray2,
+    base05 = palette.fujiWhite,
+    base06 = palette.oldWhite,
+    base07 = palette.dragonWhite,
+    base08 = palette.dragonRed,
+    base09 = palette.dragonOrange,
+    base0A = palette.dragonYellow,
+    base0B = palette.dragonGreen,
+    base0C = palette.dragonAqua,
+    base0D = palette.dragonBlue,
+    base0E = palette.dragonViolet,
+    base0F = palette.dragonPink,
+  },
+
+  palette = palette,
+  get = M.get,
+}
