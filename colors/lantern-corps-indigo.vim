@@ -11,7 +11,7 @@ let g:colors_name = "lantern-corps/indigo"
 lua << EOF
 local ok, prismpunk = pcall(require, "prismpunk")
 if ok and prismpunk.load_colorscheme then
-  local success, err = prismpunk.load_colorscheme("lantern-corps/indigo")
+  local success, err = prismpunk.load_colorscheme("dc/lantern-corps/indigo")
   if not success then
     vim.notify("[prismpunk] Failed to load lantern-corps/indigo: " .. tostring(err), vim.log.levels.ERROR)
   end
