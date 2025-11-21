@@ -7,6 +7,7 @@ return {
 
   fujiWhite = "#D9D7CD",
   oldWhite = "#C7C3B1",
+  softGray = "#727169",
 
   stormBlue = "#3A5F7A",
   waveAqua1 = "#5A9CA0",
@@ -19,5 +20,9 @@ return {
   autumnYellow = "#D9A441",
   autumnGreen = "#6B8850",
 
-  softGray = "#727169",
+  lightningFlash = "#E8D47F",
+  stormCloud = "#3D4556",
+  turbulentWave = "#4A8589",
+  thunderRumble = "#7A6BA8",
+  stormHorizon = "#1A2332",
 }
