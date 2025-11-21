@@ -167,20 +167,20 @@
         - [ ] Zatanna
 
     - [ ] Lantern Corps
-        - [ ] Black
-        - [ ] Blue
+        - [X] Black
+        - [X] Blue
         - [ ] Gold
         - [ ] Green
         - [ ] Indigo
         - [ ] Orange
-        - [ ] Phantom
-            - [ ] Balanced
-            - [ ] Chaos
-            - [ ] Corrupted
+        - [X] Phantom
+            - [X] Balanced
+            - [X] Chaos
+            - [X] Corrupted
         - [ ] Red
-        - [ ] Ultra-Violet
-            - [ ] Veiled
-            - [ ] Spectral
+        - [X] Ultra-Violet
+            - [X] Veiled
+            - [X] Spectral
         - [ ] Violet
         - [ ] White
         - [ ] Yellow
@@ -381,15 +381,16 @@
     - [ ] Raphael
         - [ ] Madonna del Cardellino
 
-- [ ] Kanagawa
-    - [ ] Paper
-        - [ ] Crimson Night
-        - [ ] Dawn
-        - [ ] Eclipse
-        - [ ] Nightfall
-        - [ ] Obsidian
-        - [ ] Storm
-        - [ ] Sunset
+- [X] Kanagawa
+    - [X] Paper
+        - [X] Crimson Night
+        - [X] Dawn
+        - [X] Dragon
+        - [X] Eclipse
+        - [X] Nightfall
+        - [X] Obsidian
+        - [X] Storm
+        - [X] Sunset
 
 - [ ] Gruvbox
     - [ ] gruvbox dark
