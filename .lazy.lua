@@ -7,7 +7,7 @@ return {
     local M = {
       module = "prismpunk",
       colorscheme = "lantern-corps-phantom-corrupted",
-      opts = { theme = "lantern-corps/phantom-corrupted" },
+      opts = { theme = "dc/lantern-corps/phantom-corrupted" },
       enabled = true,
     }
 
