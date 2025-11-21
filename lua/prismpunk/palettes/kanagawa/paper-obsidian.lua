@@ -28,4 +28,9 @@ return {
   ashGray = "#535153",
   darkTeal = "#224D50",
   emberOrange = "#D76B3D",
+
+  obsidianDeep = "#060609",
+  obsidianEdge = "#3A3A47",
+  obsidianSheen = "#5A5A68",
+  moltenGold = "#F5C76B",
 }
