@@ -22,4 +22,10 @@ return {
   emberRed = "#E94E3D",
   softGray = "#73716E",
   heroicCyan = "#7FB4CA",
+
+  -- Added eclipse-specific colors
+  eclipsePurple = "#6B5A8E",
+  celestialBlue = "#4A6B9C",
+  moonGlow = "#B8A8D8",
+  twilightGold = "#C9A55B",
 }
