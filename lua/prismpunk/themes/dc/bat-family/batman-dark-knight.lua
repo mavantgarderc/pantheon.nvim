@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.dc.justice-league.batman")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.batSuit,
+      insert = plt.wayneBlue,
+      visual = plt.batArmor,
+      replace = plt.arkhamDanger,
+      command = plt.gothamGold,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_dark,
+      fg_dark = plt.bg_lightest,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_mid,
+      bg_cursorline_alt = plt.bg_light,
+      bg_search = plt.gothamGold,
+      bg_visual = plt.batArmor,
+      bg_statusline = plt.bg_light,
+      border = plt.bg_alt4,
+      header1 = plt.gothamGold,
+      header2 = plt.wayneBlue,
+      special = plt.nightwingTeal,
+      nontext = plt.bg_lighter,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.batSuit,
+      indent = plt.bg_lighter,
+      indent_scope = plt.batArmor,
+      picker = plt.gothamGold,
+      yank = plt.signalBeam,
+      mark = plt.nightwingTeal,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_mid,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.batArmor,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.gothamGold,
+      },
+      pmenu = {
+        fg = plt.fg_lightest,
+        fg_sel = "none",
+        fg_border = plt.bg_lighter,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.bg_lightest,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_mid,
+        fg_border = plt.bg_lighter,
+        bg_border = plt.bg_mid,
+      },
+    },
+
+    accent = {
+      accent1 = plt.batSuit,
+      accent2 = plt.gothamGold,
+      accent3 = plt.wayneBlue,
+      accent4 = plt.nightwingTeal,
+      accent5 = plt.arkhamDanger,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.batSuit,
+      rainbow2 = plt.gothamGold,
+      rainbow3 = plt.wayneBlue,
+      rainbow4 = plt.nightwingTeal,
+      rainbow5 = plt.utilityBelt,
+      rainbow6 = plt.batArmor,
+      rainbow7 = plt.jokerPurple,
+    },
+
+    syn = {
+      attribute = plt.utilityBelt,
+      boolean = plt.gothamGold,
+      comment = plt.fg_dark,
+      constant = plt.gothamGold,
+      deprecated = plt.fg_mid,
+      func = plt.wayneBlue,
+      identifier = plt.fg_lightest,
+      keyword = plt.batarangSilver,
+      method = plt.nightwingTeal,
+      number = plt.utilityBelt,
+      operator = plt.nightwingTeal,
+      parameter = plt.fg_mid,
+      preproc = plt.batArmor,
+      punct = plt.fg_mid,
+      regex = plt.utilityBelt,
+      statement = plt.batSuit,
+      string = plt.batarangSilver,
+      symbol = plt.nightwingTeal,
+      type = plt.utilityBelt,
+      variable = plt.fg_lightest,
+      special = plt.gothamGold,
+      special2 = plt.nightwingTeal,
+      special3 = plt.batArmor,
+    },
+
+    vcs = {
+      added = plt.robinGreen,
+      removed = plt.arkhamDanger,
+      changed = plt.alfredWarn,
+    },
+
+    diff = {
+      add = plt.robinGreen,
+      change = plt.alfredWarn,
+      delete = plt.arkhamDanger,
+      text = plt.wayneBlue,
+    },
+
+    diag = {
+      ok = plt.robinGreen,
+      error = plt.arkhamDanger,
+      warning = plt.alfredWarn,
+      info = plt.oracleInfo,
+      hint = plt.nightwingTeal,
+    },
+
+    term = {
+      black = plt.bg_alt3,
+      red = plt.arkhamDanger,
+      green = plt.robinGreen,
+      yellow = plt.gothamGold,
+      blue = plt.wayneBlue,
+      magenta = plt.jokerPurple,
+      cyan = plt.nightwingTeal,
+      white = plt.fg_light,
+      black_bright = color(plt.bg_alt3):brighten(0.6):to_hex(),
+      red_bright = color(plt.arkhamDanger):brighten(0.2):to_hex(),
+      green_bright = color(plt.robinGreen):brighten(0.1):to_hex(),
+      yellow_bright = color(plt.gothamGold):brighten(0.2):to_hex(),
+      blue_bright = color(plt.wayneBlue):brighten(0.3):to_hex(),
+      magenta_bright = color(plt.jokerPurple):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.nightwingTeal):brighten(0.1):to_hex(),
+      white_bright = color(plt.fg_light):brighten(0.2):to_hex(),
+      indexed1 = plt.gothamGold,
+      indexed2 = plt.arkhamDanger,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.fg_dark,
+      ["@comment.documentation"] = plt.fg_mid,
+      ["@comment.error"] = plt.arkhamDanger,
+      ["@comment.warning"] = plt.alfredWarn,
+      ["@comment.todo"] = plt.gothamGold,
+      ["@comment.note"] = plt.nightwingTeal,
+
+      ["@constant"] = plt.gothamGold,
+      ["@constant.builtin"] = plt.gothamGold,
+      ["@constant.macro"] = plt.utilityBelt,
+
+      ["@string"] = plt.batarangSilver,
+      ["@string.documentation"] = plt.batarangSilver,
+      ["@string.regex"] = plt.utilityBelt,
+      ["@string.escape"] = plt.jokerPurple,
+      ["@string.special"] = plt.nightwingTeal,
+      ["@string.special.symbol"] = plt.nightwingTeal,
+      ["@string.special.url"] = plt.wayneBlue,
+      ["@string.special.path"] = plt.nightwingTeal,
+
+      ["@character"] = plt.batarangSilver,
+      ["@character.special"] = plt.jokerPurple,
+
+      ["@number"] = plt.utilityBelt,
+      ["@number.float"] = plt.utilityBelt,
+
+      ["@boolean"] = plt.gothamGold,
+
+      ["@function"] = plt.wayneBlue,
+      ["@function.builtin"] = plt.wayneBlue,
+      ["@function.call"] = plt.wayneBlue,
+      ["@function.macro"] = plt.batArmor,
+      ["@function.method"] = plt.nightwingTeal,
+      ["@function.method.call"] = plt.nightwingTeal,
+
+      ["@constructor"] = plt.wayneBlue,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.batSuit,
+      ["@keyword.coroutine"] = plt.batGloves,
+      ["@keyword.function"] = plt.batSuit,
+      ["@keyword.operator"] = plt.nightwingTeal,
+      ["@keyword.return"] = plt.batSuit,
+      ["@keyword.import"] = plt.batArmor,
+      ["@keyword.storage"] = plt.batSuit,
+      ["@keyword.repeat"] = plt.batSuit,
+      ["@keyword.conditional"] = plt.batSuit,
+      ["@keyword.exception"] = plt.arkhamDanger,
+      ["@keyword.directive"] = plt.batArmor,
+      ["@keyword.directive.define"] = plt.batArmor,
+
+      ["@conditional"] = plt.batSuit,
+      ["@conditional.ternary"] = plt.batSuit,
+
+      ["@repeat"] = plt.batSuit,
+
+      ["@label"] = plt.batGloves,
+
+      ["@operator"] = plt.nightwingTeal,
+
+      ["@exception"] = plt.arkhamDanger,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.batGloves,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.utilityBelt,
+      ["@type.builtin"] = plt.utilityBelt,
+      ["@type.definition"] = plt.utilityBelt,
+      ["@type.qualifier"] = plt.batSuit,
+
+      ["@attribute"] = plt.utilityBelt,
+      ["@attribute.builtin"] = plt.utilityBelt,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.wayneBlue,
+      ["@module.builtin"] = plt.wayneBlue,
+
+      ["@namespace"] = plt.wayneBlue,
+      ["@namespace.builtin"] = plt.wayneBlue,
+
+      ["@punctuation.delimiter"] = plt.fg_mid,
+      ["@punctuation.bracket"] = plt.fg_mid,
+      ["@punctuation.special"] = plt.nightwingTeal,
+
+      ["@tag"] = plt.nightwingTeal,
+      ["@tag.attribute"] = plt.utilityBelt,
+      ["@tag.delimiter"] = plt.fg_mid,
+      ["@tag.builtin"] = plt.nightwingTeal,
+
+      ["@markup.strong"] = { fg = plt.gothamGold, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.fg_dark, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.fg_light, underline = true },
+      ["@markup.heading"] = plt.batSuit,
+      ["@markup.heading.1"] = plt.gothamGold,
+      ["@markup.heading.2"] = plt.wayneBlue,
+      ["@markup.heading.3"] = plt.nightwingTeal,
+      ["@markup.heading.4"] = plt.utilityBelt,
+      ["@markup.heading.5"] = plt.batArmor,
+      ["@markup.heading.6"] = plt.batGloves,
+      ["@markup.quote"] = plt.fg_mid,
+      ["@markup.math"] = plt.wayneBlue,
+      ["@markup.link"] = plt.wayneBlue,
+      ["@markup.link.label"] = plt.nightwingTeal,
+      ["@markup.link.url"] = plt.wayneBlue,
+      ["@markup.raw"] = plt.batarangSilver,
+      ["@markup.raw.block"] = plt.batarangSilver,
+      ["@markup.list"] = plt.nightwingTeal,
+      ["@markup.list.checked"] = plt.robinGreen,
+      ["@markup.list.unchecked"] = plt.fg_mid,
+
+      ["@diff.plus"] = plt.robinGreen,
+      ["@diff.minus"] = plt.arkhamDanger,
+      ["@diff.delta"] = plt.alfredWarn,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.batArmor,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.wayneBlue,
+      ["@constructor.javascript"] = plt.wayneBlue,
+      ["@constructor.typescript"] = plt.wayneBlue,
+      ["@namespace.rust"] = plt.wayneBlue,
+      ["@type.qualifier.rust"] = plt.batSuit,
+      ["@constant.macro.c"] = plt.utilityBelt,
+      ["@constant.macro.cpp"] = plt.utilityBelt,
+      ["@namespace.go"] = plt.wayneBlue,
+      ["@property.css"] = plt.wayneBlue,
+      ["@type.css"] = plt.nightwingTeal,
+      ["@label.json"] = plt.wayneBlue,
+      ["@field.yaml"] = plt.wayneBlue,
+      ["@property.toml"] = plt.wayneBlue,
+      ["@function.builtin.bash"] = plt.wayneBlue,
+      ["@string.regexp"] = plt.utilityBelt,
+      ["@character.special.regex"] = plt.jokerPurple,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.wayneBlue,
+      ["@lsp.type.interface"] = plt.wayneBlue,
+      ["@lsp.type.struct"] = plt.wayneBlue,
+      ["@lsp.type.enum"] = plt.wayneBlue,
+      ["@lsp.type.enumMember"] = plt.gothamGold,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.wayneBlue,
+
+      ["@lsp.type.macro"] = plt.utilityBelt,
+      ["@lsp.type.decorator"] = plt.gothamGold,
+
+      ["@lsp.type.builtinType"] = plt.utilityBelt,
+      ["@lsp.type.selfParameter"] = plt.batGloves,
+      ["@lsp.type.typeParameter"] = plt.wayneBlue,
+
+      ["@lsp.type.array"] = plt.wayneBlue,
+      ["@lsp.type.object"] = plt.wayneBlue,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.gothamGold,
+      ["@lsp.type.enumConstant"] = plt.gothamGold,
+
+      ["@lsp.type.event"] = plt.wayneBlue,
+      ["@lsp.type.regexp"] = plt.utilityBelt,
+      ["@lsp.type.unresolvedReference"] = plt.utilityBelt,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.fg_mid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.gothamGold,
+      ["@lsp.mod.async"] = plt.batSuit,
+      ["@lsp.mod.static"] = plt.batGloves,
+      ["@lsp.mod.abstract"] = plt.wayneBlue,
+      ["@lsp.mod.defaultLibrary"] = plt.wayneBlue,
+      ["@lsp.mod.documentation"] = plt.fg_mid,
+    },
+  }
+end
+
+return {
+  name = "Justice League – Batman",
+  author = "PrismPunk.nvim",
+  description = "I am vengeance. I am the night. Dark Knight of Gotham with cape-black shadows, golden utility belt, and the Bat-Signal's beam.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.bg_mid,
+    base04 = palette.bg_light,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_lightest,
+    base07 = palette.fg_light,
+    base08 = palette.arkhamDanger,
+    base09 = palette.utilityBelt,
+    base0A = palette.gothamGold,
+    base0B = palette.robinGreen,
+    base0C = palette.nightwingTeal,
+    base0D = palette.wayneBlue,
+    base0E = palette.jokerPurple,
+    base0F = palette.batArmor,
+  },
+
+  palette = palette,
+  get = M.get,
+}
