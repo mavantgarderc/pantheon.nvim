@@ -6,7 +6,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "justiceleague/blue-beetle"
+let g:colors_name = "justice-league/blue-beetle"
 
 lua << EOF
 local ok, prismpunk = pcall(require, "prismpunk")
