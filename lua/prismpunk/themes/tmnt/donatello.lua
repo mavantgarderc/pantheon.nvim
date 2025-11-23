@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.tmnt.donatello")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.geniusPurpleCore,
+      insert = plt.circuitGreen,
+      visual = plt.techCyan,
+      replace = plt.dangerRed,
+      command = plt.inventionOrange,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.techLab,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.computerGray,
+      header1 = plt.geniusPurpleBright,
+      header2 = plt.techCyan,
+      special = plt.techCyanBright,
+      nontext = plt.computerGrayDark,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.computerGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.geniusPurpleCore,
+      picker = plt.neonPink,
+      yank = plt.hologramBlue,
+      mark = plt.inventionOrange,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.geniusPurpleBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.geniusPurpleCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.computerGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.computerGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.computerGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.geniusPurpleCore,
+      accent2 = plt.techCyan,
+      accent3 = plt.circuitGreen,
+      accent4 = plt.inventionOrange,
+      accent5 = plt.dataBlue,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.geniusPurpleBright,
+      rainbow2 = plt.techCyanBright,
+      rainbow3 = plt.circuitGreenBright,
+      rainbow4 = plt.inventionOrangeBright,
+      rainbow5 = plt.dataBlueBright,
+      rainbow6 = plt.neonPinkBright,
+      rainbow7 = plt.wireSilver,
+    },
+
+    syn = {
+      attribute = plt.inventionOrange,
+      boolean = plt.dataBlue,
+      comment = plt.computerGray,
+      constant = plt.wireSilver,
+      deprecated = plt.computerGrayDark,
+      func = plt.techCyan,
+      identifier = plt.fg_lightest,
+      keyword = plt.geniusPurpleCore,
+      method = plt.techCyanBright,
+      number = plt.inventionOrange,
+      operator = plt.circuitGreen,
+      parameter = plt.fg_mid,
+      preproc = plt.neonPink,
+      punct = plt.fg_dark,
+      regex = plt.neonPinkDeep,
+      statement = plt.geniusPurpleCore,
+      string = plt.circuitGreen,
+      symbol = plt.inventionOrange,
+      type = plt.dataBlue,
+      variable = plt.fg_lightest,
+      special = plt.techCyanBright,
+      special2 = plt.neonPink,
+      special3 = plt.hologramBlue,
+    },
+
+    vcs = {
+      added = plt.circuitGreen,
+      removed = plt.dangerRed,
+      changed = plt.inventionOrange,
+    },
+
+    diff = {
+      add = plt.circuitGreen,
+      change = plt.inventionOrange,
+      delete = plt.dangerRed,
+      text = plt.techCyan,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.techCyan,
+    },
+
+    term = {
+      black = plt.techLab,
+      red = plt.dangerRed,
+      green = plt.circuitGreenCore,
+      yellow = plt.inventionOrange,
+      blue = plt.dataBlueCore,
+      magenta = plt.geniusPurpleCore,
+      cyan = plt.techCyanCore,
+      white = plt.wireSilver,
+      black_bright = color(plt.techLab):brighten(0.6):to_hex(),
+      red_bright = color(plt.dangerRed):brighten(0.2):to_hex(),
+      green_bright = color(plt.circuitGreenBright):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.inventionOrangeBright):brighten(0.2):to_hex(),
+      blue_bright = color(plt.dataBlueBright):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.geniusPurpleBright):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.techCyanBright):brighten(0.2):to_hex(),
+      white_bright = color(plt.wireSilver):brighten(0.2):to_hex(),
+      indexed1 = plt.inventionOrange,
+      indexed2 = plt.dangerRed,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.computerGray,
+      ["@comment.documentation"] = plt.computerGrayLight,
+      ["@comment.error"] = plt.dangerRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.inventionOrange,
+      ["@comment.note"] = plt.techCyan,
+
+      ["@constant"] = plt.wireSilver,
+      ["@constant.builtin"] = plt.wireSilver,
+      ["@constant.macro"] = plt.inventionOrange,
+
+      ["@string"] = plt.circuitGreen,
+      ["@string.documentation"] = plt.circuitGreen,
+      ["@string.regex"] = plt.neonPinkDeep,
+      ["@string.escape"] = plt.inventionOrange,
+      ["@string.special"] = plt.circuitGreenBright,
+      ["@string.special.symbol"] = plt.inventionOrange,
+      ["@string.special.url"] = plt.techCyan,
+      ["@string.special.path"] = plt.circuitGreen,
+
+      ["@character"] = plt.circuitGreen,
+      ["@character.special"] = plt.inventionOrange,
+
+      ["@number"] = plt.inventionOrange,
+      ["@number.float"] = plt.inventionOrange,
+
+      ["@boolean"] = plt.dataBlue,
+
+      ["@function"] = plt.techCyan,
+      ["@function.builtin"] = plt.techCyan,
+      ["@function.call"] = plt.techCyan,
+      ["@function.macro"] = plt.neonPink,
+      ["@function.method"] = plt.techCyanBright,
+      ["@function.method.call"] = plt.techCyanBright,
+
+      ["@constructor"] = plt.dataBlue,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.geniusPurpleCore,
+      ["@keyword.coroutine"] = plt.neonPink,
+      ["@keyword.function"] = plt.geniusPurpleCore,
+      ["@keyword.operator"] = plt.circuitGreen,
+      ["@keyword.return"] = plt.geniusPurpleCore,
+      ["@keyword.import"] = plt.neonPink,
+      ["@keyword.storage"] = plt.geniusPurpleCore,
+      ["@keyword.repeat"] = plt.geniusPurpleCore,
+      ["@keyword.conditional"] = plt.geniusPurpleCore,
+      ["@keyword.exception"] = plt.dangerRed,
+      ["@keyword.directive"] = plt.neonPink,
+      ["@keyword.directive.define"] = plt.neonPink,
+
+      ["@conditional"] = plt.geniusPurpleCore,
+      ["@conditional.ternary"] = plt.geniusPurpleCore,
+
+      ["@repeat"] = plt.geniusPurpleCore,
+
+      ["@label"] = plt.inventionOrange,
+
+      ["@operator"] = plt.circuitGreen,
+
+      ["@exception"] = plt.dangerRed,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.geniusPurpleBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.dataBlue,
+      ["@type.builtin"] = plt.dataBlue,
+      ["@type.definition"] = plt.dataBlue,
+      ["@type.qualifier"] = plt.geniusPurpleCore,
+
+      ["@attribute"] = plt.inventionOrange,
+      ["@attribute.builtin"] = plt.inventionOrange,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.dataBlue,
+      ["@module.builtin"] = plt.dataBlue,
+
+      ["@namespace"] = plt.dataBlue,
+      ["@namespace.builtin"] = plt.dataBlue,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.techCyan,
+
+      ["@tag"] = plt.geniusPurpleCore,
+      ["@tag.attribute"] = plt.inventionOrange,
+      ["@tag.delimiter"] = plt.circuitGreen,
+      ["@tag.builtin"] = plt.geniusPurpleCore,
+
+      ["@markup.strong"] = { fg = plt.geniusPurpleBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.computerGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.techCyan, underline = true },
+      ["@markup.heading"] = plt.geniusPurpleBright,
+      ["@markup.heading.1"] = plt.geniusPurpleBright,
+      ["@markup.heading.2"] = plt.techCyan,
+      ["@markup.heading.3"] = plt.circuitGreen,
+      ["@markup.heading.4"] = plt.inventionOrange,
+      ["@markup.heading.5"] = plt.dataBlue,
+      ["@markup.heading.6"] = plt.neonPink,
+      ["@markup.quote"] = plt.computerGray,
+      ["@markup.math"] = plt.inventionOrange,
+      ["@markup.link"] = plt.techCyan,
+      ["@markup.link.label"] = plt.techCyanBright,
+      ["@markup.link.url"] = plt.techCyan,
+      ["@markup.raw"] = plt.circuitGreen,
+      ["@markup.raw.block"] = plt.circuitGreen,
+      ["@markup.list"] = plt.geniusPurpleCore,
+      ["@markup.list.checked"] = plt.circuitGreen,
+      ["@markup.list.unchecked"] = plt.computerGray,
+
+      ["@diff.plus"] = plt.circuitGreen,
+      ["@diff.minus"] = plt.dangerRed,
+      ["@diff.delta"] = plt.inventionOrange,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.computerGrayDark,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.dataBlue,
+      ["@constructor.javascript"] = plt.dataBlue,
+      ["@constructor.typescript"] = plt.dataBlue,
+      ["@namespace.rust"] = plt.dataBlue,
+      ["@type.qualifier.rust"] = plt.geniusPurpleCore,
+      ["@constant.macro.c"] = plt.inventionOrange,
+      ["@constant.macro.cpp"] = plt.inventionOrange,
+      ["@namespace.go"] = plt.dataBlue,
+      ["@property.css"] = plt.techCyanBright,
+      ["@type.css"] = plt.geniusPurpleCore,
+      ["@label.json"] = plt.inventionOrange,
+      ["@field.yaml"] = plt.techCyanBright,
+      ["@property.toml"] = plt.techCyanBright,
+      ["@function.builtin.bash"] = plt.techCyan,
+      ["@string.regexp"] = plt.neonPinkDeep,
+      ["@character.special.regex"] = plt.inventionOrange,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.dataBlue,
+      ["@lsp.type.interface"] = plt.dataBlue,
+      ["@lsp.type.struct"] = plt.dataBlue,
+      ["@lsp.type.enum"] = plt.dataBlue,
+      ["@lsp.type.enumMember"] = plt.wireSilver,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.dataBlue,
+
+      ["@lsp.type.macro"] = plt.inventionOrange,
+      ["@lsp.type.decorator"] = plt.inventionOrange,
+
+      ["@lsp.type.builtinType"] = plt.dataBlue,
+      ["@lsp.type.selfParameter"] = plt.geniusPurpleBright,
+      ["@lsp.type.typeParameter"] = plt.dataBlue,
+
+      ["@lsp.type.array"] = plt.dataBlue,
+      ["@lsp.type.object"] = plt.dataBlue,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.wireSilver,
+      ["@lsp.type.enumConstant"] = plt.wireSilver,
+
+      ["@lsp.type.event"] = plt.dataBlue,
+      ["@lsp.type.regexp"] = plt.neonPinkDeep,
+      ["@lsp.type.unresolvedReference"] = plt.dataBlue,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.computerGrayDark, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.wireSilver,
+      ["@lsp.mod.async"] = plt.geniusPurpleCore,
+      ["@lsp.mod.static"] = plt.geniusPurpleBright,
+      ["@lsp.mod.abstract"] = plt.dataBlue,
+      ["@lsp.mod.defaultLibrary"] = plt.dataBlue,
+      ["@lsp.mod.documentation"] = plt.computerGrayLight,
+    },
+  }
+end
+
+return {
+  name = "TMNT – Donatello",
+  author = "PrismPunk.nvim",
+  description = "Tech genius — intelligent, inventive, analytical.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.computerGray,
+    base04 = palette.computerGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.dangerRed,
+    base09 = palette.inventionOrange,
+    base0A = palette.inventionOrangeBright,
+    base0B = palette.circuitGreen,
+    base0C = palette.techCyan,
+    base0D = palette.dataBlue,
+    base0E = palette.geniusPurpleCore,
+    base0F = palette.boStaffWood,
+  },
+
+  palette = palette,
+  get = M.get,
+}

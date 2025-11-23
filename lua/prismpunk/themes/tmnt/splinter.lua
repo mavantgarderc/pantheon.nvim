@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.tmnt.splinter")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.wisdomGrayCore,
+      insert = plt.zenGreen,
+      visual = plt.meditationPurple,
+      replace = plt.ancientRed,
+      command = plt.candleGold,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.dojoShadow,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.tatamiBrown,
+      header1 = plt.wisdomGrayBright,
+      header2 = plt.candleGold,
+      special = plt.meditationPurple,
+      nontext = plt.dojoWoodDark,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.tatamiBrown,
+      indent = plt.bg_lighter,
+      indent_scope = plt.wisdomGrayCore,
+      picker = plt.meditationPurple,
+      yank = plt.candleGoldBright,
+      mark = plt.spiritualBlue,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.wisdomGrayBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.wisdomGrayCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.incenseSmoke,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.tatamiBrown,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.tatamiBrown,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.wisdomGrayCore,
+      accent2 = plt.senseiRobe,
+      accent3 = plt.candleGold,
+      accent4 = plt.meditationPurple,
+      accent5 = plt.zenGreen,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.wisdomGrayBright,
+      rainbow2 = plt.senseiRobeBright,
+      rainbow3 = plt.candleGoldBright,
+      rainbow4 = plt.zenGreenBright,
+      rainbow5 = plt.meditationPurpleBright,
+      rainbow6 = plt.spiritualBlueBright,
+      rainbow7 = plt.teaGreenBright,
+    },
+
+    syn = {
+      attribute = plt.candleGold,
+      boolean = plt.meditationPurple,
+      comment = plt.incenseSmoke,
+      constant = plt.scrollPaper,
+      deprecated = plt.incenseSmokeDark,
+      func = plt.meditationPurple,
+      identifier = plt.fg_lightest,
+      keyword = plt.wisdomGrayCore,
+      method = plt.meditationPurpleBright,
+      number = plt.candleGold,
+      operator = plt.zenGreen,
+      parameter = plt.fg_mid,
+      preproc = plt.spiritualBlue,
+      punct = plt.fg_dark,
+      regex = plt.teaGreenDeep,
+      statement = plt.wisdomGrayCore,
+      string = plt.zenGreen,
+      symbol = plt.candleGold,
+      type = plt.senseiRobe,
+      variable = plt.fg_lightest,
+      special = plt.meditationPurple,
+      special2 = plt.spiritualBlue,
+      special3 = plt.teaGreen,
+    },
+
+    vcs = {
+      added = plt.zenGreen,
+      removed = plt.ancientRed,
+      changed = plt.candleGold,
+    },
+
+    diff = {
+      add = plt.zenGreen,
+      change = plt.candleGold,
+      delete = plt.ancientRed,
+      text = plt.meditationPurple,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.meditationPurple,
+    },
+
+    term = {
+      black = plt.dojoShadow,
+      red = plt.ancientRedCore,
+      green = plt.zenGreenCore,
+      yellow = plt.candleGoldCore,
+      blue = plt.spiritualBlueCore,
+      magenta = plt.meditationPurpleCore,
+      cyan = plt.teaGreen,
+      white = plt.wisdomGray,
+      black_bright = color(plt.dojoShadow):brighten(0.6):to_hex(),
+      red_bright = color(plt.ancientRedBright):brighten(0.2):to_hex(),
+      green_bright = color(plt.zenGreenBright):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.candleGoldBright):brighten(0.2):to_hex(),
+      blue_bright = color(plt.spiritualBlueBright):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.meditationPurpleBright):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.teaGreenBright):brighten(0.2):to_hex(),
+      white_bright = color(plt.wisdomGrayBright):brighten(0.2):to_hex(),
+      indexed1 = plt.candleGold,
+      indexed2 = plt.ancientRed,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.incenseSmoke,
+      ["@comment.documentation"] = plt.incenseSmokeLight,
+      ["@comment.error"] = plt.dangerRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.candleGold,
+      ["@comment.note"] = plt.meditationPurple,
+
+      ["@constant"] = plt.scrollPaper,
+      ["@constant.builtin"] = plt.scrollPaper,
+      ["@constant.macro"] = plt.candleGold,
+
+      ["@string"] = plt.zenGreen,
+      ["@string.documentation"] = plt.zenGreen,
+      ["@string.regex"] = plt.teaGreenDeep,
+      ["@string.escape"] = plt.candleGoldCore,
+      ["@string.special"] = plt.zenGreenBright,
+      ["@string.special.symbol"] = plt.candleGold,
+      ["@string.special.url"] = plt.spiritualBlue,
+      ["@string.special.path"] = plt.zenGreen,
+
+      ["@character"] = plt.zenGreen,
+      ["@character.special"] = plt.candleGold,
+
+      ["@number"] = plt.candleGold,
+      ["@number.float"] = plt.candleGold,
+
+      ["@boolean"] = plt.meditationPurple,
+
+      ["@function"] = plt.meditationPurple,
+      ["@function.builtin"] = plt.meditationPurple,
+      ["@function.call"] = plt.meditationPurple,
+      ["@function.macro"] = plt.spiritualBlue,
+      ["@function.method"] = plt.meditationPurpleBright,
+      ["@function.method.call"] = plt.meditationPurpleBright,
+
+      ["@constructor"] = plt.senseiRobe,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.wisdomGrayCore,
+      ["@keyword.coroutine"] = plt.spiritualBlue,
+      ["@keyword.function"] = plt.wisdomGrayCore,
+      ["@keyword.operator"] = plt.zenGreen,
+      ["@keyword.return"] = plt.wisdomGrayCore,
+      ["@keyword.import"] = plt.spiritualBlue,
+      ["@keyword.storage"] = plt.wisdomGrayCore,
+      ["@keyword.repeat"] = plt.wisdomGrayCore,
+      ["@keyword.conditional"] = plt.wisdomGrayCore,
+      ["@keyword.exception"] = plt.ancientRed,
+      ["@keyword.directive"] = plt.spiritualBlue,
+      ["@keyword.directive.define"] = plt.spiritualBlue,
+
+      ["@conditional"] = plt.wisdomGrayCore,
+      ["@conditional.ternary"] = plt.wisdomGrayCore,
+
+      ["@repeat"] = plt.wisdomGrayCore,
+
+      ["@label"] = plt.candleGold,
+
+      ["@operator"] = plt.zenGreen,
+
+      ["@exception"] = plt.ancientRed,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.wisdomGrayBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.senseiRobe,
+      ["@type.builtin"] = plt.senseiRobe,
+      ["@type.definition"] = plt.senseiRobe,
+      ["@type.qualifier"] = plt.wisdomGrayCore,
+
+      ["@attribute"] = plt.candleGold,
+      ["@attribute.builtin"] = plt.candleGold,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.senseiRobe,
+      ["@module.builtin"] = plt.senseiRobe,
+
+      ["@namespace"] = plt.senseiRobe,
+      ["@namespace.builtin"] = plt.senseiRobe,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.meditationPurple,
+
+      ["@tag"] = plt.wisdomGrayCore,
+      ["@tag.attribute"] = plt.candleGold,
+      ["@tag.delimiter"] = plt.zenGreen,
+      ["@tag.builtin"] = plt.wisdomGrayCore,
+
+      ["@markup.strong"] = { fg = plt.wisdomGrayBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.incenseSmoke, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.meditationPurple, underline = true },
+      ["@markup.heading"] = plt.wisdomGrayBright,
+      ["@markup.heading.1"] = plt.wisdomGrayBright,
+      ["@markup.heading.2"] = plt.candleGold,
+      ["@markup.heading.3"] = plt.meditationPurple,
+      ["@markup.heading.4"] = plt.zenGreen,
+      ["@markup.heading.5"] = plt.senseiRobe,
+      ["@markup.heading.6"] = plt.spiritualBlue,
+      ["@markup.quote"] = plt.incenseSmoke,
+      ["@markup.math"] = plt.candleGold,
+      ["@markup.link"] = plt.spiritualBlue,
+      ["@markup.link.label"] = plt.spiritualBlueBright,
+      ["@markup.link.url"] = plt.spiritualBlue,
+      ["@markup.raw"] = plt.zenGreen,
+      ["@markup.raw.block"] = plt.zenGreen,
+      ["@markup.list"] = plt.wisdomGrayCore,
+      ["@markup.list.checked"] = plt.zenGreen,
+      ["@markup.list.unchecked"] = plt.incenseSmoke,
+
+      ["@diff.plus"] = plt.zenGreen,
+      ["@diff.minus"] = plt.ancientRed,
+      ["@diff.delta"] = plt.candleGold,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.dojoShadow,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.senseiRobe,
+      ["@constructor.javascript"] = plt.senseiRobe,
+      ["@constructor.typescript"] = plt.senseiRobe,
+      ["@namespace.rust"] = plt.senseiRobe,
+      ["@type.qualifier.rust"] = plt.wisdomGrayCore,
+      ["@constant.macro.c"] = plt.candleGold,
+      ["@constant.macro.cpp"] = plt.candleGold,
+      ["@namespace.go"] = plt.senseiRobe,
+      ["@property.css"] = plt.meditationPurpleBright,
+      ["@type.css"] = plt.wisdomGrayCore,
+      ["@label.json"] = plt.candleGold,
+      ["@field.yaml"] = plt.meditationPurpleBright,
+      ["@property.toml"] = plt.meditationPurpleBright,
+      ["@function.builtin.bash"] = plt.meditationPurple,
+      ["@string.regexp"] = plt.teaGreenDeep,
+      ["@character.special.regex"] = plt.candleGold,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.senseiRobe,
+      ["@lsp.type.interface"] = plt.senseiRobe,
+      ["@lsp.type.struct"] = plt.senseiRobe,
+      ["@lsp.type.enum"] = plt.senseiRobe,
+      ["@lsp.type.enumMember"] = plt.scrollPaper,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.senseiRobe,
+
+      ["@lsp.type.macro"] = plt.candleGold,
+      ["@lsp.type.decorator"] = plt.candleGold,
+
+      ["@lsp.type.builtinType"] = plt.senseiRobe,
+      ["@lsp.type.selfParameter"] = plt.wisdomGrayBright,
+      ["@lsp.type.typeParameter"] = plt.senseiRobe,
+
+      ["@lsp.type.array"] = plt.senseiRobe,
+      ["@lsp.type.object"] = plt.senseiRobe,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.scrollPaper,
+      ["@lsp.type.enumConstant"] = plt.scrollPaper,
+
+      ["@lsp.type.event"] = plt.senseiRobe,
+      ["@lsp.type.regexp"] = plt.teaGreenDeep,
+      ["@lsp.type.unresolvedReference"] = plt.senseiRobe,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.incenseSmokeDark, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.scrollPaper,
+      ["@lsp.mod.async"] = plt.wisdomGrayCore,
+      ["@lsp.mod.static"] = plt.wisdomGrayBright,
+      ["@lsp.mod.abstract"] = plt.senseiRobe,
+      ["@lsp.mod.defaultLibrary"] = plt.senseiRobe,
+      ["@lsp.mod.documentation"] = plt.incenseSmokeLight,
+    },
+  }
+end
+
+return {
+  name = "TMNT – Master Splinter",
+  author = "PrismPunk.nvim",
+  description = "Wise sensei — calm, meditative, philosophical master.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.incenseSmoke,
+    base04 = palette.tatamiBrown,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.ancientRed,
+    base09 = palette.candleGoldDeep,
+    base0A = palette.candleGold,
+    base0B = palette.zenGreen,
+    base0C = palette.teaGreen,
+    base0D = palette.spiritualBlue,
+    base0E = palette.meditationPurple,
+    base0F = palette.dojoWood,
+  },
+
+  palette = palette,
+  get = M.get,
+}

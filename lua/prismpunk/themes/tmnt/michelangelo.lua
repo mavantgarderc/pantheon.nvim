@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.tmnt.michelangelo")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.partyOrangeCore,
+      insert = plt.cowaGreen,
+      visual = plt.skateBlue,
+      replace = plt.pizzaRed,
+      command = plt.cheeseYellow,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.pizzaParlor,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.nunchuckChain,
+      header1 = plt.partyOrangeBright,
+      header2 = plt.cheeseYellow,
+      special = plt.sunsetPink,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.nunchuckChain,
+      indent = plt.bg_lighter,
+      indent_scope = plt.partyOrangeCore,
+      picker = plt.sunsetPink,
+      yank = plt.chillinYellow,
+      mark = plt.tropicalTeal,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.partyOrangeBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.partyOrangeCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.beachSand,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.nunchuckChain,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.nunchuckChain,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.partyOrangeCore,
+      accent2 = plt.cheeseYellow,
+      accent3 = plt.cowaGreen,
+      accent4 = plt.skateBlue,
+      accent5 = plt.sunsetPink,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.partyOrangeBright,
+      rainbow2 = plt.cheeseYellowBright,
+      rainbow3 = plt.cowaGreenBright,
+      rainbow4 = plt.skateBlueBright,
+      rainbow5 = plt.sunsetPinkBright,
+      rainbow6 = plt.radicalPurpleBright,
+      rainbow7 = plt.pizzaRedBright,
+    },
+
+    syn = {
+      attribute = plt.cheeseYellow,
+      boolean = plt.skateBlue,
+      comment = plt.beachSand,
+      constant = plt.sunsetPink,
+      deprecated = plt.nunchuckWoodDark,
+      func = plt.sunsetPink,
+      identifier = plt.fg_lightest,
+      keyword = plt.partyOrangeCore,
+      method = plt.sunsetPinkBright,
+      number = plt.cheeseYellow,
+      operator = plt.cowaGreen,
+      parameter = plt.fg_mid,
+      preproc = plt.radicalPurple,
+      punct = plt.fg_dark,
+      regex = plt.radicalPurpleDeep,
+      statement = plt.partyOrangeCore,
+      string = plt.cowaGreen,
+      symbol = plt.cheeseYellow,
+      type = plt.skateBlue,
+      variable = plt.fg_lightest,
+      special = plt.sunsetPink,
+      special2 = plt.tropicalTeal,
+      special3 = plt.radicalPurple,
+    },
+
+    vcs = {
+      added = plt.cowaGreen,
+      removed = plt.pizzaRed,
+      changed = plt.cheeseYellow,
+    },
+
+    diff = {
+      add = plt.cowaGreen,
+      change = plt.cheeseYellow,
+      delete = plt.pizzaRed,
+      text = plt.skateBlue,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.sunsetPink,
+    },
+
+    term = {
+      black = plt.pizzaParlor,
+      red = plt.pizzaRed,
+      green = plt.cowaGreenCore,
+      yellow = plt.cheeseYellowCore,
+      blue = plt.skateBlueCore,
+      magenta = plt.radicalPurple,
+      cyan = plt.tropicalTeal,
+      white = plt.fg_light,
+      black_bright = color(plt.pizzaParlor):brighten(0.6):to_hex(),
+      red_bright = color(plt.pizzaRedBright):brighten(0.2):to_hex(),
+      green_bright = color(plt.cowaGreenBright):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.cheeseYellowBright):brighten(0.2):to_hex(),
+      blue_bright = color(plt.skateBlueBright):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.radicalPurpleBright):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.surfboardCyan):brighten(0.2):to_hex(),
+      white_bright = color(plt.fg_light):brighten(0.2):to_hex(),
+      indexed1 = plt.cheeseYellow,
+      indexed2 = plt.pizzaRed,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.beachSand,
+      ["@comment.documentation"] = plt.fg_dark,
+      ["@comment.error"] = plt.dangerRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.cheeseYellow,
+      ["@comment.note"] = plt.sunsetPink,
+
+      ["@constant"] = plt.sunsetPink,
+      ["@constant.builtin"] = plt.sunsetPink,
+      ["@constant.macro"] = plt.cheeseYellow,
+
+      ["@string"] = plt.cowaGreen,
+      ["@string.documentation"] = plt.cowaGreen,
+      ["@string.regex"] = plt.radicalPurpleDeep,
+      ["@string.escape"] = plt.cheeseYellowBright,
+      ["@string.special"] = plt.cowaGreenBright,
+      ["@string.special.symbol"] = plt.cheeseYellow,
+      ["@string.special.url"] = plt.skateBlue,
+      ["@string.special.path"] = plt.cowaGreen,
+
+      ["@character"] = plt.cowaGreen,
+      ["@character.special"] = plt.cheeseYellow,
+
+      ["@number"] = plt.cheeseYellow,
+      ["@number.float"] = plt.cheeseYellow,
+
+      ["@boolean"] = plt.skateBlue,
+
+      ["@function"] = plt.sunsetPink,
+      ["@function.builtin"] = plt.sunsetPink,
+      ["@function.call"] = plt.sunsetPink,
+      ["@function.macro"] = plt.radicalPurple,
+      ["@function.method"] = plt.sunsetPinkBright,
+      ["@function.method.call"] = plt.sunsetPinkBright,
+
+      ["@constructor"] = plt.skateBlue,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.partyOrangeCore,
+      ["@keyword.coroutine"] = plt.radicalPurple,
+      ["@keyword.function"] = plt.partyOrangeCore,
+      ["@keyword.operator"] = plt.cowaGreen,
+      ["@keyword.return"] = plt.partyOrangeCore,
+      ["@keyword.import"] = plt.radicalPurple,
+      ["@keyword.storage"] = plt.partyOrangeCore,
+      ["@keyword.repeat"] = plt.partyOrangeCore,
+      ["@keyword.conditional"] = plt.partyOrangeCore,
+      ["@keyword.exception"] = plt.pizzaRed,
+      ["@keyword.directive"] = plt.radicalPurple,
+      ["@keyword.directive.define"] = plt.radicalPurple,
+
+      ["@conditional"] = plt.partyOrangeCore,
+      ["@conditional.ternary"] = plt.partyOrangeCore,
+
+      ["@repeat"] = plt.partyOrangeCore,
+
+      ["@label"] = plt.cheeseYellow,
+
+      ["@operator"] = plt.cowaGreen,
+
+      ["@exception"] = plt.pizzaRed,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.partyOrangeBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.skateBlue,
+      ["@type.builtin"] = plt.skateBlue,
+      ["@type.definition"] = plt.skateBlue,
+      ["@type.qualifier"] = plt.partyOrangeCore,
+
+      ["@attribute"] = plt.cheeseYellow,
+      ["@attribute.builtin"] = plt.cheeseYellow,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.skateBlue,
+      ["@module.builtin"] = plt.skateBlue,
+
+      ["@namespace"] = plt.skateBlue,
+      ["@namespace.builtin"] = plt.skateBlue,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.sunsetPink,
+
+      ["@tag"] = plt.partyOrangeCore,
+      ["@tag.attribute"] = plt.cheeseYellow,
+      ["@tag.delimiter"] = plt.cowaGreen,
+      ["@tag.builtin"] = plt.partyOrangeCore,
+
+      ["@markup.strong"] = { fg = plt.partyOrangeBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.beachSand, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.sunsetPink, underline = true },
+      ["@markup.heading"] = plt.partyOrangeBright,
+      ["@markup.heading.1"] = plt.partyOrangeBright,
+      ["@markup.heading.2"] = plt.cheeseYellow,
+      ["@markup.heading.3"] = plt.sunsetPink,
+      ["@markup.heading.4"] = plt.cowaGreen,
+      ["@markup.heading.5"] = plt.skateBlue,
+      ["@markup.heading.6"] = plt.radicalPurple,
+      ["@markup.quote"] = plt.beachSand,
+      ["@markup.math"] = plt.cheeseYellow,
+      ["@markup.link"] = plt.skateBlue,
+      ["@markup.link.label"] = plt.skateBlueBright,
+      ["@markup.link.url"] = plt.skateBlue,
+      ["@markup.raw"] = plt.cowaGreen,
+      ["@markup.raw.block"] = plt.cowaGreen,
+      ["@markup.list"] = plt.partyOrangeCore,
+      ["@markup.list.checked"] = plt.cowaGreen,
+      ["@markup.list.unchecked"] = plt.beachSand,
+
+      ["@diff.plus"] = plt.cowaGreen,
+      ["@diff.minus"] = plt.pizzaRed,
+      ["@diff.delta"] = plt.cheeseYellow,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.nunchuckWoodDark,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.skateBlue,
+      ["@constructor.javascript"] = plt.skateBlue,
+      ["@constructor.typescript"] = plt.skateBlue,
+      ["@namespace.rust"] = plt.skateBlue,
+      ["@type.qualifier.rust"] = plt.partyOrangeCore,
+      ["@constant.macro.c"] = plt.cheeseYellow,
+      ["@constant.macro.cpp"] = plt.cheeseYellow,
+      ["@namespace.go"] = plt.skateBlue,
+      ["@property.css"] = plt.sunsetPinkBright,
+      ["@type.css"] = plt.partyOrangeCore,
+      ["@label.json"] = plt.cheeseYellow,
+      ["@field.yaml"] = plt.sunsetPinkBright,
+      ["@property.toml"] = plt.sunsetPinkBright,
+      ["@function.builtin.bash"] = plt.sunsetPink,
+      ["@string.regexp"] = plt.radicalPurpleDeep,
+      ["@character.special.regex"] = plt.cheeseYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.skateBlue,
+      ["@lsp.type.interface"] = plt.skateBlue,
+      ["@lsp.type.struct"] = plt.skateBlue,
+      ["@lsp.type.enum"] = plt.skateBlue,
+      ["@lsp.type.enumMember"] = plt.sunsetPink,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.skateBlue,
+
+      ["@lsp.type.macro"] = plt.cheeseYellow,
+      ["@lsp.type.decorator"] = plt.cheeseYellow,
+
+      ["@lsp.type.builtinType"] = plt.skateBlue,
+      ["@lsp.type.selfParameter"] = plt.partyOrangeBright,
+      ["@lsp.type.typeParameter"] = plt.skateBlue,
+
+      ["@lsp.type.array"] = plt.skateBlue,
+      ["@lsp.type.object"] = plt.skateBlue,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.sunsetPink,
+      ["@lsp.type.enumConstant"] = plt.sunsetPink,
+
+      ["@lsp.type.event"] = plt.skateBlue,
+      ["@lsp.type.regexp"] = plt.radicalPurpleDeep,
+      ["@lsp.type.unresolvedReference"] = plt.skateBlue,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.nunchuckWoodDark, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.sunsetPink,
+      ["@lsp.mod.async"] = plt.partyOrangeCore,
+      ["@lsp.mod.static"] = plt.partyOrangeBright,
+      ["@lsp.mod.abstract"] = plt.skateBlue,
+      ["@lsp.mod.defaultLibrary"] = plt.skateBlue,
+      ["@lsp.mod.documentation"] = plt.fg_dark,
+    },
+  }
+end
+
+return {
+  name = "TMNT – Michelangelo",
+  author = "PrismPunk.nvim",
+  description = "Party dude — fun-loving, energetic, cowabunga!",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.beachSand,
+    base04 = palette.nunchuckChain,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.pizzaRed,
+    base09 = palette.comedyGold,
+    base0A = palette.cheeseYellow,
+    base0B = palette.cowaGreen,
+    base0C = palette.tropicalTeal,
+    base0D = palette.skateBlue,
+    base0E = palette.radicalPurple,
+    base0F = palette.nunchuckWood,
+  },
+
+  palette = palette,
+  get = M.get,
+}

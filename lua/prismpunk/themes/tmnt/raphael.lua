@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.tmnt.raphael")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.rageRedCore,
+      insert = plt.toughGreen,
+      visual = plt.fireOrange,
+      replace = plt.crimsonFury,
+      command = plt.angerYellow,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.combatStance,
+      bg_visual = plt.shadowRed,
+      bg_statusline = plt.bg_light,
+      border = plt.saiEdge,
+      header1 = plt.rageRedBright,
+      header2 = plt.fireOrange,
+      special = plt.fireOrange,
+      nontext = plt.shadowRed,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.saiEdge,
+      indent = plt.bg_lighter,
+      indent_scope = plt.rageRedCore,
+      picker = plt.fireOrange,
+      yank = plt.angerYellowBright,
+      mark = plt.rebellionPurple,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.rageRedBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.rageRedCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.steelGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.saiEdge,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.saiEdge,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.rageRedCore,
+      accent2 = plt.fireOrange,
+      accent3 = plt.crimsonFury,
+      accent4 = plt.saiSilver,
+      accent5 = plt.rebellionPurple,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.rageRedBright,
+      rainbow2 = plt.crimsonFuryBright,
+      rainbow3 = plt.fireOrangeBright,
+      rainbow4 = plt.angerYellowBright,
+      rainbow5 = plt.rebellionPurpleBright,
+      rainbow6 = plt.saiSilver,
+      rainbow7 = plt.toughGreenBright,
+    },
+
+    syn = {
+      attribute = plt.fireOrange,
+      boolean = plt.crimsonFury,
+      comment = plt.steelGray,
+      constant = plt.saiSilver,
+      deprecated = plt.shadowRed,
+      func = plt.fireOrange,
+      identifier = plt.fg_lightest,
+      keyword = plt.rageRedCore,
+      method = plt.fireOrangeBright,
+      number = plt.angerYellow,
+      operator = plt.saiEdge,
+      parameter = plt.fg_mid,
+      preproc = plt.rebellionPurple,
+      punct = plt.fg_dark,
+      regex = plt.rebellionPurpleDeep,
+      statement = plt.rageRedCore,
+      string = plt.toughGreen,
+      symbol = plt.fireOrange,
+      type = plt.saiSilver,
+      variable = plt.fg_lightest,
+      special = plt.fireOrange,
+      special2 = plt.crimsonFury,
+      special3 = plt.rebellionPurple,
+    },
+
+    vcs = {
+      added = plt.toughGreen,
+      removed = plt.rageRedCore,
+      changed = plt.fireOrange,
+    },
+
+    diff = {
+      add = plt.toughGreen,
+      change = plt.fireOrange,
+      delete = plt.rageRedCore,
+      text = plt.angerYellow,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.fireOrange,
+    },
+
+    term = {
+      black = plt.alleyDark,
+      red = plt.rageRedCore,
+      green = plt.toughGreen,
+      yellow = plt.angerYellow,
+      blue = plt.rebellionPurple,
+      magenta = plt.crimsonFury,
+      cyan = plt.saiSilver,
+      white = plt.fg_light,
+      black_bright = color(plt.alleyDark):brighten(0.6):to_hex(),
+      red_bright = color(plt.rageRedBright):brighten(0.2):to_hex(),
+      green_bright = color(plt.toughGreen):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.angerYellowBright):brighten(0.2):to_hex(),
+      blue_bright = color(plt.rebellionPurpleBright):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.crimsonFuryBright):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.saiSilver):brighten(0.2):to_hex(),
+      white_bright = color(plt.fg_light):brighten(0.2):to_hex(),
+      indexed1 = plt.fireOrange,
+      indexed2 = plt.rageRedCore,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.steelGray,
+      ["@comment.documentation"] = plt.grittyConcrete,
+      ["@comment.error"] = plt.dangerRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.fireOrange,
+      ["@comment.note"] = plt.rebellionPurple,
+
+      ["@constant"] = plt.saiSilver,
+      ["@constant.builtin"] = plt.saiSilver,
+      ["@constant.macro"] = plt.fireOrange,
+
+      ["@string"] = plt.toughGreen,
+      ["@string.documentation"] = plt.toughGreen,
+      ["@string.regex"] = plt.rebellionPurpleDeep,
+      ["@string.escape"] = plt.angerYellow,
+      ["@string.special"] = plt.toughGreenBright,
+      ["@string.special.symbol"] = plt.fireOrange,
+      ["@string.special.url"] = plt.rebellionPurple,
+      ["@string.special.path"] = plt.toughGreen,
+
+      ["@character"] = plt.toughGreen,
+      ["@character.special"] = plt.fireOrange,
+
+      ["@number"] = plt.angerYellow,
+      ["@number.float"] = plt.angerYellow,
+
+      ["@boolean"] = plt.crimsonFury,
+
+      ["@function"] = plt.fireOrange,
+      ["@function.builtin"] = plt.fireOrange,
+      ["@function.call"] = plt.fireOrange,
+      ["@function.macro"] = plt.rebellionPurple,
+      ["@function.method"] = plt.fireOrangeBright,
+      ["@function.method.call"] = plt.fireOrangeBright,
+
+      ["@constructor"] = plt.saiSilver,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.rageRedCore,
+      ["@keyword.coroutine"] = plt.rebellionPurple,
+      ["@keyword.function"] = plt.rageRedCore,
+      ["@keyword.operator"] = plt.saiEdge,
+      ["@keyword.return"] = plt.rageRedCore,
+      ["@keyword.import"] = plt.rebellionPurple,
+      ["@keyword.storage"] = plt.rageRedCore,
+      ["@keyword.repeat"] = plt.rageRedCore,
+      ["@keyword.conditional"] = plt.rageRedCore,
+      ["@keyword.exception"] = plt.crimsonFury,
+      ["@keyword.directive"] = plt.rebellionPurple,
+      ["@keyword.directive.define"] = plt.rebellionPurple,
+
+      ["@conditional"] = plt.rageRedCore,
+      ["@conditional.ternary"] = plt.rageRedCore,
+
+      ["@repeat"] = plt.rageRedCore,
+
+      ["@label"] = plt.fireOrange,
+
+      ["@operator"] = plt.saiEdge,
+
+      ["@exception"] = plt.crimsonFury,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.rageRedBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.saiSilver,
+      ["@type.builtin"] = plt.saiSilver,
+      ["@type.definition"] = plt.saiSilver,
+      ["@type.qualifier"] = plt.rageRedCore,
+
+      ["@attribute"] = plt.fireOrange,
+      ["@attribute.builtin"] = plt.fireOrange,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.saiSilver,
+      ["@module.builtin"] = plt.saiSilver,
+
+      ["@namespace"] = plt.saiSilver,
+      ["@namespace.builtin"] = plt.saiSilver,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.fireOrange,
+
+      ["@tag"] = plt.rageRedCore,
+      ["@tag.attribute"] = plt.fireOrange,
+      ["@tag.delimiter"] = plt.saiEdge,
+      ["@tag.builtin"] = plt.rageRedCore,
+
+      ["@markup.strong"] = { fg = plt.rageRedBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.steelGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.fireOrange, underline = true },
+      ["@markup.heading"] = plt.rageRedBright,
+      ["@markup.heading.1"] = plt.rageRedBright,
+      ["@markup.heading.2"] = plt.fireOrange,
+      ["@markup.heading.3"] = plt.crimsonFury,
+      ["@markup.heading.4"] = plt.angerYellow,
+      ["@markup.heading.5"] = plt.rebellionPurple,
+      ["@markup.heading.6"] = plt.saiSilver,
+      ["@markup.quote"] = plt.steelGray,
+      ["@markup.math"] = plt.angerYellow,
+      ["@markup.link"] = plt.rebellionPurple,
+      ["@markup.link.label"] = plt.rebellionPurpleBright,
+      ["@markup.link.url"] = plt.rebellionPurple,
+      ["@markup.raw"] = plt.toughGreen,
+      ["@markup.raw.block"] = plt.toughGreen,
+      ["@markup.list"] = plt.rageRedCore,
+      ["@markup.list.checked"] = plt.toughGreen,
+      ["@markup.list.unchecked"] = plt.steelGray,
+
+      ["@diff.plus"] = plt.toughGreen,
+      ["@diff.minus"] = plt.rageRedCore,
+      ["@diff.delta"] = plt.fireOrange,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.shadowRed,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.saiSilver,
+      ["@constructor.javascript"] = plt.saiSilver,
+      ["@constructor.typescript"] = plt.saiSilver,
+      ["@namespace.rust"] = plt.saiSilver,
+      ["@type.qualifier.rust"] = plt.rageRedCore,
+      ["@constant.macro.c"] = plt.fireOrange,
+      ["@constant.macro.cpp"] = plt.fireOrange,
+      ["@namespace.go"] = plt.saiSilver,
+      ["@property.css"] = plt.fireOrangeBright,
+      ["@type.css"] = plt.rageRedCore,
+      ["@label.json"] = plt.fireOrange,
+      ["@field.yaml"] = plt.fireOrangeBright,
+      ["@property.toml"] = plt.fireOrangeBright,
+      ["@function.builtin.bash"] = plt.fireOrange,
+      ["@string.regexp"] = plt.rebellionPurpleDeep,
+      ["@character.special.regex"] = plt.fireOrange,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.saiSilver,
+      ["@lsp.type.interface"] = plt.saiSilver,
+      ["@lsp.type.struct"] = plt.saiSilver,
+      ["@lsp.type.enum"] = plt.saiSilver,
+      ["@lsp.type.enumMember"] = plt.saiSilver,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.saiSilver,
+
+      ["@lsp.type.macro"] = plt.fireOrange,
+      ["@lsp.type.decorator"] = plt.fireOrange,
+
+      ["@lsp.type.builtinType"] = plt.saiSilver,
+      ["@lsp.type.selfParameter"] = plt.rageRedBright,
+      ["@lsp.type.typeParameter"] = plt.saiSilver,
+
+      ["@lsp.type.array"] = plt.saiSilver,
+      ["@lsp.type.object"] = plt.saiSilver,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.saiSilver,
+      ["@lsp.type.enumConstant"] = plt.saiSilver,
+
+      ["@lsp.type.event"] = plt.saiSilver,
+      ["@lsp.type.regexp"] = plt.rebellionPurpleDeep,
+      ["@lsp.type.unresolvedReference"] = plt.saiSilver,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.shadowRed, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.saiSilver,
+      ["@lsp.mod.async"] = plt.rageRedCore,
+      ["@lsp.mod.static"] = plt.rageRedBright,
+      ["@lsp.mod.abstract"] = plt.saiSilver,
+      ["@lsp.mod.defaultLibrary"] = plt.saiSilver,
+      ["@lsp.mod.documentation"] = plt.grittyConcrete,
+    },
+  }
+end
+
+return {
+  name = "TMNT – Raphael",
+  author = "PrismPunk.nvim",
+  description = "Hot-headed warrior — fierce, passionate, rebellious.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.steelGray,
+    base04 = palette.grittyConcrete,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.rageRedCore,
+    base09 = palette.fireOrange,
+    base0A = palette.angerYellow,
+    base0B = palette.toughGreen,
+    base0C = palette.saiSilver,
+    base0D = palette.crimsonFury,
+    base0E = palette.rebellionPurple,
+    base0F = palette.rustBrown,
+  },
+
+  palette = palette,
+  get = M.get,
+}
