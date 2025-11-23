@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.tmnt.last-ronin")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.roninGrayCore,
+      insert = plt.rainSteel,
+      visual = plt.moonlight,
+      replace = plt.vengeance,
+      command = plt.ashGray,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.tokyoRain,
+      bg_visual = plt.shadowBlack,
+      bg_statusline = plt.bg_light,
+      border = plt.scarTissue,
+      header1 = plt.roninGrayBright,
+      header2 = plt.ashGray,
+      special = plt.moonlight,
+      nontext = plt.shadowBlackDeep,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.scarTissue,
+      indent = plt.bg_lighter,
+      indent_scope = plt.roninGrayCore,
+      picker = plt.vengeance,
+      yank = plt.moonlightBright,
+      mark = plt.bloodRust,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.roninGrayBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.roninGrayCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.ashGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.scarTissue,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.scarTissue,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.roninGrayCore,
+      accent2 = plt.fadedBlue,
+      accent3 = plt.fadedRed,
+      accent4 = plt.fadedPurple,
+      accent5 = plt.fadedOrange,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.roninGrayBright,
+      rainbow2 = plt.fadedBlueBright,
+      rainbow3 = plt.fadedRedBright,
+      rainbow4 = plt.fadedPurpleBright,
+      rainbow5 = plt.fadedOrangeBright,
+      rainbow6 = plt.ashGrayLight,
+      rainbow7 = plt.moonlightBright,
+    },
+
+    syn = {
+      attribute = plt.ashGray,
+      boolean = plt.fadedBlue,
+      comment = plt.ashGray,
+      constant = plt.moonlight,
+      deprecated = plt.oldWound,
+      func = plt.fadedPurple,
+      identifier = plt.fg_lightest,
+      keyword = plt.roninGrayCore,
+      method = plt.fadedPurpleBright,
+      number = plt.fadedOrange,
+      operator = plt.rainSteel,
+      parameter = plt.fg_mid,
+      preproc = plt.fadedBlue,
+      punct = plt.fg_dark,
+      regex = plt.scarTissue,
+      statement = plt.roninGrayCore,
+      string = plt.rainSteel,
+      symbol = plt.moonlight,
+      type = plt.fadedBlue,
+      variable = plt.fg_lightest,
+      special = plt.moonlight,
+      special2 = plt.fadedRed,
+      special3 = plt.fadedPurple,
+    },
+
+    vcs = {
+      added = plt.rainSteel,
+      removed = plt.bloodRust,
+      changed = plt.fadedOrange,
+    },
+
+    diff = {
+      add = plt.rainSteel,
+      change = plt.fadedOrange,
+      delete = plt.bloodRust,
+      text = plt.moonlight,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.moonlight,
+    },
+
+    term = {
+      black = plt.shadowBlackDeep,
+      red = plt.fadedRedCore,
+      green = plt.rainSteelCore,
+      yellow = plt.fadedOrangeCore,
+      blue = plt.fadedBlueCore,
+      magenta = plt.fadedPurpleCore,
+      cyan = plt.moonlight,
+      white = plt.ashGray,
+      black_bright = color(plt.shadowBlackDeep):brighten(0.6):to_hex(),
+      red_bright = color(plt.fadedRedBright):brighten(0.2):to_hex(),
+      green_bright = color(plt.rainSteelBright):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.fadedOrangeBright):brighten(0.2):to_hex(),
+      blue_bright = color(plt.fadedBlueBright):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.fadedPurpleBright):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.moonlightBright):brighten(0.2):to_hex(),
+      white_bright = color(plt.ashGrayLight):brighten(0.2):to_hex(),
+      indexed1 = plt.moonlight,
+      indexed2 = plt.bloodRust,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.ashGray,
+      ["@comment.documentation"] = plt.ashGrayLight,
+      ["@comment.error"] = plt.dangerRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.vengeance,
+      ["@comment.note"] = plt.moonlight,
+
+      ["@constant"] = plt.moonlight,
+      ["@constant.builtin"] = plt.moonlight,
+      ["@constant.macro"] = plt.ashGray,
+
+      ["@string"] = plt.rainSteel,
+      ["@string.documentation"] = plt.rainSteel,
+      ["@string.regex"] = plt.scarTissue,
+      ["@string.escape"] = plt.fadedOrange,
+      ["@string.special"] = plt.rainSteelBright,
+      ["@string.special.symbol"] = plt.moonlight,
+      ["@string.special.url"] = plt.fadedBlue,
+      ["@string.special.path"] = plt.rainSteel,
+
+      ["@character"] = plt.rainSteel,
+      ["@character.special"] = plt.moonlight,
+
+      ["@number"] = plt.fadedOrange,
+      ["@number.float"] = plt.fadedOrange,
+
+      ["@boolean"] = plt.fadedBlue,
+
+      ["@function"] = plt.fadedPurple,
+      ["@function.builtin"] = plt.fadedPurple,
+      ["@function.call"] = plt.fadedPurple,
+      ["@function.macro"] = plt.fadedBlue,
+      ["@function.method"] = plt.fadedPurpleBright,
+      ["@function.method.call"] = plt.fadedPurpleBright,
+
+      ["@constructor"] = plt.fadedBlue,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.roninGrayCore,
+      ["@keyword.coroutine"] = plt.fadedPurple,
+      ["@keyword.function"] = plt.roninGrayCore,
+      ["@keyword.operator"] = plt.rainSteel,
+      ["@keyword.return"] = plt.roninGrayCore,
+      ["@keyword.import"] = plt.fadedBlue,
+      ["@keyword.storage"] = plt.roninGrayCore,
+      ["@keyword.repeat"] = plt.roninGrayCore,
+      ["@keyword.conditional"] = plt.roninGrayCore,
+      ["@keyword.exception"] = plt.fadedRed,
+      ["@keyword.directive"] = plt.fadedBlue,
+      ["@keyword.directive.define"] = plt.fadedBlue,
+
+      ["@conditional"] = plt.roninGrayCore,
+      ["@conditional.ternary"] = plt.roninGrayCore,
+
+      ["@repeat"] = plt.roninGrayCore,
+
+      ["@label"] = plt.moonlight,
+
+      ["@operator"] = plt.rainSteel,
+
+      ["@exception"] = plt.fadedRed,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.roninGrayBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.fadedBlue,
+      ["@type.builtin"] = plt.fadedBlue,
+      ["@type.definition"] = plt.fadedBlue,
+      ["@type.qualifier"] = plt.roninGrayCore,
+
+      ["@attribute"] = plt.ashGray,
+      ["@attribute.builtin"] = plt.ashGray,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.fadedBlue,
+      ["@module.builtin"] = plt.fadedBlue,
+
+      ["@namespace"] = plt.fadedBlue,
+      ["@namespace.builtin"] = plt.fadedBlue,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.moonlight,
+
+      ["@tag"] = plt.roninGrayCore,
+      ["@tag.attribute"] = plt.ashGray,
+      ["@tag.delimiter"] = plt.rainSteel,
+      ["@tag.builtin"] = plt.roninGrayCore,
+
+      ["@markup.strong"] = { fg = plt.roninGrayBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.ashGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.moonlight, underline = true },
+      ["@markup.heading"] = plt.roninGrayBright,
+      ["@markup.heading.1"] = plt.roninGrayBright,
+      ["@markup.heading.2"] = plt.fadedBlue,
+      ["@markup.heading.3"] = plt.fadedRed,
+      ["@markup.heading.4"] = plt.fadedPurple,
+      ["@markup.heading.5"] = plt.fadedOrange,
+      ["@markup.heading.6"] = plt.moonlight,
+      ["@markup.quote"] = plt.ashGray,
+      ["@markup.math"] = plt.fadedOrange,
+      ["@markup.link"] = plt.fadedBlue,
+      ["@markup.link.label"] = plt.fadedBlueBright,
+      ["@markup.link.url"] = plt.fadedBlue,
+      ["@markup.raw"] = plt.rainSteel,
+      ["@markup.raw.block"] = plt.rainSteel,
+      ["@markup.list"] = plt.roninGrayCore,
+      ["@markup.list.checked"] = plt.rainSteel,
+      ["@markup.list.unchecked"] = plt.ashGray,
+
+      ["@diff.plus"] = plt.rainSteel,
+      ["@diff.minus"] = plt.bloodRust,
+      ["@diff.delta"] = plt.fadedOrange,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.shadowBlackDeep,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.fadedBlue,
+      ["@constructor.javascript"] = plt.fadedBlue,
+      ["@constructor.typescript"] = plt.fadedBlue,
+      ["@namespace.rust"] = plt.fadedBlue,
+      ["@type.qualifier.rust"] = plt.roninGrayCore,
+      ["@constant.macro.c"] = plt.ashGray,
+      ["@constant.macro.cpp"] = plt.ashGray,
+      ["@namespace.go"] = plt.fadedBlue,
+      ["@property.css"] = plt.fadedPurpleBright,
+      ["@type.css"] = plt.roninGrayCore,
+      ["@label.json"] = plt.moonlight,
+      ["@field.yaml"] = plt.fadedPurpleBright,
+      ["@property.toml"] = plt.fadedPurpleBright,
+      ["@function.builtin.bash"] = plt.fadedPurple,
+      ["@string.regexp"] = plt.scarTissue,
+      ["@character.special.regex"] = plt.moonlight,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.fadedBlue,
+      ["@lsp.type.interface"] = plt.fadedBlue,
+      ["@lsp.type.struct"] = plt.fadedBlue,
+      ["@lsp.type.enum"] = plt.fadedBlue,
+      ["@lsp.type.enumMember"] = plt.moonlight,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.fadedBlue,
+
+      ["@lsp.type.macro"] = plt.ashGray,
+      ["@lsp.type.decorator"] = plt.ashGray,
+
+      ["@lsp.type.builtinType"] = plt.fadedBlue,
+      ["@lsp.type.selfParameter"] = plt.roninGrayBright,
+      ["@lsp.type.typeParameter"] = plt.fadedBlue,
+
+      ["@lsp.type.array"] = plt.fadedBlue,
+      ["@lsp.type.object"] = plt.fadedBlue,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.moonlight,
+      ["@lsp.type.enumConstant"] = plt.moonlight,
+
+      ["@lsp.type.event"] = plt.fadedBlue,
+      ["@lsp.type.regexp"] = plt.scarTissue,
+      ["@lsp.type.unresolvedReference"] = plt.fadedBlue,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.oldWound, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.moonlight,
+      ["@lsp.mod.async"] = plt.roninGrayCore,
+      ["@lsp.mod.static"] = plt.roninGrayBright,
+      ["@lsp.mod.abstract"] = plt.fadedBlue,
+      ["@lsp.mod.defaultLibrary"] = plt.fadedBlue,
+      ["@lsp.mod.documentation"] = plt.ashGrayLight,
+    },
+  }
+end
+
+return {
+  name = "TMNT – The Last Ronin",
+  author = "PrismPunk.nvim",
+  description = "Sole survivor — grief-stricken, vengeful, carrying all brothers' legacies.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.ashGray,
+    base04 = palette.scarTissue,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.fadedRed,
+    base09 = palette.fadedOrange,
+    base0A = palette.moonlight,
+    base0B = palette.rainSteel,
+    base0C = palette.moonlightBright,
+    base0D = palette.fadedBlue,
+    base0E = palette.fadedPurple,
+    base0F = palette.bloodRust,
+  },
+
+  palette = palette,
+  get = M.get,
+}
