@@ -1,0 +1,48 @@
+return {
+  bg_darkest = "#000000",
+  bg_darker = "#121212",
+  bg_dark = "#1c1c1c",
+  bg_mid = "#262626",
+  bg_light = "#303030",
+  bg_lighter = "#3a3a3a",
+  bg_lightest = "#4a4a4a",
+
+  fg_lightest = "#ffffff",
+  fg_light = "#dadada",
+  fg_mid = "#b0b0b0",
+  fg_dark = "#8a8a8a",
+
+  bg_alt1 = "#181818",
+  bg_alt2 = "#0a0a0a",
+  bg_alt3 = "#2a2a2a",
+  bg_alt4 = "#050505",
+
+  whisperBright = "#e8e8e8",
+  whisperCore = "#dadada",
+  whisperMid = "#c0c0c0",
+  whisperDim = "#a0a0a0",
+
+  mutedSlate = "#707070",
+  subtleGray = "#585858",
+  charcoalGray = "#444444",
+
+  accentAmber = "#ffaf00",
+  accentCyan = "#00afff",
+  accentMagenta = "#ff5fff",
+  accentGreen = "#00ffaf",
+
+  diffGreen = "#00af00",
+  diffBlue = "#87afd7",
+  diffRed = "#d75f5f",
+  diffPurple = "#d787d7",
+
+  errorRed = "#ff005f",
+  warningAmber = "#ffaf00",
+  infoСyan = "#00afff",
+  hintGreen = "#00af5f",
+
+  quietWhite = "#dadada",
+  quietGray = "#707070",
+  quietDark = "#303030",
+  quietBlack = "#000000",
+}

@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.nvim-builtins.prism-quiet")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.whisperCore,
+      insert = plt.accentGreen,
+      visual = plt.accentAmber,
+      replace = plt.errorRed,
+      command = plt.accentCyan,
+    },
+
+    ui = {
+      fg = plt.whisperCore,
+      fg_dim = plt.whisperMid,
+      fg_dimmer = plt.whisperDim,
+      fg_dark = plt.mutedSlate,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_light,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.accentCyan,
+      bg_visual = plt.accentAmber,
+      bg_statusline = plt.whisperCore,
+      border = plt.mutedSlate,
+      header1 = plt.whisperBright,
+      header2 = plt.whisperCore,
+      special = plt.whisperCore,
+      nontext = plt.mutedSlate,
+      whitespace = plt.subtleGray,
+      win_separator = plt.mutedSlate,
+      indent = plt.bg_lighter,
+      indent_scope = plt.mutedSlate,
+      picker = plt.accentMagenta,
+      yank = plt.accentAmber,
+      mark = plt.accentMagenta,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.whisperCore,
+        bg_selected = plt.bg_darkest,
+        fg_inactive = plt.mutedSlate,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.whisperMid,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.whisperCore,
+      },
+      pmenu = {
+        fg = plt.bg_darkest,
+        fg_sel = plt.bg_darkest,
+        fg_border = plt.mutedSlate,
+        bg_border = plt.whisperDim,
+        bg = plt.whisperDim,
+        bg_sel = plt.whisperCore,
+        bg_sbar = plt.mutedSlate,
+        bg_thumb = plt.whisperCore,
+      },
+      float = {
+        fg = plt.whisperCore,
+        bg = plt.bg_darker,
+        fg_border = plt.mutedSlate,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.whisperCore,
+      accent2 = plt.whisperMid,
+      accent3 = plt.accentAmber,
+      accent4 = plt.accentCyan,
+      accent5 = plt.accentGreen,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.whisperBright,
+      rainbow2 = plt.whisperCore,
+      rainbow3 = plt.whisperMid,
+      rainbow4 = plt.whisperDim,
+      rainbow5 = plt.mutedSlate,
+      rainbow6 = plt.subtleGray,
+      rainbow7 = plt.charcoalGray,
+    },
+
+    syn = {
+      attribute = plt.whisperMid,
+      boolean = plt.whisperCore,
+      comment = { fg = plt.mutedSlate, bold = true },
+      constant = plt.whisperCore,
+      deprecated = plt.subtleGray,
+      func = plt.whisperMid,
+      identifier = plt.whisperCore,
+      keyword = plt.whisperCore,
+      method = plt.whisperMid,
+      number = plt.whisperCore,
+      operator = plt.whisperCore,
+      parameter = plt.whisperDim,
+      preproc = plt.whisperCore,
+      punct = plt.whisperDim,
+      regex = plt.whisperMid,
+      statement = plt.whisperCore,
+      string = plt.whisperCore,
+      symbol = plt.whisperMid,
+      type = plt.whisperCore,
+      variable = plt.whisperCore,
+      special = plt.whisperCore,
+      special2 = plt.whisperMid,
+      special3 = plt.whisperDim,
+    },
+
+    vcs = {
+      added = plt.diffGreen,
+      removed = plt.diffRed,
+      changed = plt.diffBlue,
+    },
+
+    diff = {
+      add = plt.diffGreen,
+      change = plt.diffBlue,
+      delete = plt.diffRed,
+      text = plt.diffPurple,
+    },
+
+    diag = {
+      ok = plt.hintGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoСyan,
+      hint = plt.hintGreen,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.errorRed,
+      green = plt.hintGreen,
+      yellow = plt.warningAmber,
+      blue = plt.infoСyan,
+      magenta = plt.accentMagenta,
+      cyan = plt.accentCyan,
+      white = plt.whisperCore,
+      black_bright = color(plt.bg_darkest):brighten(0.6):to_hex(),
+      red_bright = color(plt.errorRed):brighten(0.2):to_hex(),
+      green_bright = color(plt.hintGreen):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.warningAmber):brighten(0.2):to_hex(),
+      blue_bright = color(plt.infoСyan):brighten(0.3):to_hex(),
+      magenta_bright = color(plt.accentMagenta):brighten(0.2):to_hex(),
+      cyan_bright = color(plt.accentCyan):brighten(0.1):to_hex(),
+      white_bright = color(plt.whisperCore):brighten(0.2):to_hex(),
+      indexed1 = plt.warningAmber,
+      indexed2 = plt.errorRed,
+    },
+
+    treesitter = {
+      ["@comment"] = { fg = plt.mutedSlate, bold = true },
+      ["@comment.documentation"] = { fg = plt.mutedSlate, bold = true },
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.accentGreen,
+      ["@comment.note"] = plt.accentCyan,
+
+      ["@constant"] = plt.whisperCore,
+      ["@constant.builtin"] = plt.whisperCore,
+      ["@constant.macro"] = plt.whisperMid,
+
+      ["@string"] = plt.whisperCore,
+      ["@string.documentation"] = plt.whisperCore,
+      ["@string.regex"] = plt.whisperMid,
+      ["@string.escape"] = plt.whisperMid,
+      ["@string.special"] = plt.whisperMid,
+      ["@string.special.symbol"] = plt.whisperMid,
+      ["@string.special.url"] = plt.whisperMid,
+      ["@string.special.path"] = plt.whisperCore,
+
+      ["@character"] = plt.whisperCore,
+      ["@character.special"] = plt.whisperMid,
+
+      ["@number"] = plt.whisperCore,
+      ["@number.float"] = plt.whisperCore,
+
+      ["@boolean"] = plt.whisperCore,
+
+      ["@function"] = plt.whisperMid,
+      ["@function.builtin"] = plt.whisperMid,
+      ["@function.call"] = plt.whisperMid,
+      ["@function.macro"] = plt.whisperMid,
+      ["@function.method"] = plt.whisperMid,
+      ["@function.method.call"] = plt.whisperMid,
+
+      ["@constructor"] = plt.whisperCore,
+
+      ["@parameter"] = plt.whisperDim,
+      ["@parameter.builtin"] = plt.whisperDim,
+
+      ["@keyword"] = plt.whisperCore,
+      ["@keyword.coroutine"] = plt.whisperCore,
+      ["@keyword.function"] = plt.whisperCore,
+      ["@keyword.operator"] = plt.whisperCore,
+      ["@keyword.return"] = plt.whisperCore,
+      ["@keyword.import"] = plt.whisperCore,
+      ["@keyword.storage"] = plt.whisperCore,
+      ["@keyword.repeat"] = plt.whisperCore,
+      ["@keyword.conditional"] = plt.whisperCore,
+      ["@keyword.exception"] = plt.whisperCore,
+      ["@keyword.directive"] = plt.whisperMid,
+      ["@keyword.directive.define"] = plt.whisperMid,
+
+      ["@conditional"] = plt.whisperCore,
+      ["@conditional.ternary"] = plt.whisperCore,
+
+      ["@repeat"] = plt.whisperCore,
+
+      ["@label"] = plt.whisperMid,
+
+      ["@operator"] = plt.whisperCore,
+
+      ["@exception"] = plt.whisperCore,
+
+      ["@variable"] = plt.whisperCore,
+      ["@variable.builtin"] = plt.whisperCore,
+      ["@variable.parameter"] = plt.whisperDim,
+      ["@variable.member"] = plt.whisperMid,
+
+      ["@type"] = plt.whisperCore,
+      ["@type.builtin"] = plt.whisperCore,
+      ["@type.definition"] = plt.whisperCore,
+      ["@type.qualifier"] = plt.whisperCore,
+
+      ["@attribute"] = plt.whisperMid,
+      ["@attribute.builtin"] = plt.whisperMid,
+
+      ["@property"] = plt.whisperMid,
+
+      ["@field"] = plt.whisperMid,
+
+      ["@module"] = plt.whisperCore,
+      ["@module.builtin"] = plt.whisperCore,
+
+      ["@namespace"] = plt.whisperCore,
+      ["@namespace.builtin"] = plt.whisperCore,
+
+      ["@punctuation.delimiter"] = plt.whisperDim,
+      ["@punctuation.bracket"] = plt.whisperDim,
+      ["@punctuation.special"] = plt.whisperMid,
+
+      ["@tag"] = plt.whisperCore,
+      ["@tag.attribute"] = plt.whisperMid,
+      ["@tag.delimiter"] = plt.whisperDim,
+      ["@tag.builtin"] = plt.whisperCore,
+
+      ["@markup.strong"] = { fg = plt.whisperBright, bold = true },
+      ["@markup.italic"] = { fg = plt.whisperMid, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.mutedSlate, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.whisperCore, underline = true },
+      ["@markup.heading"] = plt.whisperBright,
+      ["@markup.heading.1"] = plt.whisperBright,
+      ["@markup.heading.2"] = plt.whisperCore,
+      ["@markup.heading.3"] = plt.whisperMid,
+      ["@markup.heading.4"] = plt.whisperDim,
+      ["@markup.heading.5"] = plt.mutedSlate,
+      ["@markup.heading.6"] = plt.subtleGray,
+      ["@markup.quote"] = { fg = plt.mutedSlate, bold = true },
+      ["@markup.math"] = plt.whisperMid,
+      ["@markup.link"] = plt.whisperMid,
+      ["@markup.link.label"] = plt.whisperMid,
+      ["@markup.link.url"] = plt.whisperMid,
+      ["@markup.raw"] = plt.whisperCore,
+      ["@markup.raw.block"] = plt.whisperCore,
+      ["@markup.list"] = plt.whisperCore,
+      ["@markup.list.checked"] = plt.whisperCore,
+      ["@markup.list.unchecked"] = plt.mutedSlate,
+
+      ["@diff.plus"] = plt.diffGreen,
+      ["@diff.minus"] = plt.diffRed,
+      ["@diff.delta"] = plt.diffBlue,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.subtleGray,
+      ["@spell"] = plt.whisperCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.whisperMid,
+      ["@constructor.python"] = plt.whisperCore,
+      ["@constructor.javascript"] = plt.whisperCore,
+      ["@constructor.typescript"] = plt.whisperCore,
+      ["@namespace.rust"] = plt.whisperCore,
+      ["@type.qualifier.rust"] = plt.whisperCore,
+      ["@constant.macro.c"] = plt.whisperMid,
+      ["@constant.macro.cpp"] = plt.whisperMid,
+      ["@namespace.go"] = plt.whisperCore,
+      ["@property.css"] = plt.whisperMid,
+      ["@type.css"] = plt.whisperCore,
+      ["@label.json"] = plt.whisperMid,
+      ["@field.yaml"] = plt.whisperMid,
+      ["@property.toml"] = plt.whisperMid,
+      ["@function.builtin.bash"] = plt.whisperMid,
+      ["@string.regexp"] = plt.whisperMid,
+      ["@character.special.regex"] = plt.whisperMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.whisperCore,
+      ["@lsp.type.interface"] = plt.whisperCore,
+      ["@lsp.type.struct"] = plt.whisperCore,
+      ["@lsp.type.enum"] = plt.whisperCore,
+      ["@lsp.type.enumMember"] = plt.whisperCore,
+      ["@lsp.type.property"] = plt.whisperMid,
+      ["@lsp.type.namespace"] = plt.whisperCore,
+
+      ["@lsp.type.macro"] = plt.whisperMid,
+      ["@lsp.type.decorator"] = plt.whisperMid,
+
+      ["@lsp.type.builtinType"] = plt.whisperCore,
+      ["@lsp.type.selfParameter"] = plt.whisperCore,
+      ["@lsp.type.typeParameter"] = plt.whisperCore,
+
+      ["@lsp.type.array"] = plt.whisperCore,
+      ["@lsp.type.object"] = plt.whisperCore,
+      ["@lsp.type.key"] = plt.whisperMid,
+      ["@lsp.type.null"] = plt.whisperCore,
+      ["@lsp.type.enumConstant"] = plt.whisperCore,
+
+      ["@lsp.type.event"] = plt.whisperCore,
+      ["@lsp.type.regexp"] = plt.whisperMid,
+      ["@lsp.type.unresolvedReference"] = plt.whisperCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.subtleGray, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.whisperCore,
+      ["@lsp.mod.async"] = plt.whisperCore,
+      ["@lsp.mod.static"] = plt.whisperCore,
+      ["@lsp.mod.abstract"] = plt.whisperCore,
+      ["@lsp.mod.defaultLibrary"] = plt.whisperCore,
+      ["@lsp.mod.documentation"] = { fg = plt.mutedSlate, bold = true },
+    },
+  }
+end
+
+return {
+  name = "Quiet",
+  author = "PrismPunk.nvim (Original by Maxence Weynans)",
+  description = "A mostly monochrome colorscheme, with a few niceties.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.mutedSlate,
+    base04 = palette.whisperDim,
+    base05 = palette.whisperMid,
+    base06 = palette.whisperCore,
+    base07 = palette.whisperBright,
+    base08 = palette.errorRed,
+    base09 = palette.warningAmber,
+    base0A = palette.accentAmber,
+    base0B = palette.hintGreen,
+    base0C = palette.accentCyan,
+    base0D = palette.infoСyan,
+    base0E = palette.accentMagenta,
+    base0F = palette.diffPurple,
+  },
+
+  palette = palette,
+  get = M.get,
+}
