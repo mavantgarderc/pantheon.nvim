@@ -30,32 +30,25 @@
 
     - [ ] Bat Family
         - [ ] Azrael
-        - [ ] Alfred Pennyworth
+        - [X] Alfred Pennyworth
         - [ ] Barbara Gordon (Oracle)
-        - [ ] Batgirl
+        - [X] Batgirl
         - [ ] Batman 1000000
-        - [ ] Batman Beyond
-        - [ ] Batman Classic
-        - [ ] Batman, Dark Knight
-        - [ ] Batwing
+        - [X] Batman Beyond
+        - [X] Batman Classic
+        - [X] Batman, Dark Knight
         - [ ] Batwoman
-        - [ ] Bruce Wayne
+        - [X] Bruce Wayne
         - [ ] Blackbat (Orphan)
-        - [ ] Cat Woman
-        - [ ] Cassandra Cane
-        - [ ] Damian Wayne
-        - [ ] Dick Grayson
-        - [ ] Helena Bertinelli
-        - [ ] Huntress
+        - [X] Cat Woman
+        - [X] Huntress
         - [ ] James Gordon
-        - [ ] Jason Todd
-        - [ ] Lucious Fox
-        - [ ] Nightwing
-        - [ ] Red Hood
-        - [ ] Red Robin
-        - [ ] Robin
-        - [ ] Selina Kyle
-        - [ ] Tim Drake
+        - [X] Lucius Fox
+        - [X] Nightwing
+        - [X] Red Hood
+        - [X] Red Robin
+        - [X] Robin
+        - [X] Selina Kyle
 
     - [ ] Birds of Prey
         - [ ] Batgirl
@@ -78,7 +71,6 @@
         - [ ] Lex Luther
         - [ ] Martian Manhunter
         - [ ] Ownman
-        - [ ] Sea King
         - [ ] Sea King
         - [ ] Sky Tyrant
         - [ ] Superwoman
@@ -134,60 +126,56 @@
 
     - [ ] Justice League
         - [ ] Adam Strange
-        - [ ] Aquaman
-        - [ ] Batman
+        - [X] Aquaman
+        - [X] Batman
         - [ ] Black Canary
-        - [ ] Blue Beetle
-        - [ ] Booster Gold
-        - [ ] Captain Atom
+        - [X] Blue Beetle
+        - [X] Booster Gold
+        - [X] Captain Atom
         - [ ] Constantine
-        - [ ] Cyborg
-        - [ ] Dr. Fate
+        - [X] Cyborg
+        - [X] Dr. Fate
         - [ ] Etrigan
         - [ ] Firestorm
-        - [ ] Flash
-        - [ ] Green Arrow
+        - [X] Flash
+        - [X] Green Arrow
         - [ ] Green-Lantern (Guy Gardner)
         - [ ] Green-Lantern (Hal Jordan)
         - [ ] Green-Lantern (Jessica Cruiz)
-        - [ ] Green-Lantern (John Stewart)
+        - [X] Green-Lantern (John Stewart)
         - [ ] Green-Lantern (Kyle Raner)
-        - [ ] Hawkgirl
-        - [ ] Hawkman
+        - [X] Hawkgirl
+        - [X] Hawkman
         - [ ] Lobo
-        - [ ] Martian Manhunter
+        - [X] Martian Manhunter
         - [ ] Mary Marvel
         - [ ] Mera
         - [ ] Mr. Terrific
         - [ ] Red Tornado
         - [ ] Shazam
         - [ ] Spectre
-        - [ ] Superman
-        - [ ] Wonder Woman
+        - [X] Superman
+        - [X] Wonder Woman
         - [ ] Zatanna
 
-    - [ ] Lantern Corps
+    - [X] Lantern Corps
         - [X] Black
         - [X] Blue
-        - [ ] Gold
-        - [ ] Green
-        - [ ] Indigo
-        - [ ] Orange
+        - [X] Gold
+        - [X] Green
+        - [X] Indigo
+        - [X] Orange
         - [X] Phantom
             - [X] Balanced
             - [X] Chaos
             - [X] Corrupted
-        - [ ] Red
+        - [X] Red
         - [X] Ultra-Violet
             - [X] Veiled
             - [X] Spectral
-        - [ ] Violet
-        - [ ] White
-        - [ ] Yellow
-
-    - [ ] Lanterns
-        - [ ] First Lantern
-        - [ ] 
+        - [X] Violet
+        - [X] White
+        - [X] Yellow
 
     - [ ] League of Assasins
         - [ ] Athanasia Al Ghul
@@ -228,13 +216,13 @@
         - [ ] Superman Kingdom Come
         - [ ] Superman Modern
 
-    - [ ] Watchmen
-        - [ ] Dr. Manhattan
-        - [ ] Nite Owl
-        - [ ] Ozymandias
-        - [ ] Rorschach
-        - [ ] Silk Spectre
-        - [ ] The Comedian
+    - [X] Watchmen
+        - [X] Dr. Manhattan
+        - [X] Nite Owl
+        - [X] Ozymandias
+        - [X] Rorschach
+        - [X] Silk Spectre
+        - [X] The Comedian
 
 - [ ] Marvel Comics
     - [ ] Avengers
@@ -287,21 +275,21 @@
         - [ ] Star Lord
         - [ ] Yondu
 
-    - [ ]  -Men
+    - [ ] X-Men
         - [ ] Rogue
 
+- [X] TMNT
+    - [X] Leonardo
+    - [X] Raphael
+    - [X] Donatello
+    - [X] Michelangelo
+    - [X] The Last Ronin
+    - [X] Master Splinter
+    - [X] Casey Jones
+    - [X] April O'neal
+    - [X] Shredder
+
 - [ ] Alternative Comics
-    - [ ] TMNT
-        - [ ] Leonardo
-        - [ ] Raphael
-        - [ ] Donatello
-        - [ ] Michelangelo
-        - [ ] Jennika
-        - [ ] Master Splinter
-        - [ ] Slash
-        - [ ] Casey Jones
-        - [ ] April O'neal
-        - [ ] Shredder
     - [ ] Sandman
 
 - Animations
@@ -371,11 +359,11 @@
     - [ ] Jungle Punk
 
 - [ ] Legacy Nvim Themes
-    - [ ] sorbet
-    - [ ] retrobox
-    - [ ] quiet
-    - [ ] habamax
-    - [ ] desert
+    - [X] sorbet
+    - [X] retrobox
+    - [X] quiet
+    - [X] habamax
+    - [X] slate
 
 - [ ] Paintings
     - [ ] Raphael
