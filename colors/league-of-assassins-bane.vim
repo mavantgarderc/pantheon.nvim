@@ -6,14 +6,14 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let g:colors_name = "league-of-assasins/ras-al-ghul"
+let g:colors_name = "league-of-assassins/bane"
 
 lua << EOF
 local ok, prismpunk = pcall(require, "prismpunk")
 if ok and prismpunk.load_colorscheme then
-  local success, err = prismpunk.load_colorscheme("dc/league-of-assasins/ras-al-ghul")
+  local success, err = prismpunk.load_colorscheme("dc/league-of-assassins/bane")
   if not success then
-    vim.notify("[prismpunk] Failed to load league-of-assasins/ras-al-ghul: " .. tostring(err), vim.log.levels.ERROR)
+    vim.notify("[prismpunk] Failed to load league-of-assassins/bane: " .. tostring(err), vim.log.levels.ERROR)
   end
 else
   vim.notify("[prismpunk] Plugin not loaded", vim.log.levels.ERROR)

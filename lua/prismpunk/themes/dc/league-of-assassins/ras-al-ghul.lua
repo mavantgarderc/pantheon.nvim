@@ -1,5 +1,5 @@
 local color = require("prismpunk.utils.color")
-local palette = require("prismpunk.palettes.dc.league-of-assasins.ras-al-ghul")
+local palette = require("prismpunk.palettes.dc.league-of-assassins.ras-al-ghul")
 
 local M = {}
 
