@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.nanopunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.quantumVioletCore,
+      insert = plt.nanoGreenCore,
+      visual = plt.molecularPinkCore,
+      replace = plt.entanglementRedCore,
+      command = plt.particleBlueCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.molecularPinkDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.microGray,
+      header1 = plt.quantumVioletBright,
+      header2 = plt.nanoGreenBright,
+      special = plt.electronCyan,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.microGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.quantumVioletCore,
+      picker = plt.proteinPurple,
+      yank = plt.atomicYellowBright,
+      mark = plt.particleBlue,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.quantumVioletBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.quantumVioletCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.microGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.microGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.microGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.quantumVioletCore,
+      accent2 = plt.nanoGreenCore,
+      accent3 = plt.molecularPinkCore,
+      accent4 = plt.particleBlueCore,
+      accent5 = plt.electronCyanCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.quantumVioletBright,
+      rainbow2 = plt.nanoGreenBright,
+      rainbow3 = plt.molecularPinkBright,
+      rainbow4 = plt.particleBlueBright,
+      rainbow5 = plt.electronCyanBright,
+      rainbow6 = plt.atomicYellowBright,
+      rainbow7 = plt.proteinPurpleBright,
+    },
+
+    syn = {
+      attribute = plt.atomicYellow,
+      boolean = plt.electronCyan,
+      comment = plt.microGray,
+      constant = plt.superpositionWhite,
+      deprecated = plt.quantumBlack,
+      func = plt.nanoGreenCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.quantumVioletCore,
+      method = plt.nanoGreenBright,
+      number = plt.superpositionWhite,
+      operator = plt.molecularPinkCore,
+      parameter = plt.fg_mid,
+      preproc = plt.proteinPurpleCore,
+      punct = plt.fg_dark,
+      regex = plt.synapticBlue,
+      statement = plt.quantumVioletCore,
+      string = plt.nanoGreenCore,
+      symbol = plt.atomicYellow,
+      type = plt.particleBlueCore,
+      variable = plt.fg_lightest,
+      special = plt.electronCyan,
+      special2 = plt.proteinPurple,
+      special3 = plt.wavefunctionGold,
+    },
+
+    vcs = {
+      added = plt.nanoGreenCore,
+      removed = plt.entanglementRedCore,
+      changed = plt.cellularOrangeCore,
+    },
+
+    diff = {
+      add = plt.nanoGreenCore,
+      change = plt.cellularOrangeCore,
+      delete = plt.entanglementRedCore,
+      text = plt.electronCyan,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.electronCyan,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.entanglementRedCore,
+      green = plt.nanoGreenCore,
+      yellow = plt.atomicYellowCore,
+      blue = plt.synapticBlueCore,
+      magenta = plt.quantumVioletCore,
+      cyan = plt.particleBlueCore,
+      white = plt.superpositionWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.entanglementRedBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.nanoGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.atomicYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.synapticBlueBright):brighten(0.15):to_hex(),
+      magenta_bright = color(plt.quantumVioletBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.particleBlueBright):brighten(0.15):to_hex(),
+      white_bright = plt.superpositionWhiteBright,
+      indexed1 = plt.quantumViolet,
+      indexed2 = plt.molecularPink,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.microGray,
+      ["@comment.documentation"] = plt.microGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.atomicYellowBright,
+      ["@comment.note"] = plt.electronCyan,
+
+      ["@constant"] = plt.superpositionWhite,
+      ["@constant.builtin"] = plt.superpositionWhiteCore,
+      ["@constant.macro"] = plt.atomicYellow,
+
+      ["@string"] = plt.nanoGreenCore,
+      ["@string.documentation"] = plt.nanoGreenCore,
+      ["@string.regex"] = plt.synapticBlue,
+      ["@string.escape"] = plt.molecularPinkBright,
+      ["@string.special"] = plt.nanoGreenBright,
+      ["@string.special.symbol"] = plt.atomicYellow,
+      ["@string.special.url"] = plt.particleBlue,
+      ["@string.special.path"] = plt.nanoGreenCore,
+
+      ["@character"] = plt.nanoGreenCore,
+      ["@character.special"] = plt.atomicYellow,
+
+      ["@number"] = plt.superpositionWhite,
+      ["@number.float"] = plt.superpositionWhiteCore,
+
+      ["@boolean"] = plt.electronCyan,
+
+      ["@function"] = plt.nanoGreenCore,
+      ["@function.builtin"] = plt.nanoGreenCore,
+      ["@function.call"] = plt.nanoGreenCore,
+      ["@function.macro"] = plt.proteinPurpleCore,
+      ["@function.method"] = plt.nanoGreenBright,
+      ["@function.method.call"] = plt.nanoGreenBright,
+
+      ["@constructor"] = plt.particleBlueCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.quantumVioletCore,
+      ["@keyword.coroutine"] = plt.proteinPurpleCore,
+      ["@keyword.function"] = plt.quantumVioletCore,
+      ["@keyword.operator"] = plt.molecularPinkCore,
+      ["@keyword.return"] = plt.quantumVioletCore,
+      ["@keyword.import"] = plt.proteinPurpleCore,
+      ["@keyword.storage"] = plt.quantumVioletCore,
+      ["@keyword.repeat"] = plt.quantumVioletCore,
+      ["@keyword.conditional"] = plt.quantumVioletCore,
+      ["@keyword.exception"] = plt.entanglementRedCore,
+      ["@keyword.directive"] = plt.proteinPurpleCore,
+      ["@keyword.directive.define"] = plt.proteinPurpleCore,
+
+      ["@conditional"] = plt.quantumVioletCore,
+      ["@conditional.ternary"] = plt.quantumVioletCore,
+
+      ["@repeat"] = plt.quantumVioletCore,
+
+      ["@label"] = plt.atomicYellow,
+
+      ["@operator"] = plt.molecularPinkCore,
+
+      ["@exception"] = plt.entanglementRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.quantumVioletBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.particleBlueCore,
+      ["@type.builtin"] = plt.particleBlueCore,
+      ["@type.definition"] = plt.particleBlueCore,
+      ["@type.qualifier"] = plt.quantumVioletCore,
+
+      ["@attribute"] = plt.atomicYellow,
+      ["@attribute.builtin"] = plt.atomicYellow,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.particleBlueCore,
+      ["@module.builtin"] = plt.particleBlueCore,
+
+      ["@namespace"] = plt.particleBlueCore,
+      ["@namespace.builtin"] = plt.particleBlueCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.molecularPinkCore,
+
+      ["@tag"] = plt.quantumVioletCore,
+      ["@tag.attribute"] = plt.atomicYellow,
+      ["@tag.delimiter"] = plt.molecularPinkCore,
+      ["@tag.builtin"] = plt.quantumVioletCore,
+
+      ["@markup.strong"] = { fg = plt.quantumVioletBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.microGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.electronCyan, underline = true },
+      ["@markup.heading"] = plt.quantumVioletBright,
+      ["@markup.heading.1"] = plt.quantumVioletBright,
+      ["@markup.heading.2"] = plt.nanoGreenBright,
+      ["@markup.heading.3"] = plt.molecularPinkBright,
+      ["@markup.heading.4"] = plt.particleBlueBright,
+      ["@markup.heading.5"] = plt.electronCyanBright,
+      ["@markup.heading.6"] = plt.atomicYellowBright,
+      ["@markup.quote"] = plt.microGray,
+      ["@markup.math"] = plt.superpositionWhite,
+      ["@markup.link"] = plt.particleBlue,
+      ["@markup.link.label"] = plt.particleBlueBright,
+      ["@markup.link.url"] = plt.particleBlue,
+      ["@markup.raw"] = plt.nanoGreenCore,
+      ["@markup.raw.block"] = plt.nanoGreenCore,
+      ["@markup.list"] = plt.quantumVioletCore,
+      ["@markup.list.checked"] = plt.nanoGreenCore,
+      ["@markup.list.unchecked"] = plt.microGray,
+
+      ["@diff.plus"] = plt.nanoGreenCore,
+      ["@diff.minus"] = plt.entanglementRedCore,
+      ["@diff.delta"] = plt.cellularOrangeCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.particleBlueCore,
+      ["@constructor.javascript"] = plt.particleBlueCore,
+      ["@constructor.typescript"] = plt.particleBlueCore,
+      ["@namespace.rust"] = plt.particleBlueCore,
+      ["@type.qualifier.rust"] = plt.quantumVioletCore,
+      ["@constant.macro.c"] = plt.atomicYellow,
+      ["@constant.macro.cpp"] = plt.atomicYellow,
+      ["@namespace.go"] = plt.particleBlueCore,
+      ["@property.css"] = plt.nanoGreenBright,
+      ["@type.css"] = plt.quantumVioletCore,
+      ["@label.json"] = plt.atomicYellow,
+      ["@field.yaml"] = plt.nanoGreenBright,
+      ["@property.toml"] = plt.nanoGreenBright,
+      ["@function.builtin.bash"] = plt.nanoGreenCore,
+      ["@string.regexp"] = plt.synapticBlue,
+      ["@character.special.regex"] = plt.atomicYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.particleBlueCore,
+      ["@lsp.type.interface"] = plt.particleBlueCore,
+      ["@lsp.type.struct"] = plt.particleBlueCore,
+      ["@lsp.type.enum"] = plt.particleBlueCore,
+      ["@lsp.type.enumMember"] = plt.superpositionWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.particleBlueCore,
+
+      ["@lsp.type.macro"] = plt.atomicYellow,
+      ["@lsp.type.decorator"] = plt.atomicYellow,
+
+      ["@lsp.type.builtinType"] = plt.particleBlueCore,
+      ["@lsp.type.selfParameter"] = plt.quantumVioletBright,
+      ["@lsp.type.typeParameter"] = plt.particleBlueCore,
+
+      ["@lsp.type.array"] = plt.particleBlueCore,
+      ["@lsp.type.object"] = plt.particleBlueCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.superpositionWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.superpositionWhiteCore,
+
+      ["@lsp.type.event"] = plt.particleBlueCore,
+      ["@lsp.type.regexp"] = plt.synapticBlue,
+      ["@lsp.type.unresolvedReference"] = plt.particleBlueCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.quantumBlack, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.superpositionWhiteCore,
+      ["@lsp.mod.async"] = plt.quantumVioletCore,
+      ["@lsp.mod.static"] = plt.quantumVioletBright,
+      ["@lsp.mod.abstract"] = plt.particleBlueCore,
+      ["@lsp.mod.defaultLibrary"] = plt.particleBlueCore,
+      ["@lsp.mod.documentation"] = plt.microGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Nanopunk",
+  author = "PrismPunk.nvim",
+  description = "Microscopic technology — quantum violet, nano green, molecular pink, atomic particles.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.microGray,
+    base04 = palette.microGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.entanglementRedCore,
+    base09 = palette.cellularOrangeCore,
+    base0A = palette.atomicYellowCore,
+    base0B = palette.nanoGreenCore,
+    base0C = palette.particleBlueCore,
+    base0D = palette.synapticBlueCore,
+    base0E = palette.quantumVioletCore,
+    base0F = palette.molecularPinkCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}
