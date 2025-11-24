@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.biopunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.dnaGreenCore,
+      insert = plt.cellCyanCore,
+      visual = plt.mutationPinkCore,
+      replace = plt.tissueRedCore,
+      command = plt.enzymeBlueCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.mutationPinkDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.labGray,
+      header1 = plt.dnaGreenBright,
+      header2 = plt.mutationPinkBright,
+      special = plt.organViolet,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.labGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.dnaGreenCore,
+      picker = plt.mutationPink,
+      yank = plt.petriYellowBright,
+      mark = plt.cellCyan,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.dnaGreenBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.dnaGreenCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.labGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.labGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.labGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.dnaGreenCore,
+      accent2 = plt.mutationPinkCore,
+      accent3 = plt.cellCyanCore,
+      accent4 = plt.organVioletCore,
+      accent5 = plt.petriYellowCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.dnaGreenBright,
+      rainbow2 = plt.mutationPinkBright,
+      rainbow3 = plt.cellCyanBright,
+      rainbow4 = plt.petriYellowBright,
+      rainbow5 = plt.enzymeBlueBright,
+      rainbow6 = plt.organVioletBright,
+      rainbow7 = plt.biohazardOrangeBright,
+    },
+
+    syn = {
+      attribute = plt.synapseGold,
+      boolean = plt.cellCyan,
+      comment = plt.labGray,
+      constant = plt.specimenWhite,
+      deprecated = plt.labGrayDark,
+      func = plt.cellCyanCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.dnaGreenCore,
+      method = plt.cellCyanBright,
+      number = plt.specimenWhite,
+      operator = plt.mutationPinkCore,
+      parameter = plt.fg_mid,
+      preproc = plt.organVioletCore,
+      punct = plt.fg_dark,
+      regex = plt.enzymeBlue,
+      statement = plt.dnaGreenCore,
+      string = plt.cellCyanCore,
+      symbol = plt.synapseGold,
+      type = plt.cultureMediumCore,
+      variable = plt.fg_lightest,
+      special = plt.organViolet,
+      special2 = plt.mutationPink,
+      special3 = plt.biohazardOrange,
+    },
+
+    vcs = {
+      added = plt.dnaGreenCore,
+      removed = plt.contaminationRedCore,
+      changed = plt.synapseGoldCore,
+    },
+
+    diff = {
+      add = plt.dnaGreenCore,
+      change = plt.synapseGoldCore,
+      delete = plt.contaminationRedCore,
+      text = plt.organViolet,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.organViolet,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.tissueRedCore,
+      green = plt.dnaGreenCore,
+      yellow = plt.petriYellowCore,
+      blue = plt.enzymeBlueCore,
+      magenta = plt.mutationPinkCore,
+      cyan = plt.cellCyanCore,
+      white = plt.specimenWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.tissueRedBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.dnaGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.petriYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.enzymeBlueBright):brighten(0.15):to_hex(),
+      magenta_bright = color(plt.mutationPinkBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.cellCyanBright):brighten(0.15):to_hex(),
+      white_bright = plt.specimenWhiteBright,
+      indexed1 = plt.dnaGreen,
+      indexed2 = plt.mutationPink,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.labGray,
+      ["@comment.documentation"] = plt.labGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.petriYellowBright,
+      ["@comment.note"] = plt.organViolet,
+
+      ["@constant"] = plt.specimenWhite,
+      ["@constant.builtin"] = plt.specimenWhiteCore,
+      ["@constant.macro"] = plt.synapseGold,
+
+      ["@string"] = plt.cellCyanCore,
+      ["@string.documentation"] = plt.cellCyanCore,
+      ["@string.regex"] = plt.enzymeBlue,
+      ["@string.escape"] = plt.mutationPinkBright,
+      ["@string.special"] = plt.cellCyanBright,
+      ["@string.special.symbol"] = plt.synapseGold,
+      ["@string.special.url"] = plt.enzymeBlue,
+      ["@string.special.path"] = plt.cellCyanCore,
+
+      ["@character"] = plt.cellCyanCore,
+      ["@character.special"] = plt.synapseGold,
+
+      ["@number"] = plt.specimenWhite,
+      ["@number.float"] = plt.specimenWhiteCore,
+
+      ["@boolean"] = plt.cellCyan,
+
+      ["@function"] = plt.cellCyanCore,
+      ["@function.builtin"] = plt.cellCyanCore,
+      ["@function.call"] = plt.cellCyanCore,
+      ["@function.macro"] = plt.organVioletCore,
+      ["@function.method"] = plt.cellCyanBright,
+      ["@function.method.call"] = plt.cellCyanBright,
+
+      ["@constructor"] = plt.cultureMediumCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.dnaGreenCore,
+      ["@keyword.coroutine"] = plt.organVioletCore,
+      ["@keyword.function"] = plt.dnaGreenCore,
+      ["@keyword.operator"] = plt.mutationPinkCore,
+      ["@keyword.return"] = plt.dnaGreenCore,
+      ["@keyword.import"] = plt.organVioletCore,
+      ["@keyword.storage"] = plt.dnaGreenCore,
+      ["@keyword.repeat"] = plt.dnaGreenCore,
+      ["@keyword.conditional"] = plt.dnaGreenCore,
+      ["@keyword.exception"] = plt.tissueRedCore,
+      ["@keyword.directive"] = plt.organVioletCore,
+      ["@keyword.directive.define"] = plt.organVioletCore,
+
+      ["@conditional"] = plt.dnaGreenCore,
+      ["@conditional.ternary"] = plt.dnaGreenCore,
+
+      ["@repeat"] = plt.dnaGreenCore,
+
+      ["@label"] = plt.synapseGold,
+
+      ["@operator"] = plt.mutationPinkCore,
+
+      ["@exception"] = plt.tissueRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.dnaGreenBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.cultureMediumCore,
+      ["@type.builtin"] = plt.cultureMediumCore,
+      ["@type.definition"] = plt.cultureMediumCore,
+      ["@type.qualifier"] = plt.dnaGreenCore,
+
+      ["@attribute"] = plt.synapseGold,
+      ["@attribute.builtin"] = plt.synapseGold,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.cultureMediumCore,
+      ["@module.builtin"] = plt.cultureMediumCore,
+
+      ["@namespace"] = plt.cultureMediumCore,
+      ["@namespace.builtin"] = plt.cultureMediumCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.mutationPinkCore,
+
+      ["@tag"] = plt.dnaGreenCore,
+      ["@tag.attribute"] = plt.synapseGold,
+      ["@tag.delimiter"] = plt.mutationPinkCore,
+      ["@tag.builtin"] = plt.dnaGreenCore,
+
+      ["@markup.strong"] = { fg = plt.dnaGreenBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.labGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.organViolet, underline = true },
+      ["@markup.heading"] = plt.dnaGreenBright,
+      ["@markup.heading.1"] = plt.dnaGreenBright,
+      ["@markup.heading.2"] = plt.mutationPinkBright,
+      ["@markup.heading.3"] = plt.cellCyanBright,
+      ["@markup.heading.4"] = plt.organVioletBright,
+      ["@markup.heading.5"] = plt.enzymeBlueBright,
+      ["@markup.heading.6"] = plt.petriYellowBright,
+      ["@markup.quote"] = plt.labGray,
+      ["@markup.math"] = plt.specimenWhite,
+      ["@markup.link"] = plt.enzymeBlue,
+      ["@markup.link.label"] = plt.enzymeBlueBright,
+      ["@markup.link.url"] = plt.enzymeBlue,
+      ["@markup.raw"] = plt.cellCyanCore,
+      ["@markup.raw.block"] = plt.cellCyanCore,
+      ["@markup.list"] = plt.dnaGreenCore,
+      ["@markup.list.checked"] = plt.dnaGreenCore,
+      ["@markup.list.unchecked"] = plt.labGray,
+
+      ["@diff.plus"] = plt.dnaGreenCore,
+      ["@diff.minus"] = plt.contaminationRedCore,
+      ["@diff.delta"] = plt.synapseGoldCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.cultureMediumCore,
+      ["@constructor.javascript"] = plt.cultureMediumCore,
+      ["@constructor.typescript"] = plt.cultureMediumCore,
+      ["@namespace.rust"] = plt.cultureMediumCore,
+      ["@type.qualifier.rust"] = plt.dnaGreenCore,
+      ["@constant.macro.c"] = plt.synapseGold,
+      ["@constant.macro.cpp"] = plt.synapseGold,
+      ["@namespace.go"] = plt.cultureMediumCore,
+      ["@property.css"] = plt.cellCyanBright,
+      ["@type.css"] = plt.dnaGreenCore,
+      ["@label.json"] = plt.synapseGold,
+      ["@field.yaml"] = plt.cellCyanBright,
+      ["@property.toml"] = plt.cellCyanBright,
+      ["@function.builtin.bash"] = plt.cellCyanCore,
+      ["@string.regexp"] = plt.enzymeBlue,
+      ["@character.special.regex"] = plt.synapseGold,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.cultureMediumCore,
+      ["@lsp.type.interface"] = plt.cultureMediumCore,
+      ["@lsp.type.struct"] = plt.cultureMediumCore,
+      ["@lsp.type.enum"] = plt.cultureMediumCore,
+      ["@lsp.type.enumMember"] = plt.specimenWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.cultureMediumCore,
+
+      ["@lsp.type.macro"] = plt.synapseGold,
+      ["@lsp.type.decorator"] = plt.synapseGold,
+
+      ["@lsp.type.builtinType"] = plt.cultureMediumCore,
+      ["@lsp.type.selfParameter"] = plt.dnaGreenBright,
+      ["@lsp.type.typeParameter"] = plt.cultureMediumCore,
+
+      ["@lsp.type.array"] = plt.cultureMediumCore,
+      ["@lsp.type.object"] = plt.cultureMediumCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.specimenWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.specimenWhiteCore,
+
+      ["@lsp.type.event"] = plt.cultureMediumCore,
+      ["@lsp.type.regexp"] = plt.enzymeBlue,
+      ["@lsp.type.unresolvedReference"] = plt.cultureMediumCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.labGrayDark, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.specimenWhiteCore,
+      ["@lsp.mod.async"] = plt.dnaGreenCore,
+      ["@lsp.mod.static"] = plt.dnaGreenBright,
+      ["@lsp.mod.abstract"] = plt.cultureMediumCore,
+      ["@lsp.mod.defaultLibrary"] = plt.cultureMediumCore,
+      ["@lsp.mod.documentation"] = plt.labGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Biopunk",
+  author = "PrismPunk.nvim",
+  description = "Genetic manipulation — DNA green, mutation pink, cell cyan, organic laboratory.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.labGray,
+    base04 = palette.labGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.tissueRedCore,
+    base09 = palette.biohazardOrangeCore,
+    base0A = palette.petriYellowCore,
+    base0B = palette.dnaGreenCore,
+    base0C = palette.cellCyanCore,
+    base0D = palette.enzymeBlueCore,
+    base0E = palette.mutationPinkCore,
+    base0F = palette.organVioletCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}

@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.aquapunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.deepOceanCore,
+      insert = plt.aquamarineGreenCore,
+      visual = plt.biolumBlueCore,
+      replace = plt.anemoneRedCore,
+      command = plt.jellyfishPurpleCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.coralPinkDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.currentGray,
+      header1 = plt.biolumBlueBright,
+      header2 = plt.aquamarineGreenBright,
+      special = plt.jellyfishPurple,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.currentGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.deepOceanCore,
+      picker = plt.coralPink,
+      yank = plt.anglerYellowBright,
+      mark = plt.biolumBlue,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.biolumBlueBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.deepOceanCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.currentGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.deepOceanCore,
+      accent2 = plt.biolumBlueCore,
+      accent3 = plt.aquamarineGreenCore,
+      accent4 = plt.coralPinkCore,
+      accent5 = plt.jellyfishPurpleCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.biolumBlueBright,
+      rainbow2 = plt.aquamarineGreenBright,
+      rainbow3 = plt.coralPinkBright,
+      rainbow4 = plt.jellyfishPurpleBright,
+      rainbow5 = plt.seafoamGreenBright,
+      rainbow6 = plt.anglerYellowBright,
+      rainbow7 = plt.deepOceanBright,
+    },
+
+    syn = {
+      attribute = plt.anglerYellow,
+      boolean = plt.biolumBlue,
+      comment = plt.currentGray,
+      constant = plt.pressureWhite,
+      deprecated = plt.depthBlack,
+      func = plt.aquamarineGreenCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.deepOceanCore,
+      method = plt.aquamarineGreenBright,
+      number = plt.pressureWhite,
+      operator = plt.coralPinkCore,
+      parameter = plt.fg_mid,
+      preproc = plt.jellyfishPurpleCore,
+      punct = plt.fg_dark,
+      regex = plt.trenchViolet,
+      statement = plt.deepOceanCore,
+      string = plt.aquamarineGreenCore,
+      symbol = plt.anglerYellow,
+      type = plt.biolumBlueCore,
+      variable = plt.fg_lightest,
+      special = plt.jellyfishPurple,
+      special2 = plt.coralPink,
+      special3 = plt.seafoamGreen,
+    },
+
+    vcs = {
+      added = plt.seaweedGreenCore,
+      removed = plt.anemoneRedCore,
+      changed = plt.anglerYellowCore,
+    },
+
+    diff = {
+      add = plt.seaweedGreenCore,
+      change = plt.anglerYellowCore,
+      delete = plt.anemoneRedCore,
+      text = plt.jellyfishPurple,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.jellyfishPurple,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.anemoneRedCore,
+      green = plt.aquamarineGreenCore,
+      yellow = plt.anglerYellowCore,
+      blue = plt.deepOceanCore,
+      magenta = plt.jellyfishPurpleCore,
+      cyan = plt.biolumBlueCore,
+      white = plt.pressureWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.anemoneRedBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.aquamarineGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.anglerYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.deepOceanBright):brighten(0.18):to_hex(),
+      magenta_bright = color(plt.jellyfishPurpleBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.biolumBlueBright):brighten(0.15):to_hex(),
+      white_bright = plt.pressureWhiteBright,
+      indexed1 = plt.biolumBlue,
+      indexed2 = plt.coralPink,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.currentGray,
+      ["@comment.documentation"] = plt.currentGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.anglerYellowBright,
+      ["@comment.note"] = plt.jellyfishPurple,
+
+      ["@constant"] = plt.pressureWhite,
+      ["@constant.builtin"] = plt.pressureWhiteCore,
+      ["@constant.macro"] = plt.anglerYellow,
+
+      ["@string"] = plt.aquamarineGreenCore,
+      ["@string.documentation"] = plt.aquamarineGreenCore,
+      ["@string.regex"] = plt.trenchViolet,
+      ["@string.escape"] = plt.coralPinkBright,
+      ["@string.special"] = plt.aquamarineGreenBright,
+      ["@string.special.symbol"] = plt.anglerYellow,
+      ["@string.special.url"] = plt.biolumBlue,
+      ["@string.special.path"] = plt.aquamarineGreenCore,
+
+      ["@character"] = plt.aquamarineGreenCore,
+      ["@character.special"] = plt.anglerYellow,
+
+      ["@number"] = plt.pressureWhite,
+      ["@number.float"] = plt.pressureWhiteCore,
+
+      ["@boolean"] = plt.biolumBlue,
+
+      ["@function"] = plt.aquamarineGreenCore,
+      ["@function.builtin"] = plt.aquamarineGreenCore,
+      ["@function.call"] = plt.aquamarineGreenCore,
+      ["@function.macro"] = plt.jellyfishPurpleCore,
+      ["@function.method"] = plt.aquamarineGreenBright,
+      ["@function.method.call"] = plt.aquamarineGreenBright,
+
+      ["@constructor"] = plt.biolumBlueCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.deepOceanCore,
+      ["@keyword.coroutine"] = plt.jellyfishPurpleCore,
+      ["@keyword.function"] = plt.deepOceanCore,
+      ["@keyword.operator"] = plt.coralPinkCore,
+      ["@keyword.return"] = plt.deepOceanCore,
+      ["@keyword.import"] = plt.jellyfishPurpleCore,
+      ["@keyword.storage"] = plt.deepOceanCore,
+      ["@keyword.repeat"] = plt.deepOceanCore,
+      ["@keyword.conditional"] = plt.deepOceanCore,
+      ["@keyword.exception"] = plt.anemoneRedCore,
+      ["@keyword.directive"] = plt.jellyfishPurpleCore,
+      ["@keyword.directive.define"] = plt.jellyfishPurpleCore,
+
+      ["@conditional"] = plt.deepOceanCore,
+      ["@conditional.ternary"] = plt.deepOceanCore,
+
+      ["@repeat"] = plt.deepOceanCore,
+
+      ["@label"] = plt.anglerYellow,
+
+      ["@operator"] = plt.coralPinkCore,
+
+      ["@exception"] = plt.anemoneRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.deepOceanBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.biolumBlueCore,
+      ["@type.builtin"] = plt.biolumBlueCore,
+      ["@type.definition"] = plt.biolumBlueCore,
+      ["@type.qualifier"] = plt.deepOceanCore,
+
+      ["@attribute"] = plt.anglerYellow,
+      ["@attribute.builtin"] = plt.anglerYellow,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.biolumBlueCore,
+      ["@module.builtin"] = plt.biolumBlueCore,
+
+      ["@namespace"] = plt.biolumBlueCore,
+      ["@namespace.builtin"] = plt.biolumBlueCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.coralPinkCore,
+
+      ["@tag"] = plt.deepOceanCore,
+      ["@tag.attribute"] = plt.anglerYellow,
+      ["@tag.delimiter"] = plt.coralPinkCore,
+      ["@tag.builtin"] = plt.deepOceanCore,
+
+      ["@markup.strong"] = { fg = plt.biolumBlueBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.currentGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.jellyfishPurple, underline = true },
+      ["@markup.heading"] = plt.biolumBlueBright,
+      ["@markup.heading.1"] = plt.biolumBlueBright,
+      ["@markup.heading.2"] = plt.aquamarineGreenBright,
+      ["@markup.heading.3"] = plt.coralPinkBright,
+      ["@markup.heading.4"] = plt.jellyfishPurpleBright,
+      ["@markup.heading.5"] = plt.seafoamGreenBright,
+      ["@markup.heading.6"] = plt.anglerYellowBright,
+      ["@markup.quote"] = plt.currentGray,
+      ["@markup.math"] = plt.pressureWhite,
+      ["@markup.link"] = plt.biolumBlue,
+      ["@markup.link.label"] = plt.biolumBlueBright,
+      ["@markup.link.url"] = plt.biolumBlue,
+      ["@markup.raw"] = plt.aquamarineGreenCore,
+      ["@markup.raw.block"] = plt.aquamarineGreenCore,
+      ["@markup.list"] = plt.deepOceanCore,
+      ["@markup.list.checked"] = plt.seaweedGreenCore,
+      ["@markup.list.unchecked"] = plt.currentGray,
+
+      ["@diff.plus"] = plt.seaweedGreenCore,
+      ["@diff.minus"] = plt.anemoneRedCore,
+      ["@diff.delta"] = plt.anglerYellowCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.biolumBlueCore,
+      ["@constructor.javascript"] = plt.biolumBlueCore,
+      ["@constructor.typescript"] = plt.biolumBlueCore,
+      ["@namespace.rust"] = plt.biolumBlueCore,
+      ["@type.qualifier.rust"] = plt.deepOceanCore,
+      ["@constant.macro.c"] = plt.anglerYellow,
+      ["@constant.macro.cpp"] = plt.anglerYellow,
+      ["@namespace.go"] = plt.biolumBlueCore,
+      ["@property.css"] = plt.aquamarineGreenBright,
+      ["@type.css"] = plt.deepOceanCore,
+      ["@label.json"] = plt.anglerYellow,
+      ["@field.yaml"] = plt.aquamarineGreenBright,
+      ["@property.toml"] = plt.aquamarineGreenBright,
+      ["@function.builtin.bash"] = plt.aquamarineGreenCore,
+      ["@string.regexp"] = plt.trenchViolet,
+      ["@character.special.regex"] = plt.anglerYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.biolumBlueCore,
+      ["@lsp.type.interface"] = plt.biolumBlueCore,
+      ["@lsp.type.struct"] = plt.biolumBlueCore,
+      ["@lsp.type.enum"] = plt.biolumBlueCore,
+      ["@lsp.type.enumMember"] = plt.pressureWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.biolumBlueCore,
+
+      ["@lsp.type.macro"] = plt.anglerYellow,
+      ["@lsp.type.decorator"] = plt.anglerYellow,
+
+      ["@lsp.type.builtinType"] = plt.biolumBlueCore,
+      ["@lsp.type.selfParameter"] = plt.deepOceanBright,
+      ["@lsp.type.typeParameter"] = plt.biolumBlueCore,
+
+      ["@lsp.type.array"] = plt.biolumBlueCore,
+      ["@lsp.type.object"] = plt.biolumBlueCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.pressureWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.pressureWhiteCore,
+
+      ["@lsp.type.event"] = plt.biolumBlueCore,
+      ["@lsp.type.regexp"] = plt.trenchViolet,
+      ["@lsp.type.unresolvedReference"] = plt.biolumBlueCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.depthBlack, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.pressureWhiteCore,
+      ["@lsp.mod.async"] = plt.deepOceanCore,
+      ["@lsp.mod.static"] = plt.deepOceanBright,
+      ["@lsp.mod.abstract"] = plt.biolumBlueCore,
+      ["@lsp.mod.defaultLibrary"] = plt.biolumBlueCore,
+      ["@lsp.mod.documentation"] = plt.currentGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Aquapunk",
+  author = "PrismPunk.nvim",
+  description = "Underwater world — deep ocean, bioluminescent blue, coral pink, aquamarine depths.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.currentGray,
+    base04 = palette.currentGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.anemoneRedCore,
+    base09 = palette.anglerYellowCore,
+    base0A = palette.coralPinkCore,
+    base0B = palette.aquamarineGreenCore,
+    base0C = palette.biolumBlueCore,
+    base0D = palette.deepOceanCore,
+    base0E = palette.jellyfishPurpleCore,
+    base0F = palette.trenchVioletCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}
