@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.junkpunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.rustOrangeCore,
+      insert = plt.copperCore,
+      visual = plt.steelBlueCore,
+      replace = plt.dangerRedCore,
+      command = plt.sparkYellowCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.sparkYellowDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.currentGray,
+      header1 = plt.rustOrangeBright,
+      header2 = plt.copperBright,
+      special = plt.salvagePurple,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.currentGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.rustOrangeCore,
+      picker = plt.brass,
+      yank = plt.sparkYellowBright,
+      mark = plt.steelBlue,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.rustOrangeBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.rustOrangeCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.currentGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.rustOrangeCore,
+      accent2 = plt.steelBlueCore,
+      accent3 = plt.copperCore,
+      accent4 = plt.sparkYellowCore,
+      accent5 = plt.salvagePurpleCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.rustOrangeBright,
+      rainbow2 = plt.copperBright,
+      rainbow3 = plt.steelBlueBright,
+      rainbow4 = plt.sparkYellowBright,
+      rainbow5 = plt.toxicGreenBright,
+      rainbow6 = plt.brassBright,
+      rainbow7 = plt.salvagePurpleBright,
+    },
+
+    syn = {
+      attribute = plt.brass,
+      boolean = plt.steelBlue,
+      comment = plt.scrapGray,
+      constant = plt.weatheredWhite,
+      deprecated = plt.sootBlack,
+      func = plt.copperCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.rustOrangeCore,
+      method = plt.copperBright,
+      number = plt.weatheredWhite,
+      operator = plt.sparkYellowCore,
+      parameter = plt.fg_mid,
+      preproc = plt.salvagePurpleCore,
+      punct = plt.fg_dark,
+      regex = plt.industrialViolet,
+      statement = plt.rustOrangeCore,
+      string = plt.copperCore,
+      symbol = plt.brass,
+      type = plt.steelBlueCore,
+      variable = plt.fg_lightest,
+      special = plt.salvagePurple,
+      special2 = plt.toxicGreen,
+      special3 = plt.oilSlick,
+    },
+
+    vcs = {
+      added = plt.toxicGreenCore,
+      removed = plt.dangerRedCore,
+      changed = plt.sparkYellowCore,
+    },
+
+    diff = {
+      add = plt.toxicGreenCore,
+      change = plt.sparkYellowCore,
+      delete = plt.dangerRedCore,
+      text = plt.salvagePurple,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.salvagePurple,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.dangerRedCore,
+      green = plt.toxicGreenCore,
+      yellow = plt.sparkYellowCore,
+      blue = plt.steelBlueCore,
+      magenta = plt.salvagePurpleCore,
+      cyan = plt.copperCore,
+      white = plt.weatheredWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.dangerRedBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.toxicGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.sparkYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.steelBlueBright):brighten(0.18):to_hex(),
+      magenta_bright = color(plt.salvagePurpleBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.copperBright):brighten(0.15):to_hex(),
+      white_bright = plt.weatheredWhiteBright,
+      indexed1 = plt.rustOrange,
+      indexed2 = plt.brass,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.scrapGray,
+      ["@comment.documentation"] = plt.scrapGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.sparkYellowBright,
+      ["@comment.note"] = plt.salvagePurple,
+
+      ["@constant"] = plt.weatheredWhite,
+      ["@constant.builtin"] = plt.weatheredWhiteCore,
+      ["@constant.macro"] = plt.brass,
+
+      ["@string"] = plt.copperCore,
+      ["@string.documentation"] = plt.copperCore,
+      ["@string.regex"] = plt.industrialViolet,
+      ["@string.escape"] = plt.sparkYellowBright,
+      ["@string.special"] = plt.copperBright,
+      ["@string.special.symbol"] = plt.brass,
+      ["@string.special.url"] = plt.steelBlue,
+      ["@string.special.path"] = plt.copperCore,
+
+      ["@character"] = plt.copperCore,
+      ["@character.special"] = plt.brass,
+
+      ["@number"] = plt.weatheredWhite,
+      ["@number.float"] = plt.weatheredWhiteCore,
+
+      ["@boolean"] = plt.steelBlue,
+
+      ["@function"] = plt.copperCore,
+      ["@function.builtin"] = plt.copperCore,
+      ["@function.call"] = plt.copperCore,
+      ["@function.macro"] = plt.salvagePurpleCore,
+      ["@function.method"] = plt.copperBright,
+      ["@function.method.call"] = plt.copperBright,
+
+      ["@constructor"] = plt.steelBlueCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.rustOrangeCore,
+      ["@keyword.coroutine"] = plt.salvagePurpleCore,
+      ["@keyword.function"] = plt.rustOrangeCore,
+      ["@keyword.operator"] = plt.sparkYellowCore,
+      ["@keyword.return"] = plt.rustOrangeCore,
+      ["@keyword.import"] = plt.salvagePurpleCore,
+      ["@keyword.storage"] = plt.rustOrangeCore,
+      ["@keyword.repeat"] = plt.rustOrangeCore,
+      ["@keyword.conditional"] = plt.rustOrangeCore,
+      ["@keyword.exception"] = plt.dangerRedCore,
+      ["@keyword.directive"] = plt.salvagePurpleCore,
+      ["@keyword.directive.define"] = plt.salvagePurpleCore,
+
+      ["@conditional"] = plt.rustOrangeCore,
+      ["@conditional.ternary"] = plt.rustOrangeCore,
+
+      ["@repeat"] = plt.rustOrangeCore,
+
+      ["@label"] = plt.brass,
+
+      ["@operator"] = plt.sparkYellowCore,
+
+      ["@exception"] = plt.dangerRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.rustOrangeBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.steelBlueCore,
+      ["@type.builtin"] = plt.steelBlueCore,
+      ["@type.definition"] = plt.steelBlueCore,
+      ["@type.qualifier"] = plt.rustOrangeCore,
+
+      ["@attribute"] = plt.brass,
+      ["@attribute.builtin"] = plt.brass,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.steelBlueCore,
+      ["@module.builtin"] = plt.steelBlueCore,
+
+      ["@namespace"] = plt.steelBlueCore,
+      ["@namespace.builtin"] = plt.steelBlueCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.sparkYellowCore,
+
+      ["@tag"] = plt.rustOrangeCore,
+      ["@tag.attribute"] = plt.brass,
+      ["@tag.delimiter"] = plt.sparkYellowCore,
+      ["@tag.builtin"] = plt.rustOrangeCore,
+
+      ["@markup.strong"] = { fg = plt.rustOrangeBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.scrapGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.salvagePurple, underline = true },
+      ["@markup.heading"] = plt.rustOrangeBright,
+      ["@markup.heading.1"] = plt.rustOrangeBright,
+      ["@markup.heading.2"] = plt.copperBright,
+      ["@markup.heading.3"] = plt.steelBlueBright,
+      ["@markup.heading.4"] = plt.sparkYellowBright,
+      ["@markup.heading.5"] = plt.toxicGreenBright,
+      ["@markup.heading.6"] = plt.brassBright,
+      ["@markup.quote"] = plt.scrapGray,
+      ["@markup.math"] = plt.weatheredWhite,
+      ["@markup.link"] = plt.steelBlue,
+      ["@markup.link.label"] = plt.steelBlueBright,
+      ["@markup.link.url"] = plt.steelBlue,
+      ["@markup.raw"] = plt.copperCore,
+      ["@markup.raw.block"] = plt.copperCore,
+      ["@markup.list"] = plt.rustOrangeCore,
+      ["@markup.list.checked"] = plt.toxicGreenCore,
+      ["@markup.list.unchecked"] = plt.scrapGray,
+
+      ["@diff.plus"] = plt.toxicGreenCore,
+      ["@diff.minus"] = plt.dangerRedCore,
+      ["@diff.delta"] = plt.sparkYellowCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.steelBlueCore,
+      ["@constructor.javascript"] = plt.steelBlueCore,
+      ["@constructor.typescript"] = plt.steelBlueCore,
+      ["@namespace.rust"] = plt.steelBlueCore,
+      ["@type.qualifier.rust"] = plt.rustOrangeCore,
+      ["@constant.macro.c"] = plt.brass,
+      ["@constant.macro.cpp"] = plt.brass,
+      ["@namespace.go"] = plt.steelBlueCore,
+      ["@property.css"] = plt.copperBright,
+      ["@type.css"] = plt.rustOrangeCore,
+      ["@label.json"] = plt.brass,
+      ["@field.yaml"] = plt.copperBright,
+      ["@property.toml"] = plt.copperBright,
+      ["@function.builtin.bash"] = plt.copperCore,
+      ["@string.regexp"] = plt.industrialViolet,
+      ["@character.special.regex"] = plt.brass,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.steelBlueCore,
+      ["@lsp.type.interface"] = plt.steelBlueCore,
+      ["@lsp.type.struct"] = plt.steelBlueCore,
+      ["@lsp.type.enum"] = plt.steelBlueCore,
+      ["@lsp.type.enumMember"] = plt.weatheredWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.steelBlueCore,
+
+      ["@lsp.type.macro"] = plt.brass,
+      ["@lsp.type.decorator"] = plt.brass,
+
+      ["@lsp.type.builtinType"] = plt.steelBlueCore,
+      ["@lsp.type.selfParameter"] = plt.rustOrangeBright,
+      ["@lsp.type.typeParameter"] = plt.steelBlueCore,
+
+      ["@lsp.type.array"] = plt.steelBlueCore,
+      ["@lsp.type.object"] = plt.steelBlueCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.weatheredWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.weatheredWhiteCore,
+
+      ["@lsp.type.event"] = plt.steelBlueCore,
+      ["@lsp.type.regexp"] = plt.industrialViolet,
+      ["@lsp.type.unresolvedReference"] = plt.steelBlueCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.sootBlack, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.weatheredWhiteCore,
+      ["@lsp.mod.async"] = plt.rustOrangeCore,
+      ["@lsp.mod.static"] = plt.rustOrangeBright,
+      ["@lsp.mod.abstract"] = plt.steelBlueCore,
+      ["@lsp.mod.defaultLibrary"] = plt.steelBlueCore,
+      ["@lsp.mod.documentation"] = plt.scrapGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Junkpunk",
+  author = "PrismPunk.nvim",
+  description = "Post-apocalyptic salvage — rusted metal, corroded copper, weathered steel, makeshift tech.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.scrapGray,
+    base04 = palette.scrapGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.dangerRedCore,
+    base09 = palette.sparkYellowCore,
+    base0A = palette.brass,
+    base0B = palette.copperCore,
+    base0C = palette.steelBlueCore,
+    base0D = palette.rustOrangeCore,
+    base0E = palette.salvagePurpleCore,
+    base0F = palette.industrialVioletCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}
