@@ -61,20 +61,19 @@
         - [ ] Vixen
         - [ ] Zealot
 
-    - [ ] Crime Syndicate
-        - [ ] Black Siren
-        - [ ] Deatheye
-        - [ ] Deathstorm
-        - [ ] Dr. Chaos
-        - [ ] Hawkwing
-        - [ ] Johnny Quick
-        - [ ] Lex Luther
-        - [ ] Martian Manhunter
-        - [ ] Ownman
-        - [ ] Sea King
-        - [ ] Sky Tyrant
-        - [ ] Superwoman
-        - [ ] Ultraman
+    - [X] Crime Syndicate
+        - [X] Black Siren
+        - [X] Deadeye
+        - [X] Deathstorm
+        - [X] Dr. Chaos
+        - [X] Grid
+        - [X] Johnny Quick
+        - [X] Martian
+        - [X] Owlman
+        - [X] Power Ring
+        - [X] Sea King
+        - [X] Superwoman
+        - [X] Ultraman
 
     - [ ] Gods
         - [ ] Gods of Apokolips
@@ -95,7 +94,6 @@
             - [ ] Takion
         - [ ] Old Gods
             - [ ] Nyctar
-            - [ ] The First Lantern
 
     - [ ] Gotham Sirens
         - [ ] Catwoman
@@ -125,10 +123,10 @@
         - [ ] Two-Face
 
     - [ ] Justice League
-        - [ ] Adam Strange
+        - [X] Adam Strange
         - [X] Aquaman
         - [X] Batman
-        - [ ] Black Canary
+        - [X] Black Canary
         - [X] Blue Beetle
         - [X] Booster Gold
         - [X] Captain Atom
@@ -136,24 +134,23 @@
         - [X] Cyborg
         - [X] Dr. Fate
         - [ ] Etrigan
-        - [ ] Firestorm
+        - [X] Firestorm
         - [X] Flash
         - [X] Green Arrow
-        - [ ] Green-Lantern (Guy Gardner)
-        - [ ] Green-Lantern (Hal Jordan)
-        - [ ] Green-Lantern (Jessica Cruiz)
+        - [X] Green-Lantern (Guy Gardner)
+        - [X] Green-Lantern (Hal Jordan)
+        - [X] Green-Lantern (Jessica Cruz)
         - [X] Green-Lantern (John Stewart)
-        - [ ] Green-Lantern (Kyle Raner)
+        - [X] Green-Lantern (Kyle Raner)
         - [X] Hawkgirl
         - [X] Hawkman
         - [ ] Lobo
         - [X] Martian Manhunter
-        - [ ] Mary Marvel
         - [ ] Mera
-        - [ ] Mr. Terrific
+        - [X] Mr. Terrific
         - [ ] Red Tornado
-        - [ ] Shazam
-        - [ ] Spectre
+        - [X] Shazam
+        - [X] Spectre
         - [X] Superman
         - [X] Wonder Woman
         - [ ] Zatanna
@@ -177,22 +174,76 @@
         - [X] White
         - [X] Yellow
 
+    - [ ] Emotional Entities
+        - [ ] Adara (Hope)
+        - [ ] Butcher (Rage)
+        - [ ] Ion (Willpower)
+        - [ ] Nekron (Death)
+        - [ ] Ophidian (Avarice)
+        - [ ] Parallax (Fear)
+        - [ ] Predator (Love)
+        - [ ] Proselyte (Compassion)
+        - [ ] Relic (Light primordial)
+        - [ ] The Entity (Life – Earth itself)
+        - [ ] Umbrax (Invisible Emotional Spectrum)
+
+    - [ ] Lanterns
+        - [ ] Black Lantern Black Hand (post-resurrection)
+        - [ ] Black Lantern Hal Jordan (Blackest Night)
+        - [ ] Black Lantern Superman (Earth-2)
+        - [ ] Black/White Hybrid Black Hand
+        - [ ] Blue Lantern Brother Warth
+        - [ ] Blue Lantern Saint Walker
+        - [ ] Darkstar Lantern (John Stewart – future)
+        - [ ] Green Lantern Alan Scott (Golden Age)
+        - [ ] Green Lantern Guy Gardner
+        - [ ] Green Lantern Hal Jordan
+        - [ ] Green Lantern John Stewart
+        - [ ] Green Lantern Kyle Rayner
+        - [ ] Green Lantern Sodam Yat (Ion host)
+        - [ ] Green/Red Hybrid Guy Gardner
+        - [ ] Green/White Hybrid Kyle Rayner
+        - [ ] Green/Yellow Hybrid Hal Jordan
+        - [ ] Indigo Lantern Black Hand (William Hand)
+        - [ ] Indigo Lantern Indigo-1
+        - [ ] Orange Lantern Larfleeze (Agent Orange)
+        - [ ] Parallax (Hal Jordan possessed)
+        - [ ] Phantom Lantern Frank Laminski
+        - [ ] Red Lantern Atrocitus
+        - [ ] Red Lantern Bleez
+        - [ ] Red Lantern Dex-Starr
+        - [ ] Red Lantern Guy Gardner (temporary)
+        - [ ] Red Lantern Hal Jordan (Future State)
+        - [ ] Red Lantern Supergirl (Red Daughter)
+        - [ ] Star Sapphire Carol Ferris
+        - [ ] Star Sapphire Predator (Love Entity host)
+        - [ ] The First Lantern (Volthoom)
+        - [ ] Ultraviolet Lantern Sinestro (Umbrax)
+        - [ ] Violet Lantern Fatality (Yrra Cynril)
+        - [ ] White Lantern Anti-Monitor
+        - [ ] White Lantern Deadman (Boston Brand)
+        - [ ] White Lantern Nekron
+        - [ ] White Lantern Prime (Kyle Rayner)
+        - [ ] White Lantern Sinestro
+        - [ ] White Lantern Swamp Thing
+        - [ ] Yellow Lantern Arkillo
+        - [ ] Yellow Lantern Scarecrow (Jonathan Crane)
+        - [ ] Yellow Lantern Sinestro (Sinestro Corps founder)
+
     - [ ] League of Assasins
         - [ ] Athanasia Al Ghul
-        - [ ] Bane
+        - [X] Bane
         - [ ] Black Spider
         - [ ] Blank
         - [ ] Lady Shiva
         - [ ] Nyssa Raatko
-        - [ ] Ra's Al Ghul
-        - [ ] Talia Al Ghul
+        - [X] Ra's Al Ghul
+        - [X] Talia Al Ghul
 
     - [ ] Titans
         - [ ] Aquagirl
         - [ ] Beat Boy
         - [ ] Bette Kane
-        - [ ] Blue Beetle
-        - [ ] Cyborg
         - [ ] Dawn Granger
         - [ ] Nightwing
         - [ ] Donna Troy
@@ -337,19 +388,19 @@
         - [ ] Dante's Inferno
 
 - [ ] Punk Cultures
-    - [ ] Cyber Punk
-    - [ ] Steam Punk
-    - [ ] Diesel Punk
-    - [ ] Solar Punk
+    - [X] Cyber Punk
+    - [X] Steam Punk
+    - [X] Diesel Punk
+    - [X] Solar Punk
     - [ ] Retro Wave
-    - [ ] Tech Punk
-    - [ ] Clock Punk
-    - [ ] Atom Punk
-    - [ ] Bio Punk
-    - [ ] Deco Punk
-    - [ ] Stone Punk
-    - [ ] Splatter Punk
-    - [ ] Nano Punk
+    - [X] Tech Punk
+    - [X] Clock Punk
+    - [X] Atom Punk
+    - [X] Bio Punk
+    - [X] Deco Punk
+    - [X] Stone Punk
+    - [X] Splatter Punk
+    - [X] Nano Punk
     - [ ] Aqua Punk
     - [ ] Gothic Punk
     - [ ] Junk Punk
