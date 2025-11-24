@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.splatterpunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.bloodRedCore,
+      insert = plt.infectionGreenCore,
+      visual = plt.visceralPinkCore,
+      replace = plt.arterialSplashCore,
+      command = plt.bruisePurpleCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.lacerationRedDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.shockGray,
+      header1 = plt.arterialSplashBright,
+      header2 = plt.visceralPinkBright,
+      special = plt.bruisePurple,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.shockGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.bloodRedCore,
+      picker = plt.visceralPink,
+      yank = plt.carnageYellowBright,
+      mark = plt.arterialSplash,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.arterialSplashBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.bloodRedCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.shockGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.shockGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.shockGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.bloodRedCore,
+      accent2 = plt.arterialSplashCore,
+      accent3 = plt.visceralPinkCore,
+      accent4 = plt.bruisePurpleCore,
+      accent5 = plt.goreOrangeCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.arterialSplashBright,
+      rainbow2 = plt.bloodRedBright,
+      rainbow3 = plt.visceralPinkBright,
+      rainbow4 = plt.goreOrangeBright,
+      rainbow5 = plt.bruisePurpleBright,
+      rainbow6 = plt.lacerationRedBright,
+      rainbow7 = plt.mutilationMaroonBright,
+    },
+
+    syn = {
+      attribute = plt.carnageYellow,
+      boolean = plt.visceralPink,
+      comment = plt.shockGray,
+      constant = plt.boneWhite,
+      deprecated = plt.traumaBlack,
+      func = plt.arterialSplashCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.bloodRedCore,
+      method = plt.arterialSplashBright,
+      number = plt.boneWhite,
+      operator = plt.visceralPinkCore,
+      parameter = plt.fg_mid,
+      preproc = plt.bruisePurpleCore,
+      punct = plt.fg_dark,
+      regex = plt.goreOrange,
+      statement = plt.bloodRedCore,
+      string = plt.arterialSplashCore,
+      symbol = plt.carnageYellow,
+      type = plt.fleshToneCore,
+      variable = plt.fg_lightest,
+      special = plt.bruisePurple,
+      special2 = plt.visceralPink,
+      special3 = plt.goreOrange,
+    },
+
+    vcs = {
+      added = plt.infectionGreenCore,
+      removed = plt.lacerationRedCore,
+      changed = plt.goreOrangeCore,
+    },
+
+    diff = {
+      add = plt.infectionGreenCore,
+      change = plt.goreOrangeCore,
+      delete = plt.lacerationRedCore,
+      text = plt.bruisePurple,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.bruisePurple,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.bloodRedCore,
+      green = plt.infectionGreenCore,
+      yellow = plt.carnageYellowCore,
+      blue = plt.bruisePurpleCore,
+      magenta = plt.visceralPinkCore,
+      cyan = plt.fleshToneCore,
+      white = plt.boneWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.arterialSplashBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.infectionGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.carnageYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.bruisePurpleBright):brighten(0.15):to_hex(),
+      magenta_bright = color(plt.visceralPinkBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.fleshToneBright):brighten(0.1):to_hex(),
+      white_bright = plt.boneWhiteBright,
+      indexed1 = plt.arterialSplash,
+      indexed2 = plt.bloodRed,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.shockGray,
+      ["@comment.documentation"] = plt.shockGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.carnageYellowBright,
+      ["@comment.note"] = plt.bruisePurple,
+
+      ["@constant"] = plt.boneWhite,
+      ["@constant.builtin"] = plt.boneWhiteCore,
+      ["@constant.macro"] = plt.carnageYellow,
+
+      ["@string"] = plt.arterialSplashCore,
+      ["@string.documentation"] = plt.arterialSplashCore,
+      ["@string.regex"] = plt.goreOrange,
+      ["@string.escape"] = plt.visceralPinkBright,
+      ["@string.special"] = plt.arterialSplashBright,
+      ["@string.special.symbol"] = plt.carnageYellow,
+      ["@string.special.url"] = plt.bruisePurple,
+      ["@string.special.path"] = plt.arterialSplashCore,
+
+      ["@character"] = plt.arterialSplashCore,
+      ["@character.special"] = plt.carnageYellow,
+
+      ["@number"] = plt.boneWhite,
+      ["@number.float"] = plt.boneWhiteCore,
+
+      ["@boolean"] = plt.visceralPink,
+
+      ["@function"] = plt.arterialSplashCore,
+      ["@function.builtin"] = plt.arterialSplashCore,
+      ["@function.call"] = plt.arterialSplashCore,
+      ["@function.macro"] = plt.bruisePurpleCore,
+      ["@function.method"] = plt.arterialSplashBright,
+      ["@function.method.call"] = plt.arterialSplashBright,
+
+      ["@constructor"] = plt.fleshToneCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.bloodRedCore,
+      ["@keyword.coroutine"] = plt.bruisePurpleCore,
+      ["@keyword.function"] = plt.bloodRedCore,
+      ["@keyword.operator"] = plt.visceralPinkCore,
+      ["@keyword.return"] = plt.bloodRedCore,
+      ["@keyword.import"] = plt.bruisePurpleCore,
+      ["@keyword.storage"] = plt.bloodRedCore,
+      ["@keyword.repeat"] = plt.bloodRedCore,
+      ["@keyword.conditional"] = plt.bloodRedCore,
+      ["@keyword.exception"] = plt.lacerationRedCore,
+      ["@keyword.directive"] = plt.bruisePurpleCore,
+      ["@keyword.directive.define"] = plt.bruisePurpleCore,
+
+      ["@conditional"] = plt.bloodRedCore,
+      ["@conditional.ternary"] = plt.bloodRedCore,
+
+      ["@repeat"] = plt.bloodRedCore,
+
+      ["@label"] = plt.carnageYellow,
+
+      ["@operator"] = plt.visceralPinkCore,
+
+      ["@exception"] = plt.lacerationRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.bloodRedBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.fleshToneCore,
+      ["@type.builtin"] = plt.fleshToneCore,
+      ["@type.definition"] = plt.fleshToneCore,
+      ["@type.qualifier"] = plt.bloodRedCore,
+
+      ["@attribute"] = plt.carnageYellow,
+      ["@attribute.builtin"] = plt.carnageYellow,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.fleshToneCore,
+      ["@module.builtin"] = plt.fleshToneCore,
+
+      ["@namespace"] = plt.fleshToneCore,
+      ["@namespace.builtin"] = plt.fleshToneCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.visceralPinkCore,
+
+      ["@tag"] = plt.bloodRedCore,
+      ["@tag.attribute"] = plt.carnageYellow,
+      ["@tag.delimiter"] = plt.visceralPinkCore,
+      ["@tag.builtin"] = plt.bloodRedCore,
+
+      ["@markup.strong"] = { fg = plt.arterialSplashBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.shockGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.bruisePurple, underline = true },
+      ["@markup.heading"] = plt.arterialSplashBright,
+      ["@markup.heading.1"] = plt.arterialSplashBright,
+      ["@markup.heading.2"] = plt.bloodRedBright,
+      ["@markup.heading.3"] = plt.visceralPinkBright,
+      ["@markup.heading.4"] = plt.goreOrangeBright,
+      ["@markup.heading.5"] = plt.bruisePurpleBright,
+      ["@markup.heading.6"] = plt.lacerationRedBright,
+      ["@markup.quote"] = plt.shockGray,
+      ["@markup.math"] = plt.boneWhite,
+      ["@markup.link"] = plt.bruisePurple,
+      ["@markup.link.label"] = plt.bruisePurpleBright,
+      ["@markup.link.url"] = plt.bruisePurple,
+      ["@markup.raw"] = plt.arterialSplashCore,
+      ["@markup.raw.block"] = plt.arterialSplashCore,
+      ["@markup.list"] = plt.bloodRedCore,
+      ["@markup.list.checked"] = plt.infectionGreenCore,
+      ["@markup.list.unchecked"] = plt.shockGray,
+
+      ["@diff.plus"] = plt.infectionGreenCore,
+      ["@diff.minus"] = plt.lacerationRedCore,
+      ["@diff.delta"] = plt.goreOrangeCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.fleshToneCore,
+      ["@constructor.javascript"] = plt.fleshToneCore,
+      ["@constructor.typescript"] = plt.fleshToneCore,
+      ["@namespace.rust"] = plt.fleshToneCore,
+      ["@type.qualifier.rust"] = plt.bloodRedCore,
+      ["@constant.macro.c"] = plt.carnageYellow,
+      ["@constant.macro.cpp"] = plt.carnageYellow,
+      ["@namespace.go"] = plt.fleshToneCore,
+      ["@property.css"] = plt.arterialSplashBright,
+      ["@type.css"] = plt.bloodRedCore,
+      ["@label.json"] = plt.carnageYellow,
+      ["@field.yaml"] = plt.arterialSplashBright,
+      ["@property.toml"] = plt.arterialSplashBright,
+      ["@function.builtin.bash"] = plt.arterialSplashCore,
+      ["@string.regexp"] = plt.goreOrange,
+      ["@character.special.regex"] = plt.carnageYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.fleshToneCore,
+      ["@lsp.type.interface"] = plt.fleshToneCore,
+      ["@lsp.type.struct"] = plt.fleshToneCore,
+      ["@lsp.type.enum"] = plt.fleshToneCore,
+      ["@lsp.type.enumMember"] = plt.boneWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.fleshToneCore,
+
+      ["@lsp.type.macro"] = plt.carnageYellow,
+      ["@lsp.type.decorator"] = plt.carnageYellow,
+
+      ["@lsp.type.builtinType"] = plt.fleshToneCore,
+      ["@lsp.type.selfParameter"] = plt.bloodRedBright,
+      ["@lsp.type.typeParameter"] = plt.fleshToneCore,
+
+      ["@lsp.type.array"] = plt.fleshToneCore,
+      ["@lsp.type.object"] = plt.fleshToneCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.boneWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.boneWhiteCore,
+
+      ["@lsp.type.event"] = plt.fleshToneCore,
+      ["@lsp.type.regexp"] = plt.goreOrange,
+      ["@lsp.type.unresolvedReference"] = plt.fleshToneCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.traumaBlack, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.boneWhiteCore,
+      ["@lsp.mod.async"] = plt.bloodRedCore,
+      ["@lsp.mod.static"] = plt.bloodRedBright,
+      ["@lsp.mod.abstract"] = plt.fleshToneCore,
+      ["@lsp.mod.defaultLibrary"] = plt.fleshToneCore,
+      ["@lsp.mod.documentation"] = plt.shockGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Splatterpunk",
+  author = "PrismPunk.nvim",
+  description = "Extreme violence — arterial splash, blood red, visceral pink, brutal gore, body horror.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.shockGray,
+    base04 = palette.shockGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.bloodRedCore,
+    base09 = palette.goreOrangeCore,
+    base0A = palette.carnageYellowCore,
+    base0B = palette.infectionGreenCore,
+    base0C = palette.fleshToneCore,
+    base0D = palette.bruisePurpleCore,
+    base0E = palette.visceralPinkCore,
+    base0F = palette.arterialSplashCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}

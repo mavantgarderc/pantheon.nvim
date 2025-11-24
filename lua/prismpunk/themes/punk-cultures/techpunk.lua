@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.techpunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.techBlueCore,
+      insert = plt.dataGreenCore,
+      visual = plt.quantumVioletCore,
+      replace = plt.laserRedCore,
+      command = plt.neonCyanCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.quantumVioletDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.metalGray,
+      header1 = plt.techBlueBright,
+      header2 = plt.quantumVioletBright,
+      special = plt.neonCyan,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.metalGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.techBlueCore,
+      picker = plt.hologramPink,
+      yank = plt.signalYellowBright,
+      mark = plt.neonCyan,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.techBlueBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.techBlueCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.metalGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.metalGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.metalGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.techBlueCore,
+      accent2 = plt.quantumVioletCore,
+      accent3 = plt.dataGreenCore,
+      accent4 = plt.neonCyanCore,
+      accent5 = plt.plasmaOrangeCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.techBlueBright,
+      rainbow2 = plt.quantumVioletBright,
+      rainbow3 = plt.neonCyanBright,
+      rainbow4 = plt.dataGreenBright,
+      rainbow5 = plt.plasmaOrangeBright,
+      rainbow6 = plt.hologramPinkBright,
+      rainbow7 = plt.networkBlueBright,
+    },
+
+    syn = {
+      attribute = plt.signalYellow,
+      boolean = plt.neonCyan,
+      comment = plt.metalGray,
+      constant = plt.binaryWhite,
+      deprecated = plt.metalGrayDark,
+      func = plt.dataGreenCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.techBlueCore,
+      method = plt.dataGreenBright,
+      number = plt.binaryWhite,
+      operator = plt.quantumVioletCore,
+      parameter = plt.fg_mid,
+      preproc = plt.networkBlueCore,
+      punct = plt.fg_dark,
+      regex = plt.streamPurple,
+      statement = plt.techBlueCore,
+      string = plt.dataGreenCore,
+      symbol = plt.signalYellow,
+      type = plt.neonCyanCore,
+      variable = plt.fg_lightest,
+      special = plt.hologramPink,
+      special2 = plt.streamPurple,
+      special3 = plt.plasmaOrange,
+    },
+
+    vcs = {
+      added = plt.circuitGreenCore,
+      removed = plt.laserRedCore,
+      changed = plt.plasmaOrangeCore,
+    },
+
+    diff = {
+      add = plt.circuitGreenCore,
+      change = plt.plasmaOrangeCore,
+      delete = plt.laserRedCore,
+      text = plt.neonCyan,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.neonCyan,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.laserRedCore,
+      green = plt.dataGreenCore,
+      yellow = plt.signalYellowCore,
+      blue = plt.techBlueCore,
+      magenta = plt.quantumVioletCore,
+      cyan = plt.neonCyanCore,
+      white = plt.binaryWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.laserRedBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.dataGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.signalYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.techBlueBright):brighten(0.15):to_hex(),
+      magenta_bright = color(plt.quantumVioletBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.neonCyanBright):brighten(0.15):to_hex(),
+      white_bright = plt.binaryWhiteBright,
+      indexed1 = plt.techBlue,
+      indexed2 = plt.quantumViolet,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.metalGray,
+      ["@comment.documentation"] = plt.metalGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.signalYellowBright,
+      ["@comment.note"] = plt.neonCyan,
+
+      ["@constant"] = plt.binaryWhite,
+      ["@constant.builtin"] = plt.binaryWhiteCore,
+      ["@constant.macro"] = plt.signalYellow,
+
+      ["@string"] = plt.dataGreenCore,
+      ["@string.documentation"] = plt.dataGreenCore,
+      ["@string.regex"] = plt.streamPurple,
+      ["@string.escape"] = plt.plasmaOrangeBright,
+      ["@string.special"] = plt.dataGreenBright,
+      ["@string.special.symbol"] = plt.signalYellow,
+      ["@string.special.url"] = plt.networkBlue,
+      ["@string.special.path"] = plt.dataGreenCore,
+
+      ["@character"] = plt.dataGreenCore,
+      ["@character.special"] = plt.plasmaOrange,
+
+      ["@number"] = plt.binaryWhite,
+      ["@number.float"] = plt.binaryWhiteCore,
+
+      ["@boolean"] = plt.neonCyan,
+
+      ["@function"] = plt.dataGreenCore,
+      ["@function.builtin"] = plt.dataGreenCore,
+      ["@function.call"] = plt.dataGreenCore,
+      ["@function.macro"] = plt.networkBlueCore,
+      ["@function.method"] = plt.dataGreenBright,
+      ["@function.method.call"] = plt.dataGreenBright,
+
+      ["@constructor"] = plt.neonCyanCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.techBlueCore,
+      ["@keyword.coroutine"] = plt.networkBlueCore,
+      ["@keyword.function"] = plt.techBlueCore,
+      ["@keyword.operator"] = plt.quantumVioletCore,
+      ["@keyword.return"] = plt.techBlueCore,
+      ["@keyword.import"] = plt.networkBlueCore,
+      ["@keyword.storage"] = plt.techBlueCore,
+      ["@keyword.repeat"] = plt.techBlueCore,
+      ["@keyword.conditional"] = plt.techBlueCore,
+      ["@keyword.exception"] = plt.laserRedCore,
+      ["@keyword.directive"] = plt.networkBlueCore,
+      ["@keyword.directive.define"] = plt.networkBlueCore,
+
+      ["@conditional"] = plt.techBlueCore,
+      ["@conditional.ternary"] = plt.techBlueCore,
+
+      ["@repeat"] = plt.techBlueCore,
+
+      ["@label"] = plt.signalYellow,
+
+      ["@operator"] = plt.quantumVioletCore,
+
+      ["@exception"] = plt.laserRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.techBlueBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.neonCyanCore,
+      ["@type.builtin"] = plt.neonCyanCore,
+      ["@type.definition"] = plt.neonCyanCore,
+      ["@type.qualifier"] = plt.techBlueCore,
+
+      ["@attribute"] = plt.signalYellow,
+      ["@attribute.builtin"] = plt.signalYellow,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.neonCyanCore,
+      ["@module.builtin"] = plt.neonCyanCore,
+
+      ["@namespace"] = plt.neonCyanCore,
+      ["@namespace.builtin"] = plt.neonCyanCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.quantumVioletCore,
+
+      ["@tag"] = plt.techBlueCore,
+      ["@tag.attribute"] = plt.signalYellow,
+      ["@tag.delimiter"] = plt.quantumVioletCore,
+      ["@tag.builtin"] = plt.techBlueCore,
+
+      ["@markup.strong"] = { fg = plt.techBlueBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.metalGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.neonCyan, underline = true },
+      ["@markup.heading"] = plt.techBlueBright,
+      ["@markup.heading.1"] = plt.techBlueBright,
+      ["@markup.heading.2"] = plt.quantumVioletBright,
+      ["@markup.heading.3"] = plt.neonCyanBright,
+      ["@markup.heading.4"] = plt.dataGreenBright,
+      ["@markup.heading.5"] = plt.plasmaOrangeBright,
+      ["@markup.heading.6"] = plt.hologramPinkBright,
+      ["@markup.quote"] = plt.metalGray,
+      ["@markup.math"] = plt.binaryWhite,
+      ["@markup.link"] = plt.networkBlue,
+      ["@markup.link.label"] = plt.networkBlueBright,
+      ["@markup.link.url"] = plt.networkBlue,
+      ["@markup.raw"] = plt.dataGreenCore,
+      ["@markup.raw.block"] = plt.dataGreenCore,
+      ["@markup.list"] = plt.techBlueCore,
+      ["@markup.list.checked"] = plt.circuitGreenCore,
+      ["@markup.list.unchecked"] = plt.metalGray,
+
+      ["@diff.plus"] = plt.circuitGreenCore,
+      ["@diff.minus"] = plt.laserRedCore,
+      ["@diff.delta"] = plt.plasmaOrangeCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.neonCyanCore,
+      ["@constructor.javascript"] = plt.neonCyanCore,
+      ["@constructor.typescript"] = plt.neonCyanCore,
+      ["@namespace.rust"] = plt.neonCyanCore,
+      ["@type.qualifier.rust"] = plt.techBlueCore,
+      ["@constant.macro.c"] = plt.signalYellow,
+      ["@constant.macro.cpp"] = plt.signalYellow,
+      ["@namespace.go"] = plt.neonCyanCore,
+      ["@property.css"] = plt.dataGreenBright,
+      ["@type.css"] = plt.techBlueCore,
+      ["@label.json"] = plt.signalYellow,
+      ["@field.yaml"] = plt.dataGreenBright,
+      ["@property.toml"] = plt.dataGreenBright,
+      ["@function.builtin.bash"] = plt.dataGreenCore,
+      ["@string.regexp"] = plt.streamPurple,
+      ["@character.special.regex"] = plt.signalYellow,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.neonCyanCore,
+      ["@lsp.type.interface"] = plt.neonCyanCore,
+      ["@lsp.type.struct"] = plt.neonCyanCore,
+      ["@lsp.type.enum"] = plt.neonCyanCore,
+      ["@lsp.type.enumMember"] = plt.binaryWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.neonCyanCore,
+
+      ["@lsp.type.macro"] = plt.signalYellow,
+      ["@lsp.type.decorator"] = plt.signalYellow,
+
+      ["@lsp.type.builtinType"] = plt.neonCyanCore,
+      ["@lsp.type.selfParameter"] = plt.techBlueBright,
+      ["@lsp.type.typeParameter"] = plt.neonCyanCore,
+
+      ["@lsp.type.array"] = plt.neonCyanCore,
+      ["@lsp.type.object"] = plt.neonCyanCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.binaryWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.binaryWhiteCore,
+
+      ["@lsp.type.event"] = plt.neonCyanCore,
+      ["@lsp.type.regexp"] = plt.streamPurple,
+      ["@lsp.type.unresolvedReference"] = plt.neonCyanCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.metalGrayDark, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.binaryWhiteCore,
+      ["@lsp.mod.async"] = plt.techBlueCore,
+      ["@lsp.mod.static"] = plt.techBlueBright,
+      ["@lsp.mod.abstract"] = plt.neonCyanCore,
+      ["@lsp.mod.defaultLibrary"] = plt.neonCyanCore,
+      ["@lsp.mod.documentation"] = plt.metalGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Techpunk",
+  author = "PrismPunk.nvim",
+  description = "High-tech innovation — tech blue, quantum violet, data green, digital circuits.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.metalGray,
+    base04 = palette.metalGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.laserRedCore,
+    base09 = palette.plasmaOrangeCore,
+    base0A = palette.signalYellowCore,
+    base0B = palette.dataGreenCore,
+    base0C = palette.neonCyanCore,
+    base0D = palette.techBlueCore,
+    base0E = palette.quantumVioletCore,
+    base0F = palette.streamPurpleCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}

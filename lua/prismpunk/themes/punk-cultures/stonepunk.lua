@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.punk-cultures.stonepunk")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.graniteGrayCore,
+      insert = plt.mossGreenCore,
+      visual = plt.sandstoneYellowCore,
+      replace = plt.ironOxideCore,
+      command = plt.slateBlueCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.clayBrownDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.rockGray,
+      header1 = plt.limestoneCreamBright,
+      header2 = plt.sandstoneYellowBright,
+      special = plt.slateBlue,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.rockGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.graniteGrayCore,
+      picker = plt.copperOre,
+      yank = plt.sandstoneYellowBright,
+      mark = plt.slateBlue,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.limestoneCreamBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.graniteGrayCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.rockGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.rockGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.rockGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.graniteGrayCore,
+      accent2 = plt.sandstoneYellowCore,
+      accent3 = plt.clayBrownCore,
+      accent4 = plt.slateBlueCore,
+      accent5 = plt.mossGreenCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.limestoneCreamBright,
+      rainbow2 = plt.sandstoneYellowBright,
+      rainbow3 = plt.graniteGrayBright,
+      rainbow4 = plt.clayBrownBright,
+      rainbow5 = plt.slateBlueBright,
+      rainbow6 = plt.mossGreenBright,
+      rainbow7 = plt.copperOreBright,
+    },
+
+    syn = {
+      attribute = plt.copperOre,
+      boolean = plt.slateBlue,
+      comment = plt.rockGray,
+      constant = plt.limestoneCream,
+      deprecated = plt.boulderGray,
+      func = plt.mossGreenCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.graniteGrayCore,
+      method = plt.mossGreenBright,
+      number = plt.limestoneCream,
+      operator = plt.sandstoneYellowCore,
+      parameter = plt.fg_mid,
+      preproc = plt.slateBlueCore,
+      punct = plt.fg_dark,
+      regex = plt.clayBrown,
+      statement = plt.graniteGrayCore,
+      string = plt.mossGreenCore,
+      symbol = plt.copperOre,
+      type = plt.ashGrayCore,
+      variable = plt.fg_lightest,
+      special = plt.slateBlue,
+      special2 = plt.clayBrown,
+      special3 = plt.copperOre,
+    },
+
+    vcs = {
+      added = plt.mossGreenCore,
+      removed = plt.ironOxideCore,
+      changed = plt.sandstoneYellowCore,
+    },
+
+    diff = {
+      add = plt.mossGreenCore,
+      change = plt.sandstoneYellowCore,
+      delete = plt.ironOxideCore,
+      text = plt.slateBlue,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.slateBlue,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.ironOxideCore,
+      green = plt.mossGreenCore,
+      yellow = plt.sandstoneYellowCore,
+      blue = plt.slateBlueCore,
+      magenta = plt.clayBrownCore,
+      cyan = plt.ashGrayCore,
+      white = plt.limestoneCreamCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.ironOxideBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.mossGreenBright):brighten(0.2):to_hex(),
+      yellow_bright = color(plt.sandstoneYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.slateBlueBright):brighten(0.18):to_hex(),
+      magenta_bright = color(plt.clayBrownBright):brighten(0.18):to_hex(),
+      cyan_bright = color(plt.ashGrayBright):brighten(0.15):to_hex(),
+      white_bright = color(plt.limestoneCreamBright):brighten(0.1):to_hex(),
+      indexed1 = plt.sandstoneYellow,
+      indexed2 = plt.ironOxide,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.rockGray,
+      ["@comment.documentation"] = plt.rockGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.sandstoneYellowBright,
+      ["@comment.note"] = plt.slateBlue,
+
+      ["@constant"] = plt.limestoneCream,
+      ["@constant.builtin"] = plt.limestoneCreamCore,
+      ["@constant.macro"] = plt.copperOre,
+
+      ["@string"] = plt.mossGreenCore,
+      ["@string.documentation"] = plt.mossGreenCore,
+      ["@string.regex"] = plt.clayBrown,
+      ["@string.escape"] = plt.sandstoneYellowBright,
+      ["@string.special"] = plt.mossGreenBright,
+      ["@string.special.symbol"] = plt.copperOre,
+      ["@string.special.url"] = plt.slateBlue,
+      ["@string.special.path"] = plt.mossGreenCore,
+
+      ["@character"] = plt.mossGreenCore,
+      ["@character.special"] = plt.copperOre,
+
+      ["@number"] = plt.limestoneCream,
+      ["@number.float"] = plt.limestoneCreamCore,
+
+      ["@boolean"] = plt.slateBlue,
+
+      ["@function"] = plt.mossGreenCore,
+      ["@function.builtin"] = plt.mossGreenCore,
+      ["@function.call"] = plt.mossGreenCore,
+      ["@function.macro"] = plt.slateBlueCore,
+      ["@function.method"] = plt.mossGreenBright,
+      ["@function.method.call"] = plt.mossGreenBright,
+
+      ["@constructor"] = plt.ashGrayCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.graniteGrayCore,
+      ["@keyword.coroutine"] = plt.slateBlueCore,
+      ["@keyword.function"] = plt.graniteGrayCore,
+      ["@keyword.operator"] = plt.sandstoneYellowCore,
+      ["@keyword.return"] = plt.graniteGrayCore,
+      ["@keyword.import"] = plt.slateBlueCore,
+      ["@keyword.storage"] = plt.graniteGrayCore,
+      ["@keyword.repeat"] = plt.graniteGrayCore,
+      ["@keyword.conditional"] = plt.graniteGrayCore,
+      ["@keyword.exception"] = plt.ironOxideCore,
+      ["@keyword.directive"] = plt.slateBlueCore,
+      ["@keyword.directive.define"] = plt.slateBlueCore,
+
+      ["@conditional"] = plt.graniteGrayCore,
+      ["@conditional.ternary"] = plt.graniteGrayCore,
+
+      ["@repeat"] = plt.graniteGrayCore,
+
+      ["@label"] = plt.copperOre,
+
+      ["@operator"] = plt.sandstoneYellowCore,
+
+      ["@exception"] = plt.ironOxideCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.graniteGrayBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.ashGrayCore,
+      ["@type.builtin"] = plt.ashGrayCore,
+      ["@type.definition"] = plt.ashGrayCore,
+      ["@type.qualifier"] = plt.graniteGrayCore,
+
+      ["@attribute"] = plt.copperOre,
+      ["@attribute.builtin"] = plt.copperOre,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.ashGrayCore,
+      ["@module.builtin"] = plt.ashGrayCore,
+
+      ["@namespace"] = plt.ashGrayCore,
+      ["@namespace.builtin"] = plt.ashGrayCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.sandstoneYellowCore,
+
+      ["@tag"] = plt.graniteGrayCore,
+      ["@tag.attribute"] = plt.copperOre,
+      ["@tag.delimiter"] = plt.sandstoneYellowCore,
+      ["@tag.builtin"] = plt.graniteGrayCore,
+
+      ["@markup.strong"] = { fg = plt.limestoneCreamBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.rockGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.slateBlue, underline = true },
+      ["@markup.heading"] = plt.limestoneCreamBright,
+      ["@markup.heading.1"] = plt.limestoneCreamBright,
+      ["@markup.heading.2"] = plt.sandstoneYellowBright,
+      ["@markup.heading.3"] = plt.graniteGrayBright,
+      ["@markup.heading.4"] = plt.clayBrownBright,
+      ["@markup.heading.5"] = plt.slateBlueBright,
+      ["@markup.heading.6"] = plt.mossGreenBright,
+      ["@markup.quote"] = plt.rockGray,
+      ["@markup.math"] = plt.limestoneCream,
+      ["@markup.link"] = plt.slateBlue,
+      ["@markup.link.label"] = plt.slateBlueBright,
+      ["@markup.link.url"] = plt.slateBlue,
+      ["@markup.raw"] = plt.mossGreenCore,
+      ["@markup.raw.block"] = plt.mossGreenCore,
+      ["@markup.list"] = plt.graniteGrayCore,
+      ["@markup.list.checked"] = plt.mossGreenCore,
+      ["@markup.list.unchecked"] = plt.rockGray,
+
+      ["@diff.plus"] = plt.mossGreenCore,
+      ["@diff.minus"] = plt.ironOxideCore,
+      ["@diff.delta"] = plt.sandstoneYellowCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.ashGrayCore,
+      ["@constructor.javascript"] = plt.ashGrayCore,
+      ["@constructor.typescript"] = plt.ashGrayCore,
+      ["@namespace.rust"] = plt.ashGrayCore,
+      ["@type.qualifier.rust"] = plt.graniteGrayCore,
+      ["@constant.macro.c"] = plt.copperOre,
+      ["@constant.macro.cpp"] = plt.copperOre,
+      ["@namespace.go"] = plt.ashGrayCore,
+      ["@property.css"] = plt.mossGreenBright,
+      ["@type.css"] = plt.graniteGrayCore,
+      ["@label.json"] = plt.copperOre,
+      ["@field.yaml"] = plt.mossGreenBright,
+      ["@property.toml"] = plt.mossGreenBright,
+      ["@function.builtin.bash"] = plt.mossGreenCore,
+      ["@string.regexp"] = plt.clayBrown,
+      ["@character.special.regex"] = plt.copperOre,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.ashGrayCore,
+      ["@lsp.type.interface"] = plt.ashGrayCore,
+      ["@lsp.type.struct"] = plt.ashGrayCore,
+      ["@lsp.type.enum"] = plt.ashGrayCore,
+      ["@lsp.type.enumMember"] = plt.limestoneCreamCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.ashGrayCore,
+
+      ["@lsp.type.macro"] = plt.copperOre,
+      ["@lsp.type.decorator"] = plt.copperOre,
+
+      ["@lsp.type.builtinType"] = plt.ashGrayCore,
+      ["@lsp.type.selfParameter"] = plt.graniteGrayBright,
+      ["@lsp.type.typeParameter"] = plt.ashGrayCore,
+
+      ["@lsp.type.array"] = plt.ashGrayCore,
+      ["@lsp.type.object"] = plt.ashGrayCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.limestoneCreamCore,
+      ["@lsp.type.enumConstant"] = plt.limestoneCreamCore,
+
+      ["@lsp.type.event"] = plt.ashGrayCore,
+      ["@lsp.type.regexp"] = plt.clayBrown,
+      ["@lsp.type.unresolvedReference"] = plt.ashGrayCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.boulderGray, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.limestoneCreamCore,
+      ["@lsp.mod.async"] = plt.graniteGrayCore,
+      ["@lsp.mod.static"] = plt.graniteGrayBright,
+      ["@lsp.mod.abstract"] = plt.ashGrayCore,
+      ["@lsp.mod.defaultLibrary"] = plt.ashGrayCore,
+      ["@lsp.mod.documentation"] = plt.rockGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Punk – Stonepunk",
+  author = "PrismPunk.nvim",
+  description = "Primitive stone age — granite gray, limestone cream, moss green, ancient earth.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.rockGray,
+    base04 = palette.rockGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.ironOxideCore,
+    base09 = palette.copperOreCore,
+    base0A = palette.sandstoneYellowCore,
+    base0B = palette.mossGreenCore,
+    base0C = palette.ashGrayCore,
+    base0D = palette.slateBlueCore,
+    base0E = palette.clayBrownCore,
+    base0F = palette.graniteGrayCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}
