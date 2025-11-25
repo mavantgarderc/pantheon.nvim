@@ -1,0 +1,377 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.dc.injustice-league.bizarro")
+
+local M = {}
+
+---@param opts table
+---@param plt table
+---@return table
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.corruptedGreenCore,
+      insert = plt.toxicYellowCore,
+      visual = plt.backwardsPurpleCore,
+      replace = plt.confusionRedCore,
+      command = plt.brokenMagentaCore,
+    },
+
+    ui = {
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_dimmer = plt.fg_mid,
+      fg_dark = plt.fg_dark,
+      fg_reverse = plt.bg_alt1,
+      bg_m4 = plt.bg_alt4,
+      bg_m3 = plt.bg_alt3,
+      bg_m2 = plt.bg_darkest,
+      bg_m1 = plt.bg_darker,
+      bg_dim = plt.bg_darker,
+      bg = plt.bg_darkest,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_cursorline = plt.bg_dark,
+      bg_cursorline_alt = plt.bg_mid,
+      bg_search = plt.chaosLimeDeep,
+      bg_visual = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      border = plt.currentGray,
+      header1 = plt.corruptedGreenBright,
+      header2 = plt.toxicYellowBright,
+      special = plt.brokenMagenta,
+      nontext = plt.bg_lightest,
+      whitespace = plt.bg_lightest,
+      win_separator = plt.currentGray,
+      indent = plt.bg_lighter,
+      indent_scope = plt.corruptedGreenCore,
+      picker = plt.backwardsPurple,
+      yank = plt.chaosLimeBright,
+      mark = plt.brokenMagenta,
+      scrollbar = plt.bg_lighter,
+      tabline = {
+        bg = plt.bg_darkest,
+        fg_selected = plt.fg_lightest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        bg_inactive = plt.bg_darkest,
+        fg_alternate = plt.corruptedGreenBright,
+        bg_alternate = plt.bg_darkest,
+        indicator = plt.corruptedGreenCore,
+      },
+      pmenu = {
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_light,
+        bg = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_sbar = plt.bg_light,
+        bg_thumb = plt.currentGrayLight,
+      },
+      float = {
+        fg = plt.fg_light,
+        bg = plt.bg_darker,
+        fg_border = plt.currentGray,
+        bg_border = plt.bg_darker,
+      },
+    },
+
+    accent = {
+      accent1 = plt.corruptedGreenCore,
+      accent2 = plt.backwardsPurpleCore,
+      accent3 = plt.toxicYellowCore,
+      accent4 = plt.brokenMagentaCore,
+      accent5 = plt.oppositeOrangeCore,
+      invert = plt.bg_light,
+    },
+
+    rainbow = {
+      rainbow1 = plt.corruptedGreenBright,
+      rainbow2 = plt.toxicYellowBright,
+      rainbow3 = plt.backwardsPurpleBright,
+      rainbow4 = plt.brokenMagentaBright,
+      rainbow5 = plt.oppositeOrangeBright,
+      rainbow6 = plt.chaosLimeBright,
+      rainbow7 = plt.confusionRedBright,
+    },
+
+    syn = {
+      attribute = plt.oppositeOrange,
+      boolean = plt.brokenMagenta,
+      comment = plt.decayGray,
+      constant = plt.invertedWhite,
+      deprecated = plt.voidBlack,
+      func = plt.toxicYellowCore,
+      identifier = plt.fg_lightest,
+      keyword = plt.corruptedGreenCore,
+      method = plt.toxicYellowBright,
+      number = plt.invertedWhite,
+      operator = plt.brokenMagentaCore,
+      parameter = plt.fg_mid,
+      preproc = plt.backwardsPurpleCore,
+      punct = plt.fg_dark,
+      regex = plt.wrongViolet,
+      statement = plt.corruptedGreenCore,
+      string = plt.toxicYellowCore,
+      symbol = plt.oppositeOrange,
+      type = plt.backwardsPurpleCore,
+      variable = plt.fg_lightest,
+      special = plt.brokenMagenta,
+      special2 = plt.chaosLime,
+      special3 = plt.confusionRed,
+    },
+
+    vcs = {
+      added = plt.backwardsSuccessCore,
+      removed = plt.confusionRedCore,
+      changed = plt.toxicYellowCore,
+    },
+
+    diff = {
+      add = plt.backwardsSuccessCore,
+      change = plt.toxicYellowCore,
+      delete = plt.confusionRedCore,
+      text = plt.brokenMagenta,
+    },
+
+    diag = {
+      ok = plt.successGreen,
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      hint = plt.brokenMagenta,
+    },
+
+    term = {
+      black = plt.bg_darkest,
+      red = plt.backwardsPurpleCore,
+      green = plt.corruptedGreenCore,
+      yellow = plt.toxicYellowCore,
+      blue = plt.brokenMagentaCore,
+      magenta = plt.backwardsPurpleCore,
+      cyan = plt.corruptedGreenCore,
+      white = plt.invertedWhiteCore,
+      black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
+      red_bright = color(plt.backwardsPurpleBright):brighten(0.15):to_hex(),
+      green_bright = color(plt.corruptedGreenBright):brighten(0.15):to_hex(),
+      yellow_bright = color(plt.toxicYellowBright):brighten(0.15):to_hex(),
+      blue_bright = color(plt.brokenMagentaBright):brighten(0.18):to_hex(),
+      magenta_bright = color(plt.backwardsPurpleBright):brighten(0.15):to_hex(),
+      cyan_bright = color(plt.corruptedGreenBright):brighten(0.15):to_hex(),
+      white_bright = plt.invertedWhiteBright,
+      indexed1 = plt.corruptedGreen,
+      indexed2 = plt.toxicYellow,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.decayGray,
+      ["@comment.documentation"] = plt.decayGrayLight,
+      ["@comment.error"] = plt.errorRed,
+      ["@comment.warning"] = plt.warningAmber,
+      ["@comment.todo"] = plt.chaosLimeBright,
+      ["@comment.note"] = plt.brokenMagenta,
+
+      ["@constant"] = plt.invertedWhite,
+      ["@constant.builtin"] = plt.invertedWhiteCore,
+      ["@constant.macro"] = plt.oppositeOrange,
+
+      ["@string"] = plt.toxicYellowCore,
+      ["@string.documentation"] = plt.toxicYellowCore,
+      ["@string.regex"] = plt.wrongViolet,
+      ["@string.escape"] = plt.chaosLimeBright,
+      ["@string.special"] = plt.toxicYellowBright,
+      ["@string.special.symbol"] = plt.oppositeOrange,
+      ["@string.special.url"] = plt.brokenMagenta,
+      ["@string.special.path"] = plt.toxicYellowCore,
+
+      ["@character"] = plt.toxicYellowCore,
+      ["@character.special"] = plt.oppositeOrange,
+
+      ["@number"] = plt.invertedWhite,
+      ["@number.float"] = plt.invertedWhiteCore,
+
+      ["@boolean"] = plt.brokenMagenta,
+
+      ["@function"] = plt.toxicYellowCore,
+      ["@function.builtin"] = plt.toxicYellowCore,
+      ["@function.call"] = plt.toxicYellowCore,
+      ["@function.macro"] = plt.backwardsPurpleCore,
+      ["@function.method"] = plt.toxicYellowBright,
+      ["@function.method.call"] = plt.toxicYellowBright,
+
+      ["@constructor"] = plt.backwardsPurpleCore,
+
+      ["@parameter"] = plt.fg_mid,
+      ["@parameter.builtin"] = plt.fg_light,
+
+      ["@keyword"] = plt.corruptedGreenCore,
+      ["@keyword.coroutine"] = plt.backwardsPurpleCore,
+      ["@keyword.function"] = plt.corruptedGreenCore,
+      ["@keyword.operator"] = plt.brokenMagentaCore,
+      ["@keyword.return"] = plt.corruptedGreenCore,
+      ["@keyword.import"] = plt.backwardsPurpleCore,
+      ["@keyword.storage"] = plt.corruptedGreenCore,
+      ["@keyword.repeat"] = plt.corruptedGreenCore,
+      ["@keyword.conditional"] = plt.corruptedGreenCore,
+      ["@keyword.exception"] = plt.confusionRedCore,
+      ["@keyword.directive"] = plt.backwardsPurpleCore,
+      ["@keyword.directive.define"] = plt.backwardsPurpleCore,
+
+      ["@conditional"] = plt.corruptedGreenCore,
+      ["@conditional.ternary"] = plt.corruptedGreenCore,
+
+      ["@repeat"] = plt.corruptedGreenCore,
+
+      ["@label"] = plt.oppositeOrange,
+
+      ["@operator"] = plt.brokenMagentaCore,
+
+      ["@exception"] = plt.confusionRedCore,
+
+      ["@variable"] = plt.fg_lightest,
+      ["@variable.builtin"] = plt.corruptedGreenBright,
+      ["@variable.parameter"] = plt.fg_mid,
+      ["@variable.member"] = plt.fg_light,
+
+      ["@type"] = plt.backwardsPurpleCore,
+      ["@type.builtin"] = plt.backwardsPurpleCore,
+      ["@type.definition"] = plt.backwardsPurpleCore,
+      ["@type.qualifier"] = plt.corruptedGreenCore,
+
+      ["@attribute"] = plt.oppositeOrange,
+      ["@attribute.builtin"] = plt.oppositeOrange,
+
+      ["@property"] = plt.fg_light,
+
+      ["@field"] = plt.fg_light,
+
+      ["@module"] = plt.backwardsPurpleCore,
+      ["@module.builtin"] = plt.backwardsPurpleCore,
+
+      ["@namespace"] = plt.backwardsPurpleCore,
+      ["@namespace.builtin"] = plt.backwardsPurpleCore,
+
+      ["@punctuation.delimiter"] = plt.fg_dark,
+      ["@punctuation.bracket"] = plt.fg_dark,
+      ["@punctuation.special"] = plt.brokenMagentaCore,
+
+      ["@tag"] = plt.corruptedGreenCore,
+      ["@tag.attribute"] = plt.oppositeOrange,
+      ["@tag.delimiter"] = plt.brokenMagentaCore,
+      ["@tag.builtin"] = plt.corruptedGreenCore,
+
+      ["@markup.strong"] = { fg = plt.corruptedGreenBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.decayGray, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.brokenMagenta, underline = true },
+      ["@markup.heading"] = plt.corruptedGreenBright,
+      ["@markup.heading.1"] = plt.corruptedGreenBright,
+      ["@markup.heading.2"] = plt.toxicYellowBright,
+      ["@markup.heading.3"] = plt.backwardsPurpleBright,
+      ["@markup.heading.4"] = plt.brokenMagentaBright,
+      ["@markup.heading.5"] = plt.oppositeOrangeBright,
+      ["@markup.heading.6"] = plt.chaosLimeBright,
+      ["@markup.quote"] = plt.decayGray,
+      ["@markup.math"] = plt.invertedWhite,
+      ["@markup.link"] = plt.brokenMagenta,
+      ["@markup.link.label"] = plt.brokenMagentaBright,
+      ["@markup.link.url"] = plt.brokenMagenta,
+      ["@markup.raw"] = plt.toxicYellowCore,
+      ["@markup.raw.block"] = plt.toxicYellowCore,
+      ["@markup.list"] = plt.corruptedGreenCore,
+      ["@markup.list.checked"] = plt.backwardsSuccessCore,
+      ["@markup.list.unchecked"] = plt.decayGray,
+
+      ["@diff.plus"] = plt.backwardsSuccessCore,
+      ["@diff.minus"] = plt.confusionRedCore,
+      ["@diff.delta"] = plt.toxicYellowCore,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.bg_lightest,
+      ["@spell"] = plt.fg_lightest,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fg_light,
+      ["@constructor.python"] = plt.backwardsPurpleCore,
+      ["@constructor.javascript"] = plt.backwardsPurpleCore,
+      ["@constructor.typescript"] = plt.backwardsPurpleCore,
+      ["@namespace.rust"] = plt.backwardsPurpleCore,
+      ["@type.qualifier.rust"] = plt.corruptedGreenCore,
+      ["@constant.macro.c"] = plt.oppositeOrange,
+      ["@constant.macro.cpp"] = plt.oppositeOrange,
+      ["@namespace.go"] = plt.backwardsPurpleCore,
+      ["@property.css"] = plt.toxicYellowBright,
+      ["@type.css"] = plt.corruptedGreenCore,
+      ["@label.json"] = plt.oppositeOrange,
+      ["@field.yaml"] = plt.toxicYellowBright,
+      ["@property.toml"] = plt.toxicYellowBright,
+      ["@function.builtin.bash"] = plt.toxicYellowCore,
+      ["@string.regexp"] = plt.wrongViolet,
+      ["@character.special.regex"] = plt.oppositeOrange,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.backwardsPurpleCore,
+      ["@lsp.type.interface"] = plt.backwardsPurpleCore,
+      ["@lsp.type.struct"] = plt.backwardsPurpleCore,
+      ["@lsp.type.enum"] = plt.backwardsPurpleCore,
+      ["@lsp.type.enumMember"] = plt.invertedWhiteCore,
+      ["@lsp.type.property"] = plt.fg_light,
+      ["@lsp.type.namespace"] = plt.backwardsPurpleCore,
+
+      ["@lsp.type.macro"] = plt.oppositeOrange,
+      ["@lsp.type.decorator"] = plt.oppositeOrange,
+
+      ["@lsp.type.builtinType"] = plt.backwardsPurpleCore,
+      ["@lsp.type.selfParameter"] = plt.corruptedGreenBright,
+      ["@lsp.type.typeParameter"] = plt.backwardsPurpleCore,
+
+      ["@lsp.type.array"] = plt.backwardsPurpleCore,
+      ["@lsp.type.object"] = plt.backwardsPurpleCore,
+      ["@lsp.type.key"] = plt.fg_light,
+      ["@lsp.type.null"] = plt.invertedWhiteCore,
+      ["@lsp.type.enumConstant"] = plt.invertedWhiteCore,
+
+      ["@lsp.type.event"] = plt.backwardsPurpleCore,
+      ["@lsp.type.regexp"] = plt.wrongViolet,
+      ["@lsp.type.unresolvedReference"] = plt.backwardsPurpleCore,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.voidBlack, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.invertedWhiteCore,
+      ["@lsp.mod.async"] = plt.corruptedGreenCore,
+      ["@lsp.mod.static"] = plt.corruptedGreenBright,
+      ["@lsp.mod.abstract"] = plt.backwardsPurpleCore,
+      ["@lsp.mod.defaultLibrary"] = plt.backwardsPurpleCore,
+      ["@lsp.mod.documentation"] = plt.decayGrayLight,
+    },
+  }
+end
+
+return {
+  name = "Injustice League – Bizarro",
+  author = "PrismPunk.nvim",
+  description = "Me am not confused — corrupted green, toxic yellow, backwards purple, wrong logic.",
+
+  base16 = {
+    base00 = palette.bg_darkest,
+    base01 = palette.bg_darker,
+    base02 = palette.bg_dark,
+    base03 = palette.decayGray,
+    base04 = palette.decayGrayLight,
+    base05 = palette.fg_mid,
+    base06 = palette.fg_light,
+    base07 = palette.fg_lightest,
+    base08 = palette.confusionRedCore,
+    base09 = palette.oppositeOrangeCore,
+    base0A = palette.toxicYellowCore,
+    base0B = palette.toxicYellowCore,
+    base0C = palette.brokenMagentaCore,
+    base0D = palette.corruptedGreenCore,
+    base0E = palette.backwardsPurpleCore,
+    base0F = palette.wrongVioletCore,
+  },
+
+  palette = palette,
+  get = M.get,
+}
