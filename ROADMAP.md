@@ -29,15 +29,15 @@
         - [ ] White Knight (Lewis Bayard)
 
     - [ ] Bat Family
-        - [ ] Azrael
+        - [X] Azrael
         - [X] Alfred Pennyworth
-        - [ ] Barbara Gordon (Oracle)
+        - [X] Oracle (Barbara Gordon)
         - [X] Batgirl
-        - [ ] Batman 1000000
+        - [X] Batman 1000000
         - [X] Batman Beyond
         - [X] Batman Classic
         - [X] Batman, Dark Knight
-        - [ ] Batwoman
+        - [X] Batwoman
         - [X] Bruce Wayne
         - [ ] Blackbat (Orphan)
         - [X] Cat Woman
@@ -75,25 +75,18 @@
         - [X] Superwoman
         - [X] Ultraman
 
-    - [ ] Gods
-        - [ ] Gods of Apokolips
-            - [ ] Desaad
-            - [ ] Darkseid
-            - [ ] Grayven
-            - [ ] Heggra
-            - [ ] Kalibak
-            - [ ] Pythia
-            - [ ] Yuga Khan
-        - [ ] Gods of New Genesis
-            - [ ] Big Barda
-            - [ ] Highfather
-            - [ ] Lightray
-            - [ ] Metron
-            - [ ] Mister Miracle
-            - [ ] Orion
-            - [ ] Takion
-        - [ ] Old Gods
-            - [ ] Nyctar
+    - [X] Emotional Entities
+        - [X] Adara (Hope)
+        - [X] Butcher (Rage)
+        - [X] Ion (Willpower)
+        - [X] Nekron (Death)
+        - [X] Ophidian (Avarice)
+        - [X] Parallax (Fear)
+        - [X] Predator (Love)
+        - [X] Proselyte (Compassion)
+        - [X] Relic (Light primordial)
+        - [X] The Entity (Life – Earth itself)
+        - [X] Umbrax (Invisible Emotional Spectrum)
 
     - [ ] Gotham Sirens
         - [ ] Catwoman
@@ -173,19 +166,6 @@
         - [X] White
         - [X] Yellow
 
-    - [X] Emotional Entities
-        - [X] Adara (Hope)
-        - [X] Butcher (Rage)
-        - [X] Ion (Willpower)
-        - [X] Nekron (Death)
-        - [X] Ophidian (Avarice)
-        - [X] Parallax (Fear)
-        - [X] Predator (Love)
-        - [X] Proselyte (Compassion)
-        - [X] Relic (Light primordial)
-        - [X] The Entity (Life – Earth itself)
-        - [X] Umbrax (Invisible Emotional Spectrum)
-
     - [ ] Lanterns
         - [ ] Black Lantern Black Hand (post-resurrection)
         - [ ] Black Lantern Hal Jordan (Blackest Night)
@@ -238,6 +218,24 @@
         - [ ] Nyssa Raatko
         - [X] Ra's Al Ghul
         - [X] Talia Al Ghul
+
+    - [ ] New Gods of Apokolips
+        - [ ] Desaad
+        - [ ] Darkseid
+        - [ ] Grayven
+        - [ ] Heggra
+        - [ ] Kalibak
+        - [ ] Pythia
+        - [ ] Yuga Khan
+
+    - [ ] New Gods of New Genesis
+        - [ ] Big Barda
+        - [ ] Highfather
+        - [ ] Lightray
+        - [ ] Metron
+        - [ ] Mister Miracle
+        - [ ] Orion
+        - [ ] Takion
 
     - [ ] Titans
         - [ ] Aquagirl
@@ -453,3 +451,5 @@
     - [ ] base16-catppuccin-mocha
     - [ ] base16-da-one-ocean
 
+- [ ] Visual Dopamine Detox (Low Blue Color Reliance)
+    - [ ] 
