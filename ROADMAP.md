@@ -104,7 +104,6 @@
         - [ ] Bizarro
         - [ ] Black Adam
         - [ ] Black Manta
-        - [ ] Black Spidere
         - [ ] Captain Cold
         - [ ] Cheetah
         - [ ] Deathstroke
@@ -122,7 +121,7 @@
         - [ ] Sinestro
         - [ ] Two-Face
 
-    - [ ] Justice League
+    - [X] Justice League
         - [X] Adam Strange
         - [X] Aquaman
         - [X] Batman
@@ -130,10 +129,10 @@
         - [X] Blue Beetle
         - [X] Booster Gold
         - [X] Captain Atom
-        - [ ] Constantine
+        - [X] Constantine
         - [X] Cyborg
         - [X] Dr. Fate
-        - [ ] Etrigan
+        - [X] Etrigan
         - [X] Firestorm
         - [X] Flash
         - [X] Green Arrow
@@ -144,16 +143,16 @@
         - [X] Green-Lantern (Kyle Raner)
         - [X] Hawkgirl
         - [X] Hawkman
-        - [ ] Lobo
+        - [X] Lobo
         - [X] Martian Manhunter
-        - [ ] Mera
+        - [X] Mera
         - [X] Mr. Terrific
-        - [ ] Red Tornado
+        - [X] Red Tornado
         - [X] Shazam
         - [X] Spectre
         - [X] Superman
         - [X] Wonder Woman
-        - [ ] Zatanna
+        - [X] Zatanna
 
     - [X] Lantern Corps
         - [X] Black
@@ -174,18 +173,18 @@
         - [X] White
         - [X] Yellow
 
-    - [ ] Emotional Entities
-        - [ ] Adara (Hope)
-        - [ ] Butcher (Rage)
-        - [ ] Ion (Willpower)
-        - [ ] Nekron (Death)
-        - [ ] Ophidian (Avarice)
-        - [ ] Parallax (Fear)
-        - [ ] Predator (Love)
-        - [ ] Proselyte (Compassion)
-        - [ ] Relic (Light primordial)
-        - [ ] The Entity (Life – Earth itself)
-        - [ ] Umbrax (Invisible Emotional Spectrum)
+    - [X] Emotional Entities
+        - [X] Adara (Hope)
+        - [X] Butcher (Rage)
+        - [X] Ion (Willpower)
+        - [X] Nekron (Death)
+        - [X] Ophidian (Avarice)
+        - [X] Parallax (Fear)
+        - [X] Predator (Love)
+        - [X] Proselyte (Compassion)
+        - [X] Relic (Light primordial)
+        - [X] The Entity (Life – Earth itself)
+        - [X] Umbrax (Invisible Emotional Spectrum)
 
     - [ ] Lanterns
         - [ ] Black Lantern Black Hand (post-resurrection)
@@ -387,12 +386,11 @@
     - [ ] Europe
         - [ ] Dante's Inferno
 
-- [ ] Punk Cultures
+- [X] Punk Cultures
     - [X] Cyber Punk
     - [X] Steam Punk
     - [X] Diesel Punk
     - [X] Solar Punk
-    - [ ] Retro Wave
     - [X] Tech Punk
     - [X] Clock Punk
     - [X] Atom Punk
@@ -401,13 +399,13 @@
     - [X] Stone Punk
     - [X] Splatter Punk
     - [X] Nano Punk
-    - [ ] Aqua Punk
-    - [ ] Gothic Punk
-    - [ ] Junk Punk
-    - [ ] Acid Punk
-    - [ ] Dusk Punk
-    - [ ] Cryo Punk
-    - [ ] Jungle Punk
+    - [X] Aqua Punk
+    - [X] Gothic Punk
+    - [X] Junk Punk
+    - [X] Acid Punk
+    - [X] Dusk Punk
+    - [X] Cryo Punk
+    - [X] Jungle Punk
 
 - [ ] Legacy Nvim Themes
     - [X] sorbet
