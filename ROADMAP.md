@@ -11,10 +11,12 @@
         - [ ] Death Shot
         - [ ] Firefly
         - [ ] Gorilla Grodd
+        - [ ] Gypsy
         - [ ] Harley Quinn
         - [ ] Hush
         - [ ] James Gordon Jr.
         - [ ] Joker
+        - [ ] Katana
         - [ ] Killer Croc
         - [ ] Manbat
         - [ ] Mr. Freeze
@@ -26,9 +28,10 @@
         - [ ] The Penguin
         - [ ] The Riddler
         - [ ] Two Face
+        - [ ] Vixen
         - [ ] White Knight (Lewis Bayard)
 
-    - [ ] Bat Family
+    - [X] Bat Family
         - [X] Azrael
         - [X] Alfred Pennyworth
         - [X] Oracle (Barbara Gordon)
@@ -39,27 +42,16 @@
         - [X] Batman, Dark Knight
         - [X] Batwoman
         - [X] Bruce Wayne
-        - [ ] Blackbat (Orphan)
+        - [X] Blackbat (Orphan)
         - [X] Cat Woman
         - [X] Huntress
-        - [ ] James Gordon
+        - [X] James Gordon
         - [X] Lucius Fox
         - [X] Nightwing
         - [X] Red Hood
         - [X] Red Robin
         - [X] Robin
         - [X] Selina Kyle
-
-    - [ ] Birds of Prey
-        - [ ] Batgirl
-        - [ ] Black Canary
-        - [ ] Gypsy
-        - [ ] Harley Quinn
-        - [ ] Hawkgirl
-        - [ ] Katana
-        - [ ] Oracle
-        - [ ] Vixen
-        - [ ] Zealot
 
     - [X] Crime Syndicate
         - [X] Black Siren
@@ -88,13 +80,8 @@
         - [X] The Entity (Life – Earth itself)
         - [X] Umbrax (Invisible Emotional Spectrum)
 
-    - [ ] Gotham Sirens
-        - [ ] Catwoman
-        - [ ] Harley Quinn
-        - [ ] Poison Ivy
-
     - [ ] Injustice League
-        - [ ] Bizarro
+        - [X] Bizarro
         - [ ] Black Adam
         - [ ] Black Manta
         - [ ] Captain Cold
@@ -175,10 +162,6 @@
         - [ ] Blue Lantern Saint Walker
         - [ ] Darkstar Lantern (John Stewart – future)
         - [ ] Green Lantern Alan Scott (Golden Age)
-        - [ ] Green Lantern Guy Gardner
-        - [ ] Green Lantern Hal Jordan
-        - [ ] Green Lantern John Stewart
-        - [ ] Green Lantern Kyle Rayner
         - [ ] Green Lantern Sodam Yat (Ion host)
         - [ ] Green/Red Hybrid Guy Gardner
         - [ ] Green/White Hybrid Kyle Rayner
@@ -219,23 +202,23 @@
         - [X] Ra's Al Ghul
         - [X] Talia Al Ghul
 
-    - [ ] New Gods of Apokolips
-        - [ ] Desaad
-        - [ ] Darkseid
-        - [ ] Grayven
-        - [ ] Heggra
-        - [ ] Kalibak
-        - [ ] Pythia
-        - [ ] Yuga Khan
+    - [X] New Gods of Apokolips
+        - [X] Desaad
+        - [X] Darkseid
+        - [X] Grayven
+        - [X] Heggra
+        - [X] Kalibak
+        - [X] Pythia
+        - [X] Yuga Khan
 
-    - [ ] New Gods of New Genesis
-        - [ ] Big Barda
-        - [ ] Highfather
-        - [ ] Lightray
-        - [ ] Metron
-        - [ ] Mister Miracle
-        - [ ] Orion
-        - [ ] Takion
+    - [X] New Gods of New Genesis
+        - [X] Big Barda
+        - [X] Highfather
+        - [X] Lightray
+        - [X] Metron
+        - [X] Mister Miracle
+        - [X] Orion
+        - [X] Takion
 
     - [ ] Titans
         - [ ] Aquagirl
@@ -243,7 +226,6 @@
         - [ ] Bette Kane
         - [ ] Dawn Granger
         - [ ] Nightwing
-        - [ ] Donna Troy
         - [ ] Kon-El
         - [ ] Raven
         - [ ] Starfire
