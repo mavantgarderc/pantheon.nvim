@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.frost")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.icyBright,
+      insert = plt.icyLighter,
+      visual = plt.sunPulse,
+      replace = plt.icyMid,
+      command = plt.clearCore,
+    },
+
+    ui = {
+      fg = plt.clearCore,
+      fg_dim = plt.clearCore,
+      fg_dimmer = plt.icyLighter,
+      fg_dark = plt.icyMid,
+      fg_reverse = plt.frostVoid,
+
+      bg_m4 = plt.frostLight,
+      bg_m3 = plt.frostMid,
+      bg_m2 = plt.frostDeep,
+      bg_m1 = plt.frostDark,
+      bg_dim = plt.frostVoid,
+      bg = plt.frostVoid,
+      bg_p1 = plt.frostDeep,
+      bg_p2 = plt.frostMid,
+      bg_gutter = opts.gutter and plt.frostMid or "none",
+      bg_cursorline = plt.crystalLine,
+      bg_cursorline_alt = plt.crystalMid,
+      bg_search = plt.sunPulse,
+      bg_visual = plt.sunDeep,
+      bg_statusline = plt.crystalMid,
+
+      border = plt.icyMid,
+      header1 = plt.clearBright,
+      header2 = plt.clearCore,
+      special = plt.sunBright,
+      nontext = plt.frostLight,
+      whitespace = plt.frostMid,
+      win_separator = plt.icyMid,
+      indent = plt.frostMid,
+      indent_scope = plt.icyDeep,
+      picker = plt.icyMid,
+      yank = plt.sunPulse,
+      mark = plt.sunBright,
+      scrollbar = plt.frostLight,
+
+      tabline = {
+        bg = plt.frostVoid,
+        fg_selected = plt.clearCore,
+        bg_selected = plt.crystalMid,
+        fg_inactive = plt.icyLighter,
+        bg_inactive = plt.frostVoid,
+        fg_alternate = plt.icyBright,
+        bg_alternate = plt.frostVoid,
+        indicator = plt.sunPulse,
+      },
+
+      pmenu = {
+        fg = plt.clearCore,
+        fg_sel = "none",
+        fg_border = plt.crystalMid,
+        bg_border = plt.crystalMid,
+        bg = plt.crystalMid,
+        bg_sel = plt.crystalDeep,
+        bg_sbar = plt.crystalMid,
+        bg_thumb = plt.icyMid,
+      },
+
+      float = {
+        fg = plt.clearCore,
+        bg = plt.frostDeep,
+        fg_border = plt.crystalMid,
+        bg_border = plt.frostDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.clearBright,
+      accent2 = plt.clearCore,
+      accent3 = plt.icyLighter,
+      accent4 = plt.icyBright,
+      accent5 = plt.sunPulse,
+      invert = plt.crystalMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.icyBright,
+      rainbow2 = plt.icyMid,
+      rainbow3 = plt.icyDeep,
+      rainbow4 = plt.crystalDeep,
+      rainbow5 = plt.clearCore,
+      rainbow6 = plt.clearBright,
+      rainbow7 = plt.sunPulse,
+    },
+
+    syn = {
+      attribute = plt.clearCore,
+      boolean = plt.sunBright,
+      comment = plt.icyBright,
+      constant = plt.icyLightest,
+      deprecated = plt.icyMid,
+      func = plt.clearBright,
+      identifier = plt.clearCore,
+      keyword = plt.clearCore,
+      method = plt.clearBright,
+      number = plt.icyLightest,
+      operator = plt.icyMid,
+      parameter = plt.icyLighter,
+      preproc = plt.sunMid,
+      punct = plt.icyDeep,
+      regex = plt.icyMid,
+      statement = plt.clearCore,
+      string = plt.icyLighter,
+      symbol = plt.clearCore,
+      type = plt.icyLightest,
+      variable = plt.clearCore,
+      special = plt.sunPulse,
+      special2 = plt.sunMid,
+      special3 = plt.sunBright,
+    },
+
+    vcs = { added = plt.icyLighter, removed = plt.sunBright, changed = plt.sunDeep },
+    diff = { add = plt.icyLighter, change = plt.icyDeep, delete = plt.sunBright, text = plt.sunMid },
+    diag = {
+      ok = plt.icyLighter,
+      error = plt.sunBright,
+      warning = plt.sunPulse,
+      info = plt.clearCore,
+      hint = plt.icyMid,
+    },
+
+    term = {
+      black = plt.frostVoid,
+      red = plt.sunBright,
+      green = plt.icyBright,
+      yellow = plt.icyLightest,
+      blue = plt.frostVoid,
+      magenta = plt.clearCore,
+      cyan = plt.icyMid,
+      white = plt.clearBright,
+
+      black_bright = color(plt.frostVoid):brighten(0.4):to_hex(),
+      red_bright = plt.sunPulse,
+      green_bright = color(plt.icyBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.clearBright,
+      blue_bright = color(plt.frostVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.clearCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.icyMid):brighten(0.3):to_hex(),
+      white_bright = plt.clearBright,
+      indexed1 = plt.icyLighter,
+      indexed2 = plt.icyBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.icyBright,
+      ["@comment.documentation"] = plt.icyMid,
+      ["@comment.error"] = plt.sunBright,
+      ["@comment.warning"] = plt.sunPulse,
+      ["@comment.todo"] = plt.icyLighter,
+      ["@comment.note"] = plt.icyMid,
+
+      ["@constant"] = plt.icyLightest,
+      ["@constant.builtin"] = plt.icyLightest,
+      ["@constant.macro"] = plt.sunMid,
+
+      ["@string"] = plt.icyLighter,
+      ["@string.documentation"] = plt.icyLighter,
+      ["@string.regex"] = plt.icyMid,
+      ["@string.escape"] = plt.sunMid,
+      ["@string.special"] = plt.sunBright,
+      ["@string.special.symbol"] = plt.sunBright,
+      ["@string.special.url"] = plt.icyMid,
+      ["@string.special.path"] = plt.icyLighter,
+
+      ["@character"] = plt.icyLighter,
+      ["@character.special"] = plt.sunMid,
+
+      ["@number"] = plt.icyLightest,
+      ["@number.float"] = plt.icyLightest,
+
+      ["@boolean"] = plt.sunBright,
+
+      ["@function"] = plt.clearBright,
+      ["@function.builtin"] = plt.clearBright,
+      ["@function.call"] = plt.clearBright,
+      ["@function.macro"] = plt.sunMid,
+      ["@function.method"] = plt.clearBright,
+      ["@function.method.call"] = plt.clearBright,
+
+      ["@constructor"] = plt.clearCore,
+
+      ["@parameter"] = plt.icyLighter,
+      ["@parameter.builtin"] = plt.icyLightest,
+
+      ["@keyword"] = plt.clearCore,
+      ["@keyword.coroutine"] = plt.sunBright,
+      ["@keyword.function"] = plt.clearCore,
+      ["@keyword.operator"] = plt.icyMid,
+      ["@keyword.return"] = plt.clearCore,
+      ["@keyword.import"] = plt.icyLightest,
+      ["@keyword.storage"] = plt.clearCore,
+      ["@keyword.repeat"] = plt.clearCore,
+      ["@keyword.conditional"] = plt.clearCore,
+      ["@keyword.exception"] = plt.sunBright,
+      ["@keyword.directive"] = plt.sunMid,
+      ["@keyword.directive.define"] = plt.sunMid,
+
+      ["@conditional"] = plt.clearCore,
+      ["@conditional.ternary"] = plt.clearCore,
+
+      ["@repeat"] = plt.clearCore,
+
+      ["@label"] = plt.icyLightest,
+
+      ["@operator"] = plt.icyMid,
+
+      ["@exception"] = plt.sunBright,
+
+      ["@variable"] = plt.clearCore,
+      ["@variable.builtin"] = plt.icyLightest,
+      ["@variable.parameter"] = plt.icyLighter,
+      ["@variable.member"] = plt.clearCore,
+
+      ["@type"] = plt.icyLightest,
+      ["@type.builtin"] = plt.icyLightest,
+      ["@type.definition"] = plt.icyLightest,
+      ["@type.qualifier"] = plt.clearCore,
+
+      ["@attribute"] = plt.clearCore,
+      ["@attribute.builtin"] = plt.icyLightest,
+
+      ["@property"] = plt.clearCore,
+      ["@field"] = plt.clearCore,
+
+      ["@module"] = plt.clearCore,
+      ["@module.builtin"] = plt.clearCore,
+
+      ["@namespace"] = plt.clearCore,
+      ["@namespace.builtin"] = plt.clearCore,
+
+      ["@punctuation.delimiter"] = plt.icyMid,
+      ["@punctuation.bracket"] = plt.icyMid,
+      ["@punctuation.special"] = plt.sunMid,
+
+      ["@tag"] = plt.clearCore,
+      ["@tag.attribute"] = plt.icyLightest,
+      ["@tag.delimiter"] = plt.icyMid,
+      ["@tag.builtin"] = plt.clearCore,
+
+      ["@markup.strong"] = { fg = plt.clearBright, bold = true },
+      ["@markup.italic"] = { fg = plt.clearCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.icyMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.clearCore, underline = true },
+      ["@markup.heading"] = plt.clearBright,
+      ["@markup.heading.1"] = plt.clearBright,
+      ["@markup.heading.2"] = plt.clearCore,
+      ["@markup.heading.3"] = plt.icyLightest,
+      ["@markup.heading.4"] = plt.icyLighter,
+      ["@markup.heading.5"] = plt.sunMid,
+      ["@markup.heading.6"] = plt.sunPulse,
+      ["@markup.quote"] = plt.icyBright,
+      ["@markup.math"] = plt.icyLightest,
+      ["@markup.link"] = plt.icyMid,
+      ["@markup.link.label"] = plt.sunPulse,
+      ["@markup.link.url"] = plt.icyMid,
+      ["@markup.raw"] = plt.icyLighter,
+      ["@markup.raw.block"] = plt.icyLighter,
+      ["@markup.list"] = plt.clearCore,
+      ["@markup.list.checked"] = plt.icyLighter,
+      ["@markup.list.unchecked"] = plt.icyBright,
+
+      ["@diff.plus"] = plt.icyLighter,
+      ["@diff.minus"] = plt.sunBright,
+      ["@diff.delta"] = plt.icyMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.icyMid,
+      ["@spell"] = plt.clearCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.clearCore,
+      ["@constructor.python"] = plt.clearBright,
+      ["@constructor.javascript"] = plt.clearBright,
+      ["@constructor.typescript"] = plt.clearBright,
+      ["@namespace.rust"] = plt.clearCore,
+      ["@type.qualifier.rust"] = plt.clearCore,
+      ["@constant.macro.c"] = plt.sunMid,
+      ["@constant.macro.cpp"] = plt.sunMid,
+      ["@namespace.go"] = plt.clearCore,
+      ["@property.css"] = plt.clearBright,
+      ["@type.css"] = plt.clearCore,
+      ["@label.json"] = plt.clearCore,
+      ["@field.yaml"] = plt.clearCore,
+      ["@property.toml"] = plt.clearCore,
+      ["@function.builtin.bash"] = plt.clearBright,
+      ["@string.regexp"] = plt.icyMid,
+      ["@character.special.regex"] = plt.sunMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.icyLightest,
+      ["@lsp.type.interface"] = plt.icyLightest,
+      ["@lsp.type.struct"] = plt.icyLightest,
+      ["@lsp.type.enum"] = plt.icyLightest,
+      ["@lsp.type.enumMember"] = plt.icyLightest,
+      ["@lsp.type.property"] = plt.clearCore,
+      ["@lsp.type.namespace"] = plt.clearCore,
+
+      ["@lsp.type.macro"] = plt.sunMid,
+      ["@lsp.type.decorator"] = plt.clearBright,
+
+      ["@lsp.type.builtinType"] = plt.icyLightest,
+      ["@lsp.type.selfParameter"] = plt.clearCore,
+      ["@lsp.type.typeParameter"] = plt.icyLightest,
+
+      ["@lsp.type.array"] = plt.icyLightest,
+      ["@lsp.type.object"] = plt.icyLightest,
+      ["@lsp.type.key"] = plt.clearCore,
+      ["@lsp.type.null"] = plt.icyLightest,
+      ["@lsp.type.enumConstant"] = plt.icyLightest,
+
+      ["@lsp.type.event"] = plt.icyLightest,
+      ["@lsp.type.regexp"] = plt.icyMid,
+      ["@lsp.type.unresolvedReference"] = plt.sunBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.icyMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.icyLightest,
+      ["@lsp.mod.async"] = plt.clearCore,
+      ["@lsp.mod.static"] = plt.icyLightest,
+      ["@lsp.mod.abstract"] = plt.icyLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.icyLightest,
+      ["@lsp.mod.documentation"] = plt.icyBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Frost",
+  author = "PrismPunk.nvim",
+  description = "Ice crystals & frozen surfaces. Pale cyan clarity. Faint sun through ice. Crystalline winter.",
+
+  base16 = {
+    base00 = palette.frostVoid,
+    base01 = palette.frostDark,
+    base02 = palette.frostDeep,
+    base03 = palette.frostMid,
+    base04 = palette.icyBright,
+    base05 = palette.icyLightest,
+    base06 = palette.clearCore,
+    base07 = palette.clearBright,
+    base08 = palette.sunBright,
+    base09 = palette.sunMid,
+    base0A = palette.sunDeep,
+    base0B = palette.icyLighter,
+    base0C = palette.sunPulse,
+    base0D = palette.icyMid,
+    base0E = palette.sunPulse,
+    base0F = palette.icyMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

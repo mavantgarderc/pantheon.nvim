@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.glass")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.fractBright,
+      insert = plt.fractLighter,
+      visual = plt.crackPulse,
+      replace = plt.fractMid,
+      command = plt.prismCore,
+    },
+
+    ui = {
+      fg = plt.prismCore,
+      fg_dim = plt.prismCore,
+      fg_dimmer = plt.fractLighter,
+      fg_dark = plt.fractMid,
+      fg_reverse = plt.glassVoid,
+
+      bg_m4 = plt.glassLight,
+      bg_m3 = plt.glassMid,
+      bg_m2 = plt.glassDeep,
+      bg_m1 = plt.glassDark,
+      bg_dim = plt.glassVoid,
+      bg = plt.glassVoid,
+      bg_p1 = plt.glassDeep,
+      bg_p2 = plt.glassMid,
+      bg_gutter = opts.gutter and plt.glassMid or "none",
+      bg_cursorline = plt.clearLine,
+      bg_cursorline_alt = plt.clearMid,
+      bg_search = plt.crackPulse,
+      bg_visual = plt.crackDeep,
+      bg_statusline = plt.clearMid,
+
+      border = plt.fractMid,
+      header1 = plt.prismBright,
+      header2 = plt.prismCore,
+      special = plt.crackBright,
+      nontext = plt.glassLight,
+      whitespace = plt.glassMid,
+      win_separator = plt.fractMid,
+      indent = plt.glassMid,
+      indent_scope = plt.fractDeep,
+      picker = plt.fractMid,
+      yank = plt.crackPulse,
+      mark = plt.crackBright,
+      scrollbar = plt.glassLight,
+
+      tabline = {
+        bg = plt.glassVoid,
+        fg_selected = plt.prismCore,
+        bg_selected = plt.clearMid,
+        fg_inactive = plt.fractLighter,
+        bg_inactive = plt.glassVoid,
+        fg_alternate = plt.fractBright,
+        bg_alternate = plt.glassVoid,
+        indicator = plt.crackPulse,
+      },
+
+      pmenu = {
+        fg = plt.prismCore,
+        fg_sel = "none",
+        fg_border = plt.clearMid,
+        bg_border = plt.clearMid,
+        bg = plt.clearMid,
+        bg_sel = plt.clearDeep,
+        bg_sbar = plt.clearMid,
+        bg_thumb = plt.fractMid,
+      },
+
+      float = {
+        fg = plt.prismCore,
+        bg = plt.glassDeep,
+        fg_border = plt.clearMid,
+        bg_border = plt.glassDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.prismBright,
+      accent2 = plt.prismCore,
+      accent3 = plt.fractLighter,
+      accent4 = plt.fractBright,
+      accent5 = plt.crackPulse,
+      invert = plt.clearMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.fractBright,
+      rainbow2 = plt.fractMid,
+      rainbow3 = plt.fractDeep,
+      rainbow4 = plt.clearDeep,
+      rainbow5 = plt.prismCore,
+      rainbow6 = plt.prismBright,
+      rainbow7 = plt.crackPulse,
+    },
+
+    syn = {
+      attribute = plt.prismCore,
+      boolean = plt.crackBright,
+      comment = plt.fractBright,
+      constant = plt.fractLightest,
+      deprecated = plt.fractMid,
+      func = plt.prismBright,
+      identifier = plt.prismCore,
+      keyword = plt.prismCore,
+      method = plt.prismBright,
+      number = plt.fractLightest,
+      operator = plt.fractMid,
+      parameter = plt.fractLighter,
+      preproc = plt.crackMid,
+      punct = plt.fractDeep,
+      regex = plt.fractMid,
+      statement = plt.prismCore,
+      string = plt.fractLighter,
+      symbol = plt.prismCore,
+      type = plt.fractLightest,
+      variable = plt.prismCore,
+      special = plt.crackPulse,
+      special2 = plt.crackMid,
+      special3 = plt.crackBright,
+    },
+
+    vcs = { added = plt.fractLighter, removed = plt.crackBright, changed = plt.crackDeep },
+    diff = { add = plt.fractLighter, change = plt.fractDeep, delete = plt.crackBright, text = plt.crackMid },
+    diag = {
+      ok = plt.fractLighter,
+      error = plt.crackBright,
+      warning = plt.crackPulse,
+      info = plt.prismCore,
+      hint = plt.fractMid,
+    },
+
+    term = {
+      black = plt.glassVoid,
+      red = plt.crackBright,
+      green = plt.fractBright,
+      yellow = plt.fractLightest,
+      blue = plt.glassVoid,
+      magenta = plt.prismCore,
+      cyan = plt.fractMid,
+      white = plt.prismBright,
+
+      black_bright = color(plt.glassVoid):brighten(0.4):to_hex(),
+      red_bright = plt.crackPulse,
+      green_bright = color(plt.fractBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.prismBright,
+      blue_bright = color(plt.glassVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.prismCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.fractMid):brighten(0.3):to_hex(),
+      white_bright = plt.prismBright,
+      indexed1 = plt.fractLighter,
+      indexed2 = plt.fractBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.fractBright,
+      ["@comment.documentation"] = plt.fractMid,
+      ["@comment.error"] = plt.crackBright,
+      ["@comment.warning"] = plt.crackPulse,
+      ["@comment.todo"] = plt.fractLighter,
+      ["@comment.note"] = plt.fractMid,
+
+      ["@constant"] = plt.fractLightest,
+      ["@constant.builtin"] = plt.fractLightest,
+      ["@constant.macro"] = plt.crackMid,
+
+      ["@string"] = plt.fractLighter,
+      ["@string.documentation"] = plt.fractLighter,
+      ["@string.regex"] = plt.fractMid,
+      ["@string.escape"] = plt.crackMid,
+      ["@string.special"] = plt.crackBright,
+      ["@string.special.symbol"] = plt.crackBright,
+      ["@string.special.url"] = plt.fractMid,
+      ["@string.special.path"] = plt.fractLighter,
+
+      ["@character"] = plt.fractLighter,
+      ["@character.special"] = plt.crackMid,
+
+      ["@number"] = plt.fractLightest,
+      ["@number.float"] = plt.fractLightest,
+
+      ["@boolean"] = plt.crackBright,
+
+      ["@function"] = plt.prismBright,
+      ["@function.builtin"] = plt.prismBright,
+      ["@function.call"] = plt.prismBright,
+      ["@function.macro"] = plt.crackMid,
+      ["@function.method"] = plt.prismBright,
+      ["@function.method.call"] = plt.prismBright,
+
+      ["@constructor"] = plt.prismCore,
+
+      ["@parameter"] = plt.fractLighter,
+      ["@parameter.builtin"] = plt.fractLightest,
+
+      ["@keyword"] = plt.prismCore,
+      ["@keyword.coroutine"] = plt.crackBright,
+      ["@keyword.function"] = plt.prismCore,
+      ["@keyword.operator"] = plt.fractMid,
+      ["@keyword.return"] = plt.prismCore,
+      ["@keyword.import"] = plt.fractLightest,
+      ["@keyword.storage"] = plt.prismCore,
+      ["@keyword.repeat"] = plt.prismCore,
+      ["@keyword.conditional"] = plt.prismCore,
+      ["@keyword.exception"] = plt.crackBright,
+      ["@keyword.directive"] = plt.crackMid,
+      ["@keyword.directive.define"] = plt.crackMid,
+
+      ["@conditional"] = plt.prismCore,
+      ["@conditional.ternary"] = plt.prismCore,
+
+      ["@repeat"] = plt.prismCore,
+
+      ["@label"] = plt.fractLightest,
+
+      ["@operator"] = plt.fractMid,
+
+      ["@exception"] = plt.crackBright,
+
+      ["@variable"] = plt.prismCore,
+      ["@variable.builtin"] = plt.fractLightest,
+      ["@variable.parameter"] = plt.fractLighter,
+      ["@variable.member"] = plt.prismCore,
+
+      ["@type"] = plt.fractLightest,
+      ["@type.builtin"] = plt.fractLightest,
+      ["@type.definition"] = plt.fractLightest,
+      ["@type.qualifier"] = plt.prismCore,
+
+      ["@attribute"] = plt.prismCore,
+      ["@attribute.builtin"] = plt.fractLightest,
+
+      ["@property"] = plt.prismCore,
+      ["@field"] = plt.prismCore,
+
+      ["@module"] = plt.prismCore,
+      ["@module.builtin"] = plt.prismCore,
+
+      ["@namespace"] = plt.prismCore,
+      ["@namespace.builtin"] = plt.prismCore,
+
+      ["@punctuation.delimiter"] = plt.fractMid,
+      ["@punctuation.bracket"] = plt.fractMid,
+      ["@punctuation.special"] = plt.crackMid,
+
+      ["@tag"] = plt.prismCore,
+      ["@tag.attribute"] = plt.fractLightest,
+      ["@tag.delimiter"] = plt.fractMid,
+      ["@tag.builtin"] = plt.prismCore,
+
+      ["@markup.strong"] = { fg = plt.prismBright, bold = true },
+      ["@markup.italic"] = { fg = plt.prismCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.fractMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.prismCore, underline = true },
+      ["@markup.heading"] = plt.prismBright,
+      ["@markup.heading.1"] = plt.prismBright,
+      ["@markup.heading.2"] = plt.prismCore,
+      ["@markup.heading.3"] = plt.fractLightest,
+      ["@markup.heading.4"] = plt.fractLighter,
+      ["@markup.heading.5"] = plt.crackMid,
+      ["@markup.heading.6"] = plt.crackPulse,
+      ["@markup.quote"] = plt.fractBright,
+      ["@markup.math"] = plt.fractLightest,
+      ["@markup.link"] = plt.fractMid,
+      ["@markup.link.label"] = plt.crackPulse,
+      ["@markup.link.url"] = plt.fractMid,
+      ["@markup.raw"] = plt.fractLighter,
+      ["@markup.raw.block"] = plt.fractLighter,
+      ["@markup.list"] = plt.prismCore,
+      ["@markup.list.checked"] = plt.fractLighter,
+      ["@markup.list.unchecked"] = plt.fractBright,
+
+      ["@diff.plus"] = plt.fractLighter,
+      ["@diff.minus"] = plt.crackBright,
+      ["@diff.delta"] = plt.fractMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.fractMid,
+      ["@spell"] = plt.prismCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.prismCore,
+      ["@constructor.python"] = plt.prismBright,
+      ["@constructor.javascript"] = plt.prismBright,
+      ["@constructor.typescript"] = plt.prismBright,
+      ["@namespace.rust"] = plt.prismCore,
+      ["@type.qualifier.rust"] = plt.prismCore,
+      ["@constant.macro.c"] = plt.crackMid,
+      ["@constant.macro.cpp"] = plt.crackMid,
+      ["@namespace.go"] = plt.prismCore,
+      ["@property.css"] = plt.prismBright,
+      ["@type.css"] = plt.prismCore,
+      ["@label.json"] = plt.prismCore,
+      ["@field.yaml"] = plt.prismCore,
+      ["@property.toml"] = plt.prismCore,
+      ["@function.builtin.bash"] = plt.prismBright,
+      ["@string.regexp"] = plt.fractMid,
+      ["@character.special.regex"] = plt.crackMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.fractLightest,
+      ["@lsp.type.interface"] = plt.fractLightest,
+      ["@lsp.type.struct"] = plt.fractLightest,
+      ["@lsp.type.enum"] = plt.fractLightest,
+      ["@lsp.type.enumMember"] = plt.fractLightest,
+      ["@lsp.type.property"] = plt.prismCore,
+      ["@lsp.type.namespace"] = plt.prismCore,
+
+      ["@lsp.type.macro"] = plt.crackMid,
+      ["@lsp.type.decorator"] = plt.prismBright,
+
+      ["@lsp.type.builtinType"] = plt.fractLightest,
+      ["@lsp.type.selfParameter"] = plt.prismCore,
+      ["@lsp.type.typeParameter"] = plt.fractLightest,
+
+      ["@lsp.type.array"] = plt.fractLightest,
+      ["@lsp.type.object"] = plt.fractLightest,
+      ["@lsp.type.key"] = plt.prismCore,
+      ["@lsp.type.null"] = plt.fractLightest,
+      ["@lsp.type.enumConstant"] = plt.fractLightest,
+
+      ["@lsp.type.event"] = plt.fractLightest,
+      ["@lsp.type.regexp"] = plt.fractMid,
+      ["@lsp.type.unresolvedReference"] = plt.crackBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.fractMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.fractLightest,
+      ["@lsp.mod.async"] = plt.prismCore,
+      ["@lsp.mod.static"] = plt.fractLightest,
+      ["@lsp.mod.abstract"] = plt.fractLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.fractLightest,
+      ["@lsp.mod.documentation"] = plt.fractBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Glass",
+  author = "PrismPunk.nvim",
+  description = "Transparent fragility. Cool clears. Faint red cracks. Brittle precision.",
+
+  base16 = {
+    base00 = palette.glassVoid,
+    base01 = palette.glassDark,
+    base02 = palette.glassDeep,
+    base03 = palette.glassMid,
+    base04 = palette.fractBright,
+    base05 = palette.fractLightest,
+    base06 = palette.prismCore,
+    base07 = palette.prismBright,
+    base08 = palette.crackBright,
+    base09 = palette.crackMid,
+    base0A = palette.crackDeep,
+    base0B = palette.fractLighter,
+    base0C = palette.crackPulse,
+    base0D = palette.fractMid,
+    base0E = palette.crackPulse,
+    base0F = palette.fractMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

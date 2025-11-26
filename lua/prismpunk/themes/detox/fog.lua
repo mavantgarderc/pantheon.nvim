@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.fog")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.veilBright,
+      insert = plt.veilLighter,
+      visual = plt.amberPulse,
+      replace = plt.veilMid,
+      command = plt.glowCore,
+    },
+
+    ui = {
+      fg = plt.glowCore,
+      fg_dim = plt.glowCore,
+      fg_dimmer = plt.veilLighter,
+      fg_dark = plt.veilMid,
+      fg_reverse = plt.mistVoid,
+
+      bg_m4 = plt.mistLight,
+      bg_m3 = plt.mistMid,
+      bg_m2 = plt.mistDeep,
+      bg_m1 = plt.mistDark,
+      bg_dim = plt.mistVoid,
+      bg = plt.mistVoid,
+      bg_p1 = plt.mistDeep,
+      bg_p2 = plt.mistMid,
+      bg_gutter = opts.gutter and plt.mistMid or "none",
+      bg_cursorline = plt.hazeLine,
+      bg_cursorline_alt = plt.hazeMid,
+      bg_search = plt.amberPulse,
+      bg_visual = plt.amberDeep,
+      bg_statusline = plt.hazeMid,
+
+      border = plt.veilMid,
+      header1 = plt.glowBright,
+      header2 = plt.glowCore,
+      special = plt.amberBright,
+      nontext = plt.mistLight,
+      whitespace = plt.mistMid,
+      win_separator = plt.veilMid,
+      indent = plt.mistMid,
+      indent_scope = plt.veilDeep,
+      picker = plt.veilMid,
+      yank = plt.amberPulse,
+      mark = plt.amberBright,
+      scrollbar = plt.mistLight,
+
+      tabline = {
+        bg = plt.mistVoid,
+        fg_selected = plt.glowCore,
+        bg_selected = plt.hazeMid,
+        fg_inactive = plt.veilLighter,
+        bg_inactive = plt.mistVoid,
+        fg_alternate = plt.veilBright,
+        bg_alternate = plt.mistVoid,
+        indicator = plt.amberPulse,
+      },
+
+      pmenu = {
+        fg = plt.glowCore,
+        fg_sel = "none",
+        fg_border = plt.hazeMid,
+        bg_border = plt.hazeMid,
+        bg = plt.hazeMid,
+        bg_sel = plt.hazeDeep,
+        bg_sbar = plt.hazeMid,
+        bg_thumb = plt.veilMid,
+      },
+
+      float = {
+        fg = plt.glowCore,
+        bg = plt.mistDeep,
+        fg_border = plt.hazeMid,
+        bg_border = plt.mistDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.glowBright,
+      accent2 = plt.glowCore,
+      accent3 = plt.veilLighter,
+      accent4 = plt.veilBright,
+      accent5 = plt.amberPulse,
+      invert = plt.hazeMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.veilBright,
+      rainbow2 = plt.veilMid,
+      rainbow3 = plt.veilDeep,
+      rainbow4 = plt.hazeDeep,
+      rainbow5 = plt.glowCore,
+      rainbow6 = plt.glowBright,
+      rainbow7 = plt.amberPulse,
+    },
+
+    syn = {
+      attribute = plt.glowCore,
+      boolean = plt.amberBright,
+      comment = plt.veilBright,
+      constant = plt.veilLightest,
+      deprecated = plt.veilMid,
+      func = plt.glowBright,
+      identifier = plt.glowCore,
+      keyword = plt.glowCore,
+      method = plt.glowBright,
+      number = plt.veilLightest,
+      operator = plt.veilMid,
+      parameter = plt.veilLighter,
+      preproc = plt.amberMid,
+      punct = plt.veilDeep,
+      regex = plt.veilMid,
+      statement = plt.glowCore,
+      string = plt.veilLighter,
+      symbol = plt.glowCore,
+      type = plt.veilLightest,
+      variable = plt.glowCore,
+      special = plt.amberPulse,
+      special2 = plt.amberMid,
+      special3 = plt.amberBright,
+    },
+
+    vcs = { added = plt.veilLighter, removed = plt.amberBright, changed = plt.amberDeep },
+    diff = { add = plt.veilLighter, change = plt.veilDeep, delete = plt.amberBright, text = plt.amberMid },
+    diag = {
+      ok = plt.veilLighter,
+      error = plt.amberBright,
+      warning = plt.amberPulse,
+      info = plt.glowCore,
+      hint = plt.veilMid,
+    },
+
+    term = {
+      black = plt.mistVoid,
+      red = plt.amberBright,
+      green = plt.veilBright,
+      yellow = plt.veilLightest,
+      blue = plt.mistVoid,
+      magenta = plt.glowCore,
+      cyan = plt.veilMid,
+      white = plt.glowBright,
+
+      black_bright = color(plt.mistVoid):brighten(0.4):to_hex(),
+      red_bright = plt.amberPulse,
+      green_bright = color(plt.veilBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.glowBright,
+      blue_bright = color(plt.mistVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.glowCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.veilMid):brighten(0.3):to_hex(),
+      white_bright = plt.glowBright,
+      indexed1 = plt.veilLighter,
+      indexed2 = plt.veilBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.veilBright,
+      ["@comment.documentation"] = plt.veilMid,
+      ["@comment.error"] = plt.amberBright,
+      ["@comment.warning"] = plt.amberPulse,
+      ["@comment.todo"] = plt.veilLighter,
+      ["@comment.note"] = plt.veilMid,
+
+      ["@constant"] = plt.veilLightest,
+      ["@constant.builtin"] = plt.veilLightest,
+      ["@constant.macro"] = plt.amberMid,
+
+      ["@string"] = plt.veilLighter,
+      ["@string.documentation"] = plt.veilLighter,
+      ["@string.regex"] = plt.veilMid,
+      ["@string.escape"] = plt.amberMid,
+      ["@string.special"] = plt.amberBright,
+      ["@string.special.symbol"] = plt.amberBright,
+      ["@string.special.url"] = plt.veilMid,
+      ["@string.special.path"] = plt.veilLighter,
+
+      ["@character"] = plt.veilLighter,
+      ["@character.special"] = plt.amberMid,
+
+      ["@number"] = plt.veilLightest,
+      ["@number.float"] = plt.veilLightest,
+
+      ["@boolean"] = plt.amberBright,
+
+      ["@function"] = plt.glowBright,
+      ["@function.builtin"] = plt.glowBright,
+      ["@function.call"] = plt.glowBright,
+      ["@function.macro"] = plt.amberMid,
+      ["@function.method"] = plt.glowBright,
+      ["@function.method.call"] = plt.glowBright,
+
+      ["@constructor"] = plt.glowCore,
+
+      ["@parameter"] = plt.veilLighter,
+      ["@parameter.builtin"] = plt.veilLightest,
+
+      ["@keyword"] = plt.glowCore,
+      ["@keyword.coroutine"] = plt.amberBright,
+      ["@keyword.function"] = plt.glowCore,
+      ["@keyword.operator"] = plt.veilMid,
+      ["@keyword.return"] = plt.glowCore,
+      ["@keyword.import"] = plt.veilLightest,
+      ["@keyword.storage"] = plt.glowCore,
+      ["@keyword.repeat"] = plt.glowCore,
+      ["@keyword.conditional"] = plt.glowCore,
+      ["@keyword.exception"] = plt.amberBright,
+      ["@keyword.directive"] = plt.amberMid,
+      ["@keyword.directive.define"] = plt.amberMid,
+
+      ["@conditional"] = plt.glowCore,
+      ["@conditional.ternary"] = plt.glowCore,
+
+      ["@repeat"] = plt.glowCore,
+
+      ["@label"] = plt.veilLightest,
+
+      ["@operator"] = plt.veilMid,
+
+      ["@exception"] = plt.amberBright,
+
+      ["@variable"] = plt.glowCore,
+      ["@variable.builtin"] = plt.veilLightest,
+      ["@variable.parameter"] = plt.veilLighter,
+      ["@variable.member"] = plt.glowCore,
+
+      ["@type"] = plt.veilLightest,
+      ["@type.builtin"] = plt.veilLightest,
+      ["@type.definition"] = plt.veilLightest,
+      ["@type.qualifier"] = plt.glowCore,
+
+      ["@attribute"] = plt.glowCore,
+      ["@attribute.builtin"] = plt.veilLightest,
+
+      ["@property"] = plt.glowCore,
+      ["@field"] = plt.glowCore,
+
+      ["@module"] = plt.glowCore,
+      ["@module.builtin"] = plt.glowCore,
+
+      ["@namespace"] = plt.glowCore,
+      ["@namespace.builtin"] = plt.glowCore,
+
+      ["@punctuation.delimiter"] = plt.veilMid,
+      ["@punctuation.bracket"] = plt.veilMid,
+      ["@punctuation.special"] = plt.amberMid,
+
+      ["@tag"] = plt.glowCore,
+      ["@tag.attribute"] = plt.veilLightest,
+      ["@tag.delimiter"] = plt.veilMid,
+      ["@tag.builtin"] = plt.glowCore,
+
+      ["@markup.strong"] = { fg = plt.glowBright, bold = true },
+      ["@markup.italic"] = { fg = plt.glowCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.veilMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.glowCore, underline = true },
+      ["@markup.heading"] = plt.glowBright,
+      ["@markup.heading.1"] = plt.glowBright,
+      ["@markup.heading.2"] = plt.glowCore,
+      ["@markup.heading.3"] = plt.veilLightest,
+      ["@markup.heading.4"] = plt.veilLighter,
+      ["@markup.heading.5"] = plt.amberMid,
+      ["@markup.heading.6"] = plt.amberPulse,
+      ["@markup.quote"] = plt.veilBright,
+      ["@markup.math"] = plt.veilLightest,
+      ["@markup.link"] = plt.veilMid,
+      ["@markup.link.label"] = plt.amberPulse,
+      ["@markup.link.url"] = plt.veilMid,
+      ["@markup.raw"] = plt.veilLighter,
+      ["@markup.raw.block"] = plt.veilLighter,
+      ["@markup.list"] = plt.glowCore,
+      ["@markup.list.checked"] = plt.veilLighter,
+      ["@markup.list.unchecked"] = plt.veilBright,
+
+      ["@diff.plus"] = plt.veilLighter,
+      ["@diff.minus"] = plt.amberBright,
+      ["@diff.delta"] = plt.veilMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.veilMid,
+      ["@spell"] = plt.glowCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.glowCore,
+      ["@constructor.python"] = plt.glowBright,
+      ["@constructor.javascript"] = plt.glowBright,
+      ["@constructor.typescript"] = plt.glowBright,
+      ["@namespace.rust"] = plt.glowCore,
+      ["@type.qualifier.rust"] = plt.glowCore,
+      ["@constant.macro.c"] = plt.amberMid,
+      ["@constant.macro.cpp"] = plt.amberMid,
+      ["@namespace.go"] = plt.glowCore,
+      ["@property.css"] = plt.glowBright,
+      ["@type.css"] = plt.glowCore,
+      ["@label.json"] = plt.glowCore,
+      ["@field.yaml"] = plt.glowCore,
+      ["@property.toml"] = plt.glowCore,
+      ["@function.builtin.bash"] = plt.glowBright,
+      ["@string.regexp"] = plt.veilMid,
+      ["@character.special.regex"] = plt.amberMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.veilLightest,
+      ["@lsp.type.interface"] = plt.veilLightest,
+      ["@lsp.type.struct"] = plt.veilLightest,
+      ["@lsp.type.enum"] = plt.veilLightest,
+      ["@lsp.type.enumMember"] = plt.veilLightest,
+      ["@lsp.type.property"] = plt.glowCore,
+      ["@lsp.type.namespace"] = plt.glowCore,
+
+      ["@lsp.type.macro"] = plt.amberMid,
+      ["@lsp.type.decorator"] = plt.glowBright,
+
+      ["@lsp.type.builtinType"] = plt.veilLightest,
+      ["@lsp.type.selfParameter"] = plt.glowCore,
+      ["@lsp.type.typeParameter"] = plt.veilLightest,
+
+      ["@lsp.type.array"] = plt.veilLightest,
+      ["@lsp.type.object"] = plt.veilLightest,
+      ["@lsp.type.key"] = plt.glowCore,
+      ["@lsp.type.null"] = plt.veilLightest,
+      ["@lsp.type.enumConstant"] = plt.veilLightest,
+
+      ["@lsp.type.event"] = plt.veilLightest,
+      ["@lsp.type.regexp"] = plt.veilMid,
+      ["@lsp.type.unresolvedReference"] = plt.amberBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.veilMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.veilLightest,
+      ["@lsp.mod.async"] = plt.glowCore,
+      ["@lsp.mod.static"] = plt.veilLightest,
+      ["@lsp.mod.abstract"] = plt.veilLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.veilLightest,
+      ["@lsp.mod.documentation"] = plt.veilBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Fog",
+  author = "PrismPunk.nvim",
+  description = "Misty morning obscurity. Pale desaturated whites. Muted amber through haze. Diffuse clarity.",
+
+  base16 = {
+    base00 = palette.mistVoid,
+    base01 = palette.mistDark,
+    base02 = palette.mistDeep,
+    base03 = palette.mistMid,
+    base04 = palette.veilBright,
+    base05 = palette.veilLightest,
+    base06 = palette.glowCore,
+    base07 = palette.glowBright,
+    base08 = palette.amberBright,
+    base09 = palette.amberMid,
+    base0A = palette.amberDeep,
+    base0B = palette.veilLighter,
+    base0C = palette.amberPulse,
+    base0D = palette.veilMid,
+    base0E = palette.amberPulse,
+    base0F = palette.veilMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

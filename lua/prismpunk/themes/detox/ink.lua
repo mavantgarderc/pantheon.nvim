@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.ink")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.fadeBright,
+      insert = plt.fadeLighter,
+      visual = plt.goldPulse,
+      replace = plt.fadeMid,
+      command = plt.scrollCore,
+    },
+
+    ui = {
+      fg = plt.scrollCore,
+      fg_dim = plt.scrollCore,
+      fg_dimmer = plt.fadeLighter,
+      fg_dark = plt.fadeMid,
+      fg_reverse = plt.inkVoid,
+
+      bg_m4 = plt.inkLight,
+      bg_m3 = plt.inkMid,
+      bg_m2 = plt.inkDeep,
+      bg_m1 = plt.inkDark,
+      bg_dim = plt.inkVoid,
+      bg = plt.inkVoid,
+      bg_p1 = plt.inkDeep,
+      bg_p2 = plt.inkMid,
+      bg_gutter = opts.gutter and plt.inkMid or "none",
+      bg_cursorline = plt.parchLine,
+      bg_cursorline_alt = plt.parchMid,
+      bg_search = plt.goldPulse,
+      bg_visual = plt.goldDeep,
+      bg_statusline = plt.parchMid,
+
+      border = plt.fadeMid,
+      header1 = plt.scrollBright,
+      header2 = plt.scrollCore,
+      special = plt.goldBright,
+      nontext = plt.inkLight,
+      whitespace = plt.inkMid,
+      win_separator = plt.fadeMid,
+      indent = plt.inkMid,
+      indent_scope = plt.fadeDeep,
+      picker = plt.fadeMid,
+      yank = plt.goldPulse,
+      mark = plt.goldBright,
+      scrollbar = plt.inkLight,
+
+      tabline = {
+        bg = plt.inkVoid,
+        fg_selected = plt.scrollCore,
+        bg_selected = plt.parchMid,
+        fg_inactive = plt.fadeLighter,
+        bg_inactive = plt.inkVoid,
+        fg_alternate = plt.fadeBright,
+        bg_alternate = plt.inkVoid,
+        indicator = plt.goldPulse,
+      },
+
+      pmenu = {
+        fg = plt.scrollCore,
+        fg_sel = "none",
+        fg_border = plt.parchMid,
+        bg_border = plt.parchMid,
+        bg = plt.parchMid,
+        bg_sel = plt.parchDeep,
+        bg_sbar = plt.parchMid,
+        bg_thumb = plt.fadeMid,
+      },
+
+      float = {
+        fg = plt.scrollCore,
+        bg = plt.inkDeep,
+        fg_border = plt.parchMid,
+        bg_border = plt.inkDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.scrollBright,
+      accent2 = plt.scrollCore,
+      accent3 = plt.fadeLighter,
+      accent4 = plt.fadeBright,
+      accent5 = plt.goldPulse,
+      invert = plt.parchMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.fadeBright,
+      rainbow2 = plt.fadeMid,
+      rainbow3 = plt.fadeDeep,
+      rainbow4 = plt.parchDeep,
+      rainbow5 = plt.scrollCore,
+      rainbow6 = plt.scrollBright,
+      rainbow7 = plt.goldPulse,
+    },
+
+    syn = {
+      attribute = plt.scrollCore,
+      boolean = plt.goldBright,
+      comment = plt.fadeBright,
+      constant = plt.fadeLightest,
+      deprecated = plt.fadeMid,
+      func = plt.scrollBright,
+      identifier = plt.scrollCore,
+      keyword = plt.scrollCore,
+      method = plt.scrollBright,
+      number = plt.fadeLightest,
+      operator = plt.fadeMid,
+      parameter = plt.fadeLighter,
+      preproc = plt.goldMid,
+      punct = plt.fadeDeep,
+      regex = plt.fadeMid,
+      statement = plt.scrollCore,
+      string = plt.fadeLighter,
+      symbol = plt.scrollCore,
+      type = plt.fadeLightest,
+      variable = plt.scrollCore,
+      special = plt.goldPulse,
+      special2 = plt.goldMid,
+      special3 = plt.goldBright,
+    },
+
+    vcs = { added = plt.fadeLighter, removed = plt.goldBright, changed = plt.goldDeep },
+    diff = { add = plt.fadeLighter, change = plt.fadeDeep, delete = plt.goldBright, text = plt.goldMid },
+    diag = {
+      ok = plt.fadeLighter,
+      error = plt.goldBright,
+      warning = plt.goldPulse,
+      info = plt.scrollCore,
+      hint = plt.fadeMid,
+    },
+
+    term = {
+      black = plt.inkVoid,
+      red = plt.goldBright,
+      green = plt.fadeBright,
+      yellow = plt.fadeLightest,
+      blue = plt.inkVoid,
+      magenta = plt.scrollCore,
+      cyan = plt.fadeMid,
+      white = plt.scrollBright,
+
+      black_bright = color(plt.inkVoid):brighten(0.4):to_hex(),
+      red_bright = plt.goldPulse,
+      green_bright = color(plt.fadeBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.scrollBright,
+      blue_bright = color(plt.inkVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.scrollCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.fadeMid):brighten(0.3):to_hex(),
+      white_bright = plt.scrollBright,
+      indexed1 = plt.fadeLighter,
+      indexed2 = plt.fadeBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.fadeBright,
+      ["@comment.documentation"] = plt.fadeMid,
+      ["@comment.error"] = plt.goldBright,
+      ["@comment.warning"] = plt.goldPulse,
+      ["@comment.todo"] = plt.fadeLighter,
+      ["@comment.note"] = plt.fadeMid,
+
+      ["@constant"] = plt.fadeLightest,
+      ["@constant.builtin"] = plt.fadeLightest,
+      ["@constant.macro"] = plt.goldMid,
+
+      ["@string"] = plt.fadeLighter,
+      ["@string.documentation"] = plt.fadeLighter,
+      ["@string.regex"] = plt.fadeMid,
+      ["@string.escape"] = plt.goldMid,
+      ["@string.special"] = plt.goldBright,
+      ["@string.special.symbol"] = plt.goldBright,
+      ["@string.special.url"] = plt.fadeMid,
+      ["@string.special.path"] = plt.fadeLighter,
+
+      ["@character"] = plt.fadeLighter,
+      ["@character.special"] = plt.goldMid,
+
+      ["@number"] = plt.fadeLightest,
+      ["@number.float"] = plt.fadeLightest,
+
+      ["@boolean"] = plt.goldBright,
+
+      ["@function"] = plt.scrollBright,
+      ["@function.builtin"] = plt.scrollBright,
+      ["@function.call"] = plt.scrollBright,
+      ["@function.macro"] = plt.goldMid,
+      ["@function.method"] = plt.scrollBright,
+      ["@function.method.call"] = plt.scrollBright,
+
+      ["@constructor"] = plt.scrollCore,
+
+      ["@parameter"] = plt.fadeLighter,
+      ["@parameter.builtin"] = plt.fadeLightest,
+
+      ["@keyword"] = plt.scrollCore,
+      ["@keyword.coroutine"] = plt.goldBright,
+      ["@keyword.function"] = plt.scrollCore,
+      ["@keyword.operator"] = plt.fadeMid,
+      ["@keyword.return"] = plt.scrollCore,
+      ["@keyword.import"] = plt.fadeLightest,
+      ["@keyword.storage"] = plt.scrollCore,
+      ["@keyword.repeat"] = plt.scrollCore,
+      ["@keyword.conditional"] = plt.scrollCore,
+      ["@keyword.exception"] = plt.goldBright,
+      ["@keyword.directive"] = plt.goldMid,
+      ["@keyword.directive.define"] = plt.goldMid,
+
+      ["@conditional"] = plt.scrollCore,
+      ["@conditional.ternary"] = plt.scrollCore,
+
+      ["@repeat"] = plt.scrollCore,
+
+      ["@label"] = plt.fadeLightest,
+
+      ["@operator"] = plt.fadeMid,
+
+      ["@exception"] = plt.goldBright,
+
+      ["@variable"] = plt.scrollCore,
+      ["@variable.builtin"] = plt.fadeLightest,
+      ["@variable.parameter"] = plt.fadeLighter,
+      ["@variable.member"] = plt.scrollCore,
+
+      ["@type"] = plt.fadeLightest,
+      ["@type.builtin"] = plt.fadeLightest,
+      ["@type.definition"] = plt.fadeLightest,
+      ["@type.qualifier"] = plt.scrollCore,
+
+      ["@attribute"] = plt.scrollCore,
+      ["@attribute.builtin"] = plt.fadeLightest,
+
+      ["@property"] = plt.scrollCore,
+      ["@field"] = plt.scrollCore,
+
+      ["@module"] = plt.scrollCore,
+      ["@module.builtin"] = plt.scrollCore,
+
+      ["@namespace"] = plt.scrollCore,
+      ["@namespace.builtin"] = plt.scrollCore,
+
+      ["@punctuation.delimiter"] = plt.fadeMid,
+      ["@punctuation.bracket"] = plt.fadeMid,
+      ["@punctuation.special"] = plt.goldMid,
+
+      ["@tag"] = plt.scrollCore,
+      ["@tag.attribute"] = plt.fadeLightest,
+      ["@tag.delimiter"] = plt.fadeMid,
+      ["@tag.builtin"] = plt.scrollCore,
+
+      ["@markup.strong"] = { fg = plt.scrollBright, bold = true },
+      ["@markup.italic"] = { fg = plt.scrollCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.fadeMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.scrollCore, underline = true },
+      ["@markup.heading"] = plt.scrollBright,
+      ["@markup.heading.1"] = plt.scrollBright,
+      ["@markup.heading.2"] = plt.scrollCore,
+      ["@markup.heading.3"] = plt.fadeLightest,
+      ["@markup.heading.4"] = plt.fadeLighter,
+      ["@markup.heading.5"] = plt.goldMid,
+      ["@markup.heading.6"] = plt.goldPulse,
+      ["@markup.quote"] = plt.fadeBright,
+      ["@markup.math"] = plt.fadeLightest,
+      ["@markup.link"] = plt.fadeMid,
+      ["@markup.link.label"] = plt.goldPulse,
+      ["@markup.link.url"] = plt.fadeMid,
+      ["@markup.raw"] = plt.fadeLighter,
+      ["@markup.raw.block"] = plt.fadeLighter,
+      ["@markup.list"] = plt.scrollCore,
+      ["@markup.list.checked"] = plt.fadeLighter,
+      ["@markup.list.unchecked"] = plt.fadeBright,
+
+      ["@diff.plus"] = plt.fadeLighter,
+      ["@diff.minus"] = plt.goldBright,
+      ["@diff.delta"] = plt.fadeMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.fadeMid,
+      ["@spell"] = plt.scrollCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.scrollCore,
+      ["@constructor.python"] = plt.scrollBright,
+      ["@constructor.javascript"] = plt.scrollBright,
+      ["@constructor.typescript"] = plt.scrollBright,
+      ["@namespace.rust"] = plt.scrollCore,
+      ["@type.qualifier.rust"] = plt.scrollCore,
+      ["@constant.macro.c"] = plt.goldMid,
+      ["@constant.macro.cpp"] = plt.goldMid,
+      ["@namespace.go"] = plt.scrollCore,
+      ["@property.css"] = plt.scrollBright,
+      ["@type.css"] = plt.scrollCore,
+      ["@label.json"] = plt.scrollCore,
+      ["@field.yaml"] = plt.scrollCore,
+      ["@property.toml"] = plt.scrollCore,
+      ["@function.builtin.bash"] = plt.scrollBright,
+      ["@string.regexp"] = plt.fadeMid,
+      ["@character.special.regex"] = plt.goldMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.fadeLightest,
+      ["@lsp.type.interface"] = plt.fadeLightest,
+      ["@lsp.type.struct"] = plt.fadeLightest,
+      ["@lsp.type.enum"] = plt.fadeLightest,
+      ["@lsp.type.enumMember"] = plt.fadeLightest,
+      ["@lsp.type.property"] = plt.scrollCore,
+      ["@lsp.type.namespace"] = plt.scrollCore,
+
+      ["@lsp.type.macro"] = plt.goldMid,
+      ["@lsp.type.decorator"] = plt.scrollBright,
+
+      ["@lsp.type.builtinType"] = plt.fadeLightest,
+      ["@lsp.type.selfParameter"] = plt.scrollCore,
+      ["@lsp.type.typeParameter"] = plt.fadeLightest,
+
+      ["@lsp.type.array"] = plt.fadeLightest,
+      ["@lsp.type.object"] = plt.fadeLightest,
+      ["@lsp.type.key"] = plt.scrollCore,
+      ["@lsp.type.null"] = plt.fadeLightest,
+      ["@lsp.type.enumConstant"] = plt.fadeLightest,
+
+      ["@lsp.type.event"] = plt.fadeLightest,
+      ["@lsp.type.regexp"] = plt.fadeMid,
+      ["@lsp.type.unresolvedReference"] = plt.goldBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.fadeMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.fadeLightest,
+      ["@lsp.mod.async"] = plt.scrollCore,
+      ["@lsp.mod.static"] = plt.fadeLightest,
+      ["@lsp.mod.abstract"] = plt.fadeLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.fadeLightest,
+      ["@lsp.mod.documentation"] = plt.fadeBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Ink",
+  author = "PrismPunk.nvim",
+  description = "Old parchment spilled ink. Calligraphic history. Faded gold documentation. Literary nostalgia.",
+
+  base16 = {
+    base00 = palette.inkVoid,
+    base01 = palette.inkDark,
+    base02 = palette.inkDeep,
+    base03 = palette.inkMid,
+    base04 = palette.fadeBright,
+    base05 = palette.fadeLightest,
+    base06 = palette.scrollCore,
+    base07 = palette.scrollBright,
+    base08 = palette.goldBright,
+    base09 = palette.goldMid,
+    base0A = palette.goldDeep,
+    base0B = palette.fadeLighter,
+    base0C = palette.goldPulse,
+    base0D = palette.fadeMid,
+    base0E = palette.goldPulse,
+    base0F = palette.fadeMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
