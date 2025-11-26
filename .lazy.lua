@@ -378,6 +378,9 @@ return {
                 -- BAT FAMILY
                 elseif colorscheme_name:match("bat%-family") then
                   category = "dc/bat-family"
+                -- INJUSTICE LEAGUE
+                elseif colorscheme_name:match("injustice%-league") then
+                  category = "dc/injustice-league"
                 -- JUSTICE LEAGUE
                 elseif colorscheme_name:match("justice%-league") then
                   category = "dc/justice-league"
@@ -393,9 +396,6 @@ return {
                 -- LEAGUE OF ASSASINS
                 elseif colorscheme_name:match("league%-of%-assassins") then
                   category = "dc/league-of-assassins"
-                -- INJUSTICE LEAGUE
-                elseif colorscheme_name:match("injustice%-league") then
-                  category = "dc/injustice-league"
                 -- DC/APOKOLIPS
                 elseif colorscheme_name:match("apokolips") then
                   category = "dc/apokolips"
@@ -409,7 +409,7 @@ return {
                 elseif colorscheme_name:match("kanagawa") then
                   category = "kanagawa"
                 -- TMNT
-                elseif colorscheme_name:match("tmnt%-") or colorscheme_name:match("tmnt%-") then
+                elseif colorscheme_name:match("tmnt%-") or colorscheme_name:match("tmnt$") then
                   category = "tmnt"
                 -- NVIM BUILT-IN THEMES
                 elseif colorscheme_name:match("nvim%-builtins") or colorscheme_name:match("nvim%-builtins%-") then
@@ -476,5 +476,4 @@ return {
       })
     end,
   },
-
 }

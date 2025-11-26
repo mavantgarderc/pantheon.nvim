@@ -82,8 +82,8 @@
 
     - [ ] Injustice League
         - [X] Bizarro
-        - [ ] Black Adam
-        - [ ] Black Manta
+        - [X] Black Adam
+        - [X] Black Manta
         - [X] Brainiac
         - [ ] Captain Cold
         - [ ] Cheetah
@@ -388,7 +388,7 @@
     - [X] Cryo Punk
     - [X] Jungle Punk
 
-- [ ] Legacy Nvim Themes
+- [X] Legacy Nvim Themes
     - [X] sorbet
     - [X] retrobox
     - [X] quiet
@@ -434,12 +434,11 @@
     - [ ] base16-catppuccin-mocha
     - [ ] base16-da-one-ocean
 
-- [ ] Visual Dopamine Detox (Low Blue Color Reliance)
+- [X] Visual Dopamine Detox (Low Blue Color Reliance)
     - [X] 1998term
     - [X] Ash
-    - [X] Bunker
     - [X] Bone
-    - [X] Brutalism Prison
+    - [X] Bunker
     - [X] Clay
     - [X] Coal
     - [X] Concrete
@@ -447,25 +446,32 @@
     - [X] Dust
     - [X] Ember
     - [X] Fog
+    - [X] Frost
     - [X] Glass
     - [X] Ink
+    - [X] Iron
     - [X] Jade
     - [X] Linen
-    - [X] Medical Sterile
     - [X] Mercury
     - [X] Moss
     - [X] Moth
     - [X] Mute
+    - [X] Paper
     - [X] Petal
     - [X] Plaster
+    - [X] Prison
     - [X] Rain
     - [X] Rust
     - [X] Scar
     - [X] Sepia
+    - [X] Shadow
     - [X] Silk
     - [X] Silt
     - [X] Slate
+    - [X] Smoke
+    - [X] Sterile
     - [X] Stone
     - [X] Void
+    - [X] Wool
     - [X] Zen Kanagawa
     - [X] Zen Paper
