@@ -436,8 +436,36 @@
 
 - [ ] Visual Dopamine Detox (Low Blue Color Reliance)
     - [X] 1998term
+    - [X] Ash
     - [X] Bunker
+    - [X] Bone
     - [X] Brutalism Prison
-    - [X] Zen Kanagawa
+    - [X] Clay
+    - [X] Coal
+    - [X] Concrete
+    - [X] Copper
+    - [X] Dust
+    - [X] Ember
+    - [X] Fog
+    - [X] Glass
+    - [X] Ink
+    - [X] Jade
+    - [X] Linen
     - [X] Medical Sterile
+    - [X] Mercury
+    - [X] Moss
+    - [X] Moth
+    - [X] Mute
+    - [X] Petal
+    - [X] Plaster
+    - [X] Rain
+    - [X] Rust
+    - [X] Scar
+    - [X] Sepia
+    - [X] Silk
+    - [X] Silt
+    - [X] Slate
+    - [X] Stone
+    - [X] Void
+    - [X] Zen Kanagawa
     - [X] Zen Paper
