@@ -166,11 +166,11 @@ M.get = function(opts, plt)
 
       ["@constant"] = plt.shadowLightest,
       ["@constant.builtin"] = plt.shadowLightest,
-      ["@constant. macro"] = plt.bloodDeep,
+      ["@constant.macro"] = plt.bloodDeep,
 
       ["@string"] = plt.shadowLighter,
       ["@string.documentation"] = plt.shadowLighter,
-      ["@string. regex"] = plt.shadowLight,
+      ["@string.regex"] = plt.shadowLight,
       ["@string.escape"] = plt.bloodMid,
       ["@string.special"] = plt.bloodBright,
       ["@string.special.symbol"] = plt.bloodBright,
@@ -181,7 +181,7 @@ M.get = function(opts, plt)
       ["@character.special"] = plt.bloodMid,
 
       ["@number"] = plt.shadowLightest,
-      ["@number. float"] = plt.shadowLightest,
+      ["@number.float"] = plt.shadowLightest,
 
       ["@boolean"] = plt.bloodBright,
 
@@ -198,20 +198,20 @@ M.get = function(opts, plt)
       ["@parameter.builtin"] = plt.shadowLightest,
 
       ["@keyword"] = plt.focusCore,
-      ["@keyword. coroutine"] = plt.bloodBright,
+      ["@keyword.coroutine"] = plt.bloodBright,
       ["@keyword.function"] = plt.focusCore,
-      ["@keyword. operator"] = plt.shadowLight,
+      ["@keyword.operator"] = plt.shadowLight,
       ["@keyword.return"] = plt.focusCore,
       ["@keyword.import"] = plt.shadowLightest,
-      ["@keyword. storage"] = plt.focusCore,
+      ["@keyword.storage"] = plt.focusCore,
       ["@keyword.repeat"] = plt.focusCore,
       ["@keyword.conditional"] = plt.focusCore,
       ["@keyword.exception"] = plt.bloodBright,
       ["@keyword.directive"] = plt.bloodDeep,
-      ["@keyword. directive.define"] = plt.bloodDeep,
+      ["@keyword.directive.define"] = plt.bloodDeep,
 
       ["@conditional"] = plt.focusCore,
-      ["@conditional. ternary"] = plt.focusCore,
+      ["@conditional.ternary"] = plt.focusCore,
 
       ["@repeat"] = plt.focusCore,
 
@@ -258,14 +258,14 @@ M.get = function(opts, plt)
       ["@markup.underline"] = { fg = plt.focusCore, underline = true },
       ["@markup.heading"] = plt.bloodBright,
       ["@markup.heading.1"] = plt.bloodBright,
-      ["@markup.heading. 2"] = plt.bloodMid,
-      ["@markup. heading.3"] = plt.shadowLightest,
+      ["@markup.heading.2"] = plt.bloodMid,
+      ["@markup.heading.3"] = plt.shadowLightest,
       ["@markup.heading.4"] = plt.shadowLighter,
       ["@markup.heading.5"] = plt.bloodDeep,
-      ["@markup. heading.6"] = plt.bloodPulse,
+      ["@markup.heading.6"] = plt.bloodPulse,
       ["@markup.quote"] = plt.shadowBright,
-      ["@markup. math"] = plt.shadowLightest,
-      ["@markup. link"] = plt.shadowLight,
+      ["@markup.math"] = plt.shadowLightest,
+      ["@markup.link"] = plt.shadowLight,
       ["@markup.link.label"] = plt.bloodPulse,
       ["@markup.link.url"] = plt.shadowLight,
       ["@markup.raw"] = plt.shadowLighter,
@@ -274,7 +274,7 @@ M.get = function(opts, plt)
       ["@markup.list.checked"] = plt.shadowLighter,
       ["@markup.list.unchecked"] = plt.shadowBright,
 
-      ["@diff. plus"] = plt.shadowLighter,
+      ["@diff.plus"] = plt.shadowLighter,
       ["@diff.minus"] = plt.bloodBright,
       ["@diff.delta"] = plt.shadowLight,
 
@@ -283,14 +283,14 @@ M.get = function(opts, plt)
       ["@spell"] = plt.focusCore,
       ["@nospell"] = "none",
 
-      ["@lsp.type. property. lua"] = plt.focusCore,
+      ["@lsp.type.property.lua"] = plt.focusCore,
       ["@constructor.python"] = plt.focusBright,
       ["@constructor.javascript"] = plt.focusBright,
       ["@constructor.typescript"] = plt.focusBright,
       ["@namespace.rust"] = plt.focusCore,
       ["@type.qualifier.rust"] = plt.focusCore,
       ["@constant.macro.c"] = plt.bloodDeep,
-      ["@constant.macro. cpp"] = plt.bloodDeep,
+      ["@constant.macro.cpp"] = plt.bloodDeep,
       ["@namespace.go"] = plt.focusCore,
       ["@property.css"] = plt.focusBright,
       ["@type.css"] = plt.focusCore,
@@ -299,14 +299,14 @@ M.get = function(opts, plt)
       ["@property.toml"] = plt.focusCore,
       ["@function.builtin.bash"] = plt.focusBright,
       ["@string.regexp"] = plt.shadowLight,
-      ["@character.special. regex"] = plt.bloodMid,
+      ["@character.special.regex"] = plt.bloodMid,
     },
 
     lsp = {
       ["@lsp.type.class"] = plt.shadowLightest,
       ["@lsp.type.interface"] = plt.shadowLightest,
-      ["@lsp. type.struct"] = plt.shadowLightest,
-      ["@lsp. type.enum"] = plt.shadowLightest,
+      ["@lsp.type.struct"] = plt.shadowLightest,
+      ["@lsp.type.enum"] = plt.shadowLightest,
       ["@lsp.type.enumMember"] = plt.shadowLightest,
       ["@lsp.type.property"] = plt.focusCore,
       ["@lsp.type.namespace"] = plt.focusCore,
@@ -314,26 +314,26 @@ M.get = function(opts, plt)
       ["@lsp.type.macro"] = plt.bloodDeep,
       ["@lsp.type.decorator"] = plt.focusBright,
 
-      ["@lsp.type. builtinType"] = plt.shadowLightest,
+      ["@lsp.type.builtinType"] = plt.shadowLightest,
       ["@lsp.type.selfParameter"] = plt.focusCore,
       ["@lsp.type.typeParameter"] = plt.shadowLightest,
 
-      ["@lsp.type. array"] = plt.shadowLightest,
-      ["@lsp. type.object"] = plt.shadowLightest,
+      ["@lsp.type.array"] = plt.shadowLightest,
+      ["@lsp.type.object"] = plt.shadowLightest,
       ["@lsp.type.key"] = plt.focusCore,
       ["@lsp.type.null"] = plt.shadowLightest,
-      ["@lsp. type.enumConstant"] = plt.shadowLightest,
+      ["@lsp.type.enumConstant"] = plt.shadowLightest,
 
-      ["@lsp.type. event"] = plt.shadowLightest,
-      ["@lsp. type.regexp"] = plt.shadowLight,
-      ["@lsp. type.unresolvedReference"] = plt.bloodBright,
+      ["@lsp.type.event"] = plt.shadowLightest,
+      ["@lsp.type.regexp"] = plt.shadowLight,
+      ["@lsp.type.unresolvedReference"] = plt.bloodBright,
 
       ["@lsp.mod.deprecated"] = { fg = plt.shadowMid, strikethrough = true },
       ["@lsp.mod.readonly"] = plt.shadowLightest,
       ["@lsp.mod.async"] = plt.focusCore,
       ["@lsp.mod.static"] = plt.shadowLightest,
-      ["@lsp. mod.abstract"] = plt.shadowLightest,
-      ["@lsp. mod.defaultLibrary"] = plt.shadowLightest,
+      ["@lsp.mod.abstract"] = plt.shadowLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.shadowLightest,
       ["@lsp.mod.documentation"] = plt.shadowBright,
     },
   }
@@ -341,8 +341,8 @@ end
 
 return {
   name = "Detox: Brutalist Prison",
-  author = "PrismPunk. nvim",
-  description = "Zero blue.  Tiny green warmth. Deep, readable blood-reds.  Maximum focus. No dopamine.",
+  author = "PrismPunk.nvim",
+  description = "Zero blue. Tiny green warmth. Deep, readable blood-reds. Maximum focus. No dopamine.",
 
   base16 = {
     base00 = palette.prisonVoid,

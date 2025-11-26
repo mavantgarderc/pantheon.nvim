@@ -158,36 +158,36 @@ M.get = function(opts, plt)
 
     treesitter = {
       ["@comment"] = plt.dustBright,
-      ["@comment. documentation"] = plt.dustMid,
-      ["@comment. error"] = plt.clayBright,
+      ["@comment.documentation"] = plt.dustMid,
+      ["@comment.error"] = plt.clayBright,
       ["@comment.warning"] = plt.clayMid,
       ["@comment.todo"] = plt.dustLighter,
       ["@comment.note"] = plt.dustMid,
 
       ["@constant"] = plt.dustLightest,
-      ["@constant. builtin"] = plt.dustLightest,
-      ["@constant. macro"] = plt.clayDeep,
+      ["@constant.builtin"] = plt.dustLightest,
+      ["@constant.macro"] = plt.clayDeep,
 
       ["@string"] = plt.dustLighter,
       ["@string.documentation"] = plt.dustLighter,
-      ["@string. regex"] = plt.dustMid,
-      ["@string. escape"] = plt.clayMid,
+      ["@string.regex"] = plt.dustMid,
+      ["@string.escape"] = plt.clayMid,
       ["@string.special"] = plt.clayBright,
       ["@string.special.symbol"] = plt.clayBright,
       ["@string.special.url"] = plt.dustMid,
-      ["@string. special.path"] = plt.dustLighter,
+      ["@string.special.path"] = plt.dustLighter,
 
       ["@character"] = plt.dustLighter,
       ["@character.special"] = plt.clayMid,
 
       ["@number"] = plt.dustLightest,
-      ["@number. float"] = plt.dustLightest,
+      ["@number.float"] = plt.dustLightest,
 
       ["@boolean"] = plt.clayBright,
 
       ["@function"] = plt.focusBright,
       ["@function.builtin"] = plt.focusBright,
-      ["@function. call"] = plt.focusBright,
+      ["@function.call"] = plt.focusBright,
       ["@function.macro"] = plt.clayDeep,
       ["@function.method"] = plt.focusBright,
       ["@function.method.call"] = plt.focusBright,
@@ -199,19 +199,19 @@ M.get = function(opts, plt)
 
       ["@keyword"] = plt.focusCore,
       ["@keyword.coroutine"] = plt.clayBright,
-      ["@keyword. function"] = plt.focusCore,
+      ["@keyword.function"] = plt.focusCore,
       ["@keyword.operator"] = plt.dustMid,
-      ["@keyword. return"] = plt.focusCore,
+      ["@keyword.return"] = plt.focusCore,
       ["@keyword.import"] = plt.dustLightest,
-      ["@keyword. storage"] = plt.focusCore,
+      ["@keyword.storage"] = plt.focusCore,
       ["@keyword.repeat"] = plt.focusCore,
       ["@keyword.conditional"] = plt.focusCore,
       ["@keyword.exception"] = plt.clayBright,
       ["@keyword.directive"] = plt.clayDeep,
-      ["@keyword. directive.define"] = plt.clayDeep,
+      ["@keyword.directive.define"] = plt.clayDeep,
 
       ["@conditional"] = plt.focusCore,
-      ["@conditional. ternary"] = plt.focusCore,
+      ["@conditional.ternary"] = plt.focusCore,
 
       ["@repeat"] = plt.focusCore,
 
@@ -227,7 +227,7 @@ M.get = function(opts, plt)
       ["@variable.member"] = plt.focusCore,
 
       ["@type"] = plt.dustLightest,
-      ["@type. builtin"] = plt.dustLightest,
+      ["@type.builtin"] = plt.dustLightest,
       ["@type.definition"] = plt.dustLightest,
       ["@type.qualifier"] = plt.focusCore,
 
@@ -243,38 +243,38 @@ M.get = function(opts, plt)
       ["@namespace"] = plt.focusCore,
       ["@namespace.builtin"] = plt.focusCore,
 
-      ["@punctuation. delimiter"] = plt.dustMid,
+      ["@punctuation.delimiter"] = plt.dustMid,
       ["@punctuation.bracket"] = plt.dustMid,
       ["@punctuation.special"] = plt.clayMid,
 
       ["@tag"] = plt.focusCore,
       ["@tag.attribute"] = plt.dustLightest,
-      ["@tag. delimiter"] = plt.dustMid,
+      ["@tag.delimiter"] = plt.dustMid,
       ["@tag.builtin"] = plt.focusCore,
 
-      ["@markup. strong"] = { fg = plt.clayBright, bold = true },
+      ["@markup.strong"] = { fg = plt.clayBright, bold = true },
       ["@markup.italic"] = { fg = plt.focusCore, italic = true },
       ["@markup.strikethrough"] = { fg = plt.dustMid, strikethrough = true },
       ["@markup.underline"] = { fg = plt.focusCore, underline = true },
       ["@markup.heading"] = plt.clayBright,
       ["@markup.heading.1"] = plt.clayBright,
       ["@markup.heading.2"] = plt.clayMid,
-      ["@markup. heading.3"] = plt.dustLightest,
+      ["@markup.heading.3"] = plt.dustLightest,
       ["@markup.heading.4"] = plt.dustLighter,
       ["@markup.heading.5"] = plt.clayDeep,
-      ["@markup. heading.6"] = plt.clayPulse,
+      ["@markup.heading.6"] = plt.clayPulse,
       ["@markup.quote"] = plt.dustBright,
-      ["@markup. math"] = plt.dustLightest,
+      ["@markup.math"] = plt.dustLightest,
       ["@markup.link"] = plt.dustMid,
-      ["@markup. link.label"] = plt.clayPulse,
+      ["@markup.link.label"] = plt.clayPulse,
       ["@markup.link.url"] = plt.dustMid,
-      ["@markup. raw"] = plt.dustLighter,
+      ["@markup.raw"] = plt.dustLighter,
       ["@markup.raw.block"] = plt.dustLighter,
       ["@markup.list"] = plt.focusCore,
       ["@markup.list.checked"] = plt.dustLighter,
       ["@markup.list.unchecked"] = plt.dustBright,
 
-      ["@diff. plus"] = plt.dustLighter,
+      ["@diff.plus"] = plt.dustLighter,
       ["@diff.minus"] = plt.clayBright,
       ["@diff.delta"] = plt.dustMid,
 
@@ -283,7 +283,7 @@ M.get = function(opts, plt)
       ["@spell"] = plt.focusCore,
       ["@nospell"] = "none",
 
-      ["@lsp.type. property. lua"] = plt.focusCore,
+      ["@lsp.type.property.lua"] = plt.focusCore,
       ["@constructor.python"] = plt.focusBright,
       ["@constructor.javascript"] = plt.focusBright,
       ["@constructor.typescript"] = plt.focusBright,
@@ -299,14 +299,14 @@ M.get = function(opts, plt)
       ["@property.toml"] = plt.focusCore,
       ["@function.builtin.bash"] = plt.focusBright,
       ["@string.regexp"] = plt.dustMid,
-      ["@character.special. regex"] = plt.clayMid,
+      ["@character.special.regex"] = plt.clayMid,
     },
 
     lsp = {
       ["@lsp.type.class"] = plt.dustLightest,
       ["@lsp.type.interface"] = plt.dustLightest,
-      ["@lsp. type.struct"] = plt.dustLightest,
-      ["@lsp. type.enum"] = plt.dustLightest,
+      ["@lsp.type.struct"] = plt.dustLightest,
+      ["@lsp.type.enum"] = plt.dustLightest,
       ["@lsp.type.enumMember"] = plt.dustLightest,
       ["@lsp.type.property"] = plt.focusCore,
       ["@lsp.type.namespace"] = plt.focusCore,
@@ -314,17 +314,17 @@ M.get = function(opts, plt)
       ["@lsp.type.macro"] = plt.clayDeep,
       ["@lsp.type.decorator"] = plt.focusBright,
 
-      ["@lsp.type. builtinType"] = plt.dustLightest,
+      ["@lsp.type.builtinType"] = plt.dustLightest,
       ["@lsp.type.selfParameter"] = plt.focusCore,
       ["@lsp.type.typeParameter"] = plt.dustLightest,
 
-      ["@lsp.type. array"] = plt.dustLightest,
-      ["@lsp. type.object"] = plt.dustLightest,
+      ["@lsp.type.array"] = plt.dustLightest,
+      ["@lsp.type.object"] = plt.dustLightest,
       ["@lsp.type.key"] = plt.focusCore,
       ["@lsp.type.null"] = plt.dustLightest,
       ["@lsp.type.enumConstant"] = plt.dustLightest,
 
-      ["@lsp.type. event"] = plt.dustLightest,
+      ["@lsp.type.event"] = plt.dustLightest,
       ["@lsp.type.regexp"] = plt.dustMid,
       ["@lsp.type.unresolvedReference"] = plt.clayBright,
 
@@ -341,8 +341,8 @@ end
 
 return {
   name = "Detox: Bunker",
-  author = "PrismPunk. nvim",
-  description = "Deep earth tones.  Subterranean calm. Clay accents. The bunker beneath dopamine.",
+  author = "PrismPunk.nvim",
+  description = "Deep earth tones. Subterranean calm. Clay accents. The bunker beneath dopamine.",
 
   base16 = {
     base00 = palette.bunkerVoid,

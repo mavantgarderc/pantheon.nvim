@@ -158,36 +158,36 @@ M.get = function(opts, plt)
 
     treesitter = {
       ["@comment"] = plt.nullBright,
-      ["@comment. documentation"] = plt.nullMid,
-      ["@comment. error"] = plt.warningBright,
+      ["@comment.documentation"] = plt.nullMid,
+      ["@comment.error"] = plt.warningBright,
       ["@comment.warning"] = plt.warningPulse,
-      ["@comment. todo"] = plt.nullLighter,
+      ["@comment.todo"] = plt.nullLighter,
       ["@comment.note"] = plt.nullMid,
 
       ["@constant"] = plt.nullLightest,
-      ["@constant. builtin"] = plt.nullLightest,
-      ["@constant. macro"] = plt.warningMid,
+      ["@constant.builtin"] = plt.nullLightest,
+      ["@constant.macro"] = plt.warningMid,
 
       ["@string"] = plt.nullLighter,
       ["@string.documentation"] = plt.nullLighter,
-      ["@string. regex"] = plt.nullMid,
+      ["@string.regex"] = plt.nullMid,
       ["@string.escape"] = plt.warningMid,
       ["@string.special"] = plt.warningBright,
       ["@string.special.symbol"] = plt.warningBright,
       ["@string.special.url"] = plt.nullMid,
-      ["@string. special.path"] = plt.nullLighter,
+      ["@string.special.path"] = plt.nullLighter,
 
       ["@character"] = plt.nullLighter,
       ["@character.special"] = plt.warningMid,
 
       ["@number"] = plt.nullLightest,
-      ["@number. float"] = plt.nullLightest,
+      ["@number.float"] = plt.nullLightest,
 
       ["@boolean"] = plt.warningBright,
 
       ["@function"] = plt.clinicalBright,
       ["@function.builtin"] = plt.clinicalBright,
-      ["@function. call"] = plt.clinicalBright,
+      ["@function.call"] = plt.clinicalBright,
       ["@function.macro"] = plt.warningMid,
       ["@function.method"] = plt.clinicalBright,
       ["@function.method.call"] = plt.clinicalBright,
@@ -203,7 +203,7 @@ M.get = function(opts, plt)
       ["@keyword.operator"] = plt.nullMid,
       ["@keyword.return"] = plt.clinicalCore,
       ["@keyword.import"] = plt.nullLightest,
-      ["@keyword. storage"] = plt.clinicalCore,
+      ["@keyword.storage"] = plt.clinicalCore,
       ["@keyword.repeat"] = plt.clinicalCore,
       ["@keyword.conditional"] = plt.clinicalCore,
       ["@keyword.exception"] = plt.warningBright,
@@ -211,7 +211,7 @@ M.get = function(opts, plt)
       ["@keyword.directive.define"] = plt.warningMid,
 
       ["@conditional"] = plt.clinicalCore,
-      ["@conditional. ternary"] = plt.clinicalCore,
+      ["@conditional.ternary"] = plt.clinicalCore,
 
       ["@repeat"] = plt.clinicalCore,
 
@@ -227,7 +227,7 @@ M.get = function(opts, plt)
       ["@variable.member"] = plt.clinicalCore,
 
       ["@type"] = plt.nullLightest,
-      ["@type. builtin"] = plt.nullLightest,
+      ["@type.builtin"] = plt.nullLightest,
       ["@type.definition"] = plt.nullLightest,
       ["@type.qualifier"] = plt.clinicalCore,
 
@@ -243,16 +243,16 @@ M.get = function(opts, plt)
       ["@namespace"] = plt.clinicalCore,
       ["@namespace.builtin"] = plt.clinicalCore,
 
-      ["@punctuation. delimiter"] = plt.nullMid,
+      ["@punctuation.delimiter"] = plt.nullMid,
       ["@punctuation.bracket"] = plt.nullMid,
       ["@punctuation.special"] = plt.warningMid,
 
       ["@tag"] = plt.clinicalCore,
       ["@tag.attribute"] = plt.nullLightest,
-      ["@tag. delimiter"] = plt.nullMid,
+      ["@tag.delimiter"] = plt.nullMid,
       ["@tag.builtin"] = plt.clinicalCore,
 
-      ["@markup. strong"] = { fg = plt.clinicalBright, bold = true },
+      ["@markup.strong"] = { fg = plt.clinicalBright, bold = true },
       ["@markup.italic"] = { fg = plt.clinicalCore, italic = true },
       ["@markup.strikethrough"] = { fg = plt.nullMid, strikethrough = true },
       ["@markup.underline"] = { fg = plt.clinicalCore, underline = true },
@@ -260,13 +260,13 @@ M.get = function(opts, plt)
       ["@markup.heading.1"] = plt.clinicalBright,
       ["@markup.heading.2"] = plt.clinicalCore,
       ["@markup.heading.3"] = plt.nullLightest,
-      ["@markup. heading.4"] = plt.nullLighter,
+      ["@markup.heading.4"] = plt.nullLighter,
       ["@markup.heading.5"] = plt.warningMid,
-      ["@markup. heading.6"] = plt.warningPulse,
+      ["@markup.heading.6"] = plt.warningPulse,
       ["@markup.quote"] = plt.nullBright,
-      ["@markup. math"] = plt.nullLightest,
-      ["@markup. link"] = plt.nullMid,
-      ["@markup. link.label"] = plt.warningPulse,
+      ["@markup.math"] = plt.nullLightest,
+      ["@markup.link"] = plt.nullMid,
+      ["@markup.link.label"] = plt.warningPulse,
       ["@markup.link.url"] = plt.nullMid,
       ["@markup.raw"] = plt.nullLighter,
       ["@markup.raw.block"] = plt.nullLighter,
@@ -274,7 +274,7 @@ M.get = function(opts, plt)
       ["@markup.list.checked"] = plt.nullLighter,
       ["@markup.list.unchecked"] = plt.nullBright,
 
-      ["@diff. plus"] = plt.nullLighter,
+      ["@diff.plus"] = plt.nullLighter,
       ["@diff.minus"] = plt.warningBright,
       ["@diff.delta"] = plt.nullMid,
 
@@ -283,7 +283,7 @@ M.get = function(opts, plt)
       ["@spell"] = plt.clinicalCore,
       ["@nospell"] = "none",
 
-      ["@lsp.type. property. lua"] = plt.clinicalCore,
+      ["@lsp.type.property.lua"] = plt.clinicalCore,
       ["@constructor.python"] = plt.clinicalBright,
       ["@constructor.javascript"] = plt.clinicalBright,
       ["@constructor.typescript"] = plt.clinicalBright,
@@ -299,14 +299,14 @@ M.get = function(opts, plt)
       ["@property.toml"] = plt.clinicalCore,
       ["@function.builtin.bash"] = plt.clinicalBright,
       ["@string.regexp"] = plt.nullMid,
-      ["@character.special. regex"] = plt.warningMid,
+      ["@character.special.regex"] = plt.warningMid,
     },
 
     lsp = {
       ["@lsp.type.class"] = plt.nullLightest,
       ["@lsp.type.interface"] = plt.nullLightest,
-      ["@lsp. type.struct"] = plt.nullLightest,
-      ["@lsp. type.enum"] = plt.nullLightest,
+      ["@lsp.type.struct"] = plt.nullLightest,
+      ["@lsp.type.enum"] = plt.nullLightest,
       ["@lsp.type.enumMember"] = plt.nullLightest,
       ["@lsp.type.property"] = plt.clinicalCore,
       ["@lsp.type.namespace"] = plt.clinicalCore,
@@ -314,26 +314,26 @@ M.get = function(opts, plt)
       ["@lsp.type.macro"] = plt.warningMid,
       ["@lsp.type.decorator"] = plt.clinicalBright,
 
-      ["@lsp.type. builtinType"] = plt.nullLightest,
+      ["@lsp.type.builtinType"] = plt.nullLightest,
       ["@lsp.type.selfParameter"] = plt.clinicalCore,
       ["@lsp.type.typeParameter"] = plt.nullLightest,
 
-      ["@lsp.type. array"] = plt.nullLightest,
-      ["@lsp. type.object"] = plt.nullLightest,
+      ["@lsp.type.array"] = plt.nullLightest,
+      ["@lsp.type.object"] = plt.nullLightest,
       ["@lsp.type.key"] = plt.clinicalCore,
       ["@lsp.type.null"] = plt.nullLightest,
-      ["@lsp. type.enumConstant"] = plt.nullLightest,
+      ["@lsp.type.enumConstant"] = plt.nullLightest,
 
-      ["@lsp.type. event"] = plt.nullLightest,
-      ["@lsp. type.regexp"] = plt.nullMid,
+      ["@lsp.type.event"] = plt.nullLightest,
+      ["@lsp.type.regexp"] = plt.nullMid,
       ["@lsp.type.unresolvedReference"] = plt.warningBright,
 
       ["@lsp.mod.deprecated"] = { fg = plt.nullMid, strikethrough = true },
       ["@lsp.mod.readonly"] = plt.nullLightest,
       ["@lsp.mod.async"] = plt.clinicalCore,
-      ["@lsp. mod.static"] = plt.nullLightest,
+      ["@lsp.mod.static"] = plt.nullLightest,
       ["@lsp.mod.abstract"] = plt.nullLightest,
-      ["@lsp. mod.defaultLibrary"] = plt.nullLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.nullLightest,
       ["@lsp.mod.documentation"] = plt.nullBright,
     },
   }
@@ -341,8 +341,8 @@ end
 
 return {
   name = "Detox: Sterile",
-  author = "PrismPunk. nvim",
-  description = "Clinical precision.  Cold null grays. Red warnings only.  Maximum clarity.  Antiseptic void.",
+  author = "PrismPunk.nvim",
+  description = "Clinical precision. Cold null grays. Red warnings only. Maximum clarity. Antiseptic void.",
 
   base16 = {
     base00 = palette.sterileVoid,
