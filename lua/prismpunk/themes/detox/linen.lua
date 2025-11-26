@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.linen")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.threadBright,
+      insert = plt.threadLighter,
+      visual = plt.shadowPulse,
+      replace = plt.threadMid,
+      command = plt.fabricCore,
+    },
+
+    ui = {
+      fg = plt.fabricCore,
+      fg_dim = plt.fabricCore,
+      fg_dimmer = plt.threadLighter,
+      fg_dark = plt.threadMid,
+      fg_reverse = plt.linenVoid,
+
+      bg_m4 = plt.linenLight,
+      bg_m3 = plt.linenMid,
+      bg_m2 = plt.linenDeep,
+      bg_m1 = plt.linenDark,
+      bg_dim = plt.linenVoid,
+      bg = plt.linenVoid,
+      bg_p1 = plt.linenDeep,
+      bg_p2 = plt.linenMid,
+      bg_gutter = opts.gutter and plt.linenMid or "none",
+      bg_cursorline = plt.weaveLine,
+      bg_cursorline_alt = plt.weaveMid,
+      bg_search = plt.shadowPulse,
+      bg_visual = plt.shadowDeep,
+      bg_statusline = plt.weaveMid,
+
+      border = plt.threadMid,
+      header1 = plt.fabricBright,
+      header2 = plt.fabricCore,
+      special = plt.shadowBright,
+      nontext = plt.linenLight,
+      whitespace = plt.linenMid,
+      win_separator = plt.threadMid,
+      indent = plt.linenMid,
+      indent_scope = plt.threadDeep,
+      picker = plt.threadMid,
+      yank = plt.shadowPulse,
+      mark = plt.shadowBright,
+      scrollbar = plt.linenLight,
+
+      tabline = {
+        bg = plt.linenVoid,
+        fg_selected = plt.fabricCore,
+        bg_selected = plt.weaveMid,
+        fg_inactive = plt.threadLighter,
+        bg_inactive = plt.linenVoid,
+        fg_alternate = plt.threadBright,
+        bg_alternate = plt.linenVoid,
+        indicator = plt.shadowPulse,
+      },
+
+      pmenu = {
+        fg = plt.fabricCore,
+        fg_sel = "none",
+        fg_border = plt.weaveMid,
+        bg_border = plt.weaveMid,
+        bg = plt.weaveMid,
+        bg_sel = plt.weaveDeep,
+        bg_sbar = plt.weaveMid,
+        bg_thumb = plt.threadMid,
+      },
+
+      float = {
+        fg = plt.fabricCore,
+        bg = plt.linenDeep,
+        fg_border = plt.weaveMid,
+        bg_border = plt.linenDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.fabricBright,
+      accent2 = plt.fabricCore,
+      accent3 = plt.threadLighter,
+      accent4 = plt.threadBright,
+      accent5 = plt.shadowPulse,
+      invert = plt.weaveMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.threadBright,
+      rainbow2 = plt.threadMid,
+      rainbow3 = plt.threadDeep,
+      rainbow4 = plt.weaveDeep,
+      rainbow5 = plt.fabricCore,
+      rainbow6 = plt.fabricBright,
+      rainbow7 = plt.shadowPulse,
+    },
+
+    syn = {
+      attribute = plt.fabricCore,
+      boolean = plt.shadowBright,
+      comment = plt.threadBright,
+      constant = plt.threadLightest,
+      deprecated = plt.threadMid,
+      func = plt.fabricBright,
+      identifier = plt.fabricCore,
+      keyword = plt.fabricCore,
+      method = plt.fabricBright,
+      number = plt.threadLightest,
+      operator = plt.threadMid,
+      parameter = plt.threadLighter,
+      preproc = plt.shadowMid,
+      punct = plt.threadDeep,
+      regex = plt.threadMid,
+      statement = plt.fabricCore,
+      string = plt.threadLighter,
+      symbol = plt.fabricCore,
+      type = plt.threadLightest,
+      variable = plt.fabricCore,
+      special = plt.shadowPulse,
+      special2 = plt.shadowMid,
+      special3 = plt.shadowBright,
+    },
+
+    vcs = { added = plt.threadLighter, removed = plt.shadowBright, changed = plt.shadowDeep },
+    diff = { add = plt.threadLighter, change = plt.threadDeep, delete = plt.shadowBright, text = plt.shadowMid },
+    diag = {
+      ok = plt.threadLighter,
+      error = plt.shadowBright,
+      warning = plt.shadowPulse,
+      info = plt.fabricCore,
+      hint = plt.threadMid,
+    },
+
+    term = {
+      black = plt.linenVoid,
+      red = plt.shadowBright,
+      green = plt.threadBright,
+      yellow = plt.threadLightest,
+      blue = plt.linenVoid,
+      magenta = plt.fabricCore,
+      cyan = plt.threadMid,
+      white = plt.fabricBright,
+
+      black_bright = color(plt.linenVoid):brighten(0.4):to_hex(),
+      red_bright = plt.shadowPulse,
+      green_bright = color(plt.threadBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.fabricBright,
+      blue_bright = color(plt.linenVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.fabricCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.threadMid):brighten(0.3):to_hex(),
+      white_bright = plt.fabricBright,
+      indexed1 = plt.threadLighter,
+      indexed2 = plt.threadBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.threadBright,
+      ["@comment.documentation"] = plt.threadMid,
+      ["@comment.error"] = plt.shadowBright,
+      ["@comment.warning"] = plt.shadowPulse,
+      ["@comment.todo"] = plt.threadLighter,
+      ["@comment.note"] = plt.threadMid,
+
+      ["@constant"] = plt.threadLightest,
+      ["@constant.builtin"] = plt.threadLightest,
+      ["@constant.macro"] = plt.shadowMid,
+
+      ["@string"] = plt.threadLighter,
+      ["@string.documentation"] = plt.threadLighter,
+      ["@string.regex"] = plt.threadMid,
+      ["@string.escape"] = plt.shadowMid,
+      ["@string.special"] = plt.shadowBright,
+      ["@string.special.symbol"] = plt.shadowBright,
+      ["@string.special.url"] = plt.threadMid,
+      ["@string.special.path"] = plt.threadLighter,
+
+      ["@character"] = plt.threadLighter,
+      ["@character.special"] = plt.shadowMid,
+
+      ["@number"] = plt.threadLightest,
+      ["@number.float"] = plt.threadLightest,
+
+      ["@boolean"] = plt.shadowBright,
+
+      ["@function"] = plt.fabricBright,
+      ["@function.builtin"] = plt.fabricBright,
+      ["@function.call"] = plt.fabricBright,
+      ["@function.macro"] = plt.shadowMid,
+      ["@function.method"] = plt.fabricBright,
+      ["@function.method.call"] = plt.fabricBright,
+
+      ["@constructor"] = plt.fabricCore,
+
+      ["@parameter"] = plt.threadLighter,
+      ["@parameter.builtin"] = plt.threadLightest,
+
+      ["@keyword"] = plt.fabricCore,
+      ["@keyword.coroutine"] = plt.shadowBright,
+      ["@keyword.function"] = plt.fabricCore,
+      ["@keyword.operator"] = plt.threadMid,
+      ["@keyword.return"] = plt.fabricCore,
+      ["@keyword.import"] = plt.threadLightest,
+      ["@keyword.storage"] = plt.fabricCore,
+      ["@keyword.repeat"] = plt.fabricCore,
+      ["@keyword.conditional"] = plt.fabricCore,
+      ["@keyword.exception"] = plt.shadowBright,
+      ["@keyword.directive"] = plt.shadowMid,
+      ["@keyword.directive.define"] = plt.shadowMid,
+
+      ["@conditional"] = plt.fabricCore,
+      ["@conditional.ternary"] = plt.fabricCore,
+
+      ["@repeat"] = plt.fabricCore,
+
+      ["@label"] = plt.threadLightest,
+
+      ["@operator"] = plt.threadMid,
+
+      ["@exception"] = plt.shadowBright,
+
+      ["@variable"] = plt.fabricCore,
+      ["@variable.builtin"] = plt.threadLightest,
+      ["@variable.parameter"] = plt.threadLighter,
+      ["@variable.member"] = plt.fabricCore,
+
+      ["@type"] = plt.threadLightest,
+      ["@type.builtin"] = plt.threadLightest,
+      ["@type.definition"] = plt.threadLightest,
+      ["@type.qualifier"] = plt.fabricCore,
+
+      ["@attribute"] = plt.fabricCore,
+      ["@attribute.builtin"] = plt.threadLightest,
+
+      ["@property"] = plt.fabricCore,
+      ["@field"] = plt.fabricCore,
+
+      ["@module"] = plt.fabricCore,
+      ["@module.builtin"] = plt.fabricCore,
+
+      ["@namespace"] = plt.fabricCore,
+      ["@namespace.builtin"] = plt.fabricCore,
+
+      ["@punctuation.delimiter"] = plt.threadMid,
+      ["@punctuation.bracket"] = plt.threadMid,
+      ["@punctuation.special"] = plt.shadowMid,
+
+      ["@tag"] = plt.fabricCore,
+      ["@tag.attribute"] = plt.threadLightest,
+      ["@tag.delimiter"] = plt.threadMid,
+      ["@tag.builtin"] = plt.fabricCore,
+
+      ["@markup.strong"] = { fg = plt.fabricBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fabricCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.threadMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.fabricCore, underline = true },
+      ["@markup.heading"] = plt.fabricBright,
+      ["@markup.heading.1"] = plt.fabricBright,
+      ["@markup.heading.2"] = plt.fabricCore,
+      ["@markup.heading.3"] = plt.threadLightest,
+      ["@markup.heading.4"] = plt.threadLighter,
+      ["@markup.heading.5"] = plt.shadowMid,
+      ["@markup.heading.6"] = plt.shadowPulse,
+      ["@markup.quote"] = plt.threadBright,
+      ["@markup.math"] = plt.threadLightest,
+      ["@markup.link"] = plt.threadMid,
+      ["@markup.link.label"] = plt.shadowPulse,
+      ["@markup.link.url"] = plt.threadMid,
+      ["@markup.raw"] = plt.threadLighter,
+      ["@markup.raw.block"] = plt.threadLighter,
+      ["@markup.list"] = plt.fabricCore,
+      ["@markup.list.checked"] = plt.threadLighter,
+      ["@markup.list.unchecked"] = plt.threadBright,
+
+      ["@diff.plus"] = plt.threadLighter,
+      ["@diff.minus"] = plt.shadowBright,
+      ["@diff.delta"] = plt.threadMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.threadMid,
+      ["@spell"] = plt.fabricCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fabricCore,
+      ["@constructor.python"] = plt.fabricBright,
+      ["@constructor.javascript"] = plt.fabricBright,
+      ["@constructor.typescript"] = plt.fabricBright,
+      ["@namespace.rust"] = plt.fabricCore,
+      ["@type.qualifier.rust"] = plt.fabricCore,
+      ["@constant.macro.c"] = plt.shadowMid,
+      ["@constant.macro.cpp"] = plt.shadowMid,
+      ["@namespace.go"] = plt.fabricCore,
+      ["@property.css"] = plt.fabricBright,
+      ["@type.css"] = plt.fabricCore,
+      ["@label.json"] = plt.fabricCore,
+      ["@field.yaml"] = plt.fabricCore,
+      ["@property.toml"] = plt.fabricCore,
+      ["@function.builtin.bash"] = plt.fabricBright,
+      ["@string.regexp"] = plt.threadMid,
+      ["@character.special.regex"] = plt.shadowMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.threadLightest,
+      ["@lsp.type.interface"] = plt.threadLightest,
+      ["@lsp.type.struct"] = plt.threadLightest,
+      ["@lsp.type.enum"] = plt.threadLightest,
+      ["@lsp.type.enumMember"] = plt.threadLightest,
+      ["@lsp.type.property"] = plt.fabricCore,
+      ["@lsp.type.namespace"] = plt.fabricCore,
+
+      ["@lsp.type.macro"] = plt.shadowMid,
+      ["@lsp.type.decorator"] = plt.fabricBright,
+
+      ["@lsp.type.builtinType"] = plt.threadLightest,
+      ["@lsp.type.selfParameter"] = plt.fabricCore,
+      ["@lsp.type.typeParameter"] = plt.threadLightest,
+
+      ["@lsp.type.array"] = plt.threadLightest,
+      ["@lsp.type.object"] = plt.threadLightest,
+      ["@lsp.type.key"] = plt.fabricCore,
+      ["@lsp.type.null"] = plt.threadLightest,
+      ["@lsp.type.enumConstant"] = plt.threadLightest,
+
+      ["@lsp.type.event"] = plt.threadLightest,
+      ["@lsp.type.regexp"] = plt.threadMid,
+      ["@lsp.type.unresolvedReference"] = plt.shadowBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.threadMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.threadLightest,
+      ["@lsp.mod.async"] = plt.fabricCore,
+      ["@lsp.mod.static"] = plt.threadLightest,
+      ["@lsp.mod.abstract"] = plt.threadLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.threadLightest,
+      ["@lsp.mod.documentation"] = plt.threadBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Linen",
+  author = "PrismPunk.nvim",
+  description = "Natural unbleached fabric. Warm off-whites. Thread shadow contrast. Textile comfort.",
+
+  base16 = {
+    base00 = palette.linenVoid,
+    base01 = palette.linenDark,
+    base02 = palette.linenDeep,
+    base03 = palette.linenMid,
+    base04 = palette.threadBright,
+    base05 = palette.threadLightest,
+    base06 = palette.fabricCore,
+    base07 = palette.fabricBright,
+    base08 = palette.shadowBright,
+    base09 = palette.shadowMid,
+    base0A = palette.shadowDeep,
+    base0B = palette.threadLighter,
+    base0C = palette.shadowPulse,
+    base0D = palette.threadMid,
+    base0E = palette.shadowPulse,
+    base0F = palette.threadMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

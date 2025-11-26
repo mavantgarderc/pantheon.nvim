@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.jade")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.veinBright,
+      insert = plt.veinLighter,
+      visual = plt.goldPulse,
+      replace = plt.veinMid,
+      command = plt.clearCore,
+    },
+
+    ui = {
+      fg = plt.clearCore,
+      fg_dim = plt.clearCore,
+      fg_dimmer = plt.veinLighter,
+      fg_dark = plt.veinMid,
+      fg_reverse = plt.jadeVoid,
+
+      bg_m4 = plt.jadeLight,
+      bg_m3 = plt.jadeMid,
+      bg_m2 = plt.jadeDeep,
+      bg_m1 = plt.jadeDark,
+      bg_dim = plt.jadeVoid,
+      bg = plt.jadeVoid,
+      bg_p1 = plt.jadeDeep,
+      bg_p2 = plt.jadeMid,
+      bg_gutter = opts.gutter and plt.jadeMid or "none",
+      bg_cursorline = plt.stoneLine,
+      bg_cursorline_alt = plt.stoneMid,
+      bg_search = plt.goldPulse,
+      bg_visual = plt.goldDeep,
+      bg_statusline = plt.stoneMid,
+
+      border = plt.veinMid,
+      header1 = plt.clearBright,
+      header2 = plt.clearCore,
+      special = plt.goldBright,
+      nontext = plt.jadeLight,
+      whitespace = plt.jadeMid,
+      win_separator = plt.veinMid,
+      indent = plt.jadeMid,
+      indent_scope = plt.veinDeep,
+      picker = plt.veinMid,
+      yank = plt.goldPulse,
+      mark = plt.goldBright,
+      scrollbar = plt.jadeLight,
+
+      tabline = {
+        bg = plt.jadeVoid,
+        fg_selected = plt.clearCore,
+        bg_selected = plt.stoneMid,
+        fg_inactive = plt.veinLighter,
+        bg_inactive = plt.jadeVoid,
+        fg_alternate = plt.veinBright,
+        bg_alternate = plt.jadeVoid,
+        indicator = plt.goldPulse,
+      },
+
+      pmenu = {
+        fg = plt.clearCore,
+        fg_sel = "none",
+        fg_border = plt.stoneMid,
+        bg_border = plt.stoneMid,
+        bg = plt.stoneMid,
+        bg_sel = plt.stoneDeep,
+        bg_sbar = plt.stoneMid,
+        bg_thumb = plt.veinMid,
+      },
+
+      float = {
+        fg = plt.clearCore,
+        bg = plt.jadeDeep,
+        fg_border = plt.stoneMid,
+        bg_border = plt.jadeDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.clearBright,
+      accent2 = plt.clearCore,
+      accent3 = plt.veinLighter,
+      accent4 = plt.veinBright,
+      accent5 = plt.goldPulse,
+      invert = plt.stoneMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.veinBright,
+      rainbow2 = plt.veinMid,
+      rainbow3 = plt.veinDeep,
+      rainbow4 = plt.stoneDeep,
+      rainbow5 = plt.clearCore,
+      rainbow6 = plt.clearBright,
+      rainbow7 = plt.goldPulse,
+    },
+
+    syn = {
+      attribute = plt.clearCore,
+      boolean = plt.goldBright,
+      comment = plt.veinBright,
+      constant = plt.veinLightest,
+      deprecated = plt.veinMid,
+      func = plt.clearBright,
+      identifier = plt.clearCore,
+      keyword = plt.clearCore,
+      method = plt.clearBright,
+      number = plt.veinLightest,
+      operator = plt.veinMid,
+      parameter = plt.veinLighter,
+      preproc = plt.goldMid,
+      punct = plt.veinDeep,
+      regex = plt.veinMid,
+      statement = plt.clearCore,
+      string = plt.veinLighter,
+      symbol = plt.clearCore,
+      type = plt.veinLightest,
+      variable = plt.clearCore,
+      special = plt.goldPulse,
+      special2 = plt.goldMid,
+      special3 = plt.goldBright,
+    },
+
+    vcs = { added = plt.veinLighter, removed = plt.goldBright, changed = plt.goldDeep },
+    diff = { add = plt.veinLighter, change = plt.veinDeep, delete = plt.goldBright, text = plt.goldMid },
+    diag = {
+      ok = plt.veinLighter,
+      error = plt.goldBright,
+      warning = plt.goldPulse,
+      info = plt.clearCore,
+      hint = plt.veinMid,
+    },
+
+    term = {
+      black = plt.jadeVoid,
+      red = plt.goldBright,
+      green = plt.veinBright,
+      yellow = plt.veinLightest,
+      blue = plt.jadeVoid,
+      magenta = plt.clearCore,
+      cyan = plt.veinMid,
+      white = plt.clearBright,
+
+      black_bright = color(plt.jadeVoid):brighten(0.4):to_hex(),
+      red_bright = plt.goldPulse,
+      green_bright = color(plt.veinBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.clearBright,
+      blue_bright = color(plt.jadeVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.clearCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.veinMid):brighten(0.3):to_hex(),
+      white_bright = plt.clearBright,
+      indexed1 = plt.veinLighter,
+      indexed2 = plt.veinBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.veinBright,
+      ["@comment.documentation"] = plt.veinMid,
+      ["@comment.error"] = plt.goldBright,
+      ["@comment.warning"] = plt.goldPulse,
+      ["@comment.todo"] = plt.veinLighter,
+      ["@comment.note"] = plt.veinMid,
+
+      ["@constant"] = plt.veinLightest,
+      ["@constant.builtin"] = plt.veinLightest,
+      ["@constant.macro"] = plt.goldMid,
+
+      ["@string"] = plt.veinLighter,
+      ["@string.documentation"] = plt.veinLighter,
+      ["@string.regex"] = plt.veinMid,
+      ["@string.escape"] = plt.goldMid,
+      ["@string.special"] = plt.goldBright,
+      ["@string.special.symbol"] = plt.goldBright,
+      ["@string.special.url"] = plt.veinMid,
+      ["@string.special.path"] = plt.veinLighter,
+
+      ["@character"] = plt.veinLighter,
+      ["@character.special"] = plt.goldMid,
+
+      ["@number"] = plt.veinLightest,
+      ["@number.float"] = plt.veinLightest,
+
+      ["@boolean"] = plt.goldBright,
+
+      ["@function"] = plt.clearBright,
+      ["@function.builtin"] = plt.clearBright,
+      ["@function.call"] = plt.clearBright,
+      ["@function.macro"] = plt.goldMid,
+      ["@function.method"] = plt.clearBright,
+      ["@function.method.call"] = plt.clearBright,
+
+      ["@constructor"] = plt.clearCore,
+
+      ["@parameter"] = plt.veinLighter,
+      ["@parameter.builtin"] = plt.veinLightest,
+
+      ["@keyword"] = plt.clearCore,
+      ["@keyword.coroutine"] = plt.goldBright,
+      ["@keyword.function"] = plt.clearCore,
+      ["@keyword.operator"] = plt.veinMid,
+      ["@keyword.return"] = plt.clearCore,
+      ["@keyword.import"] = plt.veinLightest,
+      ["@keyword.storage"] = plt.clearCore,
+      ["@keyword.repeat"] = plt.clearCore,
+      ["@keyword.conditional"] = plt.clearCore,
+      ["@keyword.exception"] = plt.goldBright,
+      ["@keyword.directive"] = plt.goldMid,
+      ["@keyword.directive.define"] = plt.goldMid,
+
+      ["@conditional"] = plt.clearCore,
+      ["@conditional.ternary"] = plt.clearCore,
+
+      ["@repeat"] = plt.clearCore,
+
+      ["@label"] = plt.veinLightest,
+
+      ["@operator"] = plt.veinMid,
+
+      ["@exception"] = plt.goldBright,
+
+      ["@variable"] = plt.clearCore,
+      ["@variable.builtin"] = plt.veinLightest,
+      ["@variable.parameter"] = plt.veinLighter,
+      ["@variable.member"] = plt.clearCore,
+
+      ["@type"] = plt.veinLightest,
+      ["@type.builtin"] = plt.veinLightest,
+      ["@type.definition"] = plt.veinLightest,
+      ["@type.qualifier"] = plt.clearCore,
+
+      ["@attribute"] = plt.clearCore,
+      ["@attribute.builtin"] = plt.veinLightest,
+
+      ["@property"] = plt.clearCore,
+      ["@field"] = plt.clearCore,
+
+      ["@module"] = plt.clearCore,
+      ["@module.builtin"] = plt.clearCore,
+
+      ["@namespace"] = plt.clearCore,
+      ["@namespace.builtin"] = plt.clearCore,
+
+      ["@punctuation.delimiter"] = plt.veinMid,
+      ["@punctuation.bracket"] = plt.veinMid,
+      ["@punctuation.special"] = plt.goldMid,
+
+      ["@tag"] = plt.clearCore,
+      ["@tag.attribute"] = plt.veinLightest,
+      ["@tag.delimiter"] = plt.veinMid,
+      ["@tag.builtin"] = plt.clearCore,
+
+      ["@markup.strong"] = { fg = plt.clearBright, bold = true },
+      ["@markup.italic"] = { fg = plt.clearCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.veinMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.clearCore, underline = true },
+      ["@markup.heading"] = plt.clearBright,
+      ["@markup.heading.1"] = plt.clearBright,
+      ["@markup.heading.2"] = plt.clearCore,
+      ["@markup.heading.3"] = plt.veinLightest,
+      ["@markup.heading.4"] = plt.veinLighter,
+      ["@markup.heading.5"] = plt.goldMid,
+      ["@markup.heading.6"] = plt.goldPulse,
+      ["@markup.quote"] = plt.veinBright,
+      ["@markup.math"] = plt.veinLightest,
+      ["@markup.link"] = plt.veinMid,
+      ["@markup.link.label"] = plt.goldPulse,
+      ["@markup.link.url"] = plt.veinMid,
+      ["@markup.raw"] = plt.veinLighter,
+      ["@markup.raw.block"] = plt.veinLighter,
+      ["@markup.list"] = plt.clearCore,
+      ["@markup.list.checked"] = plt.veinLighter,
+      ["@markup.list.unchecked"] = plt.veinBright,
+
+      ["@diff.plus"] = plt.veinLighter,
+      ["@diff.minus"] = plt.goldBright,
+      ["@diff.delta"] = plt.veinMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.veinMid,
+      ["@spell"] = plt.clearCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.clearCore,
+      ["@constructor.python"] = plt.clearBright,
+      ["@constructor.javascript"] = plt.clearBright,
+      ["@constructor.typescript"] = plt.clearBright,
+      ["@namespace.rust"] = plt.clearCore,
+      ["@type.qualifier.rust"] = plt.clearCore,
+      ["@constant.macro.c"] = plt.goldMid,
+      ["@constant.macro.cpp"] = plt.goldMid,
+      ["@namespace.go"] = plt.clearCore,
+      ["@property.css"] = plt.clearBright,
+      ["@type.css"] = plt.clearCore,
+      ["@label.json"] = plt.clearCore,
+      ["@field.yaml"] = plt.clearCore,
+      ["@property.toml"] = plt.clearCore,
+      ["@function.builtin.bash"] = plt.clearBright,
+      ["@string.regexp"] = plt.veinMid,
+      ["@character.special.regex"] = plt.goldMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.veinLightest,
+      ["@lsp.type.interface"] = plt.veinLightest,
+      ["@lsp.type.struct"] = plt.veinLightest,
+      ["@lsp.type.enum"] = plt.veinLightest,
+      ["@lsp.type.enumMember"] = plt.veinLightest,
+      ["@lsp.type.property"] = plt.clearCore,
+      ["@lsp.type.namespace"] = plt.clearCore,
+
+      ["@lsp.type.macro"] = plt.goldMid,
+      ["@lsp.type.decorator"] = plt.clearBright,
+
+      ["@lsp.type.builtinType"] = plt.veinLightest,
+      ["@lsp.type.selfParameter"] = plt.clearCore,
+      ["@lsp.type.typeParameter"] = plt.veinLightest,
+
+      ["@lsp.type.array"] = plt.veinLightest,
+      ["@lsp.type.object"] = plt.veinLightest,
+      ["@lsp.type.key"] = plt.clearCore,
+      ["@lsp.type.null"] = plt.veinLightest,
+      ["@lsp.type.enumConstant"] = plt.veinLightest,
+
+      ["@lsp.type.event"] = plt.veinLightest,
+      ["@lsp.type.regexp"] = plt.veinMid,
+      ["@lsp.type.unresolvedReference"] = plt.goldBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.veinMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.veinLightest,
+      ["@lsp.mod.async"] = plt.clearCore,
+      ["@lsp.mod.static"] = plt.veinLightest,
+      ["@lsp.mod.abstract"] = plt.veinLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.veinLightest,
+      ["@lsp.mod.documentation"] = plt.veinBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Jade",
+  author = "PrismPunk.nvim",
+  description = "Polished jade stone. Cool green minerals. Pale gold veins. Eastern contemplation.",
+
+  base16 = {
+    base00 = palette.jadeVoid,
+    base01 = palette.jadeDark,
+    base02 = palette.jadeDeep,
+    base03 = palette.jadeMid,
+    base04 = palette.veinBright,
+    base05 = palette.veinLightest,
+    base06 = palette.clearCore,
+    base07 = palette.clearBright,
+    base08 = palette.goldBright,
+    base09 = palette.goldMid,
+    base0A = palette.goldDeep,
+    base0B = palette.veinLighter,
+    base0C = palette.goldPulse,
+    base0D = palette.veinMid,
+    base0E = palette.goldPulse,
+    base0F = palette.veinMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

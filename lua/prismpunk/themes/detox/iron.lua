@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.iron")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.steelBright,
+      insert = plt.steelLighter,
+      visual = plt.rustPulse,
+      replace = plt.steelMid,
+      command = plt.machineCore,
+    },
+
+    ui = {
+      fg = plt.machineCore,
+      fg_dim = plt.machineCore,
+      fg_dimmer = plt.steelLighter,
+      fg_dark = plt.steelMid,
+      fg_reverse = plt.ironVoid,
+
+      bg_m4 = plt.ironLight,
+      bg_m3 = plt.ironMid,
+      bg_m2 = plt.ironDeep,
+      bg_m1 = plt.ironDark,
+      bg_dim = plt.ironVoid,
+      bg = plt.ironVoid,
+      bg_p1 = plt.ironDeep,
+      bg_p2 = plt.ironMid,
+      bg_gutter = opts.gutter and plt.ironMid or "none",
+      bg_cursorline = plt.forgeLine,
+      bg_cursorline_alt = plt.forgeMid,
+      bg_search = plt.rustPulse,
+      bg_visual = plt.rustDeep,
+      bg_statusline = plt.forgeMid,
+
+      border = plt.steelMid,
+      header1 = plt.machineBright,
+      header2 = plt.machineCore,
+      special = plt.rustBright,
+      nontext = plt.ironLight,
+      whitespace = plt.ironMid,
+      win_separator = plt.steelMid,
+      indent = plt.ironMid,
+      indent_scope = plt.steelDeep,
+      picker = plt.steelMid,
+      yank = plt.rustPulse,
+      mark = plt.rustBright,
+      scrollbar = plt.ironLight,
+
+      tabline = {
+        bg = plt.ironVoid,
+        fg_selected = plt.machineCore,
+        bg_selected = plt.forgeMid,
+        fg_inactive = plt.steelLighter,
+        bg_inactive = plt.ironVoid,
+        fg_alternate = plt.steelBright,
+        bg_alternate = plt.ironVoid,
+        indicator = plt.rustPulse,
+      },
+
+      pmenu = {
+        fg = plt.machineCore,
+        fg_sel = "none",
+        fg_border = plt.forgeMid,
+        bg_border = plt.forgeMid,
+        bg = plt.forgeMid,
+        bg_sel = plt.forgeDeep,
+        bg_sbar = plt.forgeMid,
+        bg_thumb = plt.steelMid,
+      },
+
+      float = {
+        fg = plt.machineCore,
+        bg = plt.ironDeep,
+        fg_border = plt.forgeMid,
+        bg_border = plt.ironDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.machineBright,
+      accent2 = plt.machineCore,
+      accent3 = plt.steelLighter,
+      accent4 = plt.steelBright,
+      accent5 = plt.rustPulse,
+      invert = plt.forgeMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.steelBright,
+      rainbow2 = plt.steelMid,
+      rainbow3 = plt.steelDeep,
+      rainbow4 = plt.forgeDeep,
+      rainbow5 = plt.machineCore,
+      rainbow6 = plt.machineBright,
+      rainbow7 = plt.rustPulse,
+    },
+
+    syn = {
+      attribute = plt.machineCore,
+      boolean = plt.rustBright,
+      comment = plt.steelBright,
+      constant = plt.steelLightest,
+      deprecated = plt.steelMid,
+      func = plt.machineBright,
+      identifier = plt.machineCore,
+      keyword = plt.machineCore,
+      method = plt.machineBright,
+      number = plt.steelLightest,
+      operator = plt.steelMid,
+      parameter = plt.steelLighter,
+      preproc = plt.rustMid,
+      punct = plt.steelDeep,
+      regex = plt.steelMid,
+      statement = plt.machineCore,
+      string = plt.steelLighter,
+      symbol = plt.machineCore,
+      type = plt.steelLightest,
+      variable = plt.machineCore,
+      special = plt.rustPulse,
+      special2 = plt.rustMid,
+      special3 = plt.rustBright,
+    },
+
+    vcs = { added = plt.steelLighter, removed = plt.rustBright, changed = plt.rustDeep },
+    diff = { add = plt.steelLighter, change = plt.steelDeep, delete = plt.rustBright, text = plt.rustMid },
+    diag = {
+      ok = plt.steelLighter,
+      error = plt.rustBright,
+      warning = plt.rustPulse,
+      info = plt.machineCore,
+      hint = plt.steelMid,
+    },
+
+    term = {
+      black = plt.ironVoid,
+      red = plt.rustBright,
+      green = plt.steelBright,
+      yellow = plt.steelLightest,
+      blue = plt.ironVoid,
+      magenta = plt.machineCore,
+      cyan = plt.steelMid,
+      white = plt.machineBright,
+
+      black_bright = color(plt.ironVoid):brighten(0.4):to_hex(),
+      red_bright = plt.rustPulse,
+      green_bright = color(plt.steelBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.machineBright,
+      blue_bright = color(plt.ironVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.machineCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.steelMid):brighten(0.3):to_hex(),
+      white_bright = plt.machineBright,
+      indexed1 = plt.steelLighter,
+      indexed2 = plt.steelBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.steelBright,
+      ["@comment.documentation"] = plt.steelMid,
+      ["@comment.error"] = plt.rustBright,
+      ["@comment.warning"] = plt.rustPulse,
+      ["@comment.todo"] = plt.steelLighter,
+      ["@comment.note"] = plt.steelMid,
+
+      ["@constant"] = plt.steelLightest,
+      ["@constant.builtin"] = plt.steelLightest,
+      ["@constant.macro"] = plt.rustMid,
+
+      ["@string"] = plt.steelLighter,
+      ["@string.documentation"] = plt.steelLighter,
+      ["@string.regex"] = plt.steelMid,
+      ["@string.escape"] = plt.rustMid,
+      ["@string.special"] = plt.rustBright,
+      ["@string.special.symbol"] = plt.rustBright,
+      ["@string.special.url"] = plt.steelMid,
+      ["@string.special.path"] = plt.steelLighter,
+
+      ["@character"] = plt.steelLighter,
+      ["@character.special"] = plt.rustMid,
+
+      ["@number"] = plt.steelLightest,
+      ["@number.float"] = plt.steelLightest,
+
+      ["@boolean"] = plt.rustBright,
+
+      ["@function"] = plt.machineBright,
+      ["@function.builtin"] = plt.machineBright,
+      ["@function.call"] = plt.machineBright,
+      ["@function.macro"] = plt.rustMid,
+      ["@function.method"] = plt.machineBright,
+      ["@function.method.call"] = plt.machineBright,
+
+      ["@constructor"] = plt.machineCore,
+
+      ["@parameter"] = plt.steelLighter,
+      ["@parameter.builtin"] = plt.steelLightest,
+
+      ["@keyword"] = plt.machineCore,
+      ["@keyword.coroutine"] = plt.rustBright,
+      ["@keyword.function"] = plt.machineCore,
+      ["@keyword.operator"] = plt.steelMid,
+      ["@keyword.return"] = plt.machineCore,
+      ["@keyword.import"] = plt.steelLightest,
+      ["@keyword.storage"] = plt.machineCore,
+      ["@keyword.repeat"] = plt.machineCore,
+      ["@keyword.conditional"] = plt.machineCore,
+      ["@keyword.exception"] = plt.rustBright,
+      ["@keyword.directive"] = plt.rustMid,
+      ["@keyword.directive.define"] = plt.rustMid,
+
+      ["@conditional"] = plt.machineCore,
+      ["@conditional.ternary"] = plt.machineCore,
+
+      ["@repeat"] = plt.machineCore,
+
+      ["@label"] = plt.steelLightest,
+
+      ["@operator"] = plt.steelMid,
+
+      ["@exception"] = plt.rustBright,
+
+      ["@variable"] = plt.machineCore,
+      ["@variable.builtin"] = plt.steelLightest,
+      ["@variable.parameter"] = plt.steelLighter,
+      ["@variable.member"] = plt.machineCore,
+
+      ["@type"] = plt.steelLightest,
+      ["@type.builtin"] = plt.steelLightest,
+      ["@type.definition"] = plt.steelLightest,
+      ["@type.qualifier"] = plt.machineCore,
+
+      ["@attribute"] = plt.machineCore,
+      ["@attribute.builtin"] = plt.steelLightest,
+
+      ["@property"] = plt.machineCore,
+      ["@field"] = plt.machineCore,
+
+      ["@module"] = plt.machineCore,
+      ["@module.builtin"] = plt.machineCore,
+
+      ["@namespace"] = plt.machineCore,
+      ["@namespace.builtin"] = plt.machineCore,
+
+      ["@punctuation.delimiter"] = plt.steelMid,
+      ["@punctuation.bracket"] = plt.steelMid,
+      ["@punctuation.special"] = plt.rustMid,
+
+      ["@tag"] = plt.machineCore,
+      ["@tag.attribute"] = plt.steelLightest,
+      ["@tag.delimiter"] = plt.steelMid,
+      ["@tag.builtin"] = plt.machineCore,
+
+      ["@markup.strong"] = { fg = plt.machineBright, bold = true },
+      ["@markup.italic"] = { fg = plt.machineCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.steelMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.machineCore, underline = true },
+      ["@markup.heading"] = plt.machineBright,
+      ["@markup.heading.1"] = plt.machineBright,
+      ["@markup.heading.2"] = plt.machineCore,
+      ["@markup.heading.3"] = plt.steelLightest,
+      ["@markup.heading.4"] = plt.steelLighter,
+      ["@markup.heading.5"] = plt.rustMid,
+      ["@markup.heading.6"] = plt.rustPulse,
+      ["@markup.quote"] = plt.steelBright,
+      ["@markup.math"] = plt.steelLightest,
+      ["@markup.link"] = plt.steelMid,
+      ["@markup.link.label"] = plt.rustPulse,
+      ["@markup.link.url"] = plt.steelMid,
+      ["@markup.raw"] = plt.steelLighter,
+      ["@markup.raw.block"] = plt.steelLighter,
+      ["@markup.list"] = plt.machineCore,
+      ["@markup.list.checked"] = plt.steelLighter,
+      ["@markup.list.unchecked"] = plt.steelBright,
+
+      ["@diff.plus"] = plt.steelLighter,
+      ["@diff.minus"] = plt.rustBright,
+      ["@diff.delta"] = plt.steelMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.steelMid,
+      ["@spell"] = plt.machineCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.machineCore,
+      ["@constructor.python"] = plt.machineBright,
+      ["@constructor.javascript"] = plt.machineBright,
+      ["@constructor.typescript"] = plt.machineBright,
+      ["@namespace.rust"] = plt.machineCore,
+      ["@type.qualifier.rust"] = plt.machineCore,
+      ["@constant.macro.c"] = plt.rustMid,
+      ["@constant.macro.cpp"] = plt.rustMid,
+      ["@namespace.go"] = plt.machineCore,
+      ["@property.css"] = plt.machineBright,
+      ["@type.css"] = plt.machineCore,
+      ["@label.json"] = plt.machineCore,
+      ["@field.yaml"] = plt.machineCore,
+      ["@property.toml"] = plt.machineCore,
+      ["@function.builtin.bash"] = plt.machineBright,
+      ["@string.regexp"] = plt.steelMid,
+      ["@character.special.regex"] = plt.rustMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.steelLightest,
+      ["@lsp.type.interface"] = plt.steelLightest,
+      ["@lsp.type.struct"] = plt.steelLightest,
+      ["@lsp.type.enum"] = plt.steelLightest,
+      ["@lsp.type.enumMember"] = plt.steelLightest,
+      ["@lsp.type.property"] = plt.machineCore,
+      ["@lsp.type.namespace"] = plt.machineCore,
+
+      ["@lsp.type.macro"] = plt.rustMid,
+      ["@lsp.type.decorator"] = plt.machineBright,
+
+      ["@lsp.type.builtinType"] = plt.steelLightest,
+      ["@lsp.type.selfParameter"] = plt.machineCore,
+      ["@lsp.type.typeParameter"] = plt.steelLightest,
+
+      ["@lsp.type.array"] = plt.steelLightest,
+      ["@lsp.type.object"] = plt.steelLightest,
+      ["@lsp.type.key"] = plt.machineCore,
+      ["@lsp.type.null"] = plt.steelLightest,
+      ["@lsp.type.enumConstant"] = plt.steelLightest,
+
+      ["@lsp.type.event"] = plt.steelLightest,
+      ["@lsp.type.regexp"] = plt.steelMid,
+      ["@lsp.type.unresolvedReference"] = plt.rustBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.steelMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.steelLightest,
+      ["@lsp.mod.async"] = plt.machineCore,
+      ["@lsp.mod.static"] = plt.steelLightest,
+      ["@lsp.mod.abstract"] = plt.steelLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.steelLightest,
+      ["@lsp.mod.documentation"] = plt.steelBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Iron",
+  author = "PrismPunk.nvim",
+  description = "Forged industrial metal. True gray machine age. Copper rust oxidation. Mechanical precision.",
+
+  base16 = {
+    base00 = palette.ironVoid,
+    base01 = palette.ironDark,
+    base02 = palette.ironDeep,
+    base03 = palette.ironMid,
+    base04 = palette.steelBright,
+    base05 = palette.steelLightest,
+    base06 = palette.machineCore,
+    base07 = palette.machineBright,
+    base08 = palette.rustBright,
+    base09 = palette.rustMid,
+    base0A = palette.rustDeep,
+    base0B = palette.steelLighter,
+    base0C = palette.rustPulse,
+    base0D = palette.steelMid,
+    base0E = palette.rustPulse,
+    base0F = palette.steelMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

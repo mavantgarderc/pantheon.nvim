@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.mercury")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.dropletBright,
+      insert = plt.dropletLighter,
+      visual = plt.dropRedPulse,
+      replace = plt.dropletMid,
+      command = plt.poisonCore,
+    },
+
+    ui = {
+      fg = plt.poisonCore,
+      fg_dim = plt.poisonCore,
+      fg_dimmer = plt.dropletLighter,
+      fg_dark = plt.dropletMid,
+      fg_reverse = plt.mercuryVoid,
+
+      bg_m4 = plt.mercuryLight,
+      bg_m3 = plt.mercuryMid,
+      bg_m2 = plt.mercuryDeep,
+      bg_m1 = plt.mercuryDark,
+      bg_dim = plt.mercuryVoid,
+      bg = plt.mercuryVoid,
+      bg_p1 = plt.mercuryDeep,
+      bg_p2 = plt.mercuryMid,
+      bg_gutter = opts.gutter and plt.mercuryMid or "none",
+      bg_cursorline = plt.liquidLine,
+      bg_cursorline_alt = plt.liquidMid,
+      bg_search = plt.dropRedPulse,
+      bg_visual = plt.dropRedDeep,
+      bg_statusline = plt.liquidMid,
+
+      border = plt.dropletMid,
+      header1 = plt.poisonBright,
+      header2 = plt.poisonCore,
+      special = plt.dropRedBright,
+      nontext = plt.mercuryLight,
+      whitespace = plt.mercuryMid,
+      win_separator = plt.dropletMid,
+      indent = plt.mercuryMid,
+      indent_scope = plt.dropletDeep,
+      picker = plt.dropletMid,
+      yank = plt.dropRedPulse,
+      mark = plt.dropRedBright,
+      scrollbar = plt.mercuryLight,
+
+      tabline = {
+        bg = plt.mercuryVoid,
+        fg_selected = plt.poisonCore,
+        bg_selected = plt.liquidMid,
+        fg_inactive = plt.dropletLighter,
+        bg_inactive = plt.mercuryVoid,
+        fg_alternate = plt.dropletBright,
+        bg_alternate = plt.mercuryVoid,
+        indicator = plt.dropRedPulse,
+      },
+
+      pmenu = {
+        fg = plt.poisonCore,
+        fg_sel = "none",
+        fg_border = plt.liquidMid,
+        bg_border = plt.liquidMid,
+        bg = plt.liquidMid,
+        bg_sel = plt.liquidDeep,
+        bg_sbar = plt.liquidMid,
+        bg_thumb = plt.dropletMid,
+      },
+
+      float = {
+        fg = plt.poisonCore,
+        bg = plt.mercuryDeep,
+        fg_border = plt.liquidMid,
+        bg_border = plt.mercuryDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.poisonBright,
+      accent2 = plt.poisonCore,
+      accent3 = plt.dropletLighter,
+      accent4 = plt.dropletBright,
+      accent5 = plt.dropRedPulse,
+      invert = plt.liquidMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.dropletBright,
+      rainbow2 = plt.dropletMid,
+      rainbow3 = plt.dropletDeep,
+      rainbow4 = plt.liquidDeep,
+      rainbow5 = plt.poisonCore,
+      rainbow6 = plt.poisonBright,
+      rainbow7 = plt.dropRedPulse,
+    },
+
+    syn = {
+      attribute = plt.poisonCore,
+      boolean = plt.dropRedBright,
+      comment = plt.dropletBright,
+      constant = plt.dropletLightest,
+      deprecated = plt.dropletMid,
+      func = plt.poisonBright,
+      identifier = plt.poisonCore,
+      keyword = plt.poisonCore,
+      method = plt.poisonBright,
+      number = plt.dropletLightest,
+      operator = plt.dropletMid,
+      parameter = plt.dropletLighter,
+      preproc = plt.dropRedMid,
+      punct = plt.dropletDeep,
+      regex = plt.dropletMid,
+      statement = plt.poisonCore,
+      string = plt.dropletLighter,
+      symbol = plt.poisonCore,
+      type = plt.dropletLightest,
+      variable = plt.poisonCore,
+      special = plt.dropRedPulse,
+      special2 = plt.dropRedMid,
+      special3 = plt.dropRedBright,
+    },
+
+    vcs = { added = plt.dropletLighter, removed = plt.dropRedBright, changed = plt.dropRedDeep },
+    diff = { add = plt.dropletLighter, change = plt.dropletDeep, delete = plt.dropRedBright, text = plt.dropRedMid },
+    diag = {
+      ok = plt.dropletLighter,
+      error = plt.dropRedBright,
+      warning = plt.dropRedPulse,
+      info = plt.poisonCore,
+      hint = plt.dropletMid,
+    },
+
+    term = {
+      black = plt.mercuryVoid,
+      red = plt.dropRedBright,
+      green = plt.dropletBright,
+      yellow = plt.dropletLightest,
+      blue = plt.mercuryVoid,
+      magenta = plt.poisonCore,
+      cyan = plt.dropletMid,
+      white = plt.poisonBright,
+
+      black_bright = color(plt.mercuryVoid):brighten(0.4):to_hex(),
+      red_bright = plt.dropRedPulse,
+      green_bright = color(plt.dropletBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.poisonBright,
+      blue_bright = color(plt.mercuryVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.poisonCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.dropletMid):brighten(0.3):to_hex(),
+      white_bright = plt.poisonBright,
+      indexed1 = plt.dropletLighter,
+      indexed2 = plt.dropletBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.dropletBright,
+      ["@comment.documentation"] = plt.dropletMid,
+      ["@comment.error"] = plt.dropRedBright,
+      ["@comment.warning"] = plt.dropRedPulse,
+      ["@comment.todo"] = plt.dropletLighter,
+      ["@comment.note"] = plt.dropletMid,
+
+      ["@constant"] = plt.dropletLightest,
+      ["@constant.builtin"] = plt.dropletLightest,
+      ["@constant.macro"] = plt.dropRedMid,
+
+      ["@string"] = plt.dropletLighter,
+      ["@string.documentation"] = plt.dropletLighter,
+      ["@string.regex"] = plt.dropletMid,
+      ["@string.escape"] = plt.dropRedMid,
+      ["@string.special"] = plt.dropRedBright,
+      ["@string.special.symbol"] = plt.dropRedBright,
+      ["@string.special.url"] = plt.dropletMid,
+      ["@string.special.path"] = plt.dropletLighter,
+
+      ["@character"] = plt.dropletLighter,
+      ["@character.special"] = plt.dropRedMid,
+
+      ["@number"] = plt.dropletLightest,
+      ["@number.float"] = plt.dropletLightest,
+
+      ["@boolean"] = plt.dropRedBright,
+
+      ["@function"] = plt.poisonBright,
+      ["@function.builtin"] = plt.poisonBright,
+      ["@function.call"] = plt.poisonBright,
+      ["@function.macro"] = plt.dropRedMid,
+      ["@function.method"] = plt.poisonBright,
+      ["@function.method.call"] = plt.poisonBright,
+
+      ["@constructor"] = plt.poisonCore,
+
+      ["@parameter"] = plt.dropletLighter,
+      ["@parameter.builtin"] = plt.dropletLightest,
+
+      ["@keyword"] = plt.poisonCore,
+      ["@keyword.coroutine"] = plt.dropRedBright,
+      ["@keyword.function"] = plt.poisonCore,
+      ["@keyword.operator"] = plt.dropletMid,
+      ["@keyword.return"] = plt.poisonCore,
+      ["@keyword.import"] = plt.dropletLightest,
+      ["@keyword.storage"] = plt.poisonCore,
+      ["@keyword.repeat"] = plt.poisonCore,
+      ["@keyword.conditional"] = plt.poisonCore,
+      ["@keyword.exception"] = plt.dropRedBright,
+      ["@keyword.directive"] = plt.dropRedMid,
+      ["@keyword.directive.define"] = plt.dropRedMid,
+
+      ["@conditional"] = plt.poisonCore,
+      ["@conditional.ternary"] = plt.poisonCore,
+
+      ["@repeat"] = plt.poisonCore,
+
+      ["@label"] = plt.dropletLightest,
+
+      ["@operator"] = plt.dropletMid,
+
+      ["@exception"] = plt.dropRedBright,
+
+      ["@variable"] = plt.poisonCore,
+      ["@variable.builtin"] = plt.dropletLightest,
+      ["@variable.parameter"] = plt.dropletLighter,
+      ["@variable.member"] = plt.poisonCore,
+
+      ["@type"] = plt.dropletLightest,
+      ["@type.builtin"] = plt.dropletLightest,
+      ["@type.definition"] = plt.dropletLightest,
+      ["@type.qualifier"] = plt.poisonCore,
+
+      ["@attribute"] = plt.poisonCore,
+      ["@attribute.builtin"] = plt.dropletLightest,
+
+      ["@property"] = plt.poisonCore,
+      ["@field"] = plt.poisonCore,
+
+      ["@module"] = plt.poisonCore,
+      ["@module.builtin"] = plt.poisonCore,
+
+      ["@namespace"] = plt.poisonCore,
+      ["@namespace.builtin"] = plt.poisonCore,
+
+      ["@punctuation.delimiter"] = plt.dropletMid,
+      ["@punctuation.bracket"] = plt.dropletMid,
+      ["@punctuation.special"] = plt.dropRedMid,
+
+      ["@tag"] = plt.poisonCore,
+      ["@tag.attribute"] = plt.dropletLightest,
+      ["@tag.delimiter"] = plt.dropletMid,
+      ["@tag.builtin"] = plt.poisonCore,
+
+      ["@markup.strong"] = { fg = plt.poisonBright, bold = true },
+      ["@markup.italic"] = { fg = plt.poisonCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.dropletMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.poisonCore, underline = true },
+      ["@markup.heading"] = plt.poisonBright,
+      ["@markup.heading.1"] = plt.poisonBright,
+      ["@markup.heading.2"] = plt.poisonCore,
+      ["@markup.heading.3"] = plt.dropletLightest,
+      ["@markup.heading.4"] = plt.dropletLighter,
+      ["@markup.heading.5"] = plt.dropRedMid,
+      ["@markup.heading.6"] = plt.dropRedPulse,
+      ["@markup.quote"] = plt.dropletBright,
+      ["@markup.math"] = plt.dropletLightest,
+      ["@markup.link"] = plt.dropletMid,
+      ["@markup.link.label"] = plt.dropRedPulse,
+      ["@markup.link.url"] = plt.dropletMid,
+      ["@markup.raw"] = plt.dropletLighter,
+      ["@markup.raw.block"] = plt.dropletLighter,
+      ["@markup.list"] = plt.poisonCore,
+      ["@markup.list.checked"] = plt.dropletLighter,
+      ["@markup.list.unchecked"] = plt.dropletBright,
+
+      ["@diff.plus"] = plt.dropletLighter,
+      ["@diff.minus"] = plt.dropRedBright,
+      ["@diff.delta"] = plt.dropletMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.dropletMid,
+      ["@spell"] = plt.poisonCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.poisonCore,
+      ["@constructor.python"] = plt.poisonBright,
+      ["@constructor.javascript"] = plt.poisonBright,
+      ["@constructor.typescript"] = plt.poisonBright,
+      ["@namespace.rust"] = plt.poisonCore,
+      ["@type.qualifier.rust"] = plt.poisonCore,
+      ["@constant.macro.c"] = plt.dropRedMid,
+      ["@constant.macro.cpp"] = plt.dropRedMid,
+      ["@namespace.go"] = plt.poisonCore,
+      ["@property.css"] = plt.poisonBright,
+      ["@type.css"] = plt.poisonCore,
+      ["@label.json"] = plt.poisonCore,
+      ["@field.yaml"] = plt.poisonCore,
+      ["@property.toml"] = plt.poisonCore,
+      ["@function.builtin.bash"] = plt.poisonBright,
+      ["@string.regexp"] = plt.dropletMid,
+      ["@character.special.regex"] = plt.dropRedMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.dropletLightest,
+      ["@lsp.type.interface"] = plt.dropletLightest,
+      ["@lsp.type.struct"] = plt.dropletLightest,
+      ["@lsp.type.enum"] = plt.dropletLightest,
+      ["@lsp.type.enumMember"] = plt.dropletLightest,
+      ["@lsp.type.property"] = plt.poisonCore,
+      ["@lsp.type.namespace"] = plt.poisonCore,
+
+      ["@lsp.type.macro"] = plt.dropRedMid,
+      ["@lsp.type.decorator"] = plt.poisonBright,
+
+      ["@lsp.type.builtinType"] = plt.dropletLightest,
+      ["@lsp.type.selfParameter"] = plt.poisonCore,
+      ["@lsp.type.typeParameter"] = plt.dropletLightest,
+
+      ["@lsp.type.array"] = plt.dropletLightest,
+      ["@lsp.type.object"] = plt.dropletLightest,
+      ["@lsp.type.key"] = plt.poisonCore,
+      ["@lsp.type.null"] = plt.dropletLightest,
+      ["@lsp.type.enumConstant"] = plt.dropletLightest,
+
+      ["@lsp.type.event"] = plt.dropletLightest,
+      ["@lsp.type.regexp"] = plt.dropletMid,
+      ["@lsp.type.unresolvedReference"] = plt.dropRedBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.dropletMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.dropletLightest,
+      ["@lsp.mod.async"] = plt.poisonCore,
+      ["@lsp.mod.static"] = plt.dropletLightest,
+      ["@lsp.mod.abstract"] = plt.dropletLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.dropletLightest,
+      ["@lsp.mod.documentation"] = plt.dropletBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Mercury",
+  author = "PrismPunk.nvim",
+  description = "Toxic liquid metal beauty. Cold silvers. Red droplet danger. Instable precision.",
+
+  base16 = {
+    base00 = palette.mercuryVoid,
+    base01 = palette.mercuryDark,
+    base02 = palette.mercuryDeep,
+    base03 = palette.mercuryMid,
+    base04 = palette.dropletBright,
+    base05 = palette.dropletLightest,
+    base06 = palette.poisonCore,
+    base07 = palette.poisonBright,
+    base08 = palette.dropRedBright,
+    base09 = palette.dropRedMid,
+    base0A = palette.dropRedDeep,
+    base0B = palette.dropletLighter,
+    base0C = palette.dropRedPulse,
+    base0D = palette.dropletMid,
+    base0E = palette.dropRedPulse,
+    base0F = palette.dropletMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
