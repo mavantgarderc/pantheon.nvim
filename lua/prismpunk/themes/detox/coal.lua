@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.coal")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.ashBright,
+      insert = plt.ashLighter,
+      visual = plt.dustPulse,
+      replace = plt.ashMid,
+      command = plt.smokeCore,
+    },
+
+    ui = {
+      fg = plt.smokeCore,
+      fg_dim = plt.smokeCore,
+      fg_dimmer = plt.ashLighter,
+      fg_dark = plt.ashMid,
+      fg_reverse = plt.coalVoid,
+
+      bg_m4 = plt.coalLight,
+      bg_m3 = plt.coalMid,
+      bg_m2 = plt.coalDeep,
+      bg_m1 = plt.coalDark,
+      bg_dim = plt.coalVoid,
+      bg = plt.coalVoid,
+      bg_p1 = plt.coalDeep,
+      bg_p2 = plt.coalMid,
+      bg_gutter = opts.gutter and plt.coalMid or "none",
+      bg_cursorline = plt.charLine,
+      bg_cursorline_alt = plt.charMid,
+      bg_search = plt.dustPulse,
+      bg_visual = plt.dustDeep,
+      bg_statusline = plt.charMid,
+
+      border = plt.ashMid,
+      header1 = plt.smokeBright,
+      header2 = plt.smokeCore,
+      special = plt.dustBright,
+      nontext = plt.coalLight,
+      whitespace = plt.coalMid,
+      win_separator = plt.ashMid,
+      indent = plt.coalMid,
+      indent_scope = plt.ashDeep,
+      picker = plt.ashMid,
+      yank = plt.dustPulse,
+      mark = plt.dustBright,
+      scrollbar = plt.coalLight,
+
+      tabline = {
+        bg = plt.coalVoid,
+        fg_selected = plt.smokeCore,
+        bg_selected = plt.charMid,
+        fg_inactive = plt.ashLighter,
+        bg_inactive = plt.coalVoid,
+        fg_alternate = plt.ashBright,
+        bg_alternate = plt.coalVoid,
+        indicator = plt.dustPulse,
+      },
+
+      pmenu = {
+        fg = plt.smokeCore,
+        fg_sel = "none",
+        fg_border = plt.charMid,
+        bg_border = plt.charMid,
+        bg = plt.charMid,
+        bg_sel = plt.charDeep,
+        bg_sbar = plt.charMid,
+        bg_thumb = plt.ashMid,
+      },
+
+      float = {
+        fg = plt.smokeCore,
+        bg = plt.coalDeep,
+        fg_border = plt.charMid,
+        bg_border = plt.coalDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.smokeBright,
+      accent2 = plt.smokeCore,
+      accent3 = plt.ashLighter,
+      accent4 = plt.ashBright,
+      accent5 = plt.dustPulse,
+      invert = plt.charMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.ashBright,
+      rainbow2 = plt.ashMid,
+      rainbow3 = plt.ashDeep,
+      rainbow4 = plt.charDeep,
+      rainbow5 = plt.smokeCore,
+      rainbow6 = plt.smokeBright,
+      rainbow7 = plt.dustPulse,
+    },
+
+    syn = {
+      attribute = plt.smokeCore,
+      boolean = plt.dustBright,
+      comment = plt.ashBright,
+      constant = plt.ashLightest,
+      deprecated = plt.ashMid,
+      func = plt.smokeBright,
+      identifier = plt.smokeCore,
+      keyword = plt.smokeCore,
+      method = plt.smokeBright,
+      number = plt.ashLightest,
+      operator = plt.ashMid,
+      parameter = plt.ashLighter,
+      preproc = plt.dustMid,
+      punct = plt.ashDeep,
+      regex = plt.ashMid,
+      statement = plt.smokeCore,
+      string = plt.ashLighter,
+      symbol = plt.smokeCore,
+      type = plt.ashLightest,
+      variable = plt.smokeCore,
+      special = plt.dustPulse,
+      special2 = plt.dustMid,
+      special3 = plt.dustBright,
+    },
+
+    vcs = { added = plt.ashLighter, removed = plt.dustBright, changed = plt.dustDeep },
+    diff = { add = plt.ashLighter, change = plt.ashDeep, delete = plt.dustBright, text = plt.dustMid },
+    diag = {
+      ok = plt.ashLighter,
+      error = plt.dustBright,
+      warning = plt.dustPulse,
+      info = plt.smokeCore,
+      hint = plt.ashMid,
+    },
+
+    term = {
+      black = plt.coalVoid,
+      red = plt.dustBright,
+      green = plt.ashBright,
+      yellow = plt.ashLightest,
+      blue = plt.coalVoid,
+      magenta = plt.smokeCore,
+      cyan = plt.ashMid,
+      white = plt.smokeBright,
+
+      black_bright = color(plt.coalVoid):brighten(0.4):to_hex(),
+      red_bright = plt.dustPulse,
+      green_bright = color(plt.ashBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.smokeBright,
+      blue_bright = color(plt.coalVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.smokeCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.ashMid):brighten(0.3):to_hex(),
+      white_bright = plt.smokeBright,
+      indexed1 = plt.ashLighter,
+      indexed2 = plt.ashBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.ashBright,
+      ["@comment.documentation"] = plt.ashMid,
+      ["@comment.error"] = plt.dustBright,
+      ["@comment.warning"] = plt.dustPulse,
+      ["@comment.todo"] = plt.ashLighter,
+      ["@comment.note"] = plt.ashMid,
+
+      ["@constant"] = plt.ashLightest,
+      ["@constant.builtin"] = plt.ashLightest,
+      ["@constant.macro"] = plt.dustMid,
+
+      ["@string"] = plt.ashLighter,
+      ["@string.documentation"] = plt.ashLighter,
+      ["@string.regex"] = plt.ashMid,
+      ["@string.escape"] = plt.dustMid,
+      ["@string.special"] = plt.dustBright,
+      ["@string.special.symbol"] = plt.dustBright,
+      ["@string.special.url"] = plt.ashMid,
+      ["@string.special.path"] = plt.ashLighter,
+
+      ["@character"] = plt.ashLighter,
+      ["@character.special"] = plt.dustMid,
+
+      ["@number"] = plt.ashLightest,
+      ["@number.float"] = plt.ashLightest,
+
+      ["@boolean"] = plt.dustBright,
+
+      ["@function"] = plt.smokeBright,
+      ["@function.builtin"] = plt.smokeBright,
+      ["@function.call"] = plt.smokeBright,
+      ["@function.macro"] = plt.dustMid,
+      ["@function.method"] = plt.smokeBright,
+      ["@function.method.call"] = plt.smokeBright,
+
+      ["@constructor"] = plt.smokeCore,
+
+      ["@parameter"] = plt.ashLighter,
+      ["@parameter.builtin"] = plt.ashLightest,
+
+      ["@keyword"] = plt.smokeCore,
+      ["@keyword.coroutine"] = plt.dustBright,
+      ["@keyword.function"] = plt.smokeCore,
+      ["@keyword.operator"] = plt.ashMid,
+      ["@keyword.return"] = plt.smokeCore,
+      ["@keyword.import"] = plt.ashLightest,
+      ["@keyword.storage"] = plt.smokeCore,
+      ["@keyword.repeat"] = plt.smokeCore,
+      ["@keyword.conditional"] = plt.smokeCore,
+      ["@keyword.exception"] = plt.dustBright,
+      ["@keyword.directive"] = plt.dustMid,
+      ["@keyword.directive.define"] = plt.dustMid,
+
+      ["@conditional"] = plt.smokeCore,
+      ["@conditional.ternary"] = plt.smokeCore,
+
+      ["@repeat"] = plt.smokeCore,
+
+      ["@label"] = plt.ashLightest,
+
+      ["@operator"] = plt.ashMid,
+
+      ["@exception"] = plt.dustBright,
+
+      ["@variable"] = plt.smokeCore,
+      ["@variable.builtin"] = plt.ashLightest,
+      ["@variable.parameter"] = plt.ashLighter,
+      ["@variable.member"] = plt.smokeCore,
+
+      ["@type"] = plt.ashLightest,
+      ["@type.builtin"] = plt.ashLightest,
+      ["@type.definition"] = plt.ashLightest,
+      ["@type.qualifier"] = plt.smokeCore,
+
+      ["@attribute"] = plt.smokeCore,
+      ["@attribute.builtin"] = plt.ashLightest,
+
+      ["@property"] = plt.smokeCore,
+      ["@field"] = plt.smokeCore,
+
+      ["@module"] = plt.smokeCore,
+      ["@module.builtin"] = plt.smokeCore,
+
+      ["@namespace"] = plt.smokeCore,
+      ["@namespace.builtin"] = plt.smokeCore,
+
+      ["@punctuation.delimiter"] = plt.ashMid,
+      ["@punctuation.bracket"] = plt.ashMid,
+      ["@punctuation.special"] = plt.dustMid,
+
+      ["@tag"] = plt.smokeCore,
+      ["@tag.attribute"] = plt.ashLightest,
+      ["@tag.delimiter"] = plt.ashMid,
+      ["@tag.builtin"] = plt.smokeCore,
+
+      ["@markup.strong"] = { fg = plt.smokeBright, bold = true },
+      ["@markup.italic"] = { fg = plt.smokeCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.ashMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.smokeCore, underline = true },
+      ["@markup.heading"] = plt.smokeBright,
+      ["@markup.heading.1"] = plt.smokeBright,
+      ["@markup.heading.2"] = plt.smokeCore,
+      ["@markup.heading.3"] = plt.ashLightest,
+      ["@markup.heading.4"] = plt.ashLighter,
+      ["@markup.heading.5"] = plt.dustMid,
+      ["@markup.heading.6"] = plt.dustPulse,
+      ["@markup.quote"] = plt.ashBright,
+      ["@markup.math"] = plt.ashLightest,
+      ["@markup.link"] = plt.ashMid,
+      ["@markup.link.label"] = plt.dustPulse,
+      ["@markup.link.url"] = plt.ashMid,
+      ["@markup.raw"] = plt.ashLighter,
+      ["@markup.raw.block"] = plt.ashLighter,
+      ["@markup.list"] = plt.smokeCore,
+      ["@markup.list.checked"] = plt.ashLighter,
+      ["@markup.list.unchecked"] = plt.ashBright,
+
+      ["@diff.plus"] = plt.ashLighter,
+      ["@diff.minus"] = plt.dustBright,
+      ["@diff.delta"] = plt.ashMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.ashMid,
+      ["@spell"] = plt.smokeCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.smokeCore,
+      ["@constructor.python"] = plt.smokeBright,
+      ["@constructor.javascript"] = plt.smokeBright,
+      ["@constructor.typescript"] = plt.smokeBright,
+      ["@namespace.rust"] = plt.smokeCore,
+      ["@type.qualifier.rust"] = plt.smokeCore,
+      ["@constant.macro.c"] = plt.dustMid,
+      ["@constant.macro.cpp"] = plt.dustMid,
+      ["@namespace.go"] = plt.smokeCore,
+      ["@property.css"] = plt.smokeBright,
+      ["@type.css"] = plt.smokeCore,
+      ["@label.json"] = plt.smokeCore,
+      ["@field.yaml"] = plt.smokeCore,
+      ["@property.toml"] = plt.smokeCore,
+      ["@function.builtin.bash"] = plt.smokeBright,
+      ["@string.regexp"] = plt.ashMid,
+      ["@character.special.regex"] = plt.dustMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.ashLightest,
+      ["@lsp.type.interface"] = plt.ashLightest,
+      ["@lsp.type.struct"] = plt.ashLightest,
+      ["@lsp.type.enum"] = plt.ashLightest,
+      ["@lsp.type.enumMember"] = plt.ashLightest,
+      ["@lsp.type.property"] = plt.smokeCore,
+      ["@lsp.type.namespace"] = plt.smokeCore,
+
+      ["@lsp.type.macro"] = plt.dustMid,
+      ["@lsp.type.decorator"] = plt.smokeBright,
+
+      ["@lsp.type.builtinType"] = plt.ashLightest,
+      ["@lsp.type.selfParameter"] = plt.smokeCore,
+      ["@lsp.type.typeParameter"] = plt.ashLightest,
+
+      ["@lsp.type.array"] = plt.ashLightest,
+      ["@lsp.type.object"] = plt.ashLightest,
+      ["@lsp.type.key"] = plt.smokeCore,
+      ["@lsp.type.null"] = plt.ashLightest,
+      ["@lsp.type.enumConstant"] = plt.ashLightest,
+
+      ["@lsp.type.event"] = plt.ashLightest,
+      ["@lsp.type.regexp"] = plt.ashMid,
+      ["@lsp.type.unresolvedReference"] = plt.dustBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.ashMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.ashLightest,
+      ["@lsp.mod.async"] = plt.smokeCore,
+      ["@lsp.mod.static"] = plt.ashLightest,
+      ["@lsp.mod.abstract"] = plt.ashLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.ashLightest,
+      ["@lsp.mod.documentation"] = plt.ashBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Coal",
+  author = "PrismPunk.nvim",
+  description = "True black charred remains. Post-fire stillness. Pale ash dust. Burned landscape.",
+
+  base16 = {
+    base00 = palette.coalVoid,
+    base01 = palette.coalDark,
+    base02 = palette.coalDeep,
+    base03 = palette.coalMid,
+    base04 = palette.ashBright,
+    base05 = palette.ashLightest,
+    base06 = palette.smokeCore,
+    base07 = palette.smokeBright,
+    base08 = palette.dustBright,
+    base09 = palette.dustMid,
+    base0A = palette.dustDeep,
+    base0B = palette.ashLighter,
+    base0C = palette.dustPulse,
+    base0D = palette.ashMid,
+    base0E = palette.dustPulse,
+    base0F = palette.ashMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

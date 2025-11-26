@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.ash")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.slagBright,
+      insert = plt.slagLighter,
+      visual = plt.emberPulse,
+      replace = plt.slagMid,
+      command = plt.smokeCore,
+    },
+
+    ui = {
+      fg = plt.smokeCore,
+      fg_dim = plt.smokeCore,
+      fg_dimmer = plt.slagLighter,
+      fg_dark = plt.slagMid,
+      fg_reverse = plt.ashVoid,
+
+      bg_m4 = plt.ashLight,
+      bg_m3 = plt.ashMid,
+      bg_m2 = plt.ashDeep,
+      bg_m1 = plt.ashDark,
+      bg_dim = plt.ashVoid,
+      bg = plt.ashVoid,
+      bg_p1 = plt.ashDeep,
+      bg_p2 = plt.ashMid,
+      bg_gutter = opts.gutter and plt.ashMid or "none",
+      bg_cursorline = plt.cinerLine,
+      bg_cursorline_alt = plt.cinerMid,
+      bg_search = plt.emberPulse,
+      bg_visual = plt.emberDeep,
+      bg_statusline = plt.cinerMid,
+
+      border = plt.slagMid,
+      header1 = plt.smokeBright,
+      header2 = plt.smokeCore,
+      special = plt.emberBright,
+      nontext = plt.ashLight,
+      whitespace = plt.ashMid,
+      win_separator = plt.slagMid,
+      indent = plt.ashMid,
+      indent_scope = plt.slagDeep,
+      picker = plt.slagMid,
+      yank = plt.emberPulse,
+      mark = plt.emberBright,
+      scrollbar = plt.ashLight,
+
+      tabline = {
+        bg = plt.ashVoid,
+        fg_selected = plt.smokeCore,
+        bg_selected = plt.cinerMid,
+        fg_inactive = plt.slagLighter,
+        bg_inactive = plt.ashVoid,
+        fg_alternate = plt.slagBright,
+        bg_alternate = plt.ashVoid,
+        indicator = plt.emberPulse,
+      },
+
+      pmenu = {
+        fg = plt.smokeCore,
+        fg_sel = "none",
+        fg_border = plt.cinerMid,
+        bg_border = plt.cinerMid,
+        bg = plt.cinerMid,
+        bg_sel = plt.cinerDeep,
+        bg_sbar = plt.cinerMid,
+        bg_thumb = plt.slagMid,
+      },
+
+      float = {
+        fg = plt.smokeCore,
+        bg = plt.ashDeep,
+        fg_border = plt.cinerMid,
+        bg_border = plt.ashDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.smokeBright,
+      accent2 = plt.smokeCore,
+      accent3 = plt.slagLighter,
+      accent4 = plt.slagBright,
+      accent5 = plt.emberPulse,
+      invert = plt.cinerMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.slagBright,
+      rainbow2 = plt.slagMid,
+      rainbow3 = plt.slagDeep,
+      rainbow4 = plt.cinerDeep,
+      rainbow5 = plt.smokeCore,
+      rainbow6 = plt.smokeBright,
+      rainbow7 = plt.emberPulse,
+    },
+
+    syn = {
+      attribute = plt.smokeCore,
+      boolean = plt.emberBright,
+      comment = plt.slagBright,
+      constant = plt.slagLightest,
+      deprecated = plt.slagMid,
+      func = plt.smokeBright,
+      identifier = plt.smokeCore,
+      keyword = plt.smokeCore,
+      method = plt.smokeBright,
+      number = plt.slagLightest,
+      operator = plt.slagMid,
+      parameter = plt.slagLighter,
+      preproc = plt.emberMid,
+      punct = plt.slagDeep,
+      regex = plt.slagMid,
+      statement = plt.smokeCore,
+      string = plt.slagLighter,
+      symbol = plt.smokeCore,
+      type = plt.slagLightest,
+      variable = plt.smokeCore,
+      special = plt.emberPulse,
+      special2 = plt.emberMid,
+      special3 = plt.emberBright,
+    },
+
+    vcs = { added = plt.slagLighter, removed = plt.emberBright, changed = plt.emberDeep },
+    diff = { add = plt.slagLighter, change = plt.slagDeep, delete = plt.emberBright, text = plt.emberMid },
+    diag = {
+      ok = plt.slagLighter,
+      error = plt.emberBright,
+      warning = plt.emberPulse,
+      info = plt.smokeCore,
+      hint = plt.slagMid,
+    },
+
+    term = {
+      black = plt.ashVoid,
+      red = plt.emberBright,
+      green = plt.slagBright,
+      yellow = plt.slagLightest,
+      blue = plt.ashVoid,
+      magenta = plt.smokeCore,
+      cyan = plt.slagMid,
+      white = plt.smokeBright,
+
+      black_bright = color(plt.ashVoid):brighten(0.4):to_hex(),
+      red_bright = plt.emberPulse,
+      green_bright = color(plt.slagBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.smokeBright,
+      blue_bright = color(plt.ashVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.smokeCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.slagMid):brighten(0.3):to_hex(),
+      white_bright = plt.smokeBright,
+      indexed1 = plt.slagLighter,
+      indexed2 = plt.slagBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.slagBright,
+      ["@comment.documentation"] = plt.slagMid,
+      ["@comment.error"] = plt.emberBright,
+      ["@comment.warning"] = plt.emberPulse,
+      ["@comment.todo"] = plt.slagLighter,
+      ["@comment.note"] = plt.slagMid,
+
+      ["@constant"] = plt.slagLightest,
+      ["@constant.builtin"] = plt.slagLightest,
+      ["@constant.macro"] = plt.emberMid,
+
+      ["@string"] = plt.slagLighter,
+      ["@string.documentation"] = plt.slagLighter,
+      ["@string.regex"] = plt.slagMid,
+      ["@string.escape"] = plt.emberMid,
+      ["@string.special"] = plt.emberBright,
+      ["@string.special.symbol"] = plt.emberBright,
+      ["@string.special.url"] = plt.slagMid,
+      ["@string.special.path"] = plt.slagLighter,
+
+      ["@character"] = plt.slagLighter,
+      ["@character.special"] = plt.emberMid,
+
+      ["@number"] = plt.slagLightest,
+      ["@number.float"] = plt.slagLightest,
+
+      ["@boolean"] = plt.emberBright,
+
+      ["@function"] = plt.smokeBright,
+      ["@function.builtin"] = plt.smokeBright,
+      ["@function.call"] = plt.smokeBright,
+      ["@function.macro"] = plt.emberMid,
+      ["@function.method"] = plt.smokeBright,
+      ["@function.method.call"] = plt.smokeBright,
+
+      ["@constructor"] = plt.smokeCore,
+
+      ["@parameter"] = plt.slagLighter,
+      ["@parameter.builtin"] = plt.slagLightest,
+
+      ["@keyword"] = plt.smokeCore,
+      ["@keyword.coroutine"] = plt.emberBright,
+      ["@keyword.function"] = plt.smokeCore,
+      ["@keyword.operator"] = plt.slagMid,
+      ["@keyword.return"] = plt.smokeCore,
+      ["@keyword.import"] = plt.slagLightest,
+      ["@keyword.storage"] = plt.smokeCore,
+      ["@keyword.repeat"] = plt.smokeCore,
+      ["@keyword.conditional"] = plt.smokeCore,
+      ["@keyword.exception"] = plt.emberBright,
+      ["@keyword.directive"] = plt.emberMid,
+      ["@keyword.directive.define"] = plt.emberMid,
+
+      ["@conditional"] = plt.smokeCore,
+      ["@conditional.ternary"] = plt.smokeCore,
+
+      ["@repeat"] = plt.smokeCore,
+
+      ["@label"] = plt.slagLightest,
+
+      ["@operator"] = plt.slagMid,
+
+      ["@exception"] = plt.emberBright,
+
+      ["@variable"] = plt.smokeCore,
+      ["@variable.builtin"] = plt.slagLightest,
+      ["@variable.parameter"] = plt.slagLighter,
+      ["@variable.member"] = plt.smokeCore,
+
+      ["@type"] = plt.slagLightest,
+      ["@type.builtin"] = plt.slagLightest,
+      ["@type.definition"] = plt.slagLightest,
+      ["@type.qualifier"] = plt.smokeCore,
+
+      ["@attribute"] = plt.smokeCore,
+      ["@attribute.builtin"] = plt.slagLightest,
+
+      ["@property"] = plt.smokeCore,
+      ["@field"] = plt.smokeCore,
+
+      ["@module"] = plt.smokeCore,
+      ["@module.builtin"] = plt.smokeCore,
+
+      ["@namespace"] = plt.smokeCore,
+      ["@namespace.builtin"] = plt.smokeCore,
+
+      ["@punctuation.delimiter"] = plt.slagMid,
+      ["@punctuation.bracket"] = plt.slagMid,
+      ["@punctuation.special"] = plt.emberMid,
+
+      ["@tag"] = plt.smokeCore,
+      ["@tag.attribute"] = plt.slagLightest,
+      ["@tag.delimiter"] = plt.slagMid,
+      ["@tag.builtin"] = plt.smokeCore,
+
+      ["@markup.strong"] = { fg = plt.smokeBright, bold = true },
+      ["@markup.italic"] = { fg = plt.smokeCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.slagMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.smokeCore, underline = true },
+      ["@markup.heading"] = plt.smokeBright,
+      ["@markup.heading.1"] = plt.smokeBright,
+      ["@markup.heading.2"] = plt.smokeCore,
+      ["@markup.heading.3"] = plt.slagLightest,
+      ["@markup.heading.4"] = plt.slagLighter,
+      ["@markup.heading.5"] = plt.emberMid,
+      ["@markup.heading.6"] = plt.emberPulse,
+      ["@markup.quote"] = plt.slagBright,
+      ["@markup.math"] = plt.slagLightest,
+      ["@markup.link"] = plt.slagMid,
+      ["@markup.link.label"] = plt.emberPulse,
+      ["@markup.link.url"] = plt.slagMid,
+      ["@markup.raw"] = plt.slagLighter,
+      ["@markup.raw.block"] = plt.slagLighter,
+      ["@markup.list"] = plt.smokeCore,
+      ["@markup.list.checked"] = plt.slagLighter,
+      ["@markup.list.unchecked"] = plt.slagBright,
+
+      ["@diff.plus"] = plt.slagLighter,
+      ["@diff.minus"] = plt.emberBright,
+      ["@diff.delta"] = plt.slagMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.slagMid,
+      ["@spell"] = plt.smokeCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.smokeCore,
+      ["@constructor.python"] = plt.smokeBright,
+      ["@constructor.javascript"] = plt.smokeBright,
+      ["@constructor.typescript"] = plt.smokeBright,
+      ["@namespace.rust"] = plt.smokeCore,
+      ["@type.qualifier.rust"] = plt.smokeCore,
+      ["@constant.macro.c"] = plt.emberMid,
+      ["@constant.macro.cpp"] = plt.emberMid,
+      ["@namespace.go"] = plt.smokeCore,
+      ["@property.css"] = plt.smokeBright,
+      ["@type.css"] = plt.smokeCore,
+      ["@label.json"] = plt.smokeCore,
+      ["@field.yaml"] = plt.smokeCore,
+      ["@property.toml"] = plt.smokeCore,
+      ["@function.builtin.bash"] = plt.smokeBright,
+      ["@string.regexp"] = plt.slagMid,
+      ["@character.special.regex"] = plt.emberMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.slagLightest,
+      ["@lsp.type.interface"] = plt.slagLightest,
+      ["@lsp.type.struct"] = plt.slagLightest,
+      ["@lsp.type.enum"] = plt.slagLightest,
+      ["@lsp.type.enumMember"] = plt.slagLightest,
+      ["@lsp.type.property"] = plt.smokeCore,
+      ["@lsp.type.namespace"] = plt.smokeCore,
+
+      ["@lsp.type.macro"] = plt.emberMid,
+      ["@lsp.type.decorator"] = plt.smokeBright,
+
+      ["@lsp.type.builtinType"] = plt.slagLightest,
+      ["@lsp.type.selfParameter"] = plt.smokeCore,
+      ["@lsp.type.typeParameter"] = plt.slagLightest,
+
+      ["@lsp.type.array"] = plt.slagLightest,
+      ["@lsp.type.object"] = plt.slagLightest,
+      ["@lsp.type.key"] = plt.smokeCore,
+      ["@lsp.type.null"] = plt.slagLightest,
+      ["@lsp.type.enumConstant"] = plt.slagLightest,
+
+      ["@lsp.type.event"] = plt.slagLightest,
+      ["@lsp.type.regexp"] = plt.slagMid,
+      ["@lsp.type.unresolvedReference"] = plt.emberBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.slagMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.slagLightest,
+      ["@lsp.mod.async"] = plt.smokeCore,
+      ["@lsp.mod.static"] = plt.slagLightest,
+      ["@lsp.mod.abstract"] = plt.slagLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.slagLightest,
+      ["@lsp.mod.documentation"] = plt.slagBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Ash",
+  author = "PrismPunk.nvim",
+  description = "Post-fire barrenness. Cool grays. Faint ember warmth. Silent aftermath. Zero dopamine.",
+
+  base16 = {
+    base00 = palette.ashVoid,
+    base01 = palette.ashDark,
+    base02 = palette.ashDeep,
+    base03 = palette.ashMid,
+    base04 = palette.slagBright,
+    base05 = palette.slagLightest,
+    base06 = palette.smokeCore,
+    base07 = palette.smokeBright,
+    base08 = palette.emberBright,
+    base09 = palette.emberMid,
+    base0A = palette.emberDeep,
+    base0B = palette.slagLighter,
+    base0C = palette.emberPulse,
+    base0D = palette.slagMid,
+    base0E = palette.emberPulse,
+    base0F = palette.slagMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
