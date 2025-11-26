@@ -329,4 +329,152 @@ return {
       end
     end,
   },
+
+  {
+    "mavantgarderc/raphael.nvim",
+    dev = true,
+    lazy = false,
+    priority = 999,
+    config = function()
+      local function scan_prismpunk_colorschemes()
+        local themes = {}
+        local theme_groups = {}
+
+        local prismpunk_colors_paths = {}
+
+        local rtp_paths = vim.api.nvim_get_runtime_file("colors", true)
+        for _, path in ipairs(rtp_paths) do
+          if path:match("prismpunk%.nvim") then table.insert(prismpunk_colors_paths, path) end
+        end
+
+        if #prismpunk_colors_paths == 0 then
+          prismpunk_colors_paths = {
+            vim.fn.stdpath("data") .. "/lazy/prismpunk.nvim/colors",
+          }
+        end
+
+        for _, colors_path in ipairs(prismpunk_colors_paths) do
+          local expanded_path = vim.fn.expand(colors_path)
+          if vim.fn.isdirectory(expanded_path) == 1 then
+            local colorscheme_files = vim.fn.glob(expanded_path .. "/*.lua", false, true)
+            local colorscheme_vim_files = vim.fn.glob(expanded_path .. "/*.vim", false, true)
+
+            vim.list_extend(colorscheme_files, colorscheme_vim_files)
+
+            for _, file in ipairs(colorscheme_files) do
+              local colorscheme_name = vim.fn.fnamemodify(file, ":t:r")
+
+              if not vim.tbl_contains(themes, colorscheme_name) then
+                table.insert(themes, colorscheme_name)
+
+                local category = "other"
+
+                -- LANTERNCORPS
+                if colorscheme_name:match("lantern%-corps") then
+                  category = "dc/lantern-corps"
+                -- CRIME SYNDICATE
+                elseif colorscheme_name:match("crime%-syndicate") then
+                  category = "dc/crime-syndicate"
+                -- BAT FAMILY
+                elseif colorscheme_name:match("bat%-family") then
+                  category = "dc/bat-family"
+                -- JUSTICE LEAGUE
+                elseif colorscheme_name:match("justice%-league") then
+                  category = "dc/justice-league"
+                -- EMOTIONAL SPECTRUM
+                elseif colorscheme_name:match("emotional%-entities") then
+                  category = "dc/emotional-entities"
+                -- NEW GENESIS
+                elseif colorscheme_name:match("new%-genesis") then
+                  category = "dc/new-genesis"
+                -- WATCHMEN
+                elseif colorscheme_name:match("watchmen") then
+                  category = "dc/watchmen"
+                -- LEAGUE OF ASSASINS
+                elseif colorscheme_name:match("league%-of%-assassins") then
+                  category = "dc/league-of-assassins"
+                -- INJUSTICE LEAGUE
+                elseif colorscheme_name:match("injustice%-league") then
+                  category = "dc/injustice-league"
+                -- DC/APOKOLIPS
+                elseif colorscheme_name:match("apokolips") then
+                  category = "dc/apokolips"
+                -- PUNK CULTURES
+                elseif colorscheme_name:match("punk$") or colorscheme_name:match("punk%-") then
+                  category = "punk-cultures"
+                -- DETOX
+                elseif colorscheme_name:match("detox") then
+                  category = "detox"
+                -- KANAGAWA
+                elseif colorscheme_name:match("kanagawa") then
+                  category = "kanagawa"
+                -- TMNT
+                elseif colorscheme_name:match("tmnt%-") or colorscheme_name:match("tmnt%-") then
+                  category = "tmnt"
+                -- NVIM BUILT-IN THEMES
+                elseif colorscheme_name:match("nvim%-builtins") or colorscheme_name:match("nvim%-builtins%-") then
+                  category = "nvim-builtins"
+                end
+
+                if not theme_groups[category] then theme_groups[category] = {} end
+                table.insert(theme_groups[category], colorscheme_name)
+              end
+            end
+
+            if #themes > 0 then break end
+          end
+        end
+
+        return theme_groups, themes
+      end
+
+      local theme_groups, all_themes = scan_prismpunk_colorschemes()
+
+      if #all_themes == 0 then
+        theme_groups = {
+          ["dc/lantern-corps"] = { "lantern-corps-phantom-corrupted" },
+        }
+        vim.notify("No prismpunk colorschemes found, using fallback", vim.log.levels.WARN)
+      else
+        vim.notify("Found " .. #all_themes .. " prismpunk colorschemes", vim.log.levels.INFO)
+      end
+
+      require("raphael").setup({
+        leader = "<leader>t",
+        mappings = {
+          next = ">",
+          previous = "<",
+          random = "r",
+        },
+        default_theme = "lantern-corps-phantom-corrupted",
+        theme_map = theme_groups,
+        filetype_themes = {
+          lua = "lantern-corps-phantom-corrupted",
+        },
+      })
+
+      vim.api.nvim_create_user_command("RaphaelRescanPrismpunk", function()
+        local new_groups, new_themes = scan_prismpunk_colorschemes()
+        if #new_themes > 0 then
+          require("raphael").setup({
+            leader = "<leader>t",
+            mappings = {
+              next = ">",
+              previous = "<",
+              random = "r",
+            },
+            default_theme = "lantern-corps-phantom-corrupted",
+            theme_map = new_groups,
+            filetype_themes = {},
+          })
+          vim.notify("Rescanned: Found " .. #new_themes .. " colorschemes", vim.log.levels.INFO)
+        else
+          vim.notify("No colorschemes found during rescan", vim.log.levels.WARN)
+        end
+      end, {
+        desc = "Rescan prismpunk colorschemes and update Raphael",
+      })
+    end,
+  },
+
 }
