@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.sterile")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.nullBright,
+      insert = plt.nullLighter,
+      visual = plt.warningPulse,
+      replace = plt.nullMid,
+      command = plt.clinicalCore,
+    },
+
+    ui = {
+      fg = plt.clinicalCore,
+      fg_dim = plt.clinicalCore,
+      fg_dimmer = plt.nullLighter,
+      fg_dark = plt.nullMid,
+      fg_reverse = plt.sterileVoid,
+
+      bg_m4 = plt.sterileLight,
+      bg_m3 = plt.sterileMid,
+      bg_m2 = plt.sterileDeep,
+      bg_m1 = plt.sterileDark,
+      bg_dim = plt.sterileVoid,
+      bg = plt.sterileVoid,
+      bg_p1 = plt.sterileDeep,
+      bg_p2 = plt.sterileMid,
+      bg_gutter = opts.gutter and plt.sterileMid or "none",
+      bg_cursorline = plt.asepticLine,
+      bg_cursorline_alt = plt.asepticMid,
+      bg_search = plt.warningPulse,
+      bg_visual = plt.asepticDeep,
+      bg_statusline = plt.asepticMid,
+
+      border = plt.nullMid,
+      header1 = plt.clinicalBright,
+      header2 = plt.clinicalCore,
+      special = plt.warningBright,
+      nontext = plt.sterileLight,
+      whitespace = plt.sterileMid,
+      win_separator = plt.nullMid,
+      indent = plt.sterileMid,
+      indent_scope = plt.nullDeep,
+      picker = plt.nullMid,
+      yank = plt.warningPulse,
+      mark = plt.warningBright,
+      scrollbar = plt.sterileLight,
+
+      tabline = {
+        bg = plt.sterileVoid,
+        fg_selected = plt.clinicalCore,
+        bg_selected = plt.asepticMid,
+        fg_inactive = plt.nullLighter,
+        bg_inactive = plt.sterileVoid,
+        fg_alternate = plt.nullBright,
+        bg_alternate = plt.sterileVoid,
+        indicator = plt.warningPulse,
+      },
+
+      pmenu = {
+        fg = plt.clinicalCore,
+        fg_sel = "none",
+        fg_border = plt.asepticMid,
+        bg_border = plt.asepticMid,
+        bg = plt.asepticMid,
+        bg_sel = plt.asepticDeep,
+        bg_sbar = plt.asepticMid,
+        bg_thumb = plt.nullMid,
+      },
+
+      float = {
+        fg = plt.clinicalCore,
+        bg = plt.sterileDeep,
+        fg_border = plt.asepticMid,
+        bg_border = plt.sterileDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.clinicalBright,
+      accent2 = plt.clinicalCore,
+      accent3 = plt.nullLighter,
+      accent4 = plt.nullBright,
+      accent5 = plt.warningPulse,
+      invert = plt.asepticMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.nullBright,
+      rainbow2 = plt.nullMid,
+      rainbow3 = plt.nullDeep,
+      rainbow4 = plt.asepticDeep,
+      rainbow5 = plt.clinicalCore,
+      rainbow6 = plt.clinicalBright,
+      rainbow7 = plt.warningPulse,
+    },
+
+    syn = {
+      attribute = plt.clinicalCore,
+      boolean = plt.warningBright,
+      comment = plt.nullBright,
+      constant = plt.nullLightest,
+      deprecated = plt.nullMid,
+      func = plt.clinicalBright,
+      identifier = plt.clinicalCore,
+      keyword = plt.clinicalCore,
+      method = plt.clinicalBright,
+      number = plt.nullLightest,
+      operator = plt.nullMid,
+      parameter = plt.nullLighter,
+      preproc = plt.warningMid,
+      punct = plt.nullDeep,
+      regex = plt.nullMid,
+      statement = plt.clinicalCore,
+      string = plt.nullLighter,
+      symbol = plt.clinicalCore,
+      type = plt.nullLightest,
+      variable = plt.clinicalCore,
+      special = plt.warsingPulse,
+      special2 = plt.warningMid,
+      special3 = plt.warningBright,
+    },
+
+    vcs = { added = plt.nullLighter, removed = plt.warningBright, changed = plt.nullMid },
+    diff = { add = plt.nullLighter, change = plt.nullDeep, delete = plt.warningBright, text = plt.warningMid },
+    diag = {
+      ok = plt.nullLighter,
+      error = plt.warningBright,
+      warning = plt.warningPulse,
+      info = plt.clinicalCore,
+      hint = plt.nullMid,
+    },
+
+    term = {
+      black = plt.sterileVoid,
+      red = plt.warningBright,
+      green = plt.nullBright,
+      yellow = plt.nullLightest,
+      blue = plt.sterileVoid,
+      magenta = plt.clinicalCore,
+      cyan = plt.nullMid,
+      white = plt.clinicalBright,
+
+      black_bright = color(plt.sterileVoid):brighten(0.4):to_hex(),
+      red_bright = plt.warningPulse,
+      green_bright = color(plt.nullBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.clinicalBright,
+      blue_bright = color(plt.sterileVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.clinicalCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.nullMid):brighten(0.3):to_hex(),
+      white_bright = plt.clinicalBright,
+      indexed1 = plt.nullLighter,
+      indexed2 = plt.nullBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.nullBright,
+      ["@comment. documentation"] = plt.nullMid,
+      ["@comment. error"] = plt.warningBright,
+      ["@comment.warning"] = plt.warningPulse,
+      ["@comment. todo"] = plt.nullLighter,
+      ["@comment.note"] = plt.nullMid,
+
+      ["@constant"] = plt.nullLightest,
+      ["@constant. builtin"] = plt.nullLightest,
+      ["@constant. macro"] = plt.warningMid,
+
+      ["@string"] = plt.nullLighter,
+      ["@string.documentation"] = plt.nullLighter,
+      ["@string. regex"] = plt.nullMid,
+      ["@string.escape"] = plt.warningMid,
+      ["@string.special"] = plt.warningBright,
+      ["@string.special.symbol"] = plt.warningBright,
+      ["@string.special.url"] = plt.nullMid,
+      ["@string. special.path"] = plt.nullLighter,
+
+      ["@character"] = plt.nullLighter,
+      ["@character.special"] = plt.warningMid,
+
+      ["@number"] = plt.nullLightest,
+      ["@number. float"] = plt.nullLightest,
+
+      ["@boolean"] = plt.warningBright,
+
+      ["@function"] = plt.clinicalBright,
+      ["@function.builtin"] = plt.clinicalBright,
+      ["@function. call"] = plt.clinicalBright,
+      ["@function.macro"] = plt.warningMid,
+      ["@function.method"] = plt.clinicalBright,
+      ["@function.method.call"] = plt.clinicalBright,
+
+      ["@constructor"] = plt.clinicalCore,
+
+      ["@parameter"] = plt.nullLighter,
+      ["@parameter.builtin"] = plt.nullLightest,
+
+      ["@keyword"] = plt.clinicalCore,
+      ["@keyword.coroutine"] = plt.warningBright,
+      ["@keyword.function"] = plt.clinicalCore,
+      ["@keyword.operator"] = plt.nullMid,
+      ["@keyword.return"] = plt.clinicalCore,
+      ["@keyword.import"] = plt.nullLightest,
+      ["@keyword. storage"] = plt.clinicalCore,
+      ["@keyword.repeat"] = plt.clinicalCore,
+      ["@keyword.conditional"] = plt.clinicalCore,
+      ["@keyword.exception"] = plt.warningBright,
+      ["@keyword.directive"] = plt.warningMid,
+      ["@keyword.directive.define"] = plt.warningMid,
+
+      ["@conditional"] = plt.clinicalCore,
+      ["@conditional. ternary"] = plt.clinicalCore,
+
+      ["@repeat"] = plt.clinicalCore,
+
+      ["@label"] = plt.nullLightest,
+
+      ["@operator"] = plt.nullMid,
+
+      ["@exception"] = plt.warningBright,
+
+      ["@variable"] = plt.clinicalCore,
+      ["@variable.builtin"] = plt.nullLightest,
+      ["@variable.parameter"] = plt.nullLighter,
+      ["@variable.member"] = plt.clinicalCore,
+
+      ["@type"] = plt.nullLightest,
+      ["@type. builtin"] = plt.nullLightest,
+      ["@type.definition"] = plt.nullLightest,
+      ["@type.qualifier"] = plt.clinicalCore,
+
+      ["@attribute"] = plt.clinicalCore,
+      ["@attribute.builtin"] = plt.nullLightest,
+
+      ["@property"] = plt.clinicalCore,
+      ["@field"] = plt.clinicalCore,
+
+      ["@module"] = plt.clinicalCore,
+      ["@module.builtin"] = plt.clinicalCore,
+
+      ["@namespace"] = plt.clinicalCore,
+      ["@namespace.builtin"] = plt.clinicalCore,
+
+      ["@punctuation. delimiter"] = plt.nullMid,
+      ["@punctuation.bracket"] = plt.nullMid,
+      ["@punctuation.special"] = plt.warningMid,
+
+      ["@tag"] = plt.clinicalCore,
+      ["@tag.attribute"] = plt.nullLightest,
+      ["@tag. delimiter"] = plt.nullMid,
+      ["@tag.builtin"] = plt.clinicalCore,
+
+      ["@markup. strong"] = { fg = plt.clinicalBright, bold = true },
+      ["@markup.italic"] = { fg = plt.clinicalCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.nullMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.clinicalCore, underline = true },
+      ["@markup.heading"] = plt.clinicalBright,
+      ["@markup.heading.1"] = plt.clinicalBright,
+      ["@markup.heading.2"] = plt.clinicalCore,
+      ["@markup.heading.3"] = plt.nullLightest,
+      ["@markup. heading.4"] = plt.nullLighter,
+      ["@markup.heading.5"] = plt.warningMid,
+      ["@markup. heading.6"] = plt.warningPulse,
+      ["@markup.quote"] = plt.nullBright,
+      ["@markup. math"] = plt.nullLightest,
+      ["@markup. link"] = plt.nullMid,
+      ["@markup. link.label"] = plt.warningPulse,
+      ["@markup.link.url"] = plt.nullMid,
+      ["@markup.raw"] = plt.nullLighter,
+      ["@markup.raw.block"] = plt.nullLighter,
+      ["@markup.list"] = plt.clinicalCore,
+      ["@markup.list.checked"] = plt.nullLighter,
+      ["@markup.list.unchecked"] = plt.nullBright,
+
+      ["@diff. plus"] = plt.nullLighter,
+      ["@diff.minus"] = plt.warningBright,
+      ["@diff.delta"] = plt.nullMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.nullMid,
+      ["@spell"] = plt.clinicalCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type. property. lua"] = plt.clinicalCore,
+      ["@constructor.python"] = plt.clinicalBright,
+      ["@constructor.javascript"] = plt.clinicalBright,
+      ["@constructor.typescript"] = plt.clinicalBright,
+      ["@namespace.rust"] = plt.clinicalCore,
+      ["@type.qualifier.rust"] = plt.clinicalCore,
+      ["@constant.macro.c"] = plt.warningMid,
+      ["@constant.macro.cpp"] = plt.warningMid,
+      ["@namespace.go"] = plt.clinicalCore,
+      ["@property.css"] = plt.clinicalBright,
+      ["@type.css"] = plt.clinicalCore,
+      ["@label.json"] = plt.clinicalCore,
+      ["@field.yaml"] = plt.clinicalCore,
+      ["@property.toml"] = plt.clinicalCore,
+      ["@function.builtin.bash"] = plt.clinicalBright,
+      ["@string.regexp"] = plt.nullMid,
+      ["@character.special. regex"] = plt.warningMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.nullLightest,
+      ["@lsp.type.interface"] = plt.nullLightest,
+      ["@lsp. type.struct"] = plt.nullLightest,
+      ["@lsp. type.enum"] = plt.nullLightest,
+      ["@lsp.type.enumMember"] = plt.nullLightest,
+      ["@lsp.type.property"] = plt.clinicalCore,
+      ["@lsp.type.namespace"] = plt.clinicalCore,
+
+      ["@lsp.type.macro"] = plt.warningMid,
+      ["@lsp.type.decorator"] = plt.clinicalBright,
+
+      ["@lsp.type. builtinType"] = plt.nullLightest,
+      ["@lsp.type.selfParameter"] = plt.clinicalCore,
+      ["@lsp.type.typeParameter"] = plt.nullLightest,
+
+      ["@lsp.type. array"] = plt.nullLightest,
+      ["@lsp. type.object"] = plt.nullLightest,
+      ["@lsp.type.key"] = plt.clinicalCore,
+      ["@lsp.type.null"] = plt.nullLightest,
+      ["@lsp. type.enumConstant"] = plt.nullLightest,
+
+      ["@lsp.type. event"] = plt.nullLightest,
+      ["@lsp. type.regexp"] = plt.nullMid,
+      ["@lsp.type.unresolvedReference"] = plt.warningBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.nullMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.nullLightest,
+      ["@lsp.mod.async"] = plt.clinicalCore,
+      ["@lsp. mod.static"] = plt.nullLightest,
+      ["@lsp.mod.abstract"] = plt.nullLightest,
+      ["@lsp. mod.defaultLibrary"] = plt.nullLightest,
+      ["@lsp.mod.documentation"] = plt.nullBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Sterile",
+  author = "PrismPunk. nvim",
+  description = "Clinical precision.  Cold null grays. Red warnings only.  Maximum clarity.  Antiseptic void.",
+
+  base16 = {
+    base00 = palette.sterileVoid,
+    base01 = palette.sterileDark,
+    base02 = palette.sterileDeep,
+    base03 = palette.sterileMid,
+    base04 = palette.nullBright,
+    base05 = palette.nullLightest,
+    base06 = palette.clinicalCore,
+    base07 = palette.clinicalBright,
+    base08 = palette.warningBright,
+    base09 = palette.warningMid,
+    base0A = palette.warningDeep,
+    base0B = palette.nullLighter,
+    base0C = palette.warningPulse,
+    base0D = palette.nullMid,
+    base0E = palette.warningPulse,
+    base0F = palette.nullMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

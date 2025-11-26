@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.prison")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.bloodMid,
+      insert = plt.bloodBright,
+      visual = plt.bloodPulse,
+      replace = plt.bloodDeep,
+      command = plt.shadowBright,
+    },
+
+    ui = {
+      fg = plt.focusCore,
+      fg_dim = plt.focusDim,
+      fg_dimmer = plt.shadowLighter,
+      fg_dark = plt.shadowLight,
+      fg_reverse = plt.prisonVoid,
+
+      bg_m4 = plt.prisonLight,
+      bg_m3 = plt.prisonMid,
+      bg_m2 = plt.prisonDeep,
+      bg_m1 = plt.prisonDark,
+      bg_dim = plt.prisonVoid,
+      bg = plt.prisonVoid,
+      bg_p1 = plt.prisonDeep,
+      bg_p2 = plt.prisonMid,
+      bg_gutter = opts.gutter and plt.prisonMid or "none",
+      bg_cursorline = plt.stoneLine,
+      bg_cursorline_alt = plt.stoneMid,
+      bg_search = plt.bloodPulse,
+      bg_visual = plt.bloodDeep,
+      bg_statusline = plt.stoneMid,
+
+      border = plt.shadowMid,
+      header1 = plt.bloodBright,
+      header2 = plt.bloodMid,
+      special = plt.bloodPulse,
+      nontext = plt.prisonLight,
+      whitespace = plt.prisonMid,
+      win_separator = plt.shadowMid,
+      indent = plt.prisonMid,
+      indent_scope = plt.shadowDeep,
+      picker = plt.shadowLight,
+      yank = plt.bloodPulse,
+      mark = plt.bloodBright,
+      scrollbar = plt.prisonLight,
+
+      tabline = {
+        bg = plt.prisonVoid,
+        fg_selected = plt.focusCore,
+        bg_selected = plt.stoneMid,
+        fg_inactive = plt.shadowLighter,
+        bg_inactive = plt.prisonVoid,
+        fg_alternate = plt.bloodMid,
+        bg_alternate = plt.prisonVoid,
+        indicator = plt.bloodPulse,
+      },
+
+      pmenu = {
+        fg = plt.focusCore,
+        fg_sel = "none",
+        fg_border = plt.stoneMid,
+        bg_border = plt.stoneMid,
+        bg = plt.stoneMid,
+        bg_sel = plt.stoneDeep,
+        bg_sbar = plt.stoneMid,
+        bg_thumb = plt.shadowMid,
+      },
+
+      float = {
+        fg = plt.focusCore,
+        bg = plt.prisonDeep,
+        fg_border = plt.stoneMid,
+        bg_border = plt.prisonDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.bloodBright,
+      accent2 = plt.bloodMid,
+      accent3 = plt.bloodDeep,
+      accent4 = plt.shadowBright,
+      accent5 = plt.bloodPulse,
+      invert = plt.stoneMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.shadowBright,
+      rainbow2 = plt.shadowLight,
+      rainbow3 = plt.shadowMid,
+      rainbow4 = plt.bloodDeep,
+      rainbow5 = plt.bloodMid,
+      rainbow6 = plt.bloodBright,
+      rainbow7 = plt.bloodPulse,
+    },
+
+    syn = {
+      attribute = plt.focusCore,
+      boolean = plt.bloodBright,
+      comment = plt.shadowBright,
+      constant = plt.shadowLightest,
+      deprecated = plt.shadowMid,
+      func = plt.focusBright,
+      identifier = plt.focusCore,
+      keyword = plt.focusCore,
+      method = plt.focusBright,
+      number = plt.shadowLightest,
+      operator = plt.shadowLight,
+      parameter = plt.shadowLighter,
+      preproc = plt.bloodDeep,
+      punct = plt.shadowMid,
+      regex = plt.shadowLight,
+      statement = plt.focusCore,
+      string = plt.shadowLighter,
+      symbol = plt.focusCore,
+      type = plt.shadowLightest,
+      variable = plt.focusCore,
+      special = plt.bloodPulse,
+      special2 = plt.bloodMid,
+      special3 = plt.bloodBright,
+    },
+
+    vcs = { added = plt.shadowLighter, removed = plt.bloodBright, changed = plt.bloodDeep },
+    diff = { add = plt.shadowLighter, change = plt.shadowLight, delete = plt.bloodBright, text = plt.bloodDeep },
+    diag = {
+      ok = plt.shadowLighter,
+      error = plt.bloodBright,
+      warning = plt.bloodMid,
+      info = plt.shadowBright,
+      hint = plt.shadowMid,
+    },
+
+    term = {
+      black = plt.prisonVoid,
+      red = plt.bloodBright,
+      green = plt.shadowBright,
+      yellow = plt.shadowLightest,
+      blue = plt.prisonVoid,
+      magenta = plt.bloodMid,
+      cyan = plt.shadowLight,
+      white = plt.focusCore,
+
+      black_bright = color(plt.prisonVoid):brighten(0.4):to_hex(),
+      red_bright = plt.bloodPulse,
+      green_bright = color(plt.shadowBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.focusBright,
+      blue_bright = color(plt.prisonVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.bloodMid):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.shadowLight):brighten(0.3):to_hex(),
+      white_bright = plt.focusBright,
+      indexed1 = plt.bloodMid,
+      indexed2 = plt.bloodBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.shadowBright,
+      ["@comment.documentation"] = plt.shadowLight,
+      ["@comment.error"] = plt.bloodBright,
+      ["@comment.warning"] = plt.bloodMid,
+      ["@comment.todo"] = plt.shadowLighter,
+      ["@comment.note"] = plt.shadowLight,
+
+      ["@constant"] = plt.shadowLightest,
+      ["@constant.builtin"] = plt.shadowLightest,
+      ["@constant. macro"] = plt.bloodDeep,
+
+      ["@string"] = plt.shadowLighter,
+      ["@string.documentation"] = plt.shadowLighter,
+      ["@string. regex"] = plt.shadowLight,
+      ["@string.escape"] = plt.bloodMid,
+      ["@string.special"] = plt.bloodBright,
+      ["@string.special.symbol"] = plt.bloodBright,
+      ["@string.special.url"] = plt.shadowLight,
+      ["@string.special.path"] = plt.shadowLighter,
+
+      ["@character"] = plt.shadowLighter,
+      ["@character.special"] = plt.bloodMid,
+
+      ["@number"] = plt.shadowLightest,
+      ["@number. float"] = plt.shadowLightest,
+
+      ["@boolean"] = plt.bloodBright,
+
+      ["@function"] = plt.focusBright,
+      ["@function.builtin"] = plt.focusBright,
+      ["@function.call"] = plt.focusBright,
+      ["@function.macro"] = plt.bloodDeep,
+      ["@function.method"] = plt.focusBright,
+      ["@function.method.call"] = plt.focusBright,
+
+      ["@constructor"] = plt.focusCore,
+
+      ["@parameter"] = plt.shadowLighter,
+      ["@parameter.builtin"] = plt.shadowLightest,
+
+      ["@keyword"] = plt.focusCore,
+      ["@keyword. coroutine"] = plt.bloodBright,
+      ["@keyword.function"] = plt.focusCore,
+      ["@keyword. operator"] = plt.shadowLight,
+      ["@keyword.return"] = plt.focusCore,
+      ["@keyword.import"] = plt.shadowLightest,
+      ["@keyword. storage"] = plt.focusCore,
+      ["@keyword.repeat"] = plt.focusCore,
+      ["@keyword.conditional"] = plt.focusCore,
+      ["@keyword.exception"] = plt.bloodBright,
+      ["@keyword.directive"] = plt.bloodDeep,
+      ["@keyword. directive.define"] = plt.bloodDeep,
+
+      ["@conditional"] = plt.focusCore,
+      ["@conditional. ternary"] = plt.focusCore,
+
+      ["@repeat"] = plt.focusCore,
+
+      ["@label"] = plt.shadowLightest,
+
+      ["@operator"] = plt.shadowLight,
+
+      ["@exception"] = plt.bloodBright,
+
+      ["@variable"] = plt.focusCore,
+      ["@variable.builtin"] = plt.shadowLightest,
+      ["@variable.parameter"] = plt.shadowLighter,
+      ["@variable.member"] = plt.focusCore,
+
+      ["@type"] = plt.shadowLightest,
+      ["@type.builtin"] = plt.shadowLightest,
+      ["@type.definition"] = plt.shadowLightest,
+      ["@type.qualifier"] = plt.focusCore,
+
+      ["@attribute"] = plt.focusCore,
+      ["@attribute.builtin"] = plt.shadowLightest,
+
+      ["@property"] = plt.focusCore,
+      ["@field"] = plt.focusCore,
+
+      ["@module"] = plt.focusCore,
+      ["@module.builtin"] = plt.focusCore,
+
+      ["@namespace"] = plt.focusCore,
+      ["@namespace.builtin"] = plt.focusCore,
+
+      ["@punctuation.delimiter"] = plt.shadowMid,
+      ["@punctuation.bracket"] = plt.shadowMid,
+      ["@punctuation.special"] = plt.bloodMid,
+
+      ["@tag"] = plt.focusCore,
+      ["@tag.attribute"] = plt.shadowLightest,
+      ["@tag.delimiter"] = plt.shadowMid,
+      ["@tag.builtin"] = plt.focusCore,
+
+      ["@markup.strong"] = { fg = plt.bloodBright, bold = true },
+      ["@markup.italic"] = { fg = plt.focusCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.shadowMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.focusCore, underline = true },
+      ["@markup.heading"] = plt.bloodBright,
+      ["@markup.heading.1"] = plt.bloodBright,
+      ["@markup.heading. 2"] = plt.bloodMid,
+      ["@markup. heading.3"] = plt.shadowLightest,
+      ["@markup.heading.4"] = plt.shadowLighter,
+      ["@markup.heading.5"] = plt.bloodDeep,
+      ["@markup. heading.6"] = plt.bloodPulse,
+      ["@markup.quote"] = plt.shadowBright,
+      ["@markup. math"] = plt.shadowLightest,
+      ["@markup. link"] = plt.shadowLight,
+      ["@markup.link.label"] = plt.bloodPulse,
+      ["@markup.link.url"] = plt.shadowLight,
+      ["@markup.raw"] = plt.shadowLighter,
+      ["@markup.raw.block"] = plt.shadowLighter,
+      ["@markup.list"] = plt.focusCore,
+      ["@markup.list.checked"] = plt.shadowLighter,
+      ["@markup.list.unchecked"] = plt.shadowBright,
+
+      ["@diff. plus"] = plt.shadowLighter,
+      ["@diff.minus"] = plt.bloodBright,
+      ["@diff.delta"] = plt.shadowLight,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.shadowMid,
+      ["@spell"] = plt.focusCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type. property. lua"] = plt.focusCore,
+      ["@constructor.python"] = plt.focusBright,
+      ["@constructor.javascript"] = plt.focusBright,
+      ["@constructor.typescript"] = plt.focusBright,
+      ["@namespace.rust"] = plt.focusCore,
+      ["@type.qualifier.rust"] = plt.focusCore,
+      ["@constant.macro.c"] = plt.bloodDeep,
+      ["@constant.macro. cpp"] = plt.bloodDeep,
+      ["@namespace.go"] = plt.focusCore,
+      ["@property.css"] = plt.focusBright,
+      ["@type.css"] = plt.focusCore,
+      ["@label.json"] = plt.focusCore,
+      ["@field.yaml"] = plt.focusCore,
+      ["@property.toml"] = plt.focusCore,
+      ["@function.builtin.bash"] = plt.focusBright,
+      ["@string.regexp"] = plt.shadowLight,
+      ["@character.special. regex"] = plt.bloodMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.shadowLightest,
+      ["@lsp.type.interface"] = plt.shadowLightest,
+      ["@lsp. type.struct"] = plt.shadowLightest,
+      ["@lsp. type.enum"] = plt.shadowLightest,
+      ["@lsp.type.enumMember"] = plt.shadowLightest,
+      ["@lsp.type.property"] = plt.focusCore,
+      ["@lsp.type.namespace"] = plt.focusCore,
+
+      ["@lsp.type.macro"] = plt.bloodDeep,
+      ["@lsp.type.decorator"] = plt.focusBright,
+
+      ["@lsp.type. builtinType"] = plt.shadowLightest,
+      ["@lsp.type.selfParameter"] = plt.focusCore,
+      ["@lsp.type.typeParameter"] = plt.shadowLightest,
+
+      ["@lsp.type. array"] = plt.shadowLightest,
+      ["@lsp. type.object"] = plt.shadowLightest,
+      ["@lsp.type.key"] = plt.focusCore,
+      ["@lsp.type.null"] = plt.shadowLightest,
+      ["@lsp. type.enumConstant"] = plt.shadowLightest,
+
+      ["@lsp.type. event"] = plt.shadowLightest,
+      ["@lsp. type.regexp"] = plt.shadowLight,
+      ["@lsp. type.unresolvedReference"] = plt.bloodBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.shadowMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.shadowLightest,
+      ["@lsp.mod.async"] = plt.focusCore,
+      ["@lsp.mod.static"] = plt.shadowLightest,
+      ["@lsp. mod.abstract"] = plt.shadowLightest,
+      ["@lsp. mod.defaultLibrary"] = plt.shadowLightest,
+      ["@lsp.mod.documentation"] = plt.shadowBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Brutalist Prison",
+  author = "PrismPunk. nvim",
+  description = "Zero blue.  Tiny green warmth. Deep, readable blood-reds.  Maximum focus. No dopamine.",
+
+  base16 = {
+    base00 = palette.prisonVoid,
+    base01 = palette.prisonDark,
+    base02 = palette.prisonDeep,
+    base03 = palette.prisonMid,
+    base04 = palette.shadowBright,
+    base05 = palette.shadowLightest,
+    base06 = palette.focusDim,
+    base07 = palette.focusCore,
+    base08 = palette.bloodBright,
+    base09 = palette.bloodMid,
+    base0A = palette.bloodDeep,
+    base0B = palette.shadowLighter,
+    base0C = palette.bloodPulse,
+    base0D = palette.shadowLight,
+    base0E = palette.bloodPulse,
+    base0F = palette.shadowMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.zenkanagawa")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.depthBright,
+      insert = plt.depthLighter,
+      visual = plt.sunsetPulse,
+      replace = plt.depthMid,
+      command = plt.horizonCore,
+    },
+
+    ui = {
+      fg = plt.horizonCore,
+      fg_dim = plt.horizonCore,
+      fg_dimmer = plt.depthLighter,
+      fg_dark = plt.depthMid,
+      fg_reverse = plt.waveVoid,
+
+      bg_m4 = plt.waveLight,
+      bg_m3 = plt.waveMid,
+      bg_m2 = plt.waveDeep,
+      bg_m1 = plt.waveDark,
+      bg_dim = plt.waveVoid,
+      bg = plt.waveVoid,
+      bg_p1 = plt.waveDeep,
+      bg_p2 = plt.waveMid,
+      bg_gutter = opts.gutter and plt.waveMid or "none",
+      bg_cursorline = plt.tidalLine,
+      bg_cursorline_alt = plt.tidalMid,
+      bg_search = plt.sunsetPulse,
+      bg_visual = plt.sunsetDeep,
+      bg_statusline = plt.tidalMid,
+
+      border = plt.depthMid,
+      header1 = plt.horizonBright,
+      header2 = plt.horizonCore,
+      special = plt.sunsetBright,
+      nontext = plt.waveLight,
+      whitespace = plt.waveMid,
+      win_separator = plt.depthMid,
+      indent = plt.waveMid,
+      indent_scope = plt.depthDeep,
+      picker = plt.depthMid,
+      yank = plt.sunsetPulse,
+      mark = plt.sunsetBright,
+      scrollbar = plt.waveLight,
+
+      tabline = {
+        bg = plt.waveVoid,
+        fg_selected = plt.horizonCore,
+        bg_selected = plt.tidalMid,
+        fg_inactive = plt.depthLighter,
+        bg_inactive = plt.waveVoid,
+        fg_alternate = plt.depthBright,
+        bg_alternate = plt.waveVoid,
+        indicator = plt.sunsetPulse,
+      },
+
+      pmenu = {
+        fg = plt.horizonCore,
+        fg_sel = "none",
+        fg_border = plt.tidalMid,
+        bg_border = plt.tidalMid,
+        bg = plt.tidalMid,
+        bg_sel = plt.tidalDeep,
+        bg_sbar = plt.tidalMid,
+        bg_thumb = plt.depthMid,
+      },
+
+      float = {
+        fg = plt.horizonCore,
+        bg = plt.waveDeep,
+        fg_border = plt.tidalMid,
+        bg_border = plt.waveDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.horizonBright,
+      accent2 = plt.horizonCore,
+      accent3 = plt.depthLighter,
+      accent4 = plt.depthBright,
+      accent5 = plt.sunsetPulse,
+      invert = plt.tidalMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.depthBright,
+      rainbow2 = plt.depthMid,
+      rainbow3 = plt.depthDeep,
+      rainbow4 = plt.tidalDeep,
+      rainbow5 = plt.horizonCore,
+      rainbow6 = plt.horizonBright,
+      rainbow7 = plt.sunsetPulse,
+    },
+
+    syn = {
+      attribute = plt.horizonCore,
+      boolean = plt.sunsetBright,
+      comment = plt.depthBright,
+      constant = plt.depthLightest,
+      deprecated = plt.depthMid,
+      func = plt.horizonBright,
+      identifier = plt.horizonCore,
+      keyword = plt.horizonCore,
+      method = plt.horizonBright,
+      number = plt.depthLightest,
+      operator = plt.depthMid,
+      parameter = plt.depthLighter,
+      preproc = plt.sunsetMid,
+      punct = plt.depthDeep,
+      regex = plt.depthMid,
+      statement = plt.horizonCore,
+      string = plt.depthLighter,
+      symbol = plt.horizonCore,
+      type = plt.depthLightest,
+      variable = plt.horizonCore,
+      special = plt.sunsetPulse,
+      special2 = plt.sunsetMid,
+      special3 = plt.sunsetBright,
+    },
+
+    vcs = { added = plt.depthLighter, removed = plt.sunsetBright, changed = plt.sunsetDeep },
+    diff = { add = plt.depthLighter, change = plt.depthDeep, delete = plt.sunsetBright, text = plt.sunsetMid },
+    diag = {
+      ok = plt.depthLighter,
+      error = plt.sunsetBright,
+      warning = plt.sunsetPulse,
+      info = plt.horizonCore,
+      hint = plt.depthMid,
+    },
+
+    term = {
+      black = plt.waveVoid,
+      red = plt.sunsetBright,
+      green = plt.depthBright,
+      yellow = plt.depthLightest,
+      blue = plt.waveVoid,
+      magenta = plt.horizonCore,
+      cyan = plt.depthMid,
+      white = plt.horizonBright,
+
+      black_bright = color(plt.waveVoid):brighten(0.4):to_hex(),
+      red_bright = plt.sunsetPulse,
+      green_bright = color(plt.depthBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.horizonBright,
+      blue_bright = color(plt.waveVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.horizonCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.depthMid):brighten(0.3):to_hex(),
+      white_bright = plt.horizonBright,
+      indexed1 = plt.depthLighter,
+      indexed2 = plt.depthBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.depthBright,
+      ["@comment.  documentation"] = plt.depthMid,
+      ["@comment. error"] = plt.sunsetBright,
+      ["@comment. warning"] = plt.sunsetPulse,
+      ["@comment.  todo"] = plt.depthLighter,
+      ["@comment. note"] = plt.depthMid,
+
+      ["@constant"] = plt.depthLightest,
+      ["@constant.  builtin"] = plt.depthLightest,
+      ["@constant. macro"] = plt.sunsetMid,
+
+      ["@string"] = plt.depthLighter,
+      ["@string. documentation"] = plt.depthLighter,
+      ["@string.  regex"] = plt.depthMid,
+      ["@string. escape"] = plt.sunsetMid,
+      ["@string. special"] = plt.sunsetBright,
+      ["@string.special. symbol"] = plt.sunsetBright,
+      ["@string.special.url"] = plt.depthMid,
+      ["@string.  special.path"] = plt.depthLighter,
+
+      ["@character"] = plt.depthLighter,
+      ["@character.special"] = plt.sunsetMid,
+
+      ["@number"] = plt.depthLightest,
+      ["@number.  float"] = plt.depthLightest,
+
+      ["@boolean"] = plt.sunsetBright,
+
+      ["@function"] = plt.horizonBright,
+      ["@function. builtin"] = plt.horizonBright,
+      ["@function. call"] = plt.horizonBright,
+      ["@function. macro"] = plt.sunsetMid,
+      ["@function.method"] = plt.horizonBright,
+      ["@function.method. call"] = plt.horizonBright,
+
+      ["@constructor"] = plt.horizonCore,
+
+      ["@parameter"] = plt.depthLighter,
+      ["@parameter. builtin"] = plt.depthLightest,
+
+      ["@keyword"] = plt.horizonCore,
+      ["@keyword.coroutine"] = plt.sunsetBright,
+      ["@keyword.  function"] = plt.horizonCore,
+      ["@keyword. operator"] = plt.depthMid,
+      ["@keyword. return"] = plt.horizonCore,
+      ["@keyword.import"] = plt.depthLightest,
+      ["@keyword.  storage"] = plt.horizonCore,
+      ["@keyword. repeat"] = plt.horizonCore,
+      ["@keyword.conditional"] = plt.horizonCore,
+      ["@keyword.exception"] = plt.sunsetBright,
+      ["@keyword.directive"] = plt.sunsetMid,
+      ["@keyword.  directive. define"] = plt.sunsetMid,
+
+      ["@conditional"] = plt.horizonCore,
+      ["@conditional. ternary"] = plt.horizonCore,
+
+      ["@repeat"] = plt.horizonCore,
+
+      ["@label"] = plt.depthLightest,
+
+      ["@operator"] = plt.depthMid,
+
+      ["@exception"] = plt.sunsetBright,
+
+      ["@variable"] = plt.horizonCore,
+      ["@variable.builtin"] = plt.depthLightest,
+      ["@variable. parameter"] = plt.depthLighter,
+      ["@variable.member"] = plt.horizonCore,
+
+      ["@type"] = plt.depthLightest,
+      ["@type.  builtin"] = plt.depthLightest,
+      ["@type. definition"] = plt.depthLightest,
+      ["@type.qualifier"] = plt.horizonCore,
+
+      ["@attribute"] = plt.horizonCore,
+      ["@attribute.builtin"] = plt.depthLightest,
+
+      ["@property"] = plt.horizonCore,
+      ["@field"] = plt.horizonCore,
+
+      ["@module"] = plt.horizonCore,
+      ["@module.builtin"] = plt.horizonCore,
+
+      ["@namespace"] = plt.horizonCore,
+      ["@namespace.builtin"] = plt.horizonCore,
+
+      ["@punctuation.  delimiter"] = plt.depthMid,
+      ["@punctuation. bracket"] = plt.depthMid,
+      ["@punctuation.  special"] = plt.sunsetMid,
+
+      ["@tag"] = plt.horizonCore,
+      ["@tag.attribute"] = plt.depthLightest,
+      ["@tag.  delimiter"] = plt.depthMid,
+      ["@tag.builtin"] = plt.horizonCore,
+
+      ["@markup.  strong"] = { fg = plt.horizonBright, bold = true },
+      ["@markup.italic"] = { fg = plt.horizonCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.depthMid, strikethrough = true },
+      ["@markup.  underline"] = { fg = plt.horizonCore, underline = true },
+      ["@markup.heading"] = plt.horizonBright,
+      ["@markup. heading. 1"] = plt.horizonBright,
+      ["@markup.heading.2"] = plt.horizonCore,
+      ["@markup.  heading.3"] = plt.depthLightest,
+      ["@markup. heading.4"] = plt.depthLighter,
+      ["@markup.heading.5"] = plt.sunsetMid,
+      ["@markup.  heading.6"] = plt.sunsetPulse,
+      ["@markup.quote"] = plt.depthBright,
+      ["@markup.  math"] = plt.depthLightest,
+      ["@markup.  link"] = plt.depthMid,
+      ["@markup.  link.label"] = plt.sunsetPulse,
+      ["@markup. link.url"] = plt.depthMid,
+      ["@markup.  raw"] = plt.depthLighter,
+      ["@markup.raw.block"] = plt.depthLighter,
+      ["@markup.list"] = plt.horizonCore,
+      ["@markup.list.checked"] = plt.depthLighter,
+      ["@markup.list.unchecked"] = plt.depthBright,
+
+      ["@diff.  plus"] = plt.depthLighter,
+      ["@diff. minus"] = plt.sunsetBright,
+      ["@diff.delta"] = plt.depthMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.depthMid,
+      ["@spell"] = plt.horizonCore,
+      ["@nospell"] = "none",
+
+      ["@lsp. type.  property.  lua"] = plt.horizonCore,
+      ["@constructor. python"] = plt.horizonBright,
+      ["@constructor. javascript"] = plt.horizonBright,
+      ["@constructor.typescript"] = plt.horizonBright,
+      ["@namespace.rust"] = plt.horizonCore,
+      ["@type.qualifier.rust"] = plt.horizonCore,
+      ["@constant.macro. c"] = plt.sunsetMid,
+      ["@constant.macro.cpp"] = plt.sunsetMid,
+      ["@namespace.go"] = plt.horizonCore,
+      ["@property.css"] = plt.horizonBright,
+      ["@type.css"] = plt.horizonCore,
+      ["@label.json"] = plt.horizonCore,
+      ["@field.yaml"] = plt.horizonCore,
+      ["@property.toml"] = plt.horizonCore,
+      ["@function.builtin. bash"] = plt.horizonBright,
+      ["@string.regexp"] = plt.depthMid,
+      ["@character.special.  regex"] = plt.sunsetMid,
+    },
+
+    lsp = {
+      ["@lsp.type. class"] = plt.depthLightest,
+      ["@lsp.type.interface"] = plt.depthLightest,
+      ["@lsp.  type. struct"] = plt.depthLightest,
+      ["@lsp.  type.enum"] = plt.depthLightest,
+      ["@lsp. type.enumMember"] = plt.depthLightest,
+      ["@lsp.type.property"] = plt.horizonCore,
+      ["@lsp.type.namespace"] = plt.horizonCore,
+
+      ["@lsp.type. macro"] = plt.sunsetMid,
+      ["@lsp.type.decorator"] = plt.horizonBright,
+
+      ["@lsp.type.  builtinType"] = plt.depthLightest,
+      ["@lsp.type. selfParameter"] = plt.horizonCore,
+      ["@lsp.type.typeParameter"] = plt.depthLightest,
+
+      ["@lsp.type.  array"] = plt.depthLightest,
+      ["@lsp.  type.object"] = plt.depthLightest,
+      ["@lsp.type.key"] = plt.horizonCore,
+      ["@lsp.type.null"] = plt.depthLightest,
+      ["@lsp.  type.enumConstant"] = plt.depthLightest,
+
+      ["@lsp.type.  event"] = plt.depthLightest,
+      ["@lsp.  type.regexp"] = plt.depthMid,
+      ["@lsp.type.unresolvedReference"] = plt.sunsetBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.depthMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.depthLightest,
+      ["@lsp.mod.  async"] = plt.horizonCore,
+      ["@lsp.  mod.static"] = plt.depthLightest,
+      ["@lsp.mod.abstract"] = plt.depthLightest,
+      ["@lsp.  mod.defaultLibrary"] = plt.depthLightest,
+      ["@lsp.mod.documentation"] = plt.depthBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Kanagawa",
+  author = "PrismPunk.  nvim",
+  description = "Desaturated indigo waves.  Warm sunset accents.  Contemplative & flowing.  The ocean without dopamine.",
+
+  base16 = {
+    base00 = palette.waveVoid,
+    base01 = palette.waveDark,
+    base02 = palette.waveDeep,
+    base03 = palette.waveMid,
+    base04 = palette.depthBright,
+    base05 = palette.depthLightest,
+    base06 = palette.horizonCore,
+    base07 = palette.horizonBright,
+    base08 = palette.sunsetBright,
+    base09 = palette.sunsetMid,
+    base0A = palette.sunsetDeep,
+    base0B = palette.depthLighter,
+    base0C = palette.sunsetPulse,
+    base0D = palette.depthMid,
+    base0E = palette.sunsetPulse,
+    base0F = palette.depthMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

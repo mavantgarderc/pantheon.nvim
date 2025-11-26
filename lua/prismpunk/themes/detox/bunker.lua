@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.bunker")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.clayMid,
+      insert = plt.clayBright,
+      visual = plt.clayPulse,
+      replace = plt.clayDeep,
+      command = plt.dustBright,
+    },
+
+    ui = {
+      fg = plt.focusCore,
+      fg_dim = plt.focusCore,
+      fg_dimmer = plt.dustLighter,
+      fg_dark = plt.dustMid,
+      fg_reverse = plt.bunkerVoid,
+
+      bg_m4 = plt.bunkerLight,
+      bg_m3 = plt.bunkerMid,
+      bg_m2 = plt.bunkerDeep,
+      bg_m1 = plt.bunkerDark,
+      bg_dim = plt.bunkerVoid,
+      bg = plt.bunkerVoid,
+      bg_p1 = plt.bunkerDeep,
+      bg_p2 = plt.bunkerMid,
+      bg_gutter = opts.gutter and plt.bunkerMid or "none",
+      bg_cursorline = plt.earthLine,
+      bg_cursorline_alt = plt.earthMid,
+      bg_search = plt.clayPulse,
+      bg_visual = plt.clayDeep,
+      bg_statusline = plt.earthMid,
+
+      border = plt.dustMid,
+      header1 = plt.clayBright,
+      header2 = plt.clayMid,
+      special = plt.clayPulse,
+      nontext = plt.bunkerLight,
+      whitespace = plt.bunkerMid,
+      win_separator = plt.dustMid,
+      indent = plt.bunkerMid,
+      indent_scope = plt.dustDeep,
+      picker = plt.dustMid,
+      yank = plt.clayPulse,
+      mark = plt.clayBright,
+      scrollbar = plt.bunkerLight,
+
+      tabline = {
+        bg = plt.bunkerVoid,
+        fg_selected = plt.focusCore,
+        bg_selected = plt.earthMid,
+        fg_inactive = plt.dustLighter,
+        bg_inactive = plt.bunkerVoid,
+        fg_alternate = plt.clayMid,
+        bg_alternate = plt.bunkerVoid,
+        indicator = plt.clayPulse,
+      },
+
+      pmenu = {
+        fg = plt.focusCore,
+        fg_sel = "none",
+        fg_border = plt.earthMid,
+        bg_border = plt.earthMid,
+        bg = plt.earthMid,
+        bg_sel = plt.earthDeep,
+        bg_sbar = plt.earthMid,
+        bg_thumb = plt.dustMid,
+      },
+
+      float = {
+        fg = plt.focusCore,
+        bg = plt.bunkerDeep,
+        fg_border = plt.earthMid,
+        bg_border = plt.bunkerDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.clayBright,
+      accent2 = plt.clayMid,
+      accent3 = plt.clayDeep,
+      accent4 = plt.dustBright,
+      accent5 = plt.clayPulse,
+      invert = plt.earthMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.dustBright,
+      rainbow2 = plt.dustMid,
+      rainbow3 = plt.dustDeep,
+      rainbow4 = plt.clayDeep,
+      rainbow5 = plt.clayMid,
+      rainbow6 = plt.clayBright,
+      rainbow7 = plt.clayPulse,
+    },
+
+    syn = {
+      attribute = plt.focusCore,
+      boolean = plt.clayBright,
+      comment = plt.dustBright,
+      constant = plt.dustLightest,
+      deprecated = plt.dustMid,
+      func = plt.focusBright,
+      identifier = plt.focusCore,
+      keyword = plt.focusCore,
+      method = plt.focusBright,
+      number = plt.dustLightest,
+      operator = plt.dustMid,
+      parameter = plt.dustLighter,
+      preproc = plt.clayDeep,
+      punct = plt.dustMid,
+      regex = plt.dustMid,
+      statement = plt.focusCore,
+      string = plt.dustLighter,
+      symbol = plt.focusCore,
+      type = plt.dustLightest,
+      variable = plt.focusCore,
+      special = plt.clayPulse,
+      special2 = plt.clayMid,
+      special3 = plt.clayBright,
+    },
+
+    vcs = { added = plt.dustLighter, removed = plt.clayBright, changed = plt.clayDeep },
+    diff = { add = plt.dustLighter, change = plt.dustMid, delete = plt.clayBright, text = plt.clayDeep },
+    diag = {
+      ok = plt.dustLighter,
+      error = plt.clayBright,
+      warning = plt.clayMid,
+      info = plt.dustBright,
+      hint = plt.dustMid,
+    },
+
+    term = {
+      black = plt.bunkerVoid,
+      red = plt.clayBright,
+      green = plt.dustBright,
+      yellow = plt.dustLightest,
+      blue = plt.bunkerVoid,
+      magenta = plt.clayMid,
+      cyan = plt.dustMid,
+      white = plt.focusCore,
+
+      black_bright = color(plt.bunkerVoid):brighten(0.4):to_hex(),
+      red_bright = plt.clayPulse,
+      green_bright = color(plt.dustBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.focusBright,
+      blue_bright = color(plt.bunkerVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.clayMid):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.dustMid):brighten(0.3):to_hex(),
+      white_bright = plt.focusBright,
+      indexed1 = plt.clayMid,
+      indexed2 = plt.clayBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.dustBright,
+      ["@comment. documentation"] = plt.dustMid,
+      ["@comment. error"] = plt.clayBright,
+      ["@comment.warning"] = plt.clayMid,
+      ["@comment.todo"] = plt.dustLighter,
+      ["@comment.note"] = plt.dustMid,
+
+      ["@constant"] = plt.dustLightest,
+      ["@constant. builtin"] = plt.dustLightest,
+      ["@constant. macro"] = plt.clayDeep,
+
+      ["@string"] = plt.dustLighter,
+      ["@string.documentation"] = plt.dustLighter,
+      ["@string. regex"] = plt.dustMid,
+      ["@string. escape"] = plt.clayMid,
+      ["@string.special"] = plt.clayBright,
+      ["@string.special.symbol"] = plt.clayBright,
+      ["@string.special.url"] = plt.dustMid,
+      ["@string. special.path"] = plt.dustLighter,
+
+      ["@character"] = plt.dustLighter,
+      ["@character.special"] = plt.clayMid,
+
+      ["@number"] = plt.dustLightest,
+      ["@number. float"] = plt.dustLightest,
+
+      ["@boolean"] = plt.clayBright,
+
+      ["@function"] = plt.focusBright,
+      ["@function.builtin"] = plt.focusBright,
+      ["@function. call"] = plt.focusBright,
+      ["@function.macro"] = plt.clayDeep,
+      ["@function.method"] = plt.focusBright,
+      ["@function.method.call"] = plt.focusBright,
+
+      ["@constructor"] = plt.focusCore,
+
+      ["@parameter"] = plt.dustLighter,
+      ["@parameter.builtin"] = plt.dustLightest,
+
+      ["@keyword"] = plt.focusCore,
+      ["@keyword.coroutine"] = plt.clayBright,
+      ["@keyword. function"] = plt.focusCore,
+      ["@keyword.operator"] = plt.dustMid,
+      ["@keyword. return"] = plt.focusCore,
+      ["@keyword.import"] = plt.dustLightest,
+      ["@keyword. storage"] = plt.focusCore,
+      ["@keyword.repeat"] = plt.focusCore,
+      ["@keyword.conditional"] = plt.focusCore,
+      ["@keyword.exception"] = plt.clayBright,
+      ["@keyword.directive"] = plt.clayDeep,
+      ["@keyword. directive.define"] = plt.clayDeep,
+
+      ["@conditional"] = plt.focusCore,
+      ["@conditional. ternary"] = plt.focusCore,
+
+      ["@repeat"] = plt.focusCore,
+
+      ["@label"] = plt.dustLightest,
+
+      ["@operator"] = plt.dustMid,
+
+      ["@exception"] = plt.clayBright,
+
+      ["@variable"] = plt.focusCore,
+      ["@variable.builtin"] = plt.dustLightest,
+      ["@variable.parameter"] = plt.dustLighter,
+      ["@variable.member"] = plt.focusCore,
+
+      ["@type"] = plt.dustLightest,
+      ["@type. builtin"] = plt.dustLightest,
+      ["@type.definition"] = plt.dustLightest,
+      ["@type.qualifier"] = plt.focusCore,
+
+      ["@attribute"] = plt.focusCore,
+      ["@attribute.builtin"] = plt.dustLightest,
+
+      ["@property"] = plt.focusCore,
+      ["@field"] = plt.focusCore,
+
+      ["@module"] = plt.focusCore,
+      ["@module.builtin"] = plt.focusCore,
+
+      ["@namespace"] = plt.focusCore,
+      ["@namespace.builtin"] = plt.focusCore,
+
+      ["@punctuation. delimiter"] = plt.dustMid,
+      ["@punctuation.bracket"] = plt.dustMid,
+      ["@punctuation.special"] = plt.clayMid,
+
+      ["@tag"] = plt.focusCore,
+      ["@tag.attribute"] = plt.dustLightest,
+      ["@tag. delimiter"] = plt.dustMid,
+      ["@tag.builtin"] = plt.focusCore,
+
+      ["@markup. strong"] = { fg = plt.clayBright, bold = true },
+      ["@markup.italic"] = { fg = plt.focusCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.dustMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.focusCore, underline = true },
+      ["@markup.heading"] = plt.clayBright,
+      ["@markup.heading.1"] = plt.clayBright,
+      ["@markup.heading.2"] = plt.clayMid,
+      ["@markup. heading.3"] = plt.dustLightest,
+      ["@markup.heading.4"] = plt.dustLighter,
+      ["@markup.heading.5"] = plt.clayDeep,
+      ["@markup. heading.6"] = plt.clayPulse,
+      ["@markup.quote"] = plt.dustBright,
+      ["@markup. math"] = plt.dustLightest,
+      ["@markup.link"] = plt.dustMid,
+      ["@markup. link.label"] = plt.clayPulse,
+      ["@markup.link.url"] = plt.dustMid,
+      ["@markup. raw"] = plt.dustLighter,
+      ["@markup.raw.block"] = plt.dustLighter,
+      ["@markup.list"] = plt.focusCore,
+      ["@markup.list.checked"] = plt.dustLighter,
+      ["@markup.list.unchecked"] = plt.dustBright,
+
+      ["@diff. plus"] = plt.dustLighter,
+      ["@diff.minus"] = plt.clayBright,
+      ["@diff.delta"] = plt.dustMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.dustMid,
+      ["@spell"] = plt.focusCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type. property. lua"] = plt.focusCore,
+      ["@constructor.python"] = plt.focusBright,
+      ["@constructor.javascript"] = plt.focusBright,
+      ["@constructor.typescript"] = plt.focusBright,
+      ["@namespace.rust"] = plt.focusCore,
+      ["@type.qualifier.rust"] = plt.focusCore,
+      ["@constant.macro.c"] = plt.clayDeep,
+      ["@constant.macro.cpp"] = plt.clayDeep,
+      ["@namespace.go"] = plt.focusCore,
+      ["@property.css"] = plt.focusBright,
+      ["@type.css"] = plt.focusCore,
+      ["@label.json"] = plt.focusCore,
+      ["@field.yaml"] = plt.focusCore,
+      ["@property.toml"] = plt.focusCore,
+      ["@function.builtin.bash"] = plt.focusBright,
+      ["@string.regexp"] = plt.dustMid,
+      ["@character.special. regex"] = plt.clayMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.dustLightest,
+      ["@lsp.type.interface"] = plt.dustLightest,
+      ["@lsp. type.struct"] = plt.dustLightest,
+      ["@lsp. type.enum"] = plt.dustLightest,
+      ["@lsp.type.enumMember"] = plt.dustLightest,
+      ["@lsp.type.property"] = plt.focusCore,
+      ["@lsp.type.namespace"] = plt.focusCore,
+
+      ["@lsp.type.macro"] = plt.clayDeep,
+      ["@lsp.type.decorator"] = plt.focusBright,
+
+      ["@lsp.type. builtinType"] = plt.dustLightest,
+      ["@lsp.type.selfParameter"] = plt.focusCore,
+      ["@lsp.type.typeParameter"] = plt.dustLightest,
+
+      ["@lsp.type. array"] = plt.dustLightest,
+      ["@lsp. type.object"] = plt.dustLightest,
+      ["@lsp.type.key"] = plt.focusCore,
+      ["@lsp.type.null"] = plt.dustLightest,
+      ["@lsp.type.enumConstant"] = plt.dustLightest,
+
+      ["@lsp.type. event"] = plt.dustLightest,
+      ["@lsp.type.regexp"] = plt.dustMid,
+      ["@lsp.type.unresolvedReference"] = plt.clayBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.dustMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.dustLightest,
+      ["@lsp.mod.async"] = plt.focusCore,
+      ["@lsp.mod.static"] = plt.dustLightest,
+      ["@lsp.mod.abstract"] = plt.dustLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.dustLightest,
+      ["@lsp.mod.documentation"] = plt.dustBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Bunker",
+  author = "PrismPunk. nvim",
+  description = "Deep earth tones.  Subterranean calm. Clay accents. The bunker beneath dopamine.",
+
+  base16 = {
+    base00 = palette.bunkerVoid,
+    base01 = palette.bunkerDark,
+    base02 = palette.bunkerDeep,
+    base03 = palette.bunkerMid,
+    base04 = palette.dustBright,
+    base05 = palette.dustLightest,
+    base06 = palette.focusCore,
+    base07 = palette.focusBright,
+    base08 = palette.clayBright,
+    base09 = palette.clayMid,
+    base0A = palette.clayDeep,
+    base0B = palette.dustLighter,
+    base0C = palette.clayPulse,
+    base0D = palette.dustMid,
+    base0E = palette.clayPulse,
+    base0F = palette.dustMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
