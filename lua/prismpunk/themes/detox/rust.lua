@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.rust")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.patinBright,
+      insert = plt.patinLighter,
+      visual = plt.verdigPulse,
+      replace = plt.patinMid,
+      command = plt.metalCore,
+    },
+
+    ui = {
+      fg = plt.metalCore,
+      fg_dim = plt.metalCore,
+      fg_dimmer = plt.patinLighter,
+      fg_dark = plt.patinMid,
+      fg_reverse = plt.oxidVoid,
+
+      bg_m4 = plt.oxidLight,
+      bg_m3 = plt.oxidMid,
+      bg_m2 = plt.oxidDeep,
+      bg_m1 = plt.oxidDark,
+      bg_dim = plt.oxidVoid,
+      bg = plt.oxidVoid,
+      bg_p1 = plt.oxidDeep,
+      bg_p2 = plt.oxidMid,
+      bg_gutter = opts.gutter and plt.oxidMid or "none",
+      bg_cursorline = plt.corrosLine,
+      bg_cursorline_alt = plt.corrosMid,
+      bg_search = plt.verdigPulse,
+      bg_visual = plt.verdigDeep,
+      bg_statusline = plt.corrosMid,
+
+      border = plt.patinMid,
+      header1 = plt.metalBright,
+      header2 = plt.metalCore,
+      special = plt.verdigBright,
+      nontext = plt.oxidLight,
+      whitespace = plt.oxidMid,
+      win_separator = plt.patinMid,
+      indent = plt.oxidMid,
+      indent_scope = plt.patinDeep,
+      picker = plt.patinMid,
+      yank = plt.verdigPulse,
+      mark = plt.verdigBright,
+      scrollbar = plt.oxidLight,
+
+      tabline = {
+        bg = plt.oxidVoid,
+        fg_selected = plt.metalCore,
+        bg_selected = plt.corrosMid,
+        fg_inactive = plt.patinLighter,
+        bg_inactive = plt.oxidVoid,
+        fg_alternate = plt.patinBright,
+        bg_alternate = plt.oxidVoid,
+        indicator = plt.verdigPulse,
+      },
+
+      pmenu = {
+        fg = plt.metalCore,
+        fg_sel = "none",
+        fg_border = plt.corrosMid,
+        bg_border = plt.corrosMid,
+        bg = plt.corrosMid,
+        bg_sel = plt.corrosDeep,
+        bg_sbar = plt.corrosMid,
+        bg_thumb = plt.patinMid,
+      },
+
+      float = {
+        fg = plt.metalCore,
+        bg = plt.oxidDeep,
+        fg_border = plt.corrosMid,
+        bg_border = plt.oxidDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.metalBright,
+      accent2 = plt.metalCore,
+      accent3 = plt.patinLighter,
+      accent4 = plt.patinBright,
+      accent5 = plt.verdigPulse,
+      invert = plt.corrosMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.patinBright,
+      rainbow2 = plt.patinMid,
+      rainbow3 = plt.patinDeep,
+      rainbow4 = plt.corrosDeep,
+      rainbow5 = plt.metalCore,
+      rainbow6 = plt.metalBright,
+      rainbow7 = plt.verdigPulse,
+    },
+
+    syn = {
+      attribute = plt.metalCore,
+      boolean = plt.verdigBright,
+      comment = plt.patinBright,
+      constant = plt.patinLightest,
+      deprecated = plt.patinMid,
+      func = plt.metalBright,
+      identifier = plt.metalCore,
+      keyword = plt.metalCore,
+      method = plt.metalBright,
+      number = plt.patinLightest,
+      operator = plt.patinMid,
+      parameter = plt.patinLighter,
+      preproc = plt.verdigMid,
+      punct = plt.patinDeep,
+      regex = plt.patinMid,
+      statement = plt.metalCore,
+      string = plt.patinLighter,
+      symbol = plt.metalCore,
+      type = plt.patinLightest,
+      variable = plt.metalCore,
+      special = plt.verdigPulse,
+      special2 = plt.verdigMid,
+      special3 = plt.verdigBright,
+    },
+
+    vcs = { added = plt.patinLighter, removed = plt.verdigBright, changed = plt.verdigDeep },
+    diff = { add = plt.patinLighter, change = plt.patinDeep, delete = plt.verdigBright, text = plt.verdigMid },
+    diag = {
+      ok = plt.patinLighter,
+      error = plt.verdigBright,
+      warning = plt.verdigPulse,
+      info = plt.metalCore,
+      hint = plt.patinMid,
+    },
+
+    term = {
+      black = plt.oxidVoid,
+      red = plt.verdigBright,
+      green = plt.patinBright,
+      yellow = plt.patinLightest,
+      blue = plt.oxidVoid,
+      magenta = plt.metalCore,
+      cyan = plt.patinMid,
+      white = plt.metalBright,
+
+      black_bright = color(plt.oxidVoid):brighten(0.4):to_hex(),
+      red_bright = plt.verdigPulse,
+      green_bright = color(plt.patinBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.metalBright,
+      blue_bright = color(plt.oxidVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.metalCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.patinMid):brighten(0.3):to_hex(),
+      white_bright = plt.metalBright,
+      indexed1 = plt.patinLighter,
+      indexed2 = plt.patinBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.patinBright,
+      ["@comment.documentation"] = plt.patinMid,
+      ["@comment.error"] = plt.verdigBright,
+      ["@comment.warning"] = plt.verdigPulse,
+      ["@comment.todo"] = plt.patinLighter,
+      ["@comment.note"] = plt.patinMid,
+
+      ["@constant"] = plt.patinLightest,
+      ["@constant.builtin"] = plt.patinLightest,
+      ["@constant.macro"] = plt.verdigMid,
+
+      ["@string"] = plt.patinLighter,
+      ["@string.documentation"] = plt.patinLighter,
+      ["@string.regex"] = plt.patinMid,
+      ["@string.escape"] = plt.verdigMid,
+      ["@string.special"] = plt.verdigBright,
+      ["@string.special.symbol"] = plt.verdigBright,
+      ["@string.special.url"] = plt.patinMid,
+      ["@string.special.path"] = plt.patinLighter,
+
+      ["@character"] = plt.patinLighter,
+      ["@character.special"] = plt.verdigMid,
+
+      ["@number"] = plt.patinLightest,
+      ["@number.float"] = plt.patinLightest,
+
+      ["@boolean"] = plt.verdigBright,
+
+      ["@function"] = plt.metalBright,
+      ["@function.builtin"] = plt.metalBright,
+      ["@function.call"] = plt.metalBright,
+      ["@function.macro"] = plt.verdigMid,
+      ["@function.method"] = plt.metalBright,
+      ["@function.method.call"] = plt.metalBright,
+
+      ["@constructor"] = plt.metalCore,
+
+      ["@parameter"] = plt.patinLighter,
+      ["@parameter.builtin"] = plt.patinLightest,
+
+      ["@keyword"] = plt.metalCore,
+      ["@keyword.coroutine"] = plt.verdigBright,
+      ["@keyword.function"] = plt.metalCore,
+      ["@keyword.operator"] = plt.patinMid,
+      ["@keyword.return"] = plt.metalCore,
+      ["@keyword.import"] = plt.patinLightest,
+      ["@keyword.storage"] = plt.metalCore,
+      ["@keyword.repeat"] = plt.metalCore,
+      ["@keyword.conditional"] = plt.metalCore,
+      ["@keyword.exception"] = plt.verdigBright,
+      ["@keyword.directive"] = plt.verdigMid,
+      ["@keyword.directive.define"] = plt.verdigMid,
+
+      ["@conditional"] = plt.metalCore,
+      ["@conditional.ternary"] = plt.metalCore,
+
+      ["@repeat"] = plt.metalCore,
+
+      ["@label"] = plt.patinLightest,
+
+      ["@operator"] = plt.patinMid,
+
+      ["@exception"] = plt.verdigBright,
+
+      ["@variable"] = plt.metalCore,
+      ["@variable.builtin"] = plt.patinLightest,
+      ["@variable.parameter"] = plt.patinLighter,
+      ["@variable.member"] = plt.metalCore,
+
+      ["@type"] = plt.patinLightest,
+      ["@type.builtin"] = plt.patinLightest,
+      ["@type.definition"] = plt.patinLightest,
+      ["@type.qualifier"] = plt.metalCore,
+
+      ["@attribute"] = plt.metalCore,
+      ["@attribute.builtin"] = plt.patinLightest,
+
+      ["@property"] = plt.metalCore,
+      ["@field"] = plt.metalCore,
+
+      ["@module"] = plt.metalCore,
+      ["@module.builtin"] = plt.metalCore,
+
+      ["@namespace"] = plt.metalCore,
+      ["@namespace.builtin"] = plt.metalCore,
+
+      ["@punctuation.delimiter"] = plt.patinMid,
+      ["@punctuation.bracket"] = plt.patinMid,
+      ["@punctuation.special"] = plt.verdigMid,
+
+      ["@tag"] = plt.metalCore,
+      ["@tag.attribute"] = plt.patinLightest,
+      ["@tag.delimiter"] = plt.patinMid,
+      ["@tag.builtin"] = plt.metalCore,
+
+      ["@markup.strong"] = { fg = plt.metalBright, bold = true },
+      ["@markup.italic"] = { fg = plt.metalCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.patinMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.metalCore, underline = true },
+      ["@markup.heading"] = plt.metalBright,
+      ["@markup.heading.1"] = plt.metalBright,
+      ["@markup.heading.2"] = plt.metalCore,
+      ["@markup.heading.3"] = plt.patinLightest,
+      ["@markup.heading.4"] = plt.patinLighter,
+      ["@markup.heading.5"] = plt.verdigMid,
+      ["@markup.heading.6"] = plt.verdigPulse,
+      ["@markup.quote"] = plt.patinBright,
+      ["@markup.math"] = plt.patinLightest,
+      ["@markup.link"] = plt.patinMid,
+      ["@markup.link.label"] = plt.verdigPulse,
+      ["@markup.link.url"] = plt.patinMid,
+      ["@markup.raw"] = plt.patinLighter,
+      ["@markup.raw.block"] = plt.patinLighter,
+      ["@markup.list"] = plt.metalCore,
+      ["@markup.list.checked"] = plt.patinLighter,
+      ["@markup.list.unchecked"] = plt.patinBright,
+
+      ["@diff.plus"] = plt.patinLighter,
+      ["@diff.minus"] = plt.verdigBright,
+      ["@diff.delta"] = plt.patinMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.patinMid,
+      ["@spell"] = plt.metalCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.metalCore,
+      ["@constructor.python"] = plt.metalBright,
+      ["@constructor.javascript"] = plt.metalBright,
+      ["@constructor.typescript"] = plt.metalBright,
+      ["@namespace.rust"] = plt.metalCore,
+      ["@type.qualifier.rust"] = plt.metalCore,
+      ["@constant.macro.c"] = plt.verdigMid,
+      ["@constant.macro.cpp"] = plt.verdigMid,
+      ["@namespace.go"] = plt.metalCore,
+      ["@property.css"] = plt.metalBright,
+      ["@type.css"] = plt.metalCore,
+      ["@label.json"] = plt.metalCore,
+      ["@field.yaml"] = plt.metalCore,
+      ["@property.toml"] = plt.metalCore,
+      ["@function.builtin.bash"] = plt.metalBright,
+      ["@string.regexp"] = plt.patinMid,
+      ["@character.special.regex"] = plt.verdigMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.patinLightest,
+      ["@lsp.type.interface"] = plt.patinLightest,
+      ["@lsp.type.struct"] = plt.patinLightest,
+      ["@lsp.type.enum"] = plt.patinLightest,
+      ["@lsp.type.enumMember"] = plt.patinLightest,
+      ["@lsp.type.property"] = plt.metalCore,
+      ["@lsp.type.namespace"] = plt.metalCore,
+
+      ["@lsp.type.macro"] = plt.verdigMid,
+      ["@lsp.type.decorator"] = plt.metalBright,
+
+      ["@lsp.type.builtinType"] = plt.patinLightest,
+      ["@lsp.type.selfParameter"] = plt.metalCore,
+      ["@lsp.type.typeParameter"] = plt.patinLightest,
+
+      ["@lsp.type.array"] = plt.patinLightest,
+      ["@lsp.type.object"] = plt.patinLightest,
+      ["@lsp.type.key"] = plt.metalCore,
+      ["@lsp.type.null"] = plt.patinLightest,
+      ["@lsp.type.enumConstant"] = plt.patinLightest,
+
+      ["@lsp.type.event"] = plt.patinLightest,
+      ["@lsp.type.regexp"] = plt.patinMid,
+      ["@lsp.type.unresolvedReference"] = plt.verdigBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.patinMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.patinLightest,
+      ["@lsp.mod.async"] = plt.metalCore,
+      ["@lsp.mod.static"] = plt.patinLightest,
+      ["@lsp.mod.abstract"] = plt.patinLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.patinLightest,
+      ["@lsp.mod.documentation"] = plt.patinBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Rust",
+  author = "PrismPunk.nvim",
+  description = "Oxidized metal. Weathered browns. Verdigris patina. Industrial decay. Time-worn authenticity.",
+
+  base16 = {
+    base00 = palette.oxidVoid,
+    base01 = palette.oxidDark,
+    base02 = palette.oxidDeep,
+    base03 = palette.oxidMid,
+    base04 = palette.patinBright,
+    base05 = palette.patinLightest,
+    base06 = palette.metalCore,
+    base07 = palette.metalBright,
+    base08 = palette.verdigBright,
+    base09 = palette.verdigMid,
+    base0A = palette.verdigDeep,
+    base0B = palette.patinLighter,
+    base0C = palette.verdigPulse,
+    base0D = palette.patinMid,
+    base0E = palette.verdigPulse,
+    base0F = palette.patinMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

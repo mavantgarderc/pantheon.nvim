@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.petal")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.dustBright,
+      insert = plt.dustLighter,
+      visual = plt.stemPulse,
+      replace = plt.dustMid,
+      command = plt.pressCore,
+    },
+
+    ui = {
+      fg = plt.pressCore,
+      fg_dim = plt.pressCore,
+      fg_dimmer = plt.dustLighter,
+      fg_dark = plt.dustMid,
+      fg_reverse = plt.petalVoid,
+
+      bg_m4 = plt.petalLight,
+      bg_m3 = plt.petalMid,
+      bg_m2 = plt.petalDeep,
+      bg_m1 = plt.petalDark,
+      bg_dim = plt.petalVoid,
+      bg = plt.petalVoid,
+      bg_p1 = plt.petalDeep,
+      bg_p2 = plt.petalMid,
+      bg_gutter = opts.gutter and plt.petalMid or "none",
+      bg_cursorline = plt.bloomLine,
+      bg_cursorline_alt = plt.bloomMid,
+      bg_search = plt.stemPulse,
+      bg_visual = plt.stemDeep,
+      bg_statusline = plt.bloomMid,
+
+      border = plt.dustMid,
+      header1 = plt.pressBright,
+      header2 = plt.pressCore,
+      special = plt.stemBright,
+      nontext = plt.petalLight,
+      whitespace = plt.petalMid,
+      win_separator = plt.dustMid,
+      indent = plt.petalMid,
+      indent_scope = plt.dustDeep,
+      picker = plt.dustMid,
+      yank = plt.stemPulse,
+      mark = plt.stemBright,
+      scrollbar = plt.petalLight,
+
+      tabline = {
+        bg = plt.petalVoid,
+        fg_selected = plt.pressCore,
+        bg_selected = plt.bloomMid,
+        fg_inactive = plt.dustLighter,
+        bg_inactive = plt.petalVoid,
+        fg_alternate = plt.dustBright,
+        bg_alternate = plt.petalVoid,
+        indicator = plt.stemPulse,
+      },
+
+      pmenu = {
+        fg = plt.pressCore,
+        fg_sel = "none",
+        fg_border = plt.bloomMid,
+        bg_border = plt.bloomMid,
+        bg = plt.bloomMid,
+        bg_sel = plt.bloomDeep,
+        bg_sbar = plt.bloomMid,
+        bg_thumb = plt.dustMid,
+      },
+
+      float = {
+        fg = plt.pressCore,
+        bg = plt.petalDeep,
+        fg_border = plt.bloomMid,
+        bg_border = plt.petalDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.pressBright,
+      accent2 = plt.pressCore,
+      accent3 = plt.dustLighter,
+      accent4 = plt.dustBright,
+      accent5 = plt.stemPulse,
+      invert = plt.bloomMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.dustBright,
+      rainbow2 = plt.dustMid,
+      rainbow3 = plt.dustDeep,
+      rainbow4 = plt.bloomDeep,
+      rainbow5 = plt.pressCore,
+      rainbow6 = plt.pressBright,
+      rainbow7 = plt.stemPulse,
+    },
+
+    syn = {
+      attribute = plt.pressCore,
+      boolean = plt.stemBright,
+      comment = plt.dustBright,
+      constant = plt.dustLightest,
+      deprecated = plt.dustMid,
+      func = plt.pressBright,
+      identifier = plt.pressCore,
+      keyword = plt.pressCore,
+      method = plt.pressBright,
+      number = plt.dustLightest,
+      operator = plt.dustMid,
+      parameter = plt.dustLighter,
+      preproc = plt.stemMid,
+      punct = plt.dustDeep,
+      regex = plt.dustMid,
+      statement = plt.pressCore,
+      string = plt.dustLighter,
+      symbol = plt.pressCore,
+      type = plt.dustLightest,
+      variable = plt.pressCore,
+      special = plt.stemPulse,
+      special2 = plt.stemMid,
+      special3 = plt.stemBright,
+    },
+
+    vcs = { added = plt.dustLighter, removed = plt.stemBright, changed = plt.stemDeep },
+    diff = { add = plt.dustLighter, change = plt.dustDeep, delete = plt.stemBright, text = plt.stemMid },
+    diag = {
+      ok = plt.dustLighter,
+      error = plt.stemBright,
+      warning = plt.stemPulse,
+      info = plt.pressCore,
+      hint = plt.dustMid,
+    },
+
+    term = {
+      black = plt.petalVoid,
+      red = plt.stemBright,
+      green = plt.dustBright,
+      yellow = plt.dustLightest,
+      blue = plt.petalVoid,
+      magenta = plt.pressCore,
+      cyan = plt.dustMid,
+      white = plt.pressBright,
+
+      black_bright = color(plt.petalVoid):brighten(0.4):to_hex(),
+      red_bright = plt.stemPulse,
+      green_bright = color(plt.dustBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.pressBright,
+      blue_bright = color(plt.petalVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.pressCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.dustMid):brighten(0.3):to_hex(),
+      white_bright = plt.pressBright,
+      indexed1 = plt.dustLighter,
+      indexed2 = plt.dustBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.dustBright,
+      ["@comment.documentation"] = plt.dustMid,
+      ["@comment.error"] = plt.stemBright,
+      ["@comment.warning"] = plt.stemPulse,
+      ["@comment.todo"] = plt.dustLighter,
+      ["@comment.note"] = plt.dustMid,
+
+      ["@constant"] = plt.dustLightest,
+      ["@constant.builtin"] = plt.dustLightest,
+      ["@constant.macro"] = plt.stemMid,
+
+      ["@string"] = plt.dustLighter,
+      ["@string.documentation"] = plt.dustLighter,
+      ["@string.regex"] = plt.dustMid,
+      ["@string.escape"] = plt.stemMid,
+      ["@string.special"] = plt.stemBright,
+      ["@string.special.symbol"] = plt.stemBright,
+      ["@string.special.url"] = plt.dustMid,
+      ["@string.special.path"] = plt.dustLighter,
+
+      ["@character"] = plt.dustLighter,
+      ["@character.special"] = plt.stemMid,
+
+      ["@number"] = plt.dustLightest,
+      ["@number.float"] = plt.dustLightest,
+
+      ["@boolean"] = plt.stemBright,
+
+      ["@function"] = plt.pressBright,
+      ["@function.builtin"] = plt.pressBright,
+      ["@function.call"] = plt.pressBright,
+      ["@function.macro"] = plt.stemMid,
+      ["@function.method"] = plt.pressBright,
+      ["@function.method.call"] = plt.pressBright,
+
+      ["@constructor"] = plt.pressCore,
+
+      ["@parameter"] = plt.dustLighter,
+      ["@parameter.builtin"] = plt.dustLightest,
+
+      ["@keyword"] = plt.pressCore,
+      ["@keyword.coroutine"] = plt.stemBright,
+      ["@keyword.function"] = plt.pressCore,
+      ["@keyword.operator"] = plt.dustMid,
+      ["@keyword.return"] = plt.pressCore,
+      ["@keyword.import"] = plt.dustLightest,
+      ["@keyword.storage"] = plt.pressCore,
+      ["@keyword.repeat"] = plt.pressCore,
+      ["@keyword.conditional"] = plt.pressCore,
+      ["@keyword.exception"] = plt.stemBright,
+      ["@keyword.directive"] = plt.stemMid,
+      ["@keyword.directive.define"] = plt.stemMid,
+
+      ["@conditional"] = plt.pressCore,
+      ["@conditional.ternary"] = plt.pressCore,
+
+      ["@repeat"] = plt.pressCore,
+
+      ["@label"] = plt.dustLightest,
+
+      ["@operator"] = plt.dustMid,
+
+      ["@exception"] = plt.stemBright,
+
+      ["@variable"] = plt.pressCore,
+      ["@variable.builtin"] = plt.dustLightest,
+      ["@variable.parameter"] = plt.dustLighter,
+      ["@variable.member"] = plt.pressCore,
+
+      ["@type"] = plt.dustLightest,
+      ["@type.builtin"] = plt.dustLightest,
+      ["@type.definition"] = plt.dustLightest,
+      ["@type.qualifier"] = plt.pressCore,
+
+      ["@attribute"] = plt.pressCore,
+      ["@attribute.builtin"] = plt.dustLightest,
+
+      ["@property"] = plt.pressCore,
+      ["@field"] = plt.pressCore,
+
+      ["@module"] = plt.pressCore,
+      ["@module.builtin"] = plt.pressCore,
+
+      ["@namespace"] = plt.pressCore,
+      ["@namespace.builtin"] = plt.pressCore,
+
+      ["@punctuation.delimiter"] = plt.dustMid,
+      ["@punctuation.bracket"] = plt.dustMid,
+      ["@punctuation.special"] = plt.stemMid,
+
+      ["@tag"] = plt.pressCore,
+      ["@tag.attribute"] = plt.dustLightest,
+      ["@tag.delimiter"] = plt.dustMid,
+      ["@tag.builtin"] = plt.pressCore,
+
+      ["@markup.strong"] = { fg = plt.pressBright, bold = true },
+      ["@markup.italic"] = { fg = plt.pressCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.dustMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.pressCore, underline = true },
+      ["@markup.heading"] = plt.pressBright,
+      ["@markup.heading.1"] = plt.pressBright,
+      ["@markup.heading.2"] = plt.pressCore,
+      ["@markup.heading.3"] = plt.dustLightest,
+      ["@markup.heading.4"] = plt.dustLighter,
+      ["@markup.heading.5"] = plt.stemMid,
+      ["@markup.heading.6"] = plt.stemPulse,
+      ["@markup.quote"] = plt.dustBright,
+      ["@markup.math"] = plt.dustLightest,
+      ["@markup.link"] = plt.dustMid,
+      ["@markup.link.label"] = plt.stemPulse,
+      ["@markup.link.url"] = plt.dustMid,
+      ["@markup.raw"] = plt.dustLighter,
+      ["@markup.raw.block"] = plt.dustLighter,
+      ["@markup.list"] = plt.pressCore,
+      ["@markup.list.checked"] = plt.dustLighter,
+      ["@markup.list.unchecked"] = plt.dustBright,
+
+      ["@diff.plus"] = plt.dustLighter,
+      ["@diff.minus"] = plt.stemBright,
+      ["@diff.delta"] = plt.dustMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.dustMid,
+      ["@spell"] = plt.pressCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.pressCore,
+      ["@constructor.python"] = plt.pressBright,
+      ["@constructor.javascript"] = plt.pressBright,
+      ["@constructor.typescript"] = plt.pressBright,
+      ["@namespace.rust"] = plt.pressCore,
+      ["@type.qualifier.rust"] = plt.pressCore,
+      ["@constant.macro.c"] = plt.stemMid,
+      ["@constant.macro.cpp"] = plt.stemMid,
+      ["@namespace.go"] = plt.pressCore,
+      ["@property.css"] = plt.pressBright,
+      ["@type.css"] = plt.pressCore,
+      ["@label.json"] = plt.pressCore,
+      ["@field.yaml"] = plt.pressCore,
+      ["@property.toml"] = plt.pressCore,
+      ["@function.builtin.bash"] = plt.pressBright,
+      ["@string.regexp"] = plt.dustMid,
+      ["@character.special.regex"] = plt.stemMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.dustLightest,
+      ["@lsp.type.interface"] = plt.dustLightest,
+      ["@lsp.type.struct"] = plt.dustLightest,
+      ["@lsp.type.enum"] = plt.dustLightest,
+      ["@lsp.type.enumMember"] = plt.dustLightest,
+      ["@lsp.type.property"] = plt.pressCore,
+      ["@lsp.type.namespace"] = plt.pressCore,
+
+      ["@lsp.type.macro"] = plt.stemMid,
+      ["@lsp.type.decorator"] = plt.pressBright,
+
+      ["@lsp.type.builtinType"] = plt.dustLightest,
+      ["@lsp.type.selfParameter"] = plt.pressCore,
+      ["@lsp.type.typeParameter"] = plt.dustLightest,
+
+      ["@lsp.type.array"] = plt.dustLightest,
+      ["@lsp.type.object"] = plt.dustLightest,
+      ["@lsp.type.key"] = plt.pressCore,
+      ["@lsp.type.null"] = plt.dustLightest,
+      ["@lsp.type.enumConstant"] = plt.dustLightest,
+
+      ["@lsp.type.event"] = plt.dustLightest,
+      ["@lsp.type.regexp"] = plt.dustMid,
+      ["@lsp.type.unresolvedReference"] = plt.stemBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.dustMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.dustLightest,
+      ["@lsp.mod.async"] = plt.pressCore,
+      ["@lsp.mod.static"] = plt.dustLightest,
+      ["@lsp.mod.abstract"] = plt.dustLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.dustLightest,
+      ["@lsp.mod.documentation"] = plt.dustBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Petal",
+  author = "PrismPunk.nvim",
+  description = "Dried pressed flowers. Dusty pink botanical tones. Muted stem memory green. Fragile preservation.",
+
+  base16 = {
+    base00 = palette.petalVoid,
+    base01 = palette.petalDark,
+    base02 = palette.petalDeep,
+    base03 = palette.petalMid,
+    base04 = palette.dustBright,
+    base05 = palette.dustLightest,
+    base06 = palette.pressCore,
+    base07 = palette.pressBright,
+    base08 = palette.stemBright,
+    base09 = palette.stemMid,
+    base0A = palette.stemDeep,
+    base0B = palette.dustLighter,
+    base0C = palette.stemPulse,
+    base0D = palette.dustMid,
+    base0E = palette.stemPulse,
+    base0F = palette.dustMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

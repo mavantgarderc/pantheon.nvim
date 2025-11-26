@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.smoke")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.vaporBright,
+      insert = plt.vaporLighter,
+      visual = plt.duskPulse,
+      replace = plt.vaporMid,
+      command = plt.cloudCore,
+    },
+
+    ui = {
+      fg = plt.cloudCore,
+      fg_dim = plt.cloudCore,
+      fg_dimmer = plt.vaporLighter,
+      fg_dark = plt.vaporMid,
+      fg_reverse = plt.smokeVoid,
+
+      bg_m4 = plt.smokeLight,
+      bg_m3 = plt.smokeMid,
+      bg_m2 = plt.smokeDeep,
+      bg_m1 = plt.smokeDark,
+      bg_dim = plt.smokeVoid,
+      bg = plt.smokeVoid,
+      bg_p1 = plt.smokeDeep,
+      bg_p2 = plt.smokeMid,
+      bg_gutter = opts.gutter and plt.smokeMid or "none",
+      bg_cursorline = plt.hazeLine,
+      bg_cursorline_alt = plt.hazeMid,
+      bg_search = plt.duskPulse,
+      bg_visual = plt.duskDeep,
+      bg_statusline = plt.hazeMid,
+
+      border = plt.vaporMid,
+      header1 = plt.cloudBright,
+      header2 = plt.cloudCore,
+      special = plt.duskBright,
+      nontext = plt.smokeLight,
+      whitespace = plt.smokeMid,
+      win_separator = plt.vaporMid,
+      indent = plt.smokeMid,
+      indent_scope = plt.vaporDeep,
+      picker = plt.vaporMid,
+      yank = plt.duskPulse,
+      mark = plt.duskBright,
+      scrollbar = plt.smokeLight,
+
+      tabline = {
+        bg = plt.smokeVoid,
+        fg_selected = plt.cloudCore,
+        bg_selected = plt.hazeMid,
+        fg_inactive = plt.vaporLighter,
+        bg_inactive = plt.smokeVoid,
+        fg_alternate = plt.vaporBright,
+        bg_alternate = plt.smokeVoid,
+        indicator = plt.duskPulse,
+      },
+
+      pmenu = {
+        fg = plt.cloudCore,
+        fg_sel = "none",
+        fg_border = plt.hazeMid,
+        bg_border = plt.hazeMid,
+        bg = plt.hazeMid,
+        bg_sel = plt.hazeDeep,
+        bg_sbar = plt.hazeMid,
+        bg_thumb = plt.vaporMid,
+      },
+
+      float = {
+        fg = plt.cloudCore,
+        bg = plt.smokeDeep,
+        fg_border = plt.hazeMid,
+        bg_border = plt.smokeDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.cloudBright,
+      accent2 = plt.cloudCore,
+      accent3 = plt.vaporLighter,
+      accent4 = plt.vaporBright,
+      accent5 = plt.duskPulse,
+      invert = plt.hazeMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.vaporBright,
+      rainbow2 = plt.vaporMid,
+      rainbow3 = plt.vaporDeep,
+      rainbow4 = plt.hazeDeep,
+      rainbow5 = plt.cloudCore,
+      rainbow6 = plt.cloudBright,
+      rainbow7 = plt.duskPulse,
+    },
+
+    syn = {
+      attribute = plt.cloudCore,
+      boolean = plt.duskBright,
+      comment = plt.vaporBright,
+      constant = plt.vaporLightest,
+      deprecated = plt.vaporMid,
+      func = plt.cloudBright,
+      identifier = plt.cloudCore,
+      keyword = plt.cloudCore,
+      method = plt.cloudBright,
+      number = plt.vaporLightest,
+      operator = plt.vaporMid,
+      parameter = plt.vaporLighter,
+      preproc = plt.duskMid,
+      punct = plt.vaporDeep,
+      regex = plt.vaporMid,
+      statement = plt.cloudCore,
+      string = plt.vaporLighter,
+      symbol = plt.cloudCore,
+      type = plt.vaporLightest,
+      variable = plt.cloudCore,
+      special = plt.duskPulse,
+      special2 = plt.duskMid,
+      special3 = plt.duskBright,
+    },
+
+    vcs = { added = plt.vaporLighter, removed = plt.duskBright, changed = plt.duskDeep },
+    diff = { add = plt.vaporLighter, change = plt.vaporDeep, delete = plt.duskBright, text = plt.duskMid },
+    diag = {
+      ok = plt.vaporLighter,
+      error = plt.duskBright,
+      warning = plt.duskPulse,
+      info = plt.cloudCore,
+      hint = plt.vaporMid,
+    },
+
+    term = {
+      black = plt.smokeVoid,
+      red = plt.duskBright,
+      green = plt.vaporBright,
+      yellow = plt.vaporLightest,
+      blue = plt.smokeVoid,
+      magenta = plt.cloudCore,
+      cyan = plt.vaporMid,
+      white = plt.cloudBright,
+
+      black_bright = color(plt.smokeVoid):brighten(0.4):to_hex(),
+      red_bright = plt.duskPulse,
+      green_bright = color(plt.vaporBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.cloudBright,
+      blue_bright = color(plt.smokeVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.cloudCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.vaporMid):brighten(0.3):to_hex(),
+      white_bright = plt.cloudBright,
+      indexed1 = plt.vaporLighter,
+      indexed2 = plt.vaporBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.vaporBright,
+      ["@comment.documentation"] = plt.vaporMid,
+      ["@comment.error"] = plt.duskBright,
+      ["@comment.warning"] = plt.duskPulse,
+      ["@comment.todo"] = plt.vaporLighter,
+      ["@comment.note"] = plt.vaporMid,
+
+      ["@constant"] = plt.vaporLightest,
+      ["@constant.builtin"] = plt.vaporLightest,
+      ["@constant.macro"] = plt.duskMid,
+
+      ["@string"] = plt.vaporLighter,
+      ["@string.documentation"] = plt.vaporLighter,
+      ["@string.regex"] = plt.vaporMid,
+      ["@string.escape"] = plt.duskMid,
+      ["@string.special"] = plt.duskBright,
+      ["@string.special.symbol"] = plt.duskBright,
+      ["@string.special.url"] = plt.vaporMid,
+      ["@string.special.path"] = plt.vaporLighter,
+
+      ["@character"] = plt.vaporLighter,
+      ["@character.special"] = plt.duskMid,
+
+      ["@number"] = plt.vaporLightest,
+      ["@number.float"] = plt.vaporLightest,
+
+      ["@boolean"] = plt.duskBright,
+
+      ["@function"] = plt.cloudBright,
+      ["@function.builtin"] = plt.cloudBright,
+      ["@function.call"] = plt.cloudBright,
+      ["@function.macro"] = plt.duskMid,
+      ["@function.method"] = plt.cloudBright,
+      ["@function.method.call"] = plt.cloudBright,
+
+      ["@constructor"] = plt.cloudCore,
+
+      ["@parameter"] = plt.vaporLighter,
+      ["@parameter.builtin"] = plt.vaporLightest,
+
+      ["@keyword"] = plt.cloudCore,
+      ["@keyword.coroutine"] = plt.duskBright,
+      ["@keyword.function"] = plt.cloudCore,
+      ["@keyword.operator"] = plt.vaporMid,
+      ["@keyword.return"] = plt.cloudCore,
+      ["@keyword.import"] = plt.vaporLightest,
+      ["@keyword.storage"] = plt.cloudCore,
+      ["@keyword.repeat"] = plt.cloudCore,
+      ["@keyword.conditional"] = plt.cloudCore,
+      ["@keyword.exception"] = plt.duskBright,
+      ["@keyword.directive"] = plt.duskMid,
+      ["@keyword.directive.define"] = plt.duskMid,
+
+      ["@conditional"] = plt.cloudCore,
+      ["@conditional.ternary"] = plt.cloudCore,
+
+      ["@repeat"] = plt.cloudCore,
+
+      ["@label"] = plt.vaporLightest,
+
+      ["@operator"] = plt.vaporMid,
+
+      ["@exception"] = plt.duskBright,
+
+      ["@variable"] = plt.cloudCore,
+      ["@variable.builtin"] = plt.vaporLightest,
+      ["@variable.parameter"] = plt.vaporLighter,
+      ["@variable.member"] = plt.cloudCore,
+
+      ["@type"] = plt.vaporLightest,
+      ["@type.builtin"] = plt.vaporLightest,
+      ["@type.definition"] = plt.vaporLightest,
+      ["@type.qualifier"] = plt.cloudCore,
+
+      ["@attribute"] = plt.cloudCore,
+      ["@attribute.builtin"] = plt.vaporLightest,
+
+      ["@property"] = plt.cloudCore,
+      ["@field"] = plt.cloudCore,
+
+      ["@module"] = plt.cloudCore,
+      ["@module.builtin"] = plt.cloudCore,
+
+      ["@namespace"] = plt.cloudCore,
+      ["@namespace.builtin"] = plt.cloudCore,
+
+      ["@punctuation.delimiter"] = plt.vaporMid,
+      ["@punctuation.bracket"] = plt.vaporMid,
+      ["@punctuation.special"] = plt.duskMid,
+
+      ["@tag"] = plt.cloudCore,
+      ["@tag.attribute"] = plt.vaporLightest,
+      ["@tag.delimiter"] = plt.vaporMid,
+      ["@tag.builtin"] = plt.cloudCore,
+
+      ["@markup.strong"] = { fg = plt.cloudBright, bold = true },
+      ["@markup.italic"] = { fg = plt.cloudCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.vaporMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.cloudCore, underline = true },
+      ["@markup.heading"] = plt.cloudBright,
+      ["@markup.heading.1"] = plt.cloudBright,
+      ["@markup.heading.2"] = plt.cloudCore,
+      ["@markup.heading.3"] = plt.vaporLightest,
+      ["@markup.heading.4"] = plt.vaporLighter,
+      ["@markup.heading.5"] = plt.duskMid,
+      ["@markup.heading.6"] = plt.duskPulse,
+      ["@markup.quote"] = plt.vaporBright,
+      ["@markup.math"] = plt.vaporLightest,
+      ["@markup.link"] = plt.vaporMid,
+      ["@markup.link.label"] = plt.duskPulse,
+      ["@markup.link.url"] = plt.vaporMid,
+      ["@markup.raw"] = plt.vaporLighter,
+      ["@markup.raw.block"] = plt.vaporLighter,
+      ["@markup.list"] = plt.cloudCore,
+      ["@markup.list.checked"] = plt.vaporLighter,
+      ["@markup.list.unchecked"] = plt.vaporBright,
+
+      ["@diff.plus"] = plt.vaporLighter,
+      ["@diff.minus"] = plt.duskBright,
+      ["@diff.delta"] = plt.vaporMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.vaporMid,
+      ["@spell"] = plt.cloudCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.cloudCore,
+      ["@constructor.python"] = plt.cloudBright,
+      ["@constructor.javascript"] = plt.cloudBright,
+      ["@constructor.typescript"] = plt.cloudBright,
+      ["@namespace.rust"] = plt.cloudCore,
+      ["@type.qualifier.rust"] = plt.cloudCore,
+      ["@constant.macro.c"] = plt.duskMid,
+      ["@constant.macro.cpp"] = plt.duskMid,
+      ["@namespace.go"] = plt.cloudCore,
+      ["@property.css"] = plt.cloudBright,
+      ["@type.css"] = plt.cloudCore,
+      ["@label.json"] = plt.cloudCore,
+      ["@field.yaml"] = plt.cloudCore,
+      ["@property.toml"] = plt.cloudCore,
+      ["@function.builtin.bash"] = plt.cloudBright,
+      ["@string.regexp"] = plt.vaporMid,
+      ["@character.special.regex"] = plt.duskMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.vaporLightest,
+      ["@lsp.type.interface"] = plt.vaporLightest,
+      ["@lsp.type.struct"] = plt.vaporLightest,
+      ["@lsp.type.enum"] = plt.vaporLightest,
+      ["@lsp.type.enumMember"] = plt.vaporLightest,
+      ["@lsp.type.property"] = plt.cloudCore,
+      ["@lsp.type.namespace"] = plt.cloudCore,
+
+      ["@lsp.type.macro"] = plt.duskMid,
+      ["@lsp.type.decorator"] = plt.cloudBright,
+
+      ["@lsp.type.builtinType"] = plt.vaporLightest,
+      ["@lsp.type.selfParameter"] = plt.cloudCore,
+      ["@lsp.type.typeParameter"] = plt.vaporLightest,
+
+      ["@lsp.type.array"] = plt.vaporLightest,
+      ["@lsp.type.object"] = plt.vaporLightest,
+      ["@lsp.type.key"] = plt.cloudCore,
+      ["@lsp.type.null"] = plt.vaporLightest,
+      ["@lsp.type.enumConstant"] = plt.vaporLightest,
+
+      ["@lsp.type.event"] = plt.vaporLightest,
+      ["@lsp.type.regexp"] = plt.vaporMid,
+      ["@lsp.type.unresolvedReference"] = plt.duskBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.vaporMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.vaporLightest,
+      ["@lsp.mod.async"] = plt.cloudCore,
+      ["@lsp.mod.static"] = plt.vaporLightest,
+      ["@lsp.mod.abstract"] = plt.vaporLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.vaporLightest,
+      ["@lsp.mod.documentation"] = plt.vaporBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Smoke",
+  author = "PrismPunk.nvim",
+  description = "Dissipating vapor haze. Neutral gray mist. Faint dusk glow. Ephemeral atmosphere.",
+
+  base16 = {
+    base00 = palette.smokeVoid,
+    base01 = palette.smokeDark,
+    base02 = palette.smokeDeep,
+    base03 = palette.smokeMid,
+    base04 = palette.vaporBright,
+    base05 = palette.vaporLightest,
+    base06 = palette.cloudCore,
+    base07 = palette.cloudBright,
+    base08 = palette.duskBright,
+    base09 = palette.duskMid,
+    base0A = palette.duskDeep,
+    base0B = palette.vaporLighter,
+    base0C = palette.duskPulse,
+    base0D = palette.vaporMid,
+    base0E = palette.duskPulse,
+    base0F = palette.vaporMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

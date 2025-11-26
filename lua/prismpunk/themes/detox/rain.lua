@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.rain")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.reflectBright,
+      insert = plt.reflectLighter,
+      visual = plt.silverPulse,
+      replace = plt.reflectMid,
+      command = plt.waterCore,
+    },
+
+    ui = {
+      fg = plt.waterCore,
+      fg_dim = plt.waterCore,
+      fg_dimmer = plt.reflectLighter,
+      fg_dark = plt.reflectMid,
+      fg_reverse = plt.wetVoid,
+
+      bg_m4 = plt.wetLight,
+      bg_m3 = plt.wetMid,
+      bg_m2 = plt.wetDeep,
+      bg_m1 = plt.wetDark,
+      bg_dim = plt.wetVoid,
+      bg = plt.wetVoid,
+      bg_p1 = plt.wetDeep,
+      bg_p2 = plt.wetMid,
+      bg_gutter = opts.gutter and plt.wetMid or "none",
+      bg_cursorline = plt.steelLine,
+      bg_cursorline_alt = plt.steelMid,
+      bg_search = plt.silverPulse,
+      bg_visual = plt.silverDeep,
+      bg_statusline = plt.steelMid,
+
+      border = plt.reflectMid,
+      header1 = plt.waterBright,
+      header2 = plt.waterCore,
+      special = plt.silverBright,
+      nontext = plt.wetLight,
+      whitespace = plt.wetMid,
+      win_separator = plt.reflectMid,
+      indent = plt.wetMid,
+      indent_scope = plt.reflectDeep,
+      picker = plt.reflectMid,
+      yank = plt.silverPulse,
+      mark = plt.silverBright,
+      scrollbar = plt.wetLight,
+
+      tabline = {
+        bg = plt.wetVoid,
+        fg_selected = plt.waterCore,
+        bg_selected = plt.steelMid,
+        fg_inactive = plt.reflectLighter,
+        bg_inactive = plt.wetVoid,
+        fg_alternate = plt.reflectBright,
+        bg_alternate = plt.wetVoid,
+        indicator = plt.silverPulse,
+      },
+
+      pmenu = {
+        fg = plt.waterCore,
+        fg_sel = "none",
+        fg_border = plt.steelMid,
+        bg_border = plt.steelMid,
+        bg = plt.steelMid,
+        bg_sel = plt.steelDeep,
+        bg_sbar = plt.steelMid,
+        bg_thumb = plt.reflectMid,
+      },
+
+      float = {
+        fg = plt.waterCore,
+        bg = plt.wetDeep,
+        fg_border = plt.steelMid,
+        bg_border = plt.wetDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.waterBright,
+      accent2 = plt.waterCore,
+      accent3 = plt.reflectLighter,
+      accent4 = plt.reflectBright,
+      accent5 = plt.silverPulse,
+      invert = plt.steelMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.reflectBright,
+      rainbow2 = plt.reflectMid,
+      rainbow3 = plt.reflectDeep,
+      rainbow4 = plt.steelDeep,
+      rainbow5 = plt.waterCore,
+      rainbow6 = plt.waterBright,
+      rainbow7 = plt.silverPulse,
+    },
+
+    syn = {
+      attribute = plt.waterCore,
+      boolean = plt.silverBright,
+      comment = plt.reflectBright,
+      constant = plt.reflectLightest,
+      deprecated = plt.reflectMid,
+      func = plt.waterBright,
+      identifier = plt.waterCore,
+      keyword = plt.waterCore,
+      method = plt.waterBright,
+      number = plt.reflectLightest,
+      operator = plt.reflectMid,
+      parameter = plt.reflectLighter,
+      preproc = plt.silverMid,
+      punct = plt.reflectDeep,
+      regex = plt.reflectMid,
+      statement = plt.waterCore,
+      string = plt.reflectLighter,
+      symbol = plt.waterCore,
+      type = plt.reflectLightest,
+      variable = plt.waterCore,
+      special = plt.silverPulse,
+      special2 = plt.silverMid,
+      special3 = plt.silverBright,
+    },
+
+    vcs = { added = plt.reflectLighter, removed = plt.silverBright, changed = plt.silverDeep },
+    diff = { add = plt.reflectLighter, change = plt.reflectDeep, delete = plt.silverBright, text = plt.silverMid },
+    diag = {
+      ok = plt.reflectLighter,
+      error = plt.silverBright,
+      warning = plt.silverPulse,
+      info = plt.waterCore,
+      hint = plt.reflectMid,
+    },
+
+    term = {
+      black = plt.wetVoid,
+      red = plt.silverBright,
+      green = plt.reflectBright,
+      yellow = plt.reflectLightest,
+      blue = plt.wetVoid,
+      magenta = plt.waterCore,
+      cyan = plt.reflectMid,
+      white = plt.waterBright,
+
+      black_bright = color(plt.wetVoid):brighten(0.4):to_hex(),
+      red_bright = plt.silverPulse,
+      green_bright = color(plt.reflectBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.waterBright,
+      blue_bright = color(plt.wetVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.waterCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.reflectMid):brighten(0.3):to_hex(),
+      white_bright = plt.waterBright,
+      indexed1 = plt.reflectLighter,
+      indexed2 = plt.reflectBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.reflectBright,
+      ["@comment.documentation"] = plt.reflectMid,
+      ["@comment.error"] = plt.silverBright,
+      ["@comment.warning"] = plt.silverPulse,
+      ["@comment.todo"] = plt.reflectLighter,
+      ["@comment.note"] = plt.reflectMid,
+
+      ["@constant"] = plt.reflectLightest,
+      ["@constant.builtin"] = plt.reflectLightest,
+      ["@constant.macro"] = plt.silverMid,
+
+      ["@string"] = plt.reflectLighter,
+      ["@string.documentation"] = plt.reflectLighter,
+      ["@string.regex"] = plt.reflectMid,
+      ["@string.escape"] = plt.silverMid,
+      ["@string.special"] = plt.silverBright,
+      ["@string.special.symbol"] = plt.silverBright,
+      ["@string.special.url"] = plt.reflectMid,
+      ["@string.special.path"] = plt.reflectLighter,
+
+      ["@character"] = plt.reflectLighter,
+      ["@character.special"] = plt.silverMid,
+
+      ["@number"] = plt.reflectLightest,
+      ["@number.float"] = plt.reflectLightest,
+
+      ["@boolean"] = plt.silverBright,
+
+      ["@function"] = plt.waterBright,
+      ["@function.builtin"] = plt.waterBright,
+      ["@function.call"] = plt.waterBright,
+      ["@function.macro"] = plt.silverMid,
+      ["@function.method"] = plt.waterBright,
+      ["@function.method.call"] = plt.waterBright,
+
+      ["@constructor"] = plt.waterCore,
+
+      ["@parameter"] = plt.reflectLighter,
+      ["@parameter.builtin"] = plt.reflectLightest,
+
+      ["@keyword"] = plt.waterCore,
+      ["@keyword.coroutine"] = plt.silverBright,
+      ["@keyword.function"] = plt.waterCore,
+      ["@keyword.operator"] = plt.reflectMid,
+      ["@keyword.return"] = plt.waterCore,
+      ["@keyword.import"] = plt.reflectLightest,
+      ["@keyword.storage"] = plt.waterCore,
+      ["@keyword.repeat"] = plt.waterCore,
+      ["@keyword.conditional"] = plt.waterCore,
+      ["@keyword.exception"] = plt.silverBright,
+      ["@keyword.directive"] = plt.silverMid,
+      ["@keyword.directive.define"] = plt.silverMid,
+
+      ["@conditional"] = plt.waterCore,
+      ["@conditional.ternary"] = plt.waterCore,
+
+      ["@repeat"] = plt.waterCore,
+
+      ["@label"] = plt.reflectLightest,
+
+      ["@operator"] = plt.reflectMid,
+
+      ["@exception"] = plt.silverBright,
+
+      ["@variable"] = plt.waterCore,
+      ["@variable.builtin"] = plt.reflectLightest,
+      ["@variable.parameter"] = plt.reflectLighter,
+      ["@variable.member"] = plt.waterCore,
+
+      ["@type"] = plt.reflectLightest,
+      ["@type.builtin"] = plt.reflectLightest,
+      ["@type.definition"] = plt.reflectLightest,
+      ["@type.qualifier"] = plt.waterCore,
+
+      ["@attribute"] = plt.waterCore,
+      ["@attribute.builtin"] = plt.reflectLightest,
+
+      ["@property"] = plt.waterCore,
+      ["@field"] = plt.waterCore,
+
+      ["@module"] = plt.waterCore,
+      ["@module.builtin"] = plt.waterCore,
+
+      ["@namespace"] = plt.waterCore,
+      ["@namespace.builtin"] = plt.waterCore,
+
+      ["@punctuation.delimiter"] = plt.reflectMid,
+      ["@punctuation.bracket"] = plt.reflectMid,
+      ["@punctuation.special"] = plt.silverMid,
+
+      ["@tag"] = plt.waterCore,
+      ["@tag.attribute"] = plt.reflectLightest,
+      ["@tag.delimiter"] = plt.reflectMid,
+      ["@tag.builtin"] = plt.waterCore,
+
+      ["@markup.strong"] = { fg = plt.waterBright, bold = true },
+      ["@markup.italic"] = { fg = plt.waterCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.reflectMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.waterCore, underline = true },
+      ["@markup.heading"] = plt.waterBright,
+      ["@markup.heading.1"] = plt.waterBright,
+      ["@markup.heading.2"] = plt.waterCore,
+      ["@markup.heading.3"] = plt.reflectLightest,
+      ["@markup.heading.4"] = plt.reflectLighter,
+      ["@markup.heading.5"] = plt.silverMid,
+      ["@markup.heading.6"] = plt.silverPulse,
+      ["@markup.quote"] = plt.reflectBright,
+      ["@markup.math"] = plt.reflectLightest,
+      ["@markup.link"] = plt.reflectMid,
+      ["@markup.link.label"] = plt.silverPulse,
+      ["@markup.link.url"] = plt.reflectMid,
+      ["@markup.raw"] = plt.reflectLighter,
+      ["@markup.raw.block"] = plt.reflectLighter,
+      ["@markup.list"] = plt.waterCore,
+      ["@markup.list.checked"] = plt.reflectLighter,
+      ["@markup.list.unchecked"] = plt.reflectBright,
+
+      ["@diff.plus"] = plt.reflectLighter,
+      ["@diff.minus"] = plt.silverBright,
+      ["@diff.delta"] = plt.reflectMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.reflectMid,
+      ["@spell"] = plt.waterCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.waterCore,
+      ["@constructor.python"] = plt.waterBright,
+      ["@constructor.javascript"] = plt.waterBright,
+      ["@constructor.typescript"] = plt.waterBright,
+      ["@namespace.rust"] = plt.waterCore,
+      ["@type.qualifier.rust"] = plt.waterCore,
+      ["@constant.macro.c"] = plt.silverMid,
+      ["@constant.macro.cpp"] = plt.silverMid,
+      ["@namespace.go"] = plt.waterCore,
+      ["@property.css"] = plt.waterBright,
+      ["@type.css"] = plt.waterCore,
+      ["@label.json"] = plt.waterCore,
+      ["@field.yaml"] = plt.waterCore,
+      ["@property.toml"] = plt.waterCore,
+      ["@function.builtin.bash"] = plt.waterBright,
+      ["@string.regexp"] = plt.reflectMid,
+      ["@character.special.regex"] = plt.silverMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.reflectLightest,
+      ["@lsp.type.interface"] = plt.reflectLightest,
+      ["@lsp.type.struct"] = plt.reflectLightest,
+      ["@lsp.type.enum"] = plt.reflectLightest,
+      ["@lsp.type.enumMember"] = plt.reflectLightest,
+      ["@lsp.type.property"] = plt.waterCore,
+      ["@lsp.type.namespace"] = plt.waterCore,
+
+      ["@lsp.type.macro"] = plt.silverMid,
+      ["@lsp.type.decorator"] = plt.waterBright,
+
+      ["@lsp.type.builtinType"] = plt.reflectLightest,
+      ["@lsp.type.selfParameter"] = plt.waterCore,
+      ["@lsp.type.typeParameter"] = plt.reflectLightest,
+
+      ["@lsp.type.array"] = plt.reflectLightest,
+      ["@lsp.type.object"] = plt.reflectLightest,
+      ["@lsp.type.key"] = plt.waterCore,
+      ["@lsp.type.null"] = plt.reflectLightest,
+      ["@lsp.type.enumConstant"] = plt.reflectLightest,
+
+      ["@lsp.type.event"] = plt.reflectLightest,
+      ["@lsp.type.regexp"] = plt.reflectMid,
+      ["@lsp.type.unresolvedReference"] = plt.silverBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.reflectMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.reflectLightest,
+      ["@lsp.mod.async"] = plt.waterCore,
+      ["@lsp.mod.static"] = plt.reflectLightest,
+      ["@lsp.mod.abstract"] = plt.reflectLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.reflectLightest,
+      ["@lsp.mod.documentation"] = plt.reflectBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Rain",
+  author = "PrismPunk.nvim",
+  description = "Wet reflective surfaces. Cool metallic grays. Silver water reflections. Melancholic clarity.",
+
+  base16 = {
+    base00 = palette.wetVoid,
+    base01 = palette.wetDark,
+    base02 = palette.wetDeep,
+    base03 = palette.wetMid,
+    base04 = palette.reflectBright,
+    base05 = palette.reflectLightest,
+    base06 = palette.waterCore,
+    base07 = palette.waterBright,
+    base08 = palette.silverBright,
+    base09 = palette.silverMid,
+    base0A = palette.silverDeep,
+    base0B = palette.reflectLighter,
+    base0C = palette.silverPulse,
+    base0D = palette.reflectMid,
+    base0E = palette.silverPulse,
+    base0F = palette.reflectMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

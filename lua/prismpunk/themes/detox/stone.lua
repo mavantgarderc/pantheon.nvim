@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.stone")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.slateBright,
+      insert = plt.slateLighter,
+      visual = plt.skyPulse,
+      replace = plt.slateMid,
+      command = plt.fortressCore,
+    },
+
+    ui = {
+      fg = plt.fortressCore,
+      fg_dim = plt.fortressCore,
+      fg_dimmer = plt.slateLighter,
+      fg_dark = plt.slateMid,
+      fg_reverse = plt.stoneVoid,
+
+      bg_m4 = plt.stoneLight,
+      bg_m3 = plt.stoneMid,
+      bg_m2 = plt.stoneDeep,
+      bg_m1 = plt.stoneDark,
+      bg_dim = plt.stoneVoid,
+      bg = plt.stoneVoid,
+      bg_p1 = plt.stoneDeep,
+      bg_p2 = plt.stoneMid,
+      bg_gutter = opts.gutter and plt.stoneMid or "none",
+      bg_cursorline = plt.concreteNine,
+      bg_cursorline_alt = plt.concreteMid,
+      bg_search = plt.skyPulse,
+      bg_visual = plt.skyDeep,
+      bg_statusline = plt.concreteMid,
+
+      border = plt.slateMid,
+      header1 = plt.fortressBright,
+      header2 = plt.fortressCore,
+      special = plt.skyBright,
+      nontext = plt.stoneLight,
+      whitespace = plt.stoneMid,
+      win_separator = plt.slateMid,
+      indent = plt.stoneMid,
+      indent_scope = plt.slateDeep,
+      picker = plt.slateMid,
+      yank = plt.skyPulse,
+      mark = plt.skyBright,
+      scrollbar = plt.stoneLight,
+
+      tabline = {
+        bg = plt.stoneVoid,
+        fg_selected = plt.fortressCore,
+        bg_selected = plt.concreteMid,
+        fg_inactive = plt.slateLighter,
+        bg_inactive = plt.stoneVoid,
+        fg_alternate = plt.slateBright,
+        bg_alternate = plt.stoneVoid,
+        indicator = plt.skyPulse,
+      },
+
+      pmenu = {
+        fg = plt.fortressCore,
+        fg_sel = "none",
+        fg_border = plt.concreteMid,
+        bg_border = plt.concreteMid,
+        bg = plt.concreteMid,
+        bg_sel = plt.concreteDeep,
+        bg_sbar = plt.concreteMid,
+        bg_thumb = plt.slateMid,
+      },
+
+      float = {
+        fg = plt.fortressCore,
+        bg = plt.stoneDeep,
+        fg_border = plt.concreteMid,
+        bg_border = plt.stoneDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.fortressBright,
+      accent2 = plt.fortressCore,
+      accent3 = plt.slateLighter,
+      accent4 = plt.slateBright,
+      accent5 = plt.skyPulse,
+      invert = plt.concreteMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.slateBright,
+      rainbow2 = plt.slateMid,
+      rainbow3 = plt.slateDeep,
+      rainbow4 = plt.concreteDeep,
+      rainbow5 = plt.fortressCore,
+      rainbow6 = plt.fortressBright,
+      rainbow7 = plt.skyPulse,
+    },
+
+    syn = {
+      attribute = plt.fortressCore,
+      boolean = plt.skyBright,
+      comment = plt.slateBright,
+      constant = plt.slateLightest,
+      deprecated = plt.slateMid,
+      func = plt.fortressBright,
+      identifier = plt.fortressCore,
+      keyword = plt.fortressCore,
+      method = plt.fortressBright,
+      number = plt.slateLightest,
+      operator = plt.slateMid,
+      parameter = plt.slateLighter,
+      preproc = plt.skyMid,
+      punct = plt.slateDeep,
+      regex = plt.slateMid,
+      statement = plt.fortressCore,
+      string = plt.slateLighter,
+      symbol = plt.fortressCore,
+      type = plt.slateLightest,
+      variable = plt.fortressCore,
+      special = plt.skyPulse,
+      special2 = plt.skyMid,
+      special3 = plt.skyBright,
+    },
+
+    vcs = { added = plt.slateLighter, removed = plt.skyBright, changed = plt.skyDeep },
+    diff = { add = plt.slateLighter, change = plt.slateDeep, delete = plt.skyBright, text = plt.skyMid },
+    diag = {
+      ok = plt.slateLighter,
+      error = plt.skyBright,
+      warning = plt.skyPulse,
+      info = plt.fortressCore,
+      hint = plt.slateMid,
+    },
+
+    term = {
+      black = plt.stoneVoid,
+      red = plt.skyBright,
+      green = plt.slateBright,
+      yellow = plt.slateLightest,
+      blue = plt.stoneVoid,
+      magenta = plt.fortressCore,
+      cyan = plt.slateMid,
+      white = plt.fortressBright,
+
+      black_bright = color(plt.stoneVoid):brighten(0.4):to_hex(),
+      red_bright = plt.skyPulse,
+      green_bright = color(plt.slateBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.fortressBright,
+      blue_bright = color(plt.stoneVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.fortressCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.slateMid):brighten(0.3):to_hex(),
+      white_bright = plt.fortressBright,
+      indexed1 = plt.slateLighter,
+      indexed2 = plt.slateBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.slateBright,
+      ["@comment.documentation"] = plt.slateMid,
+      ["@comment.error"] = plt.skyBright,
+      ["@comment.warning"] = plt.skyPulse,
+      ["@comment.todo"] = plt.slateLighter,
+      ["@comment.note"] = plt.slateMid,
+
+      ["@constant"] = plt.slateLightest,
+      ["@constant.builtin"] = plt.slateLightest,
+      ["@constant.macro"] = plt.skyMid,
+
+      ["@string"] = plt.slateLighter,
+      ["@string.documentation"] = plt.slateLighter,
+      ["@string.regex"] = plt.slateMid,
+      ["@string.escape"] = plt.skyMid,
+      ["@string.special"] = plt.skyBright,
+      ["@string.special.symbol"] = plt.skyBright,
+      ["@string.special.url"] = plt.slateMid,
+      ["@string.special.path"] = plt.slateLighter,
+
+      ["@character"] = plt.slateLighter,
+      ["@character.special"] = plt.skyMid,
+
+      ["@number"] = plt.slateLightest,
+      ["@number.float"] = plt.slateLightest,
+
+      ["@boolean"] = plt.skyBright,
+
+      ["@function"] = plt.fortressBright,
+      ["@function.builtin"] = plt.fortressBright,
+      ["@function.call"] = plt.fortressBright,
+      ["@function.macro"] = plt.skyMid,
+      ["@function.method"] = plt.fortressBright,
+      ["@function.method.call"] = plt.fortressBright,
+
+      ["@constructor"] = plt.fortressCore,
+
+      ["@parameter"] = plt.slateLighter,
+      ["@parameter.builtin"] = plt.slateLightest,
+
+      ["@keyword"] = plt.fortressCore,
+      ["@keyword.coroutine"] = plt.skyBright,
+      ["@keyword.function"] = plt.fortressCore,
+      ["@keyword.operator"] = plt.slateMid,
+      ["@keyword.return"] = plt.fortressCore,
+      ["@keyword.import"] = plt.slateLightest,
+      ["@keyword.storage"] = plt.fortressCore,
+      ["@keyword.repeat"] = plt.fortressCore,
+      ["@keyword.conditional"] = plt.fortressCore,
+      ["@keyword.exception"] = plt.skyBright,
+      ["@keyword.directive"] = plt.skyMid,
+      ["@keyword.directive.define"] = plt.skyMid,
+
+      ["@conditional"] = plt.fortressCore,
+      ["@conditional.ternary"] = plt.fortressCore,
+
+      ["@repeat"] = plt.fortressCore,
+
+      ["@label"] = plt.slateLightest,
+
+      ["@operator"] = plt.slateMid,
+
+      ["@exception"] = plt.skyBright,
+
+      ["@variable"] = plt.fortressCore,
+      ["@variable.builtin"] = plt.slateLightest,
+      ["@variable.parameter"] = plt.slateLighter,
+      ["@variable.member"] = plt.fortressCore,
+
+      ["@type"] = plt.slateLightest,
+      ["@type.builtin"] = plt.slateLightest,
+      ["@type.definition"] = plt.slateLightest,
+      ["@type.qualifier"] = plt.fortressCore,
+
+      ["@attribute"] = plt.fortressCore,
+      ["@attribute.builtin"] = plt.slateLightest,
+
+      ["@property"] = plt.fortressCore,
+      ["@field"] = plt.fortressCore,
+
+      ["@module"] = plt.fortressCore,
+      ["@module.builtin"] = plt.fortressCore,
+
+      ["@namespace"] = plt.fortressCore,
+      ["@namespace.builtin"] = plt.fortressCore,
+
+      ["@punctuation.delimiter"] = plt.slateMid,
+      ["@punctuation.bracket"] = plt.slateMid,
+      ["@punctuation.special"] = plt.skyMid,
+
+      ["@tag"] = plt.fortressCore,
+      ["@tag.attribute"] = plt.slateLightest,
+      ["@tag.delimiter"] = plt.slateMid,
+      ["@tag.builtin"] = plt.fortressCore,
+
+      ["@markup.strong"] = { fg = plt.fortressBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fortressCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.slateMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.fortressCore, underline = true },
+      ["@markup.heading"] = plt.fortressBright,
+      ["@markup.heading.1"] = plt.fortressBright,
+      ["@markup.heading.2"] = plt.fortressCore,
+      ["@markup.heading.3"] = plt.slateLightest,
+      ["@markup.heading.4"] = plt.slateLighter,
+      ["@markup.heading.5"] = plt.skyMid,
+      ["@markup.heading.6"] = plt.skyPulse,
+      ["@markup.quote"] = plt.slateBright,
+      ["@markup.math"] = plt.slateLightest,
+      ["@markup.link"] = plt.slateMid,
+      ["@markup.link.label"] = plt.skyPulse,
+      ["@markup.link.url"] = plt.slateMid,
+      ["@markup.raw"] = plt.slateLighter,
+      ["@markup.raw.block"] = plt.slateLighter,
+      ["@markup.list"] = plt.fortressCore,
+      ["@markup.list.checked"] = plt.slateLighter,
+      ["@markup.list.unchecked"] = plt.slateBright,
+
+      ["@diff.plus"] = plt.slateLighter,
+      ["@diff.minus"] = plt.skyBright,
+      ["@diff.delta"] = plt.slateMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.slateMid,
+      ["@spell"] = plt.fortressCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fortressCore,
+      ["@constructor.python"] = plt.fortressBright,
+      ["@constructor.javascript"] = plt.fortressBright,
+      ["@constructor.typescript"] = plt.fortressBright,
+      ["@namespace.rust"] = plt.fortressCore,
+      ["@type.qualifier.rust"] = plt.fortressCore,
+      ["@constant.macro.c"] = plt.skyMid,
+      ["@constant.macro.cpp"] = plt.skyMid,
+      ["@namespace.go"] = plt.fortressCore,
+      ["@property.css"] = plt.fortressBright,
+      ["@type.css"] = plt.fortressCore,
+      ["@label.json"] = plt.fortressCore,
+      ["@field.yaml"] = plt.fortressCore,
+      ["@property.toml"] = plt.fortressCore,
+      ["@function.builtin.bash"] = plt.fortressBright,
+      ["@string.regexp"] = plt.slateMid,
+      ["@character.special.regex"] = plt.skyMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.slateLightest,
+      ["@lsp.type.interface"] = plt.slateLightest,
+      ["@lsp.type.struct"] = plt.slateLightest,
+      ["@lsp.type.enum"] = plt.slateLightest,
+      ["@lsp.type.enumMember"] = plt.slateLightest,
+      ["@lsp.type.property"] = plt.fortressCore,
+      ["@lsp.type.namespace"] = plt.fortressCore,
+
+      ["@lsp.type.macro"] = plt.skyMid,
+      ["@lsp.type.decorator"] = plt.fortressBright,
+
+      ["@lsp.type.builtinType"] = plt.slateLightest,
+      ["@lsp.type.selfParameter"] = plt.fortressCore,
+      ["@lsp.type.typeParameter"] = plt.slateLightest,
+
+      ["@lsp.type.array"] = plt.slateLightest,
+      ["@lsp.type.object"] = plt.slateLightest,
+      ["@lsp.type.key"] = plt.fortressCore,
+      ["@lsp.type.null"] = plt.slateLightest,
+      ["@lsp.type.enumConstant"] = plt.slateLightest,
+
+      ["@lsp.type.event"] = plt.slateLightest,
+      ["@lsp.type.regexp"] = plt.slateMid,
+      ["@lsp.type.unresolvedReference"] = plt.skyBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.slateMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.slateLightest,
+      ["@lsp.mod.async"] = plt.fortressCore,
+      ["@lsp.mod.static"] = plt.slateLightest,
+      ["@lsp.mod.abstract"] = plt.slateLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.slateLightest,
+      ["@lsp.mod.documentation"] = plt.slateBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Stone",
+  author = "PrismPunk.nvim",
+  description = "Monolithic architecture. Cool slates. Blue-sky restraint. Industrial zen. Fortress calm.",
+
+  base16 = {
+    base00 = palette.stoneVoid,
+    base01 = palette.stoneDark,
+    base02 = palette.stoneDeep,
+    base03 = palette.stoneMid,
+    base04 = palette.slateBright,
+    base05 = palette.slateLightest,
+    base06 = palette.fortressCore,
+    base07 = palette.fortressBright,
+    base08 = palette.skyBright,
+    base09 = palette.skyMid,
+    base0A = palette.skyDeep,
+    base0B = palette.slateLighter,
+    base0C = palette.skyPulse,
+    base0D = palette.slateMid,
+    base0E = palette.skyPulse,
+    base0F = palette.slateMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

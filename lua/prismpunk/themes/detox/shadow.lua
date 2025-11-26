@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.shadow")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.darkBright,
+      insert = plt.darkLighter,
+      visual = plt.twilightPulse,
+      replace = plt.darkMid,
+      command = plt.penumbraCore,
+    },
+
+    ui = {
+      fg = plt.penumbraCore,
+      fg_dim = plt.penumbraCore,
+      fg_dimmer = plt.darkLighter,
+      fg_dark = plt.darkMid,
+      fg_reverse = plt.shadowVoid,
+
+      bg_m4 = plt.shadowLight,
+      bg_m3 = plt.shadowMid,
+      bg_m2 = plt.shadowDeep,
+      bg_m1 = plt.shadowDark,
+      bg_dim = plt.shadowVoid,
+      bg = plt.shadowVoid,
+      bg_p1 = plt.shadowDeep,
+      bg_p2 = plt.shadowMid,
+      bg_gutter = opts.gutter and plt.shadowMid or "none",
+      bg_cursorline = plt.voidLine,
+      bg_cursorline_alt = plt.voidMid,
+      bg_search = plt.twilightPulse,
+      bg_visual = plt.twilightDeep,
+      bg_statusline = plt.voidMid,
+
+      border = plt.darkMid,
+      header1 = plt.penumbraBright,
+      header2 = plt.penumbraCore,
+      special = plt.twilightBright,
+      nontext = plt.shadowLight,
+      whitespace = plt.shadowMid,
+      win_separator = plt.darkMid,
+      indent = plt.shadowMid,
+      indent_scope = plt.darkDeep,
+      picker = plt.darkMid,
+      yank = plt.twilightPulse,
+      mark = plt.twilightBright,
+      scrollbar = plt.shadowLight,
+
+      tabline = {
+        bg = plt.shadowVoid,
+        fg_selected = plt.penumbraCore,
+        bg_selected = plt.voidMid,
+        fg_inactive = plt.darkLighter,
+        bg_inactive = plt.shadowVoid,
+        fg_alternate = plt.darkBright,
+        bg_alternate = plt.shadowVoid,
+        indicator = plt.twilightPulse,
+      },
+
+      pmenu = {
+        fg = plt.penumbraCore,
+        fg_sel = "none",
+        fg_border = plt.voidMid,
+        bg_border = plt.voidMid,
+        bg = plt.voidMid,
+        bg_sel = plt.voidDeep,
+        bg_sbar = plt.voidMid,
+        bg_thumb = plt.darkMid,
+      },
+
+      float = {
+        fg = plt.penumbraCore,
+        bg = plt.shadowDeep,
+        fg_border = plt.voidMid,
+        bg_border = plt.shadowDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.penumbraBright,
+      accent2 = plt.penumbraCore,
+      accent3 = plt.darkLighter,
+      accent4 = plt.darkBright,
+      accent5 = plt.twilightPulse,
+      invert = plt.voidMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.darkBright,
+      rainbow2 = plt.darkMid,
+      rainbow3 = plt.darkDeep,
+      rainbow4 = plt.voidDeep,
+      rainbow5 = plt.penumbraCore,
+      rainbow6 = plt.penumbraBright,
+      rainbow7 = plt.twilightPulse,
+    },
+
+    syn = {
+      attribute = plt.penumbraCore,
+      boolean = plt.twilightBright,
+      comment = plt.darkBright,
+      constant = plt.darkLightest,
+      deprecated = plt.darkMid,
+      func = plt.penumbraBright,
+      identifier = plt.penumbraCore,
+      keyword = plt.penumbraCore,
+      method = plt.penumbraBright,
+      number = plt.darkLightest,
+      operator = plt.darkMid,
+      parameter = plt.darkLighter,
+      preproc = plt.twilightMid,
+      punct = plt.darkDeep,
+      regex = plt.darkMid,
+      statement = plt.penumbraCore,
+      string = plt.darkLighter,
+      symbol = plt.penumbraCore,
+      type = plt.darkLightest,
+      variable = plt.penumbraCore,
+      special = plt.twilightPulse,
+      special2 = plt.twilightMid,
+      special3 = plt.twilightBright,
+    },
+
+    vcs = { added = plt.darkLighter, removed = plt.twilightBright, changed = plt.twilightDeep },
+    diff = { add = plt.darkLighter, change = plt.darkDeep, delete = plt.twilightBright, text = plt.twilightMid },
+    diag = {
+      ok = plt.darkLighter,
+      error = plt.twilightBright,
+      warning = plt.twilightPulse,
+      info = plt.penumbraCore,
+      hint = plt.darkMid,
+    },
+
+    term = {
+      black = plt.shadowVoid,
+      red = plt.twilightBright,
+      green = plt.darkBright,
+      yellow = plt.darkLightest,
+      blue = plt.shadowVoid,
+      magenta = plt.penumbraCore,
+      cyan = plt.darkMid,
+      white = plt.penumbraBright,
+
+      black_bright = color(plt.shadowVoid):brighten(0.4):to_hex(),
+      red_bright = plt.twilightPulse,
+      green_bright = color(plt.darkBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.penumbraBright,
+      blue_bright = color(plt.shadowVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.penumbraCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.darkMid):brighten(0.3):to_hex(),
+      white_bright = plt.penumbraBright,
+      indexed1 = plt.darkLighter,
+      indexed2 = plt.darkBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.darkBright,
+      ["@comment.documentation"] = plt.darkMid,
+      ["@comment.error"] = plt.twilightBright,
+      ["@comment.warning"] = plt.twilightPulse,
+      ["@comment.todo"] = plt.darkLighter,
+      ["@comment.note"] = plt.darkMid,
+
+      ["@constant"] = plt.darkLightest,
+      ["@constant.builtin"] = plt.darkLightest,
+      ["@constant.macro"] = plt.twilightMid,
+
+      ["@string"] = plt.darkLighter,
+      ["@string.documentation"] = plt.darkLighter,
+      ["@string.regex"] = plt.darkMid,
+      ["@string.escape"] = plt.twilightMid,
+      ["@string.special"] = plt.twilightBright,
+      ["@string.special.symbol"] = plt.twilightBright,
+      ["@string.special.url"] = plt.darkMid,
+      ["@string.special.path"] = plt.darkLighter,
+
+      ["@character"] = plt.darkLighter,
+      ["@character.special"] = plt.twilightMid,
+
+      ["@number"] = plt.darkLightest,
+      ["@number.float"] = plt.darkLightest,
+
+      ["@boolean"] = plt.twilightBright,
+
+      ["@function"] = plt.penumbraBright,
+      ["@function.builtin"] = plt.penumbraBright,
+      ["@function.call"] = plt.penumbraBright,
+      ["@function.macro"] = plt.twilightMid,
+      ["@function.method"] = plt.penumbraBright,
+      ["@function.method.call"] = plt.penumbraBright,
+
+      ["@constructor"] = plt.penumbraCore,
+
+      ["@parameter"] = plt.darkLighter,
+      ["@parameter.builtin"] = plt.darkLightest,
+
+      ["@keyword"] = plt.penumbraCore,
+      ["@keyword.coroutine"] = plt.twilightBright,
+      ["@keyword.function"] = plt.penumbraCore,
+      ["@keyword.operator"] = plt.darkMid,
+      ["@keyword.return"] = plt.penumbraCore,
+      ["@keyword.import"] = plt.darkLightest,
+      ["@keyword.storage"] = plt.penumbraCore,
+      ["@keyword.repeat"] = plt.penumbraCore,
+      ["@keyword.conditional"] = plt.penumbraCore,
+      ["@keyword.exception"] = plt.twilightBright,
+      ["@keyword.directive"] = plt.twilightMid,
+      ["@keyword.directive.define"] = plt.twilightMid,
+
+      ["@conditional"] = plt.penumbraCore,
+      ["@conditional.ternary"] = plt.penumbraCore,
+
+      ["@repeat"] = plt.penumbraCore,
+
+      ["@label"] = plt.darkLightest,
+
+      ["@operator"] = plt.darkMid,
+
+      ["@exception"] = plt.twilightBright,
+
+      ["@variable"] = plt.penumbraCore,
+      ["@variable.builtin"] = plt.darkLightest,
+      ["@variable.parameter"] = plt.darkLighter,
+      ["@variable.member"] = plt.penumbraCore,
+
+      ["@type"] = plt.darkLightest,
+      ["@type.builtin"] = plt.darkLightest,
+      ["@type.definition"] = plt.darkLightest,
+      ["@type.qualifier"] = plt.penumbraCore,
+
+      ["@attribute"] = plt.penumbraCore,
+      ["@attribute.builtin"] = plt.darkLightest,
+
+      ["@property"] = plt.penumbraCore,
+      ["@field"] = plt.penumbraCore,
+
+      ["@module"] = plt.penumbraCore,
+      ["@module.builtin"] = plt.penumbraCore,
+
+      ["@namespace"] = plt.penumbraCore,
+      ["@namespace.builtin"] = plt.penumbraCore,
+
+      ["@punctuation.delimiter"] = plt.darkMid,
+      ["@punctuation.bracket"] = plt.darkMid,
+      ["@punctuation.special"] = plt.twilightMid,
+
+      ["@tag"] = plt.penumbraCore,
+      ["@tag.attribute"] = plt.darkLightest,
+      ["@tag.delimiter"] = plt.darkMid,
+      ["@tag.builtin"] = plt.penumbraCore,
+
+      ["@markup.strong"] = { fg = plt.penumbraBright, bold = true },
+      ["@markup.italic"] = { fg = plt.penumbraCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.darkMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.penumbraCore, underline = true },
+      ["@markup.heading"] = plt.penumbraBright,
+      ["@markup.heading.1"] = plt.penumbraBright,
+      ["@markup.heading.2"] = plt.penumbraCore,
+      ["@markup.heading.3"] = plt.darkLightest,
+      ["@markup.heading.4"] = plt.darkLighter,
+      ["@markup.heading.5"] = plt.twilightMid,
+      ["@markup.heading.6"] = plt.twilightPulse,
+      ["@markup.quote"] = plt.darkBright,
+      ["@markup.math"] = plt.darkLightest,
+      ["@markup.link"] = plt.darkMid,
+      ["@markup.link.label"] = plt.twilightPulse,
+      ["@markup.link.url"] = plt.darkMid,
+      ["@markup.raw"] = plt.darkLighter,
+      ["@markup.raw.block"] = plt.darkLighter,
+      ["@markup.list"] = plt.penumbraCore,
+      ["@markup.list.checked"] = plt.darkLighter,
+      ["@markup.list.unchecked"] = plt.darkBright,
+
+      ["@diff.plus"] = plt.darkLighter,
+      ["@diff.minus"] = plt.twilightBright,
+      ["@diff.delta"] = plt.darkMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.darkMid,
+      ["@spell"] = plt.penumbraCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.penumbraCore,
+      ["@constructor.python"] = plt.penumbraBright,
+      ["@constructor.javascript"] = plt.penumbraBright,
+      ["@constructor.typescript"] = plt.penumbraBright,
+      ["@namespace.rust"] = plt.penumbraCore,
+      ["@type.qualifier.rust"] = plt.penumbraCore,
+      ["@constant.macro.c"] = plt.twilightMid,
+      ["@constant.macro.cpp"] = plt.twilightMid,
+      ["@namespace.go"] = plt.penumbraCore,
+      ["@property.css"] = plt.penumbraBright,
+      ["@type.css"] = plt.penumbraCore,
+      ["@label.json"] = plt.penumbraCore,
+      ["@field.yaml"] = plt.penumbraCore,
+      ["@property.toml"] = plt.penumbraCore,
+      ["@function.builtin.bash"] = plt.penumbraBright,
+      ["@string.regexp"] = plt.darkMid,
+      ["@character.special.regex"] = plt.twilightMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.darkLightest,
+      ["@lsp.type.interface"] = plt.darkLightest,
+      ["@lsp.type.struct"] = plt.darkLightest,
+      ["@lsp.type.enum"] = plt.darkLightest,
+      ["@lsp.type.enumMember"] = plt.darkLightest,
+      ["@lsp.type.property"] = plt.penumbraCore,
+      ["@lsp.type.namespace"] = plt.penumbraCore,
+
+      ["@lsp.type.macro"] = plt.twilightMid,
+      ["@lsp.type.decorator"] = plt.penumbraBright,
+
+      ["@lsp.type.builtinType"] = plt.darkLightest,
+      ["@lsp.type.selfParameter"] = plt.penumbraCore,
+      ["@lsp.type.typeParameter"] = plt.darkLightest,
+
+      ["@lsp.type.array"] = plt.darkLightest,
+      ["@lsp.type.object"] = plt.darkLightest,
+      ["@lsp.type.key"] = plt.penumbraCore,
+      ["@lsp.type.null"] = plt.darkLightest,
+      ["@lsp.type.enumConstant"] = plt.darkLightest,
+
+      ["@lsp.type.event"] = plt.darkLightest,
+      ["@lsp.type.regexp"] = plt.darkMid,
+      ["@lsp.type.unresolvedReference"] = plt.twilightBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.darkMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.darkLightest,
+      ["@lsp.mod.async"] = plt.penumbraCore,
+      ["@lsp.mod.static"] = plt.darkLightest,
+      ["@lsp.mod.abstract"] = plt.darkLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.darkLightest,
+      ["@lsp.mod.documentation"] = plt.darkBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Shadow",
+  author = "PrismPunk.nvim",
+  description = "The void of pure absence. Near-black darkness. Twilight blue whispers. Ultimate minimalism.",
+
+  base16 = {
+    base00 = palette.shadowVoid,
+    base01 = palette.shadowDark,
+    base02 = palette.shadowDeep,
+    base03 = palette.shadowMid,
+    base04 = palette.darkBright,
+    base05 = palette.darkLightest,
+    base06 = palette.penumbraCore,
+    base07 = palette.penumbraBright,
+    base08 = palette.twilightBright,
+    base09 = palette.twilightMid,
+    base0A = palette.twilightDeep,
+    base0B = palette.darkLighter,
+    base0C = palette.twilightPulse,
+    base0D = palette.darkMid,
+    base0E = palette.twilightPulse,
+    base0F = palette.darkMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

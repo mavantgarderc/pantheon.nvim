@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.moss")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.leafBright,
+      insert = plt.leafLighter,
+      visual = plt.glowPulse,
+      replace = plt.leafMid,
+      command = plt.stillCore,
+    },
+
+    ui = {
+      fg = plt.stillCore,
+      fg_dim = plt.stillCore,
+      fg_dimmer = plt.leafLighter,
+      fg_dark = plt.leafMid,
+      fg_reverse = plt.mossVoid,
+
+      bg_m4 = plt.mossLight,
+      bg_m3 = plt.mossMid,
+      bg_m2 = plt.mossDeep,
+      bg_m1 = plt.mossDark,
+      bg_dim = plt.mossVoid,
+      bg = plt.mossVoid,
+      bg_p1 = plt.mossDeep,
+      bg_p2 = plt.mossMid,
+      bg_gutter = opts.gutter and plt.mossMid or "none",
+      bg_cursorline = plt.greenLine,
+      bg_cursorline_alt = plt.greenMid,
+      bg_search = plt.glowPulse,
+      bg_visual = plt.glowDeep,
+      bg_statusline = plt.greenMid,
+
+      border = plt.leafMid,
+      header1 = plt.stillBright,
+      header2 = plt.stillCore,
+      special = plt.glowBright,
+      nontext = plt.mossLight,
+      whitespace = plt.mossMid,
+      win_separator = plt.leafMid,
+      indent = plt.mossMid,
+      indent_scope = plt.leafDeep,
+      picker = plt.leafMid,
+      yank = plt.glowPulse,
+      mark = plt.glowBright,
+      scrollbar = plt.mossLight,
+
+      tabline = {
+        bg = plt.mossVoid,
+        fg_selected = plt.stillCore,
+        bg_selected = plt.greenMid,
+        fg_inactive = plt.leafLighter,
+        bg_inactive = plt.mossVoid,
+        fg_alternate = plt.leafBright,
+        bg_alternate = plt.mossVoid,
+        indicator = plt.glowPulse,
+      },
+
+      pmenu = {
+        fg = plt.stillCore,
+        fg_sel = "none",
+        fg_border = plt.greenMid,
+        bg_border = plt.greenMid,
+        bg = plt.greenMid,
+        bg_sel = plt.greenDeep,
+        bg_sbar = plt.greenMid,
+        bg_thumb = plt.leafMid,
+      },
+
+      float = {
+        fg = plt.stillCore,
+        bg = plt.mossDeep,
+        fg_border = plt.greenMid,
+        bg_border = plt.mossDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.stillBright,
+      accent2 = plt.stillCore,
+      accent3 = plt.leafLighter,
+      accent4 = plt.leafBright,
+      accent5 = plt.glowPulse,
+      invert = plt.greenMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.leafBright,
+      rainbow2 = plt.leafMid,
+      rainbow3 = plt.leafDeep,
+      rainbow4 = plt.greenDeep,
+      rainbow5 = plt.stillCore,
+      rainbow6 = plt.stillBright,
+      rainbow7 = plt.glowPulse,
+    },
+
+    syn = {
+      attribute = plt.stillCore,
+      boolean = plt.glowBright,
+      comment = plt.leafBright,
+      constant = plt.leafLightest,
+      deprecated = plt.leafMid,
+      func = plt.stillBright,
+      identifier = plt.stillCore,
+      keyword = plt.stillCore,
+      method = plt.stillBright,
+      number = plt.leafLightest,
+      operator = plt.leafMid,
+      parameter = plt.leafLighter,
+      preproc = plt.glowMid,
+      punct = plt.leafDeep,
+      regex = plt.leafMid,
+      statement = plt.stillCore,
+      string = plt.leafLighter,
+      symbol = plt.stillCore,
+      type = plt.leafLightest,
+      variable = plt.stillCore,
+      special = plt.glowPulse,
+      special2 = plt.glowMid,
+      special3 = plt.glowBright,
+    },
+
+    vcs = { added = plt.leafLighter, removed = plt.glowBright, changed = plt.glowDeep },
+    diff = { add = plt.leafLighter, change = plt.leafDeep, delete = plt.glowBright, text = plt.glowMid },
+    diag = {
+      ok = plt.leafLighter,
+      error = plt.glowBright,
+      warning = plt.glowPulse,
+      info = plt.stillCore,
+      hint = plt.leafMid,
+    },
+
+    term = {
+      black = plt.mossVoid,
+      red = plt.glowBright,
+      green = plt.leafBright,
+      yellow = plt.leafLightest,
+      blue = plt.mossVoid,
+      magenta = plt.stillCore,
+      cyan = plt.leafMid,
+      white = plt.stillBright,
+
+      black_bright = color(plt.mossVoid):brighten(0.4):to_hex(),
+      red_bright = plt.glowPulse,
+      green_bright = color(plt.leafBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.stillBright,
+      blue_bright = color(plt.mossVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.stillCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.leafMid):brighten(0.3):to_hex(),
+      white_bright = plt.stillBright,
+      indexed1 = plt.leafLighter,
+      indexed2 = plt.leafBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.leafBright,
+      ["@comment.documentation"] = plt.leafMid,
+      ["@comment.error"] = plt.glowBright,
+      ["@comment.warning"] = plt.glowPulse,
+      ["@comment.todo"] = plt.leafLighter,
+      ["@comment.note"] = plt.leafMid,
+
+      ["@constant"] = plt.leafLightest,
+      ["@constant.builtin"] = plt.leafLightest,
+      ["@constant.macro"] = plt.glowMid,
+
+      ["@string"] = plt.leafLighter,
+      ["@string.documentation"] = plt.leafLighter,
+      ["@string.regex"] = plt.leafMid,
+      ["@string.escape"] = plt.glowMid,
+      ["@string.special"] = plt.glowBright,
+      ["@string.special.symbol"] = plt.glowBright,
+      ["@string.special.url"] = plt.leafMid,
+      ["@string.special.path"] = plt.leafLighter,
+
+      ["@character"] = plt.leafLighter,
+      ["@character.special"] = plt.glowMid,
+
+      ["@number"] = plt.leafLightest,
+      ["@number.float"] = plt.leafLightest,
+
+      ["@boolean"] = plt.glowBright,
+
+      ["@function"] = plt.stillBright,
+      ["@function.builtin"] = plt.stillBright,
+      ["@function.call"] = plt.stillBright,
+      ["@function.macro"] = plt.glowMid,
+      ["@function.method"] = plt.stillBright,
+      ["@function.method.call"] = plt.stillBright,
+
+      ["@constructor"] = plt.stillCore,
+
+      ["@parameter"] = plt.leafLighter,
+      ["@parameter.builtin"] = plt.leafLightest,
+
+      ["@keyword"] = plt.stillCore,
+      ["@keyword.coroutine"] = plt.glowBright,
+      ["@keyword.function"] = plt.stillCore,
+      ["@keyword.operator"] = plt.leafMid,
+      ["@keyword.return"] = plt.stillCore,
+      ["@keyword.import"] = plt.leafLightest,
+      ["@keyword.storage"] = plt.stillCore,
+      ["@keyword.repeat"] = plt.stillCore,
+      ["@keyword.conditional"] = plt.stillCore,
+      ["@keyword.exception"] = plt.glowBright,
+      ["@keyword.directive"] = plt.glowMid,
+      ["@keyword.directive.define"] = plt.glowMid,
+
+      ["@conditional"] = plt.stillCore,
+      ["@conditional.ternary"] = plt.stillCore,
+
+      ["@repeat"] = plt.stillCore,
+
+      ["@label"] = plt.leafLightest,
+
+      ["@operator"] = plt.leafMid,
+
+      ["@exception"] = plt.glowBright,
+
+      ["@variable"] = plt.stillCore,
+      ["@variable.builtin"] = plt.leafLightest,
+      ["@variable.parameter"] = plt.leafLighter,
+      ["@variable.member"] = plt.stillCore,
+
+      ["@type"] = plt.leafLightest,
+      ["@type.builtin"] = plt.leafLightest,
+      ["@type.definition"] = plt.leafLightest,
+      ["@type.qualifier"] = plt.stillCore,
+
+      ["@attribute"] = plt.stillCore,
+      ["@attribute.builtin"] = plt.leafLightest,
+
+      ["@property"] = plt.stillCore,
+      ["@field"] = plt.stillCore,
+
+      ["@module"] = plt.stillCore,
+      ["@module.builtin"] = plt.stillCore,
+
+      ["@namespace"] = plt.stillCore,
+      ["@namespace.builtin"] = plt.stillCore,
+
+      ["@punctuation.delimiter"] = plt.leafMid,
+      ["@punctuation.bracket"] = plt.leafMid,
+      ["@punctuation.special"] = plt.glowMid,
+
+      ["@tag"] = plt.stillCore,
+      ["@tag.attribute"] = plt.leafLightest,
+      ["@tag.delimiter"] = plt.leafMid,
+      ["@tag.builtin"] = plt.stillCore,
+
+      ["@markup.strong"] = { fg = plt.stillBright, bold = true },
+      ["@markup.italic"] = { fg = plt.stillCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.leafMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.stillCore, underline = true },
+      ["@markup.heading"] = plt.stillBright,
+      ["@markup.heading.1"] = plt.stillBright,
+      ["@markup.heading.2"] = plt.stillCore,
+      ["@markup.heading.3"] = plt.leafLightest,
+      ["@markup.heading.4"] = plt.leafLighter,
+      ["@markup.heading.5"] = plt.glowMid,
+      ["@markup.heading.6"] = plt.glowPulse,
+      ["@markup.quote"] = plt.leafBright,
+      ["@markup.math"] = plt.leafLightest,
+      ["@markup.link"] = plt.leafMid,
+      ["@markup.link.label"] = plt.glowPulse,
+      ["@markup.link.url"] = plt.leafMid,
+      ["@markup.raw"] = plt.leafLighter,
+      ["@markup.raw.block"] = plt.leafLighter,
+      ["@markup.list"] = plt.stillCore,
+      ["@markup.list.checked"] = plt.leafLighter,
+      ["@markup.list.unchecked"] = plt.leafBright,
+
+      ["@diff.plus"] = plt.leafLighter,
+      ["@diff.minus"] = plt.glowBright,
+      ["@diff.delta"] = plt.leafMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.leafMid,
+      ["@spell"] = plt.stillCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.stillCore,
+      ["@constructor.python"] = plt.stillBright,
+      ["@constructor.javascript"] = plt.stillBright,
+      ["@constructor.typescript"] = plt.stillBright,
+      ["@namespace.rust"] = plt.stillCore,
+      ["@type.qualifier.rust"] = plt.stillCore,
+      ["@constant.macro.c"] = plt.glowMid,
+      ["@constant.macro.cpp"] = plt.glowMid,
+      ["@namespace.go"] = plt.stillCore,
+      ["@property.css"] = plt.stillBright,
+      ["@type.css"] = plt.stillCore,
+      ["@label.json"] = plt.stillCore,
+      ["@field.yaml"] = plt.stillCore,
+      ["@property.toml"] = plt.stillCore,
+      ["@function.builtin.bash"] = plt.stillBright,
+      ["@string.regexp"] = plt.leafMid,
+      ["@character.special.regex"] = plt.glowMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.leafLightest,
+      ["@lsp.type.interface"] = plt.leafLightest,
+      ["@lsp.type.struct"] = plt.leafLightest,
+      ["@lsp.type.enum"] = plt.leafLightest,
+      ["@lsp.type.enumMember"] = plt.leafLightest,
+      ["@lsp.type.property"] = plt.stillCore,
+      ["@lsp.type.namespace"] = plt.stillCore,
+
+      ["@lsp.type.macro"] = plt.glowMid,
+      ["@lsp.type.decorator"] = plt.stillBright,
+
+      ["@lsp.type.builtinType"] = plt.leafLightest,
+      ["@lsp.type.selfParameter"] = plt.stillCore,
+      ["@lsp.type.typeParameter"] = plt.leafLightest,
+
+      ["@lsp.type.array"] = plt.leafLightest,
+      ["@lsp.type.object"] = plt.leafLightest,
+      ["@lsp.type.key"] = plt.stillCore,
+      ["@lsp.type.null"] = plt.leafLightest,
+      ["@lsp.type.enumConstant"] = plt.leafLightest,
+
+      ["@lsp.type.event"] = plt.leafLightest,
+      ["@lsp.type.regexp"] = plt.leafMid,
+      ["@lsp.type.unresolvedReference"] = plt.glowBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.leafMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.leafLightest,
+      ["@lsp.mod.async"] = plt.stillCore,
+      ["@lsp.mod.static"] = plt.leafLightest,
+      ["@lsp.mod.abstract"] = plt.leafLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.leafLightest,
+      ["@lsp.mod.documentation"] = plt.leafBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Moss",
+  author = "PrismPunk.nvim",
+  description = "Forest floor living decay. Deep green primary. Pale mushroom glow. Organic patience.",
+
+  base16 = {
+    base00 = palette.mossVoid,
+    base01 = palette.mossDark,
+    base02 = palette.mossDeep,
+    base03 = palette.mossMid,
+    base04 = palette.leafBright,
+    base05 = palette.leafLightest,
+    base06 = palette.stillCore,
+    base07 = palette.stillBright,
+    base08 = palette.glowBright,
+    base09 = palette.glowMid,
+    base0A = palette.glowDeep,
+    base0B = palette.leafLighter,
+    base0C = palette.glowPulse,
+    base0D = palette.leafMid,
+    base0E = palette.glowPulse,
+    base0F = palette.leafMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

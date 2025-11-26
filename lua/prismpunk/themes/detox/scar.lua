@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.scar")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.menderBright,
+      insert = plt.menderLighter,
+      visual = plt.markPulse,
+      replace = plt.menderMid,
+      command = plt.paleCore,
+    },
+
+    ui = {
+      fg = plt.paleCore,
+      fg_dim = plt.paleCore,
+      fg_dimmer = plt.menderLighter,
+      fg_dark = plt.menderMid,
+      fg_reverse = plt.scarVoid,
+
+      bg_m4 = plt.scarLight,
+      bg_m3 = plt.scarMid,
+      bg_m2 = plt.scarDeep,
+      bg_m1 = plt.scarDark,
+      bg_dim = plt.scarVoid,
+      bg = plt.scarVoid,
+      bg_p1 = plt.scarDeep,
+      bg_p2 = plt.scarMid,
+      bg_gutter = opts.gutter and plt.scarMid or "none",
+      bg_cursorline = plt.healLine,
+      bg_cursorline_alt = plt.healMid,
+      bg_search = plt.markPulse,
+      bg_visual = plt.markDeep,
+      bg_statusline = plt.healMid,
+
+      border = plt.menderMid,
+      header1 = plt.paleBright,
+      header2 = plt.paleCore,
+      special = plt.markBright,
+      nontext = plt.scarLight,
+      whitespace = plt.scarMid,
+      win_separator = plt.menderMid,
+      indent = plt.scarMid,
+      indent_scope = plt.menderDeep,
+      picker = plt.menderMid,
+      yank = plt.markPulse,
+      mark = plt.markBright,
+      scrollbar = plt.scarLight,
+
+      tabline = {
+        bg = plt.scarVoid,
+        fg_selected = plt.paleCore,
+        bg_selected = plt.healMid,
+        fg_inactive = plt.menderLighter,
+        bg_inactive = plt.scarVoid,
+        fg_alternate = plt.menderBright,
+        bg_alternate = plt.scarVoid,
+        indicator = plt.markPulse,
+      },
+
+      pmenu = {
+        fg = plt.paleCore,
+        fg_sel = "none",
+        fg_border = plt.healMid,
+        bg_border = plt.healMid,
+        bg = plt.healMid,
+        bg_sel = plt.healDeep,
+        bg_sbar = plt.healMid,
+        bg_thumb = plt.menderMid,
+      },
+
+      float = {
+        fg = plt.paleCore,
+        bg = plt.scarDeep,
+        fg_border = plt.healMid,
+        bg_border = plt.scarDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.paleBright,
+      accent2 = plt.paleCore,
+      accent3 = plt.menderLighter,
+      accent4 = plt.menderBright,
+      accent5 = plt.markPulse,
+      invert = plt.healMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.menderBright,
+      rainbow2 = plt.menderMid,
+      rainbow3 = plt.menderDeep,
+      rainbow4 = plt.healDeep,
+      rainbow5 = plt.paleCore,
+      rainbow6 = plt.paleBright,
+      rainbow7 = plt.markPulse,
+    },
+
+    syn = {
+      attribute = plt.paleCore,
+      boolean = plt.markBright,
+      comment = plt.menderBright,
+      constant = plt.menderLightest,
+      deprecated = plt.menderMid,
+      func = plt.paleBright,
+      identifier = plt.paleCore,
+      keyword = plt.paleCore,
+      method = plt.paleBright,
+      number = plt.menderLightest,
+      operator = plt.menderMid,
+      parameter = plt.menderLighter,
+      preproc = plt.markMid,
+      punct = plt.menderDeep,
+      regex = plt.menderMid,
+      statement = plt.paleCore,
+      string = plt.menderLighter,
+      symbol = plt.paleCore,
+      type = plt.menderLightest,
+      variable = plt.paleCore,
+      special = plt.markPulse,
+      special2 = plt.markMid,
+      special3 = plt.markBright,
+    },
+
+    vcs = { added = plt.menderLighter, removed = plt.markBright, changed = plt.markDeep },
+    diff = { add = plt.menderLighter, change = plt.menderDeep, delete = plt.markBright, text = plt.markMid },
+    diag = {
+      ok = plt.menderLighter,
+      error = plt.markBright,
+      warning = plt.markPulse,
+      info = plt.paleCore,
+      hint = plt.menderMid,
+    },
+
+    term = {
+      black = plt.scarVoid,
+      red = plt.markBright,
+      green = plt.menderBright,
+      yellow = plt.menderLightest,
+      blue = plt.scarVoid,
+      magenta = plt.paleCore,
+      cyan = plt.menderMid,
+      white = plt.paleBright,
+
+      black_bright = color(plt.scarVoid):brighten(0.4):to_hex(),
+      red_bright = plt.markPulse,
+      green_bright = color(plt.menderBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.paleBright,
+      blue_bright = color(plt.scarVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.paleCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.menderMid):brighten(0.3):to_hex(),
+      white_bright = plt.paleBright,
+      indexed1 = plt.menderLighter,
+      indexed2 = plt.menderBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.menderBright,
+      ["@comment.documentation"] = plt.menderMid,
+      ["@comment.error"] = plt.markBright,
+      ["@comment.warning"] = plt.markPulse,
+      ["@comment.todo"] = plt.menderLighter,
+      ["@comment.note"] = plt.menderMid,
+
+      ["@constant"] = plt.menderLightest,
+      ["@constant.builtin"] = plt.menderLightest,
+      ["@constant.macro"] = plt.markMid,
+
+      ["@string"] = plt.menderLighter,
+      ["@string.documentation"] = plt.menderLighter,
+      ["@string.regex"] = plt.menderMid,
+      ["@string.escape"] = plt.markMid,
+      ["@string.special"] = plt.markBright,
+      ["@string.special.symbol"] = plt.markBright,
+      ["@string.special.url"] = plt.menderMid,
+      ["@string.special.path"] = plt.menderLighter,
+
+      ["@character"] = plt.menderLighter,
+      ["@character.special"] = plt.markMid,
+
+      ["@number"] = plt.menderLightest,
+      ["@number.float"] = plt.menderLightest,
+
+      ["@boolean"] = plt.markBright,
+
+      ["@function"] = plt.paleBright,
+      ["@function.builtin"] = plt.paleBright,
+      ["@function.call"] = plt.paleBright,
+      ["@function.macro"] = plt.markMid,
+      ["@function.method"] = plt.paleBright,
+      ["@function.method.call"] = plt.paleBright,
+
+      ["@constructor"] = plt.paleCore,
+
+      ["@parameter"] = plt.menderLighter,
+      ["@parameter.builtin"] = plt.menderLightest,
+
+      ["@keyword"] = plt.paleCore,
+      ["@keyword.coroutine"] = plt.markBright,
+      ["@keyword.function"] = plt.paleCore,
+      ["@keyword.operator"] = plt.menderMid,
+      ["@keyword.return"] = plt.paleCore,
+      ["@keyword.import"] = plt.menderLightest,
+      ["@keyword.storage"] = plt.paleCore,
+      ["@keyword.repeat"] = plt.paleCore,
+      ["@keyword.conditional"] = plt.paleCore,
+      ["@keyword.exception"] = plt.markBright,
+      ["@keyword.directive"] = plt.markMid,
+      ["@keyword.directive.define"] = plt.markMid,
+
+      ["@conditional"] = plt.paleCore,
+      ["@conditional.ternary"] = plt.paleCore,
+
+      ["@repeat"] = plt.paleCore,
+
+      ["@label"] = plt.menderLightest,
+
+      ["@operator"] = plt.menderMid,
+
+      ["@exception"] = plt.markBright,
+
+      ["@variable"] = plt.paleCore,
+      ["@variable.builtin"] = plt.menderLightest,
+      ["@variable.parameter"] = plt.menderLighter,
+      ["@variable.member"] = plt.paleCore,
+
+      ["@type"] = plt.menderLightest,
+      ["@type.builtin"] = plt.menderLightest,
+      ["@type.definition"] = plt.menderLightest,
+      ["@type.qualifier"] = plt.paleCore,
+
+      ["@attribute"] = plt.paleCore,
+      ["@attribute.builtin"] = plt.menderLightest,
+
+      ["@property"] = plt.paleCore,
+      ["@field"] = plt.paleCore,
+
+      ["@module"] = plt.paleCore,
+      ["@module.builtin"] = plt.paleCore,
+
+      ["@namespace"] = plt.paleCore,
+      ["@namespace.builtin"] = plt.paleCore,
+
+      ["@punctuation.delimiter"] = plt.menderMid,
+      ["@punctuation.bracket"] = plt.menderMid,
+      ["@punctuation.special"] = plt.markMid,
+
+      ["@tag"] = plt.paleCore,
+      ["@tag.attribute"] = plt.menderLightest,
+      ["@tag.delimiter"] = plt.menderMid,
+      ["@tag.builtin"] = plt.paleCore,
+
+      ["@markup.strong"] = { fg = plt.paleBright, bold = true },
+      ["@markup.italic"] = { fg = plt.paleCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.menderMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.paleCore, underline = true },
+      ["@markup.heading"] = plt.paleBright,
+      ["@markup.heading.1"] = plt.paleBright,
+      ["@markup.heading.2"] = plt.paleCore,
+      ["@markup.heading.3"] = plt.menderLightest,
+      ["@markup.heading.4"] = plt.menderLighter,
+      ["@markup.heading.5"] = plt.markMid,
+      ["@markup.heading.6"] = plt.markPulse,
+      ["@markup.quote"] = plt.menderBright,
+      ["@markup.math"] = plt.menderLightest,
+      ["@markup.link"] = plt.menderMid,
+      ["@markup.link.label"] = plt.markPulse,
+      ["@markup.link.url"] = plt.menderMid,
+      ["@markup.raw"] = plt.menderLighter,
+      ["@markup.raw.block"] = plt.menderLighter,
+      ["@markup.list"] = plt.paleCore,
+      ["@markup.list.checked"] = plt.menderLighter,
+      ["@markup.list.unchecked"] = plt.menderBright,
+
+      ["@diff.plus"] = plt.menderLighter,
+      ["@diff.minus"] = plt.markBright,
+      ["@diff.delta"] = plt.menderMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.menderMid,
+      ["@spell"] = plt.paleCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.paleCore,
+      ["@constructor.python"] = plt.paleBright,
+      ["@constructor.javascript"] = plt.paleBright,
+      ["@constructor.typescript"] = plt.paleBright,
+      ["@namespace.rust"] = plt.paleCore,
+      ["@type.qualifier.rust"] = plt.paleCore,
+      ["@constant.macro.c"] = plt.markMid,
+      ["@constant.macro.cpp"] = plt.markMid,
+      ["@namespace.go"] = plt.paleCore,
+      ["@property.css"] = plt.paleBright,
+      ["@type.css"] = plt.paleCore,
+      ["@label.json"] = plt.paleCore,
+      ["@field.yaml"] = plt.paleCore,
+      ["@property.toml"] = plt.paleCore,
+      ["@function.builtin.bash"] = plt.paleBright,
+      ["@string.regexp"] = plt.menderMid,
+      ["@character.special.regex"] = plt.markMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.menderLightest,
+      ["@lsp.type.interface"] = plt.menderLightest,
+      ["@lsp.type.struct"] = plt.menderLightest,
+      ["@lsp.type.enum"] = plt.menderLightest,
+      ["@lsp.type.enumMember"] = plt.menderLightest,
+      ["@lsp.type.property"] = plt.paleCore,
+      ["@lsp.type.namespace"] = plt.paleCore,
+
+      ["@lsp.type.macro"] = plt.markMid,
+      ["@lsp.type.decorator"] = plt.paleBright,
+
+      ["@lsp.type.builtinType"] = plt.menderLightest,
+      ["@lsp.type.selfParameter"] = plt.paleCore,
+      ["@lsp.type.typeParameter"] = plt.menderLightest,
+
+      ["@lsp.type.array"] = plt.menderLightest,
+      ["@lsp.type.object"] = plt.menderLightest,
+      ["@lsp.type.key"] = plt.paleCore,
+      ["@lsp.type.null"] = plt.menderLightest,
+      ["@lsp.type.enumConstant"] = plt.menderLightest,
+
+      ["@lsp.type.event"] = plt.menderLightest,
+      ["@lsp.type.regexp"] = plt.menderMid,
+      ["@lsp.type.unresolvedReference"] = plt.markBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.menderMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.menderLightest,
+      ["@lsp.mod.async"] = plt.paleCore,
+      ["@lsp.mod.static"] = plt.menderLightest,
+      ["@lsp.mod.abstract"] = plt.menderLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.menderLightest,
+      ["@lsp.mod.documentation"] = plt.menderBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Scar",
+  author = "PrismPunk.nvim",
+  description = "Pale pink tissue healing. Dark red scars. Recovery & acceptance. Trauma transformed.",
+
+  base16 = {
+    base00 = palette.scarVoid,
+    base01 = palette.scarDark,
+    base02 = palette.scarDeep,
+    base03 = palette.scarMid,
+    base04 = palette.menderBright,
+    base05 = palette.menderLightest,
+    base06 = palette.paleCore,
+    base07 = palette.paleBright,
+    base08 = palette.markBright,
+    base09 = palette.markMid,
+    base0A = palette.markDeep,
+    base0B = palette.menderLighter,
+    base0C = palette.markPulse,
+    base0D = palette.menderMid,
+    base0E = palette.markPulse,
+    base0F = palette.menderMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.silk")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.weaveBright,
+      insert = plt.weaveLighter,
+      visual = plt.stitchPulse,
+      replace = plt.weaveMid,
+      command = plt.fabricCore,
+    },
+
+    ui = {
+      fg = plt.fabricCore,
+      fg_dim = plt.fabricCore,
+      fg_dimmer = plt.weaveLighter,
+      fg_dark = plt.weaveMid,
+      fg_reverse = plt.silkVoid,
+
+      bg_m4 = plt.silkLight,
+      bg_m3 = plt.silkMid,
+      bg_m2 = plt.silkDeep,
+      bg_m1 = plt.silkDark,
+      bg_dim = plt.silkVoid,
+      bg = plt.silkVoid,
+      bg_p1 = plt.silkDeep,
+      bg_p2 = plt.silkMid,
+      bg_gutter = opts.gutter and plt.silkMid or "none",
+      bg_cursorline = plt.threadLine,
+      bg_cursorline_alt = plt.threadMid,
+      bg_search = plt.stitchPulse,
+      bg_visual = plt.stitchDeep,
+      bg_statusline = plt.threadMid,
+
+      border = plt.weaveMid,
+      header1 = plt.fabricBright,
+      header2 = plt.fabricCore,
+      special = plt.stitchBright,
+      nontext = plt.silkLight,
+      whitespace = plt.silkMid,
+      win_separator = plt.weaveMid,
+      indent = plt.silkMid,
+      indent_scope = plt.weaveDeep,
+      picker = plt.weaveMid,
+      yank = plt.stitchPulse,
+      mark = plt.stitchBright,
+      scrollbar = plt.silkLight,
+
+      tabline = {
+        bg = plt.silkVoid,
+        fg_selected = plt.fabricCore,
+        bg_selected = plt.threadMid,
+        fg_inactive = plt.weaveLighter,
+        bg_inactive = plt.silkVoid,
+        fg_alternate = plt.weaveBright,
+        bg_alternate = plt.silkVoid,
+        indicator = plt.stitchPulse,
+      },
+
+      pmenu = {
+        fg = plt.fabricCore,
+        fg_sel = "none",
+        fg_border = plt.threadMid,
+        bg_border = plt.threadMid,
+        bg = plt.threadMid,
+        bg_sel = plt.threadDeep,
+        bg_sbar = plt.threadMid,
+        bg_thumb = plt.weaveMid,
+      },
+
+      float = {
+        fg = plt.fabricCore,
+        bg = plt.silkDeep,
+        fg_border = plt.threadMid,
+        bg_border = plt.silkDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.fabricBright,
+      accent2 = plt.fabricCore,
+      accent3 = plt.weaveLighter,
+      accent4 = plt.weaveBright,
+      accent5 = plt.stitchPulse,
+      invert = plt.threadMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.weaveBright,
+      rainbow2 = plt.weaveMid,
+      rainbow3 = plt.weaveDeep,
+      rainbow4 = plt.threadDeep,
+      rainbow5 = plt.fabricCore,
+      rainbow6 = plt.fabricBright,
+      rainbow7 = plt.stitchPulse,
+    },
+
+    syn = {
+      attribute = plt.fabricCore,
+      boolean = plt.stitchBright,
+      comment = plt.weaveBright,
+      constant = plt.weaveLightest,
+      deprecated = plt.weaveMid,
+      func = plt.fabricBright,
+      identifier = plt.fabricCore,
+      keyword = plt.fabricCore,
+      method = plt.fabricBright,
+      number = plt.weaveLightest,
+      operator = plt.weaveMid,
+      parameter = plt.weaveLighter,
+      preproc = plt.stitchMid,
+      punct = plt.weaveDeep,
+      regex = plt.weaveMid,
+      statement = plt.fabricCore,
+      string = plt.weaveLighter,
+      symbol = plt.fabricCore,
+      type = plt.weaveLightest,
+      variable = plt.fabricCore,
+      special = plt.stitchPulse,
+      special2 = plt.stitchMid,
+      special3 = plt.stitchBright,
+    },
+
+    vcs = { added = plt.weaveLighter, removed = plt.stitchBright, changed = plt.stitchDeep },
+    diff = { add = plt.weaveLighter, change = plt.weaveDeep, delete = plt.stitchBright, text = plt.stitchMid },
+    diag = {
+      ok = plt.weaveLighter,
+      error = plt.stitchBright,
+      warning = plt.stitchPulse,
+      info = plt.fabricCore,
+      hint = plt.weaveMid,
+    },
+
+    term = {
+      black = plt.silkVoid,
+      red = plt.stitchBright,
+      green = plt.weaveBright,
+      yellow = plt.weaveLightest,
+      blue = plt.silkVoid,
+      magenta = plt.fabricCore,
+      cyan = plt.weaveMid,
+      white = plt.fabricBright,
+
+      black_bright = color(plt.silkVoid):brighten(0.4):to_hex(),
+      red_bright = plt.stitchPulse,
+      green_bright = color(plt.weaveBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.fabricBright,
+      blue_bright = color(plt.silkVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.fabricCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.weaveMid):brighten(0.3):to_hex(),
+      white_bright = plt.fabricBright,
+      indexed1 = plt.weaveLighter,
+      indexed2 = plt.weaveBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.weaveBright,
+      ["@comment.documentation"] = plt.weaveMid,
+      ["@comment.error"] = plt.stitchBright,
+      ["@comment.warning"] = plt.stitchPulse,
+      ["@comment.todo"] = plt.weaveLighter,
+      ["@comment.note"] = plt.weaveMid,
+
+      ["@constant"] = plt.weaveLightest,
+      ["@constant.builtin"] = plt.weaveLightest,
+      ["@constant.macro"] = plt.stitchMid,
+
+      ["@string"] = plt.weaveLighter,
+      ["@string.documentation"] = plt.weaveLighter,
+      ["@string.regex"] = plt.weaveMid,
+      ["@string.escape"] = plt.stitchMid,
+      ["@string.special"] = plt.stitchBright,
+      ["@string.special.symbol"] = plt.stitchBright,
+      ["@string.special.url"] = plt.weaveMid,
+      ["@string.special.path"] = plt.weaveLighter,
+
+      ["@character"] = plt.weaveLighter,
+      ["@character.special"] = plt.stitchMid,
+
+      ["@number"] = plt.weaveLightest,
+      ["@number.float"] = plt.weaveLightest,
+
+      ["@boolean"] = plt.stitchBright,
+
+      ["@function"] = plt.fabricBright,
+      ["@function.builtin"] = plt.fabricBright,
+      ["@function.call"] = plt.fabricBright,
+      ["@function.macro"] = plt.stitchMid,
+      ["@function.method"] = plt.fabricBright,
+      ["@function.method.call"] = plt.fabricBright,
+
+      ["@constructor"] = plt.fabricCore,
+
+      ["@parameter"] = plt.weaveLighter,
+      ["@parameter.builtin"] = plt.weaveLightest,
+
+      ["@keyword"] = plt.fabricCore,
+      ["@keyword.coroutine"] = plt.stitchBright,
+      ["@keyword.function"] = plt.fabricCore,
+      ["@keyword.operator"] = plt.weaveMid,
+      ["@keyword.return"] = plt.fabricCore,
+      ["@keyword.import"] = plt.weaveLightest,
+      ["@keyword.storage"] = plt.fabricCore,
+      ["@keyword.repeat"] = plt.fabricCore,
+      ["@keyword.conditional"] = plt.fabricCore,
+      ["@keyword.exception"] = plt.stitchBright,
+      ["@keyword.directive"] = plt.stitchMid,
+      ["@keyword.directive.define"] = plt.stitchMid,
+
+      ["@conditional"] = plt.fabricCore,
+      ["@conditional.ternary"] = plt.fabricCore,
+
+      ["@repeat"] = plt.fabricCore,
+
+      ["@label"] = plt.weaveLightest,
+
+      ["@operator"] = plt.weaveMid,
+
+      ["@exception"] = plt.stitchBright,
+
+      ["@variable"] = plt.fabricCore,
+      ["@variable.builtin"] = plt.weaveLightest,
+      ["@variable.parameter"] = plt.weaveLighter,
+      ["@variable.member"] = plt.fabricCore,
+
+      ["@type"] = plt.weaveLightest,
+      ["@type.builtin"] = plt.weaveLightest,
+      ["@type.definition"] = plt.weaveLightest,
+      ["@type.qualifier"] = plt.fabricCore,
+
+      ["@attribute"] = plt.fabricCore,
+      ["@attribute.builtin"] = plt.weaveLightest,
+
+      ["@property"] = plt.fabricCore,
+      ["@field"] = plt.fabricCore,
+
+      ["@module"] = plt.fabricCore,
+      ["@module.builtin"] = plt.fabricCore,
+
+      ["@namespace"] = plt.fabricCore,
+      ["@namespace.builtin"] = plt.fabricCore,
+
+      ["@punctuation.delimiter"] = plt.weaveMid,
+      ["@punctuation.bracket"] = plt.weaveMid,
+      ["@punctuation.special"] = plt.stitchMid,
+
+      ["@tag"] = plt.fabricCore,
+      ["@tag.attribute"] = plt.weaveLightest,
+      ["@tag.delimiter"] = plt.weaveMid,
+      ["@tag.builtin"] = plt.fabricCore,
+
+      ["@markup.strong"] = { fg = plt.fabricBright, bold = true },
+      ["@markup.italic"] = { fg = plt.fabricCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.weaveMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.fabricCore, underline = true },
+      ["@markup.heading"] = plt.fabricBright,
+      ["@markup.heading.1"] = plt.fabricBright,
+      ["@markup.heading.2"] = plt.fabricCore,
+      ["@markup.heading.3"] = plt.weaveLightest,
+      ["@markup.heading.4"] = plt.weaveLighter,
+      ["@markup.heading.5"] = plt.stitchMid,
+      ["@markup.heading.6"] = plt.stitchPulse,
+      ["@markup.quote"] = plt.weaveBright,
+      ["@markup.math"] = plt.weaveLightest,
+      ["@markup.link"] = plt.weaveMid,
+      ["@markup.link.label"] = plt.stitchPulse,
+      ["@markup.link.url"] = plt.weaveMid,
+      ["@markup.raw"] = plt.weaveLighter,
+      ["@markup.raw.block"] = plt.weaveLighter,
+      ["@markup.list"] = plt.fabricCore,
+      ["@markup.list.checked"] = plt.weaveLighter,
+      ["@markup.list.unchecked"] = plt.weaveBright,
+
+      ["@diff.plus"] = plt.weaveLighter,
+      ["@diff.minus"] = plt.stitchBright,
+      ["@diff.delta"] = plt.weaveMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.weaveMid,
+      ["@spell"] = plt.fabricCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.fabricCore,
+      ["@constructor.python"] = plt.fabricBright,
+      ["@constructor.javascript"] = plt.fabricBright,
+      ["@constructor.typescript"] = plt.fabricBright,
+      ["@namespace.rust"] = plt.fabricCore,
+      ["@type.qualifier.rust"] = plt.fabricCore,
+      ["@constant.macro.c"] = plt.stitchMid,
+      ["@constant.macro.cpp"] = plt.stitchMid,
+      ["@namespace.go"] = plt.fabricCore,
+      ["@property.css"] = plt.fabricBright,
+      ["@type.css"] = plt.fabricCore,
+      ["@label.json"] = plt.fabricCore,
+      ["@field.yaml"] = plt.fabricCore,
+      ["@property.toml"] = plt.fabricCore,
+      ["@function.builtin.bash"] = plt.fabricBright,
+      ["@string.regexp"] = plt.weaveMid,
+      ["@character.special.regex"] = plt.stitchMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.weaveLightest,
+      ["@lsp.type.interface"] = plt.weaveLightest,
+      ["@lsp.type.struct"] = plt.weaveLightest,
+      ["@lsp.type.enum"] = plt.weaveLightest,
+      ["@lsp.type.enumMember"] = plt.weaveLightest,
+      ["@lsp.type.property"] = plt.fabricCore,
+      ["@lsp.type.namespace"] = plt.fabricCore,
+
+      ["@lsp.type.macro"] = plt.stitchMid,
+      ["@lsp.type.decorator"] = plt.fabricBright,
+
+      ["@lsp.type.builtinType"] = plt.weaveLightest,
+      ["@lsp.type.selfParameter"] = plt.fabricCore,
+      ["@lsp.type.typeParameter"] = plt.weaveLightest,
+
+      ["@lsp.type.array"] = plt.weaveLightest,
+      ["@lsp.type.object"] = plt.weaveLightest,
+      ["@lsp.type.key"] = plt.fabricCore,
+      ["@lsp.type.null"] = plt.weaveLightest,
+      ["@lsp.type.enumConstant"] = plt.weaveLightest,
+
+      ["@lsp.type.event"] = plt.weaveLightest,
+      ["@lsp.type.regexp"] = plt.weaveMid,
+      ["@lsp.type.unresolvedReference"] = plt.stitchBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.weaveMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.weaveLightest,
+      ["@lsp.mod.async"] = plt.fabricCore,
+      ["@lsp.mod.static"] = plt.weaveLightest,
+      ["@lsp.mod.abstract"] = plt.weaveLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.weaveLightest,
+      ["@lsp.mod.documentation"] = plt.weaveBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Silk",
+  author = "PrismPunk.nvim",
+  description = "Soft textile folds. Gentle tension. Thread gold stitching. Tactile serenity.",
+
+  base16 = {
+    base00 = palette.silkVoid,
+    base01 = palette.silkDark,
+    base02 = palette.silkDeep,
+    base03 = palette.silkMid,
+    base04 = palette.weaveBright,
+    base05 = palette.weaveLightest,
+    base06 = palette.fabricCore,
+    base07 = palette.fabricBright,
+    base08 = palette.stitchBright,
+    base09 = palette.stitchMid,
+    base0A = palette.stitchDeep,
+    base0B = palette.weaveLighter,
+    base0C = palette.stitchPulse,
+    base0D = palette.weaveMid,
+    base0E = palette.stitchPulse,
+    base0F = palette.weaveMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

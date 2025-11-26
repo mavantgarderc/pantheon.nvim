@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.silt")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.driftBright,
+      insert = plt.driftLighter,
+      visual = plt.decayPulse,
+      replace = plt.driftMid,
+      command = plt.waterCore,
+    },
+
+    ui = {
+      fg = plt.waterCore,
+      fg_dim = plt.waterCore,
+      fg_dimmer = plt.driftLighter,
+      fg_dark = plt.driftMid,
+      fg_reverse = plt.siltVoid,
+
+      bg_m4 = plt.siltLight,
+      bg_m3 = plt.siltMid,
+      bg_m2 = plt.siltDeep,
+      bg_m1 = plt.siltDark,
+      bg_dim = plt.siltVoid,
+      bg = plt.siltVoid,
+      bg_p1 = plt.siltDeep,
+      bg_p2 = plt.siltMid,
+      bg_gutter = opts.gutter and plt.siltMid or "none",
+      bg_cursorline = plt.sedLine,
+      bg_cursorline_alt = plt.sedMid,
+      bg_search = plt.decayPulse,
+      bg_visual = plt.decayDeep,
+      bg_statusline = plt.sedMid,
+
+      border = plt.driftMid,
+      header1 = plt.waterBright,
+      header2 = plt.waterCore,
+      special = plt.decayBright,
+      nontext = plt.siltLight,
+      whitespace = plt.siltMid,
+      win_separator = plt.driftMid,
+      indent = plt.siltMid,
+      indent_scope = plt.driftDeep,
+      picker = plt.driftMid,
+      yank = plt.decayPulse,
+      mark = plt.decayBright,
+      scrollbar = plt.siltLight,
+
+      tabline = {
+        bg = plt.siltVoid,
+        fg_selected = plt.waterCore,
+        bg_selected = plt.sedMid,
+        fg_inactive = plt.driftLighter,
+        bg_inactive = plt.siltVoid,
+        fg_alternate = plt.driftBright,
+        bg_alternate = plt.siltVoid,
+        indicator = plt.decayPulse,
+      },
+
+      pmenu = {
+        fg = plt.waterCore,
+        fg_sel = "none",
+        fg_border = plt.sedMid,
+        bg_border = plt.sedMid,
+        bg = plt.sedMid,
+        bg_sel = plt.sedDeep,
+        bg_sbar = plt.sedMid,
+        bg_thumb = plt.driftMid,
+      },
+
+      float = {
+        fg = plt.waterCore,
+        bg = plt.siltDeep,
+        fg_border = plt.sedMid,
+        bg_border = plt.siltDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.waterBright,
+      accent2 = plt.waterCore,
+      accent3 = plt.driftLighter,
+      accent4 = plt.driftBright,
+      accent5 = plt.decayPulse,
+      invert = plt.sedMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.driftBright,
+      rainbow2 = plt.driftMid,
+      rainbow3 = plt.driftDeep,
+      rainbow4 = plt.sedDeep,
+      rainbow5 = plt.waterCore,
+      rainbow6 = plt.waterBright,
+      rainbow7 = plt.decayPulse,
+    },
+
+    syn = {
+      attribute = plt.waterCore,
+      boolean = plt.decayBright,
+      comment = plt.driftBright,
+      constant = plt.driftLightest,
+      deprecated = plt.driftMid,
+      func = plt.waterBright,
+      identifier = plt.waterCore,
+      keyword = plt.waterCore,
+      method = plt.waterBright,
+      number = plt.driftLightest,
+      operator = plt.driftMid,
+      parameter = plt.driftLighter,
+      preproc = plt.decayMid,
+      punct = plt.driftDeep,
+      regex = plt.driftMid,
+      statement = plt.waterCore,
+      string = plt.driftLighter,
+      symbol = plt.waterCore,
+      type = plt.driftLightest,
+      variable = plt.waterCore,
+      special = plt.decayPulse,
+      special2 = plt.decayMid,
+      special3 = plt.decayBright,
+    },
+
+    vcs = { added = plt.driftLighter, removed = plt.decayBright, changed = plt.decayDeep },
+    diff = { add = plt.driftLighter, change = plt.driftDeep, delete = plt.decayBright, text = plt.decayMid },
+    diag = {
+      ok = plt.driftLighter,
+      error = plt.decayBright,
+      warning = plt.decayPulse,
+      info = plt.waterCore,
+      hint = plt.driftMid,
+    },
+
+    term = {
+      black = plt.siltVoid,
+      red = plt.decayBright,
+      green = plt.driftBright,
+      yellow = plt.driftLightest,
+      blue = plt.siltVoid,
+      magenta = plt.waterCore,
+      cyan = plt.driftMid,
+      white = plt.waterBright,
+
+      black_bright = color(plt.siltVoid):brighten(0.4):to_hex(),
+      red_bright = plt.decayPulse,
+      green_bright = color(plt.driftBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.waterBright,
+      blue_bright = color(plt.siltVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.waterCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.driftMid):brighten(0.3):to_hex(),
+      white_bright = plt.waterBright,
+      indexed1 = plt.driftLighter,
+      indexed2 = plt.driftBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.driftBright,
+      ["@comment.documentation"] = plt.driftMid,
+      ["@comment.error"] = plt.decayBright,
+      ["@comment.warning"] = plt.decayPulse,
+      ["@comment.todo"] = plt.driftLighter,
+      ["@comment.note"] = plt.driftMid,
+
+      ["@constant"] = plt.driftLightest,
+      ["@constant.builtin"] = plt.driftLightest,
+      ["@constant.macro"] = plt.decayMid,
+
+      ["@string"] = plt.driftLighter,
+      ["@string.documentation"] = plt.driftLighter,
+      ["@string.regex"] = plt.driftMid,
+      ["@string.escape"] = plt.decayMid,
+      ["@string.special"] = plt.decayBright,
+      ["@string.special.symbol"] = plt.decayBright,
+      ["@string.special.url"] = plt.driftMid,
+      ["@string.special.path"] = plt.driftLighter,
+
+      ["@character"] = plt.driftLighter,
+      ["@character.special"] = plt.decayMid,
+
+      ["@number"] = plt.driftLightest,
+      ["@number.float"] = plt.driftLightest,
+
+      ["@boolean"] = plt.decayBright,
+
+      ["@function"] = plt.waterBright,
+      ["@function.builtin"] = plt.waterBright,
+      ["@function.call"] = plt.waterBright,
+      ["@function.macro"] = plt.decayMid,
+      ["@function.method"] = plt.waterBright,
+      ["@function.method.call"] = plt.waterBright,
+
+      ["@constructor"] = plt.waterCore,
+
+      ["@parameter"] = plt.driftLighter,
+      ["@parameter.builtin"] = plt.driftLightest,
+
+      ["@keyword"] = plt.waterCore,
+      ["@keyword.coroutine"] = plt.decayBright,
+      ["@keyword.function"] = plt.waterCore,
+      ["@keyword.operator"] = plt.driftMid,
+      ["@keyword.return"] = plt.waterCore,
+      ["@keyword.import"] = plt.driftLightest,
+      ["@keyword.storage"] = plt.waterCore,
+      ["@keyword.repeat"] = plt.waterCore,
+      ["@keyword.conditional"] = plt.waterCore,
+      ["@keyword.exception"] = plt.decayBright,
+      ["@keyword.directive"] = plt.decayMid,
+      ["@keyword.directive.define"] = plt.decayMid,
+
+      ["@conditional"] = plt.waterCore,
+      ["@conditional.ternary"] = plt.waterCore,
+
+      ["@repeat"] = plt.waterCore,
+
+      ["@label"] = plt.driftLightest,
+
+      ["@operator"] = plt.driftMid,
+
+      ["@exception"] = plt.decayBright,
+
+      ["@variable"] = plt.waterCore,
+      ["@variable.builtin"] = plt.driftLightest,
+      ["@variable.parameter"] = plt.driftLighter,
+      ["@variable.member"] = plt.waterCore,
+
+      ["@type"] = plt.driftLightest,
+      ["@type.builtin"] = plt.driftLightest,
+      ["@type.definition"] = plt.driftLightest,
+      ["@type.qualifier"] = plt.waterCore,
+
+      ["@attribute"] = plt.waterCore,
+      ["@attribute.builtin"] = plt.driftLightest,
+
+      ["@property"] = plt.waterCore,
+      ["@field"] = plt.waterCore,
+
+      ["@module"] = plt.waterCore,
+      ["@module.builtin"] = plt.waterCore,
+
+      ["@namespace"] = plt.waterCore,
+      ["@namespace.builtin"] = plt.waterCore,
+
+      ["@punctuation.delimiter"] = plt.driftMid,
+      ["@punctuation.bracket"] = plt.driftMid,
+      ["@punctuation.special"] = plt.decayMid,
+
+      ["@tag"] = plt.waterCore,
+      ["@tag.attribute"] = plt.driftLightest,
+      ["@tag.delimiter"] = plt.driftMid,
+      ["@tag.builtin"] = plt.waterCore,
+
+      ["@markup.strong"] = { fg = plt.waterBright, bold = true },
+      ["@markup.italic"] = { fg = plt.waterCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.driftMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.waterCore, underline = true },
+      ["@markup.heading"] = plt.waterBright,
+      ["@markup.heading.1"] = plt.waterBright,
+      ["@markup.heading.2"] = plt.waterCore,
+      ["@markup.heading.3"] = plt.driftLightest,
+      ["@markup.heading.4"] = plt.driftLighter,
+      ["@markup.heading.5"] = plt.decayMid,
+      ["@markup.heading.6"] = plt.decayPulse,
+      ["@markup.quote"] = plt.driftBright,
+      ["@markup.math"] = plt.driftLightest,
+      ["@markup.link"] = plt.driftMid,
+      ["@markup.link.label"] = plt.decayPulse,
+      ["@markup.link.url"] = plt.driftMid,
+      ["@markup.raw"] = plt.driftLighter,
+      ["@markup.raw.block"] = plt.driftLighter,
+      ["@markup.list"] = plt.waterCore,
+      ["@markup.list.checked"] = plt.driftLighter,
+      ["@markup.list.unchecked"] = plt.driftBright,
+
+      ["@diff.plus"] = plt.driftLighter,
+      ["@diff.minus"] = plt.decayBright,
+      ["@diff.delta"] = plt.driftMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.driftMid,
+      ["@spell"] = plt.waterCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.waterCore,
+      ["@constructor.python"] = plt.waterBright,
+      ["@constructor.javascript"] = plt.waterBright,
+      ["@constructor.typescript"] = plt.waterBright,
+      ["@namespace.rust"] = plt.waterCore,
+      ["@type.qualifier.rust"] = plt.waterCore,
+      ["@constant.macro.c"] = plt.decayMid,
+      ["@constant.macro.cpp"] = plt.decayMid,
+      ["@namespace.go"] = plt.waterCore,
+      ["@property.css"] = plt.waterBright,
+      ["@type.css"] = plt.waterCore,
+      ["@label.json"] = plt.waterCore,
+      ["@field.yaml"] = plt.waterCore,
+      ["@property.toml"] = plt.waterCore,
+      ["@function.builtin.bash"] = plt.waterBright,
+      ["@string.regexp"] = plt.driftMid,
+      ["@character.special.regex"] = plt.decayMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.driftLightest,
+      ["@lsp.type.interface"] = plt.driftLightest,
+      ["@lsp.type.struct"] = plt.driftLightest,
+      ["@lsp.type.enum"] = plt.driftLightest,
+      ["@lsp.type.enumMember"] = plt.driftLightest,
+      ["@lsp.type.property"] = plt.waterCore,
+      ["@lsp.type.namespace"] = plt.waterCore,
+
+      ["@lsp.type.macro"] = plt.decayMid,
+      ["@lsp.type.decorator"] = plt.waterBright,
+
+      ["@lsp.type.builtinType"] = plt.driftLightest,
+      ["@lsp.type.selfParameter"] = plt.waterCore,
+      ["@lsp.type.typeParameter"] = plt.driftLightest,
+
+      ["@lsp.type.array"] = plt.driftLightest,
+      ["@lsp.type.object"] = plt.driftLightest,
+      ["@lsp.type.key"] = plt.waterCore,
+      ["@lsp.type.null"] = plt.driftLightest,
+      ["@lsp.type.enumConstant"] = plt.driftLightest,
+
+      ["@lsp.type.event"] = plt.driftLightest,
+      ["@lsp.type.regexp"] = plt.driftMid,
+      ["@lsp.type.unresolvedReference"] = plt.decayBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.driftMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.driftLightest,
+      ["@lsp.mod.async"] = plt.waterCore,
+      ["@lsp.mod.static"] = plt.driftLightest,
+      ["@lsp.mod.abstract"] = plt.driftLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.driftLightest,
+      ["@lsp.mod.documentation"] = plt.driftBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Silt",
+  author = "PrismPunk.nvim",
+  description = "Suspended sediment. Cool teals. Peachy decay warmth. Underwater stillness. Drifting contemplation.",
+
+  base16 = {
+    base00 = palette.siltVoid,
+    base01 = palette.siltDark,
+    base02 = palette.siltDeep,
+    base03 = palette.siltMid,
+    base04 = palette.driftBright,
+    base05 = palette.driftLightest,
+    base06 = palette.waterCore,
+    base07 = palette.waterBright,
+    base08 = palette.decayBright,
+    base09 = palette.decayMid,
+    base0A = palette.decayDeep,
+    base0B = palette.driftLighter,
+    base0C = palette.decayPulse,
+    base0D = palette.driftMid,
+    base0E = palette.decayPulse,
+    base0F = palette.driftMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
