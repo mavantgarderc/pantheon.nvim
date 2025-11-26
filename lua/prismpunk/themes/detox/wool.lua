@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.wool")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.yarnBright,
+      insert = plt.yarnLighter,
+      visual = plt.dyePulse,
+      replace = plt.yarnMid,
+      command = plt.woolCore,
+    },
+
+    ui = {
+      fg = plt.woolCore,
+      fg_dim = plt.woolCore,
+      fg_dimmer = plt.yarnLighter,
+      fg_dark = plt.yarnMid,
+      fg_reverse = plt.woolVoid,
+
+      bg_m4 = plt.woolLight,
+      bg_m3 = plt.woolMid,
+      bg_m2 = plt.woolDeep,
+      bg_m1 = plt.woolDark,
+      bg_dim = plt.woolVoid,
+      bg = plt.woolVoid,
+      bg_p1 = plt.woolDeep,
+      bg_p2 = plt.woolMid,
+      bg_gutter = opts.gutter and plt.woolMid or "none",
+      bg_cursorline = plt.fiberLine,
+      bg_cursorline_alt = plt.fiberMid,
+      bg_search = plt.dyePulse,
+      bg_visual = plt.dyeDeep,
+      bg_statusline = plt.fiberMid,
+
+      border = plt.yarnMid,
+      header1 = plt.woolBright,
+      header2 = plt.woolCore,
+      special = plt.dyeBright,
+      nontext = plt.woolLight,
+      whitespace = plt.woolMid,
+      win_separator = plt.yarnMid,
+      indent = plt.woolMid,
+      indent_scope = plt.yarnDeep,
+      picker = plt.yarnMid,
+      yank = plt.dyePulse,
+      mark = plt.dyeBright,
+      scrollbar = plt.woolLight,
+
+      tabline = {
+        bg = plt.woolVoid,
+        fg_selected = plt.woolCore,
+        bg_selected = plt.fiberMid,
+        fg_inactive = plt.yarnLighter,
+        bg_inactive = plt.woolVoid,
+        fg_alternate = plt.yarnBright,
+        bg_alternate = plt.woolVoid,
+        indicator = plt.dyePulse,
+      },
+
+      pmenu = {
+        fg = plt.woolCore,
+        fg_sel = "none",
+        fg_border = plt.fiberMid,
+        bg_border = plt.fiberMid,
+        bg = plt.fiberMid,
+        bg_sel = plt.fiberDeep,
+        bg_sbar = plt.fiberMid,
+        bg_thumb = plt.yarnMid,
+      },
+
+      float = {
+        fg = plt.woolCore,
+        bg = plt.woolDeep,
+        fg_border = plt.fiberMid,
+        bg_border = plt.woolDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.woolBright,
+      accent2 = plt.woolCore,
+      accent3 = plt.yarnLighter,
+      accent4 = plt.yarnBright,
+      accent5 = plt.dyePulse,
+      invert = plt.fiberMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.yarnBright,
+      rainbow2 = plt.yarnMid,
+      rainbow3 = plt.yarnDeep,
+      rainbow4 = plt.fiberDeep,
+      rainbow5 = plt.woolCore,
+      rainbow6 = plt.woolBright,
+      rainbow7 = plt.dyePulse,
+    },
+
+    syn = {
+      attribute = plt.woolCore,
+      boolean = plt.dyeBright,
+      comment = plt.yarnBright,
+      constant = plt.yarnLightest,
+      deprecated = plt.yarnMid,
+      func = plt.woolBright,
+      identifier = plt.woolCore,
+      keyword = plt.woolCore,
+      method = plt.woolBright,
+      number = plt.yarnLightest,
+      operator = plt.yarnMid,
+      parameter = plt.yarnLighter,
+      preproc = plt.dyeMid,
+      punct = plt.yarnDeep,
+      regex = plt.yarnMid,
+      statement = plt.woolCore,
+      string = plt.yarnLighter,
+      symbol = plt.woolCore,
+      type = plt.yarnLightest,
+      variable = plt.woolCore,
+      special = plt.dyePulse,
+      special2 = plt.dyeMid,
+      special3 = plt.dyeBright,
+    },
+
+    vcs = { added = plt.yarnLighter, removed = plt.dyeBright, changed = plt.dyeDeep },
+    diff = { add = plt.yarnLighter, change = plt.yarnDeep, delete = plt.dyeBright, text = plt.dyeMid },
+    diag = {
+      ok = plt.yarnLighter,
+      error = plt.dyeBright,
+      warning = plt.dyePulse,
+      info = plt.woolCore,
+      hint = plt.yarnMid,
+    },
+
+    term = {
+      black = plt.woolVoid,
+      red = plt.dyeBright,
+      green = plt.yarnBright,
+      yellow = plt.yarnLightest,
+      blue = plt.woolVoid,
+      magenta = plt.woolCore,
+      cyan = plt.yarnMid,
+      white = plt.woolBright,
+
+      black_bright = color(plt.woolVoid):brighten(0.4):to_hex(),
+      red_bright = plt.dyePulse,
+      green_bright = color(plt.yarnBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.woolBright,
+      blue_bright = color(plt.woolVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.woolCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.yarnMid):brighten(0.3):to_hex(),
+      white_bright = plt.woolBright,
+      indexed1 = plt.yarnLighter,
+      indexed2 = plt.yarnBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.yarnBright,
+      ["@comment.documentation"] = plt.yarnMid,
+      ["@comment.error"] = plt.dyeBright,
+      ["@comment.warning"] = plt.dyePulse,
+      ["@comment.todo"] = plt.yarnLighter,
+      ["@comment.note"] = plt.yarnMid,
+
+      ["@constant"] = plt.yarnLightest,
+      ["@constant.builtin"] = plt.yarnLightest,
+      ["@constant.macro"] = plt.dyeMid,
+
+      ["@string"] = plt.yarnLighter,
+      ["@string.documentation"] = plt.yarnLighter,
+      ["@string.regex"] = plt.yarnMid,
+      ["@string.escape"] = plt.dyeMid,
+      ["@string.special"] = plt.dyeBright,
+      ["@string.special.symbol"] = plt.dyeBright,
+      ["@string.special.url"] = plt.yarnMid,
+      ["@string.special.path"] = plt.yarnLighter,
+
+      ["@character"] = plt.yarnLighter,
+      ["@character.special"] = plt.dyeMid,
+
+      ["@number"] = plt.yarnLightest,
+      ["@number.float"] = plt.yarnLightest,
+
+      ["@boolean"] = plt.dyeBright,
+
+      ["@function"] = plt.woolBright,
+      ["@function.builtin"] = plt.woolBright,
+      ["@function.call"] = plt.woolBright,
+      ["@function.macro"] = plt.dyeMid,
+      ["@function.method"] = plt.woolBright,
+      ["@function.method.call"] = plt.woolBright,
+
+      ["@constructor"] = plt.woolCore,
+
+      ["@parameter"] = plt.yarnLighter,
+      ["@parameter.builtin"] = plt.yarnLightest,
+
+      ["@keyword"] = plt.woolCore,
+      ["@keyword.coroutine"] = plt.dyeBright,
+      ["@keyword.function"] = plt.woolCore,
+      ["@keyword.operator"] = plt.yarnMid,
+      ["@keyword.return"] = plt.woolCore,
+      ["@keyword.import"] = plt.yarnLightest,
+      ["@keyword.storage"] = plt.woolCore,
+      ["@keyword.repeat"] = plt.woolCore,
+      ["@keyword.conditional"] = plt.woolCore,
+      ["@keyword.exception"] = plt.dyeBright,
+      ["@keyword.directive"] = plt.dyeMid,
+      ["@keyword.directive.define"] = plt.dyeMid,
+
+      ["@conditional"] = plt.woolCore,
+      ["@conditional.ternary"] = plt.woolCore,
+
+      ["@repeat"] = plt.woolCore,
+
+      ["@label"] = plt.yarnLightest,
+
+      ["@operator"] = plt.yarnMid,
+
+      ["@exception"] = plt.dyeBright,
+
+      ["@variable"] = plt.woolCore,
+      ["@variable.builtin"] = plt.yarnLightest,
+      ["@variable.parameter"] = plt.yarnLighter,
+      ["@variable.member"] = plt.woolCore,
+
+      ["@type"] = plt.yarnLightest,
+      ["@type.builtin"] = plt.yarnLightest,
+      ["@type.definition"] = plt.yarnLightest,
+      ["@type.qualifier"] = plt.woolCore,
+
+      ["@attribute"] = plt.woolCore,
+      ["@attribute.builtin"] = plt.yarnLightest,
+
+      ["@property"] = plt.woolCore,
+      ["@field"] = plt.woolCore,
+
+      ["@module"] = plt.woolCore,
+      ["@module.builtin"] = plt.woolCore,
+
+      ["@namespace"] = plt.woolCore,
+      ["@namespace.builtin"] = plt.woolCore,
+
+      ["@punctuation.delimiter"] = plt.yarnMid,
+      ["@punctuation.bracket"] = plt.yarnMid,
+      ["@punctuation.special"] = plt.dyeMid,
+
+      ["@tag"] = plt.woolCore,
+      ["@tag.attribute"] = plt.yarnLightest,
+      ["@tag.delimiter"] = plt.yarnMid,
+      ["@tag.builtin"] = plt.woolCore,
+
+      ["@markup.strong"] = { fg = plt.woolBright, bold = true },
+      ["@markup.italic"] = { fg = plt.woolCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.yarnMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.woolCore, underline = true },
+      ["@markup.heading"] = plt.woolBright,
+      ["@markup.heading.1"] = plt.woolBright,
+      ["@markup.heading.2"] = plt.woolCore,
+      ["@markup.heading.3"] = plt.yarnLightest,
+      ["@markup.heading.4"] = plt.yarnLighter,
+      ["@markup.heading.5"] = plt.dyeMid,
+      ["@markup.heading.6"] = plt.dyePulse,
+      ["@markup.quote"] = plt.yarnBright,
+      ["@markup.math"] = plt.yarnLightest,
+      ["@markup.link"] = plt.yarnMid,
+      ["@markup.link.label"] = plt.dyePulse,
+      ["@markup.link.url"] = plt.yarnMid,
+      ["@markup.raw"] = plt.yarnLighter,
+      ["@markup.raw.block"] = plt.yarnLighter,
+      ["@markup.list"] = plt.woolCore,
+      ["@markup.list.checked"] = plt.yarnLighter,
+      ["@markup.list.unchecked"] = plt.yarnBright,
+
+      ["@diff.plus"] = plt.yarnLighter,
+      ["@diff.minus"] = plt.dyeBright,
+      ["@diff.delta"] = plt.yarnMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.yarnMid,
+      ["@spell"] = plt.woolCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.woolCore,
+      ["@constructor.python"] = plt.woolBright,
+      ["@constructor.javascript"] = plt.woolBright,
+      ["@constructor.typescript"] = plt.woolBright,
+      ["@namespace.rust"] = plt.woolCore,
+      ["@type.qualifier.rust"] = plt.woolCore,
+      ["@constant.macro.c"] = plt.dyeMid,
+      ["@constant.macro.cpp"] = plt.dyeMid,
+      ["@namespace.go"] = plt.woolCore,
+      ["@property.css"] = plt.woolBright,
+      ["@type.css"] = plt.woolCore,
+      ["@label.json"] = plt.woolCore,
+      ["@field.yaml"] = plt.woolCore,
+      ["@property.toml"] = plt.woolCore,
+      ["@function.builtin.bash"] = plt.woolBright,
+      ["@string.regexp"] = plt.yarnMid,
+      ["@character.special.regex"] = plt.dyeMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.yarnLightest,
+      ["@lsp.type.interface"] = plt.yarnLightest,
+      ["@lsp.type.struct"] = plt.yarnLightest,
+      ["@lsp.type.enum"] = plt.yarnLightest,
+      ["@lsp.type.enumMember"] = plt.yarnLightest,
+      ["@lsp.type.property"] = plt.woolCore,
+      ["@lsp.type.namespace"] = plt.woolCore,
+
+      ["@lsp.type.macro"] = plt.dyeMid,
+      ["@lsp.type.decorator"] = plt.woolBright,
+
+      ["@lsp.type.builtinType"] = plt.yarnLightest,
+      ["@lsp.type.selfParameter"] = plt.woolCore,
+      ["@lsp.type.typeParameter"] = plt.yarnLightest,
+
+      ["@lsp.type.array"] = plt.yarnLightest,
+      ["@lsp.type.object"] = plt.yarnLightest,
+      ["@lsp.type.key"] = plt.woolCore,
+      ["@lsp.type.null"] = plt.yarnLightest,
+      ["@lsp.type.enumConstant"] = plt.yarnLightest,
+
+      ["@lsp.type.event"] = plt.yarnLightest,
+      ["@lsp.type.regexp"] = plt.yarnMid,
+      ["@lsp.type.unresolvedReference"] = plt.dyeBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.yarnMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.yarnLightest,
+      ["@lsp.mod.async"] = plt.woolCore,
+      ["@lsp.mod.static"] = plt.yarnLightest,
+      ["@lsp.mod.abstract"] = plt.yarnLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.yarnLightest,
+      ["@lsp.mod.documentation"] = plt.yarnBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Wool",
+  author = "PrismPunk.nvim",
+  description = "Knitted natural fiber. Hand-spun yarn texture. Natural sage dyes. Warm textile comfort.",
+
+  base16 = {
+    base00 = palette.woolVoid,
+    base01 = palette.woolDark,
+    base02 = palette.woolDeep,
+    base03 = palette.woolMid,
+    base04 = palette.yarnBright,
+    base05 = palette.yarnLightest,
+    base06 = palette.woolCore,
+    base07 = palette.woolBright,
+    base08 = palette.dyeBright,
+    base09 = palette.dyeMid,
+    base0A = palette.dyeDeep,
+    base0B = palette.yarnLighter,
+    base0C = palette.dyePulse,
+    base0D = palette.yarnMid,
+    base0E = palette.dyePulse,
+    base0F = palette.yarnMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
