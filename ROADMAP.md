@@ -435,4 +435,9 @@
     - [ ] base16-da-one-ocean
 
 - [ ] Visual Dopamine Detox (Low Blue Color Reliance)
-    - [ ] 
+    - [X] 1998term
+    - [X] Bunker
+    - [X] Brutalism Prison
+    - [X] Zen Kanagawa
+    - [X] Medical Sterile
+    - [X] Zen Paper
