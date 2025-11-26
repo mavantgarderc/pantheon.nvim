@@ -84,22 +84,23 @@
         - [X] Bizarro
         - [ ] Black Adam
         - [ ] Black Manta
+        - [X] Brainiac
         - [ ] Captain Cold
         - [ ] Cheetah
-        - [ ] Deathstroke
+        - [X] Deathstroke
         - [ ] Giganta
         - [ ] Gorilla Grodd
-        - [ ] Joker
-        - [ ] Killer Croc
+        - [X] Joker
+        - [X] Killer Croc
         - [ ] Killer Frost
-        - [ ] Lex Luthor
+        - [X] Lex Luthor
         - [ ] Mister Terrible
         - [ ] Mr. Freeze
         - [ ] Multi-Man
         - [ ] Nocturna
         - [ ] Penguin
-        - [ ] Sinestro
-        - [ ] Two-Face
+        - [X] Sinestro
+        - [X] Two-Face
 
     - [X] Justice League
         - [X] Adam Strange
