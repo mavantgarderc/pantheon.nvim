@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.copper")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.oxidBright,
+      insert = plt.oxidLighter,
+      visual = plt.polishPulse,
+      replace = plt.oxidMid,
+      command = plt.metallicCore,
+    },
+
+    ui = {
+      fg = plt.metallicCore,
+      fg_dim = plt.metallicCore,
+      fg_dimmer = plt.oxidLighter,
+      fg_dark = plt.oxidMid,
+      fg_reverse = plt.copperVoid,
+
+      bg_m4 = plt.copperLight,
+      bg_m3 = plt.copperMid,
+      bg_m2 = plt.copperDeep,
+      bg_m1 = plt.copperDark,
+      bg_dim = plt.copperVoid,
+      bg = plt.copperVoid,
+      bg_p1 = plt.copperDeep,
+      bg_p2 = plt.copperMid,
+      bg_gutter = opts.gutter and plt.copperMid or "none",
+      bg_cursorline = plt.patinLine,
+      bg_cursorline_alt = plt.patinMid,
+      bg_search = plt.polishPulse,
+      bg_visual = plt.polishDeep,
+      bg_statusline = plt.patinMid,
+
+      border = plt.oxidMid,
+      header1 = plt.metallicBright,
+      header2 = plt.metallicCore,
+      special = plt.polishBright,
+      nontext = plt.copperLight,
+      whitespace = plt.copperMid,
+      win_separator = plt.oxidMid,
+      indent = plt.copperMid,
+      indent_scope = plt.oxidDeep,
+      picker = plt.oxidMid,
+      yank = plt.polishPulse,
+      mark = plt.polishBright,
+      scrollbar = plt.copperLight,
+
+      tabline = {
+        bg = plt.copperVoid,
+        fg_selected = plt.metallicCore,
+        bg_selected = plt.patinMid,
+        fg_inactive = plt.oxidLighter,
+        bg_inactive = plt.copperVoid,
+        fg_alternate = plt.oxidBright,
+        bg_alternate = plt.copperVoid,
+        indicator = plt.polishPulse,
+      },
+
+      pmenu = {
+        fg = plt.metallicCore,
+        fg_sel = "none",
+        fg_border = plt.patinMid,
+        bg_border = plt.patinMid,
+        bg = plt.patinMid,
+        bg_sel = plt.patinDeep,
+        bg_sbar = plt.patinMid,
+        bg_thumb = plt.oxidMid,
+      },
+
+      float = {
+        fg = plt.metallicCore,
+        bg = plt.copperDeep,
+        fg_border = plt.patinMid,
+        bg_border = plt.copperDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.metallicBright,
+      accent2 = plt.metallicCore,
+      accent3 = plt.oxidLighter,
+      accent4 = plt.oxidBright,
+      accent5 = plt.polishPulse,
+      invert = plt.patinMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.oxidBright,
+      rainbow2 = plt.oxidMid,
+      rainbow3 = plt.oxidDeep,
+      rainbow4 = plt.patinDeep,
+      rainbow5 = plt.metallicCore,
+      rainbow6 = plt.metallicBright,
+      rainbow7 = plt.polishPulse,
+    },
+
+    syn = {
+      attribute = plt.metallicCore,
+      boolean = plt.polishBright,
+      comment = plt.oxidBright,
+      constant = plt.oxidLightest,
+      deprecated = plt.oxidMid,
+      func = plt.metallicBright,
+      identifier = plt.metallicCore,
+      keyword = plt.metallicCore,
+      method = plt.metallicBright,
+      number = plt.oxidLightest,
+      operator = plt.oxidMid,
+      parameter = plt.oxidLighter,
+      preproc = plt.polishMid,
+      punct = plt.oxidDeep,
+      regex = plt.oxidMid,
+      statement = plt.metallicCore,
+      string = plt.oxidLighter,
+      symbol = plt.metallicCore,
+      type = plt.oxidLightest,
+      variable = plt.metallicCore,
+      special = plt.polishPulse,
+      special2 = plt.polishMid,
+      special3 = plt.polishBright,
+    },
+
+    vcs = { added = plt.oxidLighter, removed = plt.polishBright, changed = plt.polishDeep },
+    diff = { add = plt.oxidLighter, change = plt.oxidDeep, delete = plt.polishBright, text = plt.polishMid },
+    diag = {
+      ok = plt.oxidLighter,
+      error = plt.polishBright,
+      warning = plt.polishPulse,
+      info = plt.metallicCore,
+      hint = plt.oxidMid,
+    },
+
+    term = {
+      black = plt.copperVoid,
+      red = plt.polishBright,
+      green = plt.oxidBright,
+      yellow = plt.oxidLightest,
+      blue = plt.copperVoid,
+      magenta = plt.metallicCore,
+      cyan = plt.oxidMid,
+      white = plt.metallicBright,
+
+      black_bright = color(plt.copperVoid):brighten(0.4):to_hex(),
+      red_bright = plt.polishPulse,
+      green_bright = color(plt.oxidBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.metallicBright,
+      blue_bright = color(plt.copperVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.metallicCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.oxidMid):brighten(0.3):to_hex(),
+      white_bright = plt.metallicBright,
+      indexed1 = plt.oxidLighter,
+      indexed2 = plt.oxidBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.oxidBright,
+      ["@comment.documentation"] = plt.oxidMid,
+      ["@comment.error"] = plt.polishBright,
+      ["@comment.warning"] = plt.polishPulse,
+      ["@comment.todo"] = plt.oxidLighter,
+      ["@comment.note"] = plt.oxidMid,
+
+      ["@constant"] = plt.oxidLightest,
+      ["@constant.builtin"] = plt.oxidLightest,
+      ["@constant.macro"] = plt.polishMid,
+
+      ["@string"] = plt.oxidLighter,
+      ["@string.documentation"] = plt.oxidLighter,
+      ["@string.regex"] = plt.oxidMid,
+      ["@string.escape"] = plt.polishMid,
+      ["@string.special"] = plt.polishBright,
+      ["@string.special.symbol"] = plt.polishBright,
+      ["@string.special.url"] = plt.oxidMid,
+      ["@string.special.path"] = plt.oxidLighter,
+
+      ["@character"] = plt.oxidLighter,
+      ["@character.special"] = plt.polishMid,
+
+      ["@number"] = plt.oxidLightest,
+      ["@number.float"] = plt.oxidLightest,
+
+      ["@boolean"] = plt.polishBright,
+
+      ["@function"] = plt.metallicBright,
+      ["@function.builtin"] = plt.metallicBright,
+      ["@function.call"] = plt.metallicBright,
+      ["@function.macro"] = plt.polishMid,
+      ["@function.method"] = plt.metallicBright,
+      ["@function.method.call"] = plt.metallicBright,
+
+      ["@constructor"] = plt.metallicCore,
+
+      ["@parameter"] = plt.oxidLighter,
+      ["@parameter.builtin"] = plt.oxidLightest,
+
+      ["@keyword"] = plt.metallicCore,
+      ["@keyword.coroutine"] = plt.polishBright,
+      ["@keyword.function"] = plt.metallicCore,
+      ["@keyword.operator"] = plt.oxidMid,
+      ["@keyword.return"] = plt.metallicCore,
+      ["@keyword.import"] = plt.oxidLightest,
+      ["@keyword.storage"] = plt.metallicCore,
+      ["@keyword.repeat"] = plt.metallicCore,
+      ["@keyword.conditional"] = plt.metallicCore,
+      ["@keyword.exception"] = plt.polishBright,
+      ["@keyword.directive"] = plt.polishMid,
+      ["@keyword.directive.define"] = plt.polishMid,
+
+      ["@conditional"] = plt.metallicCore,
+      ["@conditional.ternary"] = plt.metallicCore,
+
+      ["@repeat"] = plt.metallicCore,
+
+      ["@label"] = plt.oxidLightest,
+
+      ["@operator"] = plt.oxidMid,
+
+      ["@exception"] = plt.polishBright,
+
+      ["@variable"] = plt.metallicCore,
+      ["@variable.builtin"] = plt.oxidLightest,
+      ["@variable.parameter"] = plt.oxidLighter,
+      ["@variable.member"] = plt.metallicCore,
+
+      ["@type"] = plt.oxidLightest,
+      ["@type.builtin"] = plt.oxidLightest,
+      ["@type.definition"] = plt.oxidLightest,
+      ["@type.qualifier"] = plt.metallicCore,
+
+      ["@attribute"] = plt.metallicCore,
+      ["@attribute.builtin"] = plt.oxidLightest,
+
+      ["@property"] = plt.metallicCore,
+      ["@field"] = plt.metallicCore,
+
+      ["@module"] = plt.metallicCore,
+      ["@module.builtin"] = plt.metallicCore,
+
+      ["@namespace"] = plt.metallicCore,
+      ["@namespace.builtin"] = plt.metallicCore,
+
+      ["@punctuation.delimiter"] = plt.oxidMid,
+      ["@punctuation.bracket"] = plt.oxidMid,
+      ["@punctuation.special"] = plt.polishMid,
+
+      ["@tag"] = plt.metallicCore,
+      ["@tag.attribute"] = plt.oxidLightest,
+      ["@tag.delimiter"] = plt.oxidMid,
+      ["@tag.builtin"] = plt.metallicCore,
+
+      ["@markup.strong"] = { fg = plt.metallicBright, bold = true },
+      ["@markup.italic"] = { fg = plt.metallicCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.oxidMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.metallicCore, underline = true },
+      ["@markup.heading"] = plt.metallicBright,
+      ["@markup.heading.1"] = plt.metallicBright,
+      ["@markup.heading.2"] = plt.metallicCore,
+      ["@markup.heading.3"] = plt.oxidLightest,
+      ["@markup.heading.4"] = plt.oxidLighter,
+      ["@markup.heading.5"] = plt.polishMid,
+      ["@markup.heading.6"] = plt.polishPulse,
+      ["@markup.quote"] = plt.oxidBright,
+      ["@markup.math"] = plt.oxidLightest,
+      ["@markup.link"] = plt.oxidMid,
+      ["@markup.link.label"] = plt.polishPulse,
+      ["@markup.link.url"] = plt.oxidMid,
+      ["@markup.raw"] = plt.oxidLighter,
+      ["@markup.raw.block"] = plt.oxidLighter,
+      ["@markup.list"] = plt.metallicCore,
+      ["@markup.list.checked"] = plt.oxidLighter,
+      ["@markup.list.unchecked"] = plt.oxidBright,
+
+      ["@diff.plus"] = plt.oxidLighter,
+      ["@diff.minus"] = plt.polishBright,
+      ["@diff.delta"] = plt.oxidMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.oxidMid,
+      ["@spell"] = plt.metallicCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.metallicCore,
+      ["@constructor.python"] = plt.metallicBright,
+      ["@constructor.javascript"] = plt.metallicBright,
+      ["@constructor.typescript"] = plt.metallicBright,
+      ["@namespace.rust"] = plt.metallicCore,
+      ["@type.qualifier.rust"] = plt.metallicCore,
+      ["@constant.macro.c"] = plt.polishMid,
+      ["@constant.macro.cpp"] = plt.polishMid,
+      ["@namespace.go"] = plt.metallicCore,
+      ["@property.css"] = plt.metallicBright,
+      ["@type.css"] = plt.metallicCore,
+      ["@label.json"] = plt.metallicCore,
+      ["@field.yaml"] = plt.metallicCore,
+      ["@property.toml"] = plt.metallicCore,
+      ["@function.builtin.bash"] = plt.metallicBright,
+      ["@string.regexp"] = plt.oxidMid,
+      ["@character.special.regex"] = plt.polishMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.oxidLightest,
+      ["@lsp.type.interface"] = plt.oxidLightest,
+      ["@lsp.type.struct"] = plt.oxidLightest,
+      ["@lsp.type.enum"] = plt.oxidLightest,
+      ["@lsp.type.enumMember"] = plt.oxidLightest,
+      ["@lsp.type.property"] = plt.metallicCore,
+      ["@lsp.type.namespace"] = plt.metallicCore,
+
+      ["@lsp.type.macro"] = plt.polishMid,
+      ["@lsp.type.decorator"] = plt.metallicBright,
+
+      ["@lsp.type.builtinType"] = plt.oxidLightest,
+      ["@lsp.type.selfParameter"] = plt.metallicCore,
+      ["@lsp.type.typeParameter"] = plt.oxidLightest,
+
+      ["@lsp.type.array"] = plt.oxidLightest,
+      ["@lsp.type.object"] = plt.oxidLightest,
+      ["@lsp.type.key"] = plt.metallicCore,
+      ["@lsp.type.null"] = plt.oxidLightest,
+      ["@lsp.type.enumConstant"] = plt.oxidLightest,
+
+      ["@lsp.type.event"] = plt.oxidLightest,
+      ["@lsp.type.regexp"] = plt.oxidMid,
+      ["@lsp.type.unresolvedReference"] = plt.polishBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.oxidMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.oxidLightest,
+      ["@lsp.mod.async"] = plt.metallicCore,
+      ["@lsp.mod.static"] = plt.oxidLightest,
+      ["@lsp.mod.abstract"] = plt.oxidLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.oxidLightest,
+      ["@lsp.mod.documentation"] = plt.oxidBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Copper",
+  author = "PrismPunk.nvim",
+  description = "Oxidized metal heritage. Tarnished patina. Polish reflection glow. Industrial decay.",
+
+  base16 = {
+    base00 = palette.copperVoid,
+    base01 = palette.copperDark,
+    base02 = palette.copperDeep,
+    base03 = palette.copperMid,
+    base04 = palette.oxidBright,
+    base05 = palette.oxidLightest,
+    base06 = palette.metallicCore,
+    base07 = palette.metallicBright,
+    base08 = palette.polishBright,
+    base09 = palette.polishMid,
+    base0A = palette.polishDeep,
+    base0B = palette.oxidLighter,
+    base0C = palette.polishPulse,
+    base0D = palette.oxidMid,
+    base0E = palette.polishPulse,
+    base0F = palette.oxidMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

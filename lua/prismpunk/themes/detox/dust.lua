@@ -1,0 +1,373 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.dust")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.ocherDeepBright,
+      insert = plt.ocherDeepLighter,
+      visual = plt.shadowPulse,
+      replace = plt.ocherDeepMid,
+      command = plt.dustyCore,
+    },
+
+    ui = {
+      fg = plt.dustyCore,
+      fg_dim = plt.dustyCore,
+      fg_dimmer = plt.ocherDeepLighter,
+      fg_dark = plt.ocherDeepMid,
+      fg_reverse = plt.dustVoid,
+
+      bg_m4 = plt.dustLight,
+      bg_m3 = plt.dustMid,
+      bg_m2 = plt.dustDeep,
+      bg_m1 = plt.dustDark,
+      bg_dim = plt.dustVoid,
+      bg = plt.dustVoid,
+      bg_p1 = plt.dustDeep,
+      bg_p2 = plt.dustMid,
+      bg_gutter = opts.gutter and plt.dustMid or "none",
+      bg_cursorline = plt.aridLine,
+      bg_cursorline_alt = plt.aridMid,
+      bg_search = plt.shadowPulse,
+      bg_visual = plt.shadowDeep,
+      bg_statusline = plt.aridMid,
+
+      border = plt.ocherDeepMid,
+      header1 = plt.dustyBright,
+      header2 = plt.dustyCore,
+      special = plt.shadowBright,
+      nontext = plt.dustLight,
+      whitespace = plt.dustMid,
+      win_separator = plt.ocherDeepMid,
+      indent = plt.dustMid,
+      indent_scope = plt.ocherDeepDeep,
+      picker = plt.ocherDeepMid,
+      yank = plt.shadowPulse,
+      mark = plt.shadowBright,
+      scrollbar = plt.dustLight,
+
+      tabline = {
+        bg = plt.dustVoid,
+        fg_selected = plt.dustyCore,
+        bg_selected = plt.aridMid,
+        fg_inactive = plt.ocherDeepLighter,
+        bg_inactive = plt.dustVoid,
+        fg_alternate = plt.ocherDeepBright,
+        bg_alternate = plt.dustVoid,
+        indicator = plt.shadowPulse,
+      },
+
+      pmenu = {
+        fg = plt.dustyCore,
+        fg_sel = "none",
+        fg_border = plt.aridMid,
+        bg_border = plt.aridMid,
+        bg = plt.aridMid,
+        bg_sel = plt.aridDeep,
+        bg_sbar = plt.aridMid,
+        bg_thumb = plt.ocherDeepMid,
+      },
+
+      float = {
+        fg = plt.dustyCore,
+        bg = plt.dustDeep,
+        fg_border = plt.aridMid,
+        bg_border = plt.dustDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.dustyBright,
+      accent2 = plt.dustyCore,
+      accent3 = plt.ocherDeepLighter,
+      accent4 = plt.ocherDeepBright,
+      accent5 = plt.shadowPulse,
+      invert = plt.aridMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.ocherDeepBright,
+      rainbow2 = plt.ocherDeepMid,
+      rainbow3 = plt.ocherDeepDeep,
+      rainbow4 = plt.aridDeep,
+      rainbow5 = plt.dustyCore,
+      rainbow6 = plt.dustyBright,
+      rainbow7 = plt.shadowPulse,
+    },
+
+    syn = {
+      attribute = plt.dustyCore,
+      boolean = plt.shadowBright,
+      comment = plt.ocherDeepBright,
+      constant = plt.ocherDeepLightest,
+      deprecated = plt.ocherDeepMid,
+      func = plt.dustyBright,
+      identifier = plt.dustyCore,
+      keyword = plt.dustyCore,
+      method = plt.dustyBright,
+      number = plt.ocherDeepLightest,
+      operator = plt.ocherDeepMid,
+      parameter = plt.ocherDeepLighter,
+      preproc = plt.shadowMid,
+      punct = plt.ocherDeepDeep,
+      regex = plt.ocherDeepMid,
+      statement = plt.dustyCore,
+      string = plt.ocherDeepLighter,
+      symbol = plt.dustyCore,
+      type = plt.ocherDeepLightest,
+      variable = plt.dustyCore,
+      special = plt.shadowPulse,
+      special2 = plt.shadowMid,
+      special3 = plt.shadowBright,
+    },
+
+    vcs = { added = plt.ocherDeepLighter, removed = plt.shadowBright, changed = plt.shadowDeep },
+    diff = {
+      add = plt.ocherDeepLighter,
+      change = plt.ocherDeepDeep,
+      delete = plt.shadowBright,
+      text = plt.shadowMid,
+    },
+    diag = {
+      ok = plt.ocherDeepLighter,
+      error = plt.shadowBright,
+      warning = plt.shadowPulse,
+      info = plt.dustyCore,
+      hint = plt.ocherDeepMid,
+    },
+
+    term = {
+      black = plt.dustVoid,
+      red = plt.shadowBright,
+      green = plt.ocherDeepBright,
+      yellow = plt.ocherDeepLightest,
+      blue = plt.dustVoid,
+      magenta = plt.dustyCore,
+      cyan = plt.ocherDeepMid,
+      white = plt.dustyBright,
+
+      black_bright = color(plt.dustVoid):brighten(0.4):to_hex(),
+      red_bright = plt.shadowPulse,
+      green_bright = color(plt.ocherDeepBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.dustyBright,
+      blue_bright = color(plt.dustVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.dustyCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.ocherDeepMid):brighten(0.3):to_hex(),
+      white_bright = plt.dustyBright,
+      indexed1 = plt.ocherDeepLighter,
+      indexed2 = plt.ocherDeepBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.ocherDeepBright,
+      ["@comment.documentation"] = plt.ocherDeepMid,
+      ["@comment.error"] = plt.shadowBright,
+      ["@comment.warning"] = plt.shadowPulse,
+      ["@comment.todo"] = plt.ocherDeepLighter,
+      ["@comment.note"] = plt.ocherDeepMid,
+
+      ["@constant"] = plt.ocherDeepLightest,
+      ["@constant.builtin"] = plt.ocherDeepLightest,
+      ["@constant.macro"] = plt.shadowMid,
+
+      ["@string"] = plt.ocherDeepLighter,
+      ["@string.documentation"] = plt.ocherDeepLighter,
+      ["@string.regex"] = plt.ocherDeepMid,
+      ["@string.escape"] = plt.shadowMid,
+      ["@string.special"] = plt.shadowBright,
+      ["@string.special.symbol"] = plt.shadowBright,
+      ["@string.special.url"] = plt.ocherDeepMid,
+      ["@string.special.path"] = plt.ocherDeepLighter,
+
+      ["@character"] = plt.ocherDeepLighter,
+      ["@character.special"] = plt.shadowMid,
+
+      ["@number"] = plt.ocherDeepLightest,
+      ["@number.float"] = plt.ocherDeepLightest,
+
+      ["@boolean"] = plt.shadowBright,
+
+      ["@function"] = plt.dustyBright,
+      ["@function.builtin"] = plt.dustyBright,
+      ["@function.call"] = plt.dustyBright,
+      ["@function.macro"] = plt.shadowMid,
+      ["@function.method"] = plt.dustyBright,
+      ["@function.method.call"] = plt.dustyBright,
+
+      ["@constructor"] = plt.dustyCore,
+
+      ["@parameter"] = plt.ocherDeepLighter,
+      ["@parameter.builtin"] = plt.ocherDeepLightest,
+
+      ["@keyword"] = plt.dustyCore,
+      ["@keyword.coroutine"] = plt.shadowBright,
+      ["@keyword.function"] = plt.dustyCore,
+      ["@keyword.operator"] = plt.ocherDeepMid,
+      ["@keyword.return"] = plt.dustyCore,
+      ["@keyword.import"] = plt.ocherDeepLightest,
+      ["@keyword.storage"] = plt.dustyCore,
+      ["@keyword.repeat"] = plt.dustyCore,
+      ["@keyword.conditional"] = plt.dustyCore,
+      ["@keyword.exception"] = plt.shadowBright,
+      ["@keyword.directive"] = plt.shadowMid,
+      ["@keyword.directive.define"] = plt.shadowMid,
+
+      ["@conditional"] = plt.dustyCore,
+      ["@conditional.ternary"] = plt.dustyCore,
+
+      ["@repeat"] = plt.dustyCore,
+
+      ["@label"] = plt.ocherDeepLightest,
+
+      ["@operator"] = plt.ocherDeepMid,
+
+      ["@exception"] = plt.shadowBright,
+
+      ["@variable"] = plt.dustyCore,
+      ["@variable.builtin"] = plt.ocherDeepLightest,
+      ["@variable.parameter"] = plt.ocherDeepLighter,
+      ["@variable.member"] = plt.dustyCore,
+
+      ["@type"] = plt.ocherDeepLightest,
+      ["@type.builtin"] = plt.ocherDeepLightest,
+      ["@type.definition"] = plt.ocherDeepLightest,
+      ["@type.qualifier"] = plt.dustyCore,
+
+      ["@attribute"] = plt.dustyCore,
+      ["@attribute.builtin"] = plt.ocherDeepLightest,
+
+      ["@property"] = plt.dustyCore,
+      ["@field"] = plt.dustyCore,
+
+      ["@module"] = plt.dustyCore,
+      ["@module.builtin"] = plt.dustyCore,
+
+      ["@namespace"] = plt.dustyCore,
+      ["@namespace.builtin"] = plt.dustyCore,
+
+      ["@punctuation.delimiter"] = plt.ocherDeepMid,
+      ["@punctuation.bracket"] = plt.ocherDeepMid,
+      ["@punctuation.special"] = plt.shadowMid,
+
+      ["@tag"] = plt.dustyCore,
+      ["@tag.attribute"] = plt.ocherDeepLightest,
+      ["@tag.delimiter"] = plt.ocherDeepMid,
+      ["@tag.builtin"] = plt.dustyCore,
+
+      ["@markup.strong"] = { fg = plt.dustyBright, bold = true },
+      ["@markup.italic"] = { fg = plt.dustyCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.ocherDeepMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.dustyCore, underline = true },
+      ["@markup.heading"] = plt.dustyBright,
+      ["@markup.heading.1"] = plt.dustyBright,
+      ["@markup.heading.2"] = plt.dustyCore,
+      ["@markup.heading.3"] = plt.ocherDeepLightest,
+      ["@markup.heading.4"] = plt.ocherDeepLighter,
+      ["@markup.heading.5"] = plt.shadowMid,
+      ["@markup.heading.6"] = plt.shadowPulse,
+      ["@markup.quote"] = plt.ocherDeepBright,
+      ["@markup.math"] = plt.ocherDeepLightest,
+      ["@markup.link"] = plt.ocherDeepMid,
+      ["@markup.link.label"] = plt.shadowPulse,
+      ["@markup.link.url"] = plt.ocherDeepMid,
+      ["@markup.raw"] = plt.ocherDeepLighter,
+      ["@markup.raw.block"] = plt.ocherDeepLighter,
+      ["@markup.list"] = plt.dustyCore,
+      ["@markup.list.checked"] = plt.ocherDeepLighter,
+      ["@markup.list.unchecked"] = plt.ocherDeepBright,
+
+      ["@diff.plus"] = plt.ocherDeepLighter,
+      ["@diff.minus"] = plt.shadowBright,
+      ["@diff.delta"] = plt.ocherDeepMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.ocherDeepMid,
+      ["@spell"] = plt.dustyCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.dustyCore,
+      ["@constructor.python"] = plt.dustyBright,
+      ["@constructor.javascript"] = plt.dustyBright,
+      ["@constructor.typescript"] = plt.dustyBright,
+      ["@namespace.rust"] = plt.dustyCore,
+      ["@type.qualifier.rust"] = plt.dustyCore,
+      ["@constant.macro.c"] = plt.shadowMid,
+      ["@constant.macro.cpp"] = plt.shadowMid,
+      ["@namespace.go"] = plt.dustyCore,
+      ["@property.css"] = plt.dustyBright,
+      ["@type.css"] = plt.dustyCore,
+      ["@label.json"] = plt.dustyCore,
+      ["@field.yaml"] = plt.dustyCore,
+      ["@property.toml"] = plt.dustyCore,
+      ["@function.builtin.bash"] = plt.dustyBright,
+      ["@string.regexp"] = plt.ocherDeepMid,
+      ["@character.special.regex"] = plt.shadowMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.ocherDeepLightest,
+      ["@lsp.type.interface"] = plt.ocherDeepLightest,
+      ["@lsp.type.struct"] = plt.ocherDeepLightest,
+      ["@lsp.type.enum"] = plt.ocherDeepLightest,
+      ["@lsp.type.enumMember"] = plt.ocherDeepLightest,
+      ["@lsp.type.property"] = plt.dustyCore,
+      ["@lsp.type.namespace"] = plt.dustyCore,
+
+      ["@lsp.type.macro"] = plt.shadowMid,
+      ["@lsp.type.decorator"] = plt.dustyBright,
+
+      ["@lsp.type.builtinType"] = plt.ocherDeepLightest,
+      ["@lsp.type.selfParameter"] = plt.dustyCore,
+      ["@lsp.type.typeParameter"] = plt.ocherDeepLightest,
+
+      ["@lsp.type.array"] = plt.ocherDeepLightest,
+      ["@lsp.type.object"] = plt.ocherDeepLightest,
+      ["@lsp.type.key"] = plt.dustyCore,
+      ["@lsp.type.null"] = plt.ocherDeepLightest,
+      ["@lsp.type.enumConstant"] = plt.ocherDeepLightest,
+
+      ["@lsp.type.event"] = plt.ocherDeepLightest,
+      ["@lsp.type.regexp"] = plt.ocherDeepMid,
+      ["@lsp.type.unresolvedReference"] = plt.shadowBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.ocherDeepMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.ocherDeepLightest,
+      ["@lsp.mod.async"] = plt.dustyCore,
+      ["@lsp.mod.static"] = plt.ocherDeepLightest,
+      ["@lsp.mod.abstract"] = plt.ocherDeepLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.ocherDeepLightest,
+      ["@lsp.mod.documentation"] = plt.ocherDeepBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Dust",
+  author = "PrismPunk.nvim",
+  description = "Desert aridity. Warm ochres. Cool shadows for contrast. Arid contemplation. Desaturated warmth.",
+
+  base16 = {
+    base00 = palette.dustVoid,
+    base01 = palette.dustDark,
+    base02 = palette.dustDeep,
+    base03 = palette.dustMid,
+    base04 = palette.ocherDeepBright,
+    base05 = palette.ocherDeepLightest,
+    base06 = palette.dustyCore,
+    base07 = palette.dustyBright,
+    base08 = palette.shadowBright,
+    base09 = palette.shadowMid,
+    base0A = palette.shadowDeep,
+    base0B = palette.ocherDeepLighter,
+    base0C = palette.shadowPulse,
+    base0D = palette.ocherDeepMid,
+    base0E = palette.shadowPulse,
+    base0F = palette.ocherDeepMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}

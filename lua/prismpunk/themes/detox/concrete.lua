@@ -1,0 +1,368 @@
+local color = require("prismpunk.utils.color")
+local palette = require("prismpunk.palettes.detox.concrete")
+
+local M = {}
+
+M.get = function(opts, plt)
+  return {
+    modes = {
+      normal = plt.cementBright,
+      insert = plt.cementLighter,
+      visual = plt.fracPulse,
+      replace = plt.cementMid,
+      command = plt.urbCore,
+    },
+
+    ui = {
+      fg = plt.urbCore,
+      fg_dim = plt.urbCore,
+      fg_dimmer = plt.cementLighter,
+      fg_dark = plt.cementMid,
+      fg_reverse = plt.concreteVoid,
+
+      bg_m4 = plt.concreteLight,
+      bg_m3 = plt.concreteMid,
+      bg_m2 = plt.concreteDeep,
+      bg_m1 = plt.concreteDark,
+      bg_dim = plt.concreteVoid,
+      bg = plt.concreteVoid,
+      bg_p1 = plt.concreteDeep,
+      bg_p2 = plt.concreteMid,
+      bg_gutter = opts.gutter and plt.concreteMid or "none",
+      bg_cursorline = plt.brutLine,
+      bg_cursorline_alt = plt.brutMid,
+      bg_search = plt.fracPulse,
+      bg_visual = plt.fracDeep,
+      bg_statusline = plt.brutMid,
+
+      border = plt.cementMid,
+      header1 = plt.urbBright,
+      header2 = plt.urbCore,
+      special = plt.fracBright,
+      nontext = plt.concreteLight,
+      whitespace = plt.concreteMid,
+      win_separator = plt.cementMid,
+      indent = plt.concreteMid,
+      indent_scope = plt.cementDeep,
+      picker = plt.cementMid,
+      yank = plt.fracPulse,
+      mark = plt.fracBright,
+      scrollbar = plt.concreteLight,
+
+      tabline = {
+        bg = plt.concreteVoid,
+        fg_selected = plt.urbCore,
+        bg_selected = plt.brutMid,
+        fg_inactive = plt.cementLighter,
+        bg_inactive = plt.concreteVoid,
+        fg_alternate = plt.cementBright,
+        bg_alternate = plt.concreteVoid,
+        indicator = plt.fracPulse,
+      },
+
+      pmenu = {
+        fg = plt.urbCore,
+        fg_sel = "none",
+        fg_border = plt.brutMid,
+        bg_border = plt.brutMid,
+        bg = plt.brutMid,
+        bg_sel = plt.brutDeep,
+        bg_sbar = plt.brutMid,
+        bg_thumb = plt.cementMid,
+      },
+
+      float = {
+        fg = plt.urbCore,
+        bg = plt.concreteDeep,
+        fg_border = plt.brutMid,
+        bg_border = plt.concreteDeep,
+      },
+    },
+
+    accent = {
+      accent1 = plt.urbBright,
+      accent2 = plt.urbCore,
+      accent3 = plt.cementLighter,
+      accent4 = plt.cementBright,
+      accent5 = plt.fracPulse,
+      invert = plt.brutMid,
+    },
+
+    rainbow = {
+      rainbow1 = plt.cementBright,
+      rainbow2 = plt.cementMid,
+      rainbow3 = plt.cementDeep,
+      rainbow4 = plt.brutDeep,
+      rainbow5 = plt.urbCore,
+      rainbow6 = plt.urbBright,
+      rainbow7 = plt.fracPulse,
+    },
+
+    syn = {
+      attribute = plt.urbCore,
+      boolean = plt.fracBright,
+      comment = plt.cementBright,
+      constant = plt.cementLightest,
+      deprecated = plt.cementMid,
+      func = plt.urbBright,
+      identifier = plt.urbCore,
+      keyword = plt.urbCore,
+      method = plt.urbBright,
+      number = plt.cementLightest,
+      operator = plt.cementMid,
+      parameter = plt.cementLighter,
+      preproc = plt.fracMid,
+      punct = plt.cementDeep,
+      regex = plt.cementMid,
+      statement = plt.urbCore,
+      string = plt.cementLighter,
+      symbol = plt.urbCore,
+      type = plt.cementLightest,
+      variable = plt.urbCore,
+      special = plt.fracPulse,
+      special2 = plt.fracMid,
+      special3 = plt.fracBright,
+    },
+
+    vcs = { added = plt.cementLighter, removed = plt.fracBright, changed = plt.fracDeep },
+    diff = { add = plt.cementLighter, change = plt.cementDeep, delete = plt.fracBright, text = plt.fracMid },
+    diag = {
+      ok = plt.cementLighter,
+      error = plt.fracBright,
+      warning = plt.fracPulse,
+      info = plt.urbCore,
+      hint = plt.cementMid,
+    },
+
+    term = {
+      black = plt.concreteVoid,
+      red = plt.fracBright,
+      green = plt.cementBright,
+      yellow = plt.cementLightest,
+      blue = plt.concreteVoid,
+      magenta = plt.urbCore,
+      cyan = plt.cementMid,
+      white = plt.urbBright,
+
+      black_bright = color(plt.concreteVoid):brighten(0.4):to_hex(),
+      red_bright = plt.fracPulse,
+      green_bright = color(plt.cementBright):brighten(0.3):to_hex(),
+      yellow_bright = plt.urbBright,
+      blue_bright = color(plt.concreteVoid):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.urbCore):brighten(0.4):to_hex(),
+      cyan_bright = color(plt.cementMid):brighten(0.3):to_hex(),
+      white_bright = plt.urbBright,
+      indexed1 = plt.cementLighter,
+      indexed2 = plt.cementBright,
+    },
+
+    treesitter = {
+      ["@comment"] = plt.cementBright,
+      ["@comment.documentation"] = plt.cementMid,
+      ["@comment.error"] = plt.fracBright,
+      ["@comment.warning"] = plt.fracPulse,
+      ["@comment.todo"] = plt.cementLighter,
+      ["@comment.note"] = plt.cementMid,
+
+      ["@constant"] = plt.cementLightest,
+      ["@constant.builtin"] = plt.cementLightest,
+      ["@constant.macro"] = plt.fracMid,
+
+      ["@string"] = plt.cementLighter,
+      ["@string.documentation"] = plt.cementLighter,
+      ["@string.regex"] = plt.cementMid,
+      ["@string.escape"] = plt.fracMid,
+      ["@string.special"] = plt.fracBright,
+      ["@string.special.symbol"] = plt.fracBright,
+      ["@string.special.url"] = plt.cementMid,
+      ["@string.special.path"] = plt.cementLighter,
+
+      ["@character"] = plt.cementLighter,
+      ["@character.special"] = plt.fracMid,
+
+      ["@number"] = plt.cementLightest,
+      ["@number.float"] = plt.cementLightest,
+
+      ["@boolean"] = plt.fracBright,
+
+      ["@function"] = plt.urbBright,
+      ["@function.builtin"] = plt.urbBright,
+      ["@function.call"] = plt.urbBright,
+      ["@function.macro"] = plt.fracMid,
+      ["@function.method"] = plt.urbBright,
+      ["@function.method.call"] = plt.urbBright,
+
+      ["@constructor"] = plt.urbCore,
+
+      ["@parameter"] = plt.cementLighter,
+      ["@parameter.builtin"] = plt.cementLightest,
+
+      ["@keyword"] = plt.urbCore,
+      ["@keyword.coroutine"] = plt.fracBright,
+      ["@keyword.function"] = plt.urbCore,
+      ["@keyword.operator"] = plt.cementMid,
+      ["@keyword.return"] = plt.urbCore,
+      ["@keyword.import"] = plt.cementLightest,
+      ["@keyword.storage"] = plt.urbCore,
+      ["@keyword.repeat"] = plt.urbCore,
+      ["@keyword.conditional"] = plt.urbCore,
+      ["@keyword.exception"] = plt.fracBright,
+      ["@keyword.directive"] = plt.fracMid,
+      ["@keyword.directive.define"] = plt.fracMid,
+
+      ["@conditional"] = plt.urbCore,
+      ["@conditional.ternary"] = plt.urbCore,
+
+      ["@repeat"] = plt.urbCore,
+
+      ["@label"] = plt.cementLightest,
+
+      ["@operator"] = plt.cementMid,
+
+      ["@exception"] = plt.fracBright,
+
+      ["@variable"] = plt.urbCore,
+      ["@variable.builtin"] = plt.cementLightest,
+      ["@variable.parameter"] = plt.cementLighter,
+      ["@variable.member"] = plt.urbCore,
+
+      ["@type"] = plt.cementLightest,
+      ["@type.builtin"] = plt.cementLightest,
+      ["@type.definition"] = plt.cementLightest,
+      ["@type.qualifier"] = plt.urbCore,
+
+      ["@attribute"] = plt.urbCore,
+      ["@attribute.builtin"] = plt.cementLightest,
+
+      ["@property"] = plt.urbCore,
+      ["@field"] = plt.urbCore,
+
+      ["@module"] = plt.urbCore,
+      ["@module.builtin"] = plt.urbCore,
+
+      ["@namespace"] = plt.urbCore,
+      ["@namespace.builtin"] = plt.urbCore,
+
+      ["@punctuation.delimiter"] = plt.cementMid,
+      ["@punctuation.bracket"] = plt.cementMid,
+      ["@punctuation.special"] = plt.fracMid,
+
+      ["@tag"] = plt.urbCore,
+      ["@tag.attribute"] = plt.cementLightest,
+      ["@tag.delimiter"] = plt.cementMid,
+      ["@tag.builtin"] = plt.urbCore,
+
+      ["@markup.strong"] = { fg = plt.urbBright, bold = true },
+      ["@markup.italic"] = { fg = plt.urbCore, italic = true },
+      ["@markup.strikethrough"] = { fg = plt.cementMid, strikethrough = true },
+      ["@markup.underline"] = { fg = plt.urbCore, underline = true },
+      ["@markup.heading"] = plt.urbBright,
+      ["@markup.heading.1"] = plt.urbBright,
+      ["@markup.heading.2"] = plt.urbCore,
+      ["@markup.heading.3"] = plt.cementLightest,
+      ["@markup.heading.4"] = plt.cementLighter,
+      ["@markup.heading.5"] = plt.fracMid,
+      ["@markup.heading.6"] = plt.fracPulse,
+      ["@markup.quote"] = plt.cementBright,
+      ["@markup.math"] = plt.cementLightest,
+      ["@markup.link"] = plt.cementMid,
+      ["@markup.link.label"] = plt.fracPulse,
+      ["@markup.link.url"] = plt.cementMid,
+      ["@markup.raw"] = plt.cementLighter,
+      ["@markup.raw.block"] = plt.cementLighter,
+      ["@markup.list"] = plt.urbCore,
+      ["@markup.list.checked"] = plt.cementLighter,
+      ["@markup.list.unchecked"] = plt.cementBright,
+
+      ["@diff.plus"] = plt.cementLighter,
+      ["@diff.minus"] = plt.fracBright,
+      ["@diff.delta"] = plt.cementMid,
+
+      ["@none"] = "none",
+      ["@conceal"] = plt.cementMid,
+      ["@spell"] = plt.urbCore,
+      ["@nospell"] = "none",
+
+      ["@lsp.type.property.lua"] = plt.urbCore,
+      ["@constructor.python"] = plt.urbBright,
+      ["@constructor.javascript"] = plt.urbBright,
+      ["@constructor.typescript"] = plt.urbBright,
+      ["@namespace.rust"] = plt.urbCore,
+      ["@type.qualifier.rust"] = plt.urbCore,
+      ["@constant.macro.c"] = plt.fracMid,
+      ["@constant.macro.cpp"] = plt.fracMid,
+      ["@namespace.go"] = plt.urbCore,
+      ["@property.css"] = plt.urbBright,
+      ["@type.css"] = plt.urbCore,
+      ["@label.json"] = plt.urbCore,
+      ["@field.yaml"] = plt.urbCore,
+      ["@property.toml"] = plt.urbCore,
+      ["@function.builtin.bash"] = plt.urbBright,
+      ["@string.regexp"] = plt.cementMid,
+      ["@character.special.regex"] = plt.fracMid,
+    },
+
+    lsp = {
+      ["@lsp.type.class"] = plt.cementLightest,
+      ["@lsp.type.interface"] = plt.cementLightest,
+      ["@lsp.type.struct"] = plt.cementLightest,
+      ["@lsp.type.enum"] = plt.cementLightest,
+      ["@lsp.type.enumMember"] = plt.cementLightest,
+      ["@lsp.type.property"] = plt.urbCore,
+      ["@lsp.type.namespace"] = plt.urbCore,
+
+      ["@lsp.type.macro"] = plt.fracMid,
+      ["@lsp.type.decorator"] = plt.urbBright,
+
+      ["@lsp.type.builtinType"] = plt.cementLightest,
+      ["@lsp.type.selfParameter"] = plt.urbCore,
+      ["@lsp.type.typeParameter"] = plt.cementLightest,
+
+      ["@lsp.type.array"] = plt.cementLightest,
+      ["@lsp.type.object"] = plt.cementLightest,
+      ["@lsp.type.key"] = plt.urbCore,
+      ["@lsp.type.null"] = plt.cementLightest,
+      ["@lsp.type.enumConstant"] = plt.cementLightest,
+
+      ["@lsp.type.event"] = plt.cementLightest,
+      ["@lsp.type.regexp"] = plt.cementMid,
+      ["@lsp.type.unresolvedReference"] = plt.fracBright,
+
+      ["@lsp.mod.deprecated"] = { fg = plt.cementMid, strikethrough = true },
+      ["@lsp.mod.readonly"] = plt.cementLightest,
+      ["@lsp.mod.async"] = plt.urbCore,
+      ["@lsp.mod.static"] = plt.cementLightest,
+      ["@lsp.mod.abstract"] = plt.cementLightest,
+      ["@lsp.mod.defaultLibrary"] = plt.cementLightest,
+      ["@lsp.mod.documentation"] = plt.cementBright,
+    },
+  }
+end
+
+return {
+  name = "Detox: Concrete",
+  author = "PrismPunk.nvim",
+  description = "Urban brutalism. True grayscale. Rust-orange breaks. Stark functional beauty.",
+
+  base16 = {
+    base00 = palette.concreteVoid,
+    base01 = palette.concreteDark,
+    base02 = palette.concreteDeep,
+    base03 = palette.concreteMid,
+    base04 = palette.cementBright,
+    base05 = palette.cementLightest,
+    base06 = palette.urbCore,
+    base07 = palette.urbBright,
+    base08 = palette.fracBright,
+    base09 = palette.fracMid,
+    base0A = palette.fracDeep,
+    base0B = palette.cementLighter,
+    base0C = palette.fracPulse,
+    base0D = palette.cementMid,
+    base0E = palette.fracPulse,
+    base0F = palette.cementMid,
+  },
+
+  palette = palette,
+  get = M.get,
+}
