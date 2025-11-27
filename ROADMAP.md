@@ -24,6 +24,7 @@
         - [ ] Poison Ivy
         - [ ] Prometheus
         - [ ] Scarecrow
+        - [ ] Sofia Falcone
         - [ ] Solomon Grundy
         - [ ] The Penguin
         - [ ] The Riddler
@@ -132,7 +133,7 @@
         - [X] Red Tornado
         - [X] Shazam
         - [X] Spectre
-        - [ ] Starfire
+        - [X] Starfire
         - [X] Superman
         - [X] Wonder Woman
         - [X] Zatanna
@@ -195,13 +196,13 @@
         - [ ] Yellow Lantern Scarecrow (Jonathan Crane)
         - [ ] Yellow Lantern Sinestro (Sinestro Corps founder)
 
-    - [ ] League of Assasins
-        - [ ] Athanasia Al Ghul
+    - [X] League of Assasins
+        - [X] Athanasia Al Ghul
         - [X] Bane
-        - [ ] Black Spider
-        - [ ] Blank
-        - [ ] Lady Shiva
-        - [ ] Nyssa Raatko
+        - [X] Black Spider
+        - [X] Blank
+        - [X] Lady Shiva
+        - [X] Nyssa Raatko
         - [X] Ra's Al Ghul
         - [X] Talia Al Ghul
 
@@ -223,18 +224,22 @@
         - [X] Orion
         - [X] Takion
 
-    - [ ] Super Family
-        - [ ] Clark Kent
-        - [ ] Composite Superman
-        - [ ] Dreamer
-        - [ ] Eradicator
-        - [ ] Jon Kent
-        - [ ] Jonathan Kent
-        - [ ] Lois Lane
-        - [ ] Steel
-        - [ ] Superman Classic
-        - [ ] Superman Kingdom Come
-        - [ ] Superman Modern
+    - [X] Super Family
+        - [X] Clark Kent
+        - [X] Composite Superman
+        - [X] Conner Kent
+        - [X] Dreamer
+        - [X] Eradicator
+        - [X] Jonathan Kent
+        - [X] Lois Lane
+        - [X] Lucy Lane
+        - [X] Martha Kent
+        - [X] Power Girl
+        - [X] Steel
+        - [X] Superboy
+        - [X] Superman Classic
+        - [X] Superman Kingdom Come
+        - [X] Superman Modern
 
     - [X] Watchmen
         - [X] Dr. Manhattan
@@ -243,6 +248,8 @@
         - [X] Rorschach
         - [X] Silk Spectre
         - [X] The Comedian
+
+---
 
 - [ ] Marvel Comics
     - [ ] Avengers
@@ -298,6 +305,8 @@
     - [ ] X-Men
         - [ ] Rogue
 
+---
+
 - [X] TMNT
     - [X] Leonardo
     - [X] Raphael
@@ -309,52 +318,78 @@
     - [X] April O'neal
     - [X] Shredder
 
+---
+
 - [ ] Alternative Comics
     - [ ] Sandman
 
+---
+
 - Animations
     - [ ] Ben 10
+
+---
 
 - [ ] Video Games
     - [ ] Elden Ring
     - [ ] Rayman Legends
 
+---
+
 - [ ] Album Covers
     - [ ] American HipHop
         - [ ] J. Cole, KOD
 
+---
+
 - [ ] Mythology
     - [ ] Norse Myths
         - [ ] Jormungandr
+
+---
 
 - [ ] Sports
     - [ ] Basketball
         - [ ] NBA
             - [ ] Golden State Warriors
 
+---
+
 - [ ] Art Movements
     - [ ] European Art
         - [ ] Brutalism
+
+---
 
 - [ ] History
     - [ ] Europe
         - [ ] Roman Empire
 
+---
+
 - [ ] Cultures
     - [ ] Asia
         - [ ] Persia
+
+---
 
 - [ ] Cities
     - [ ] America
         - [ ] Chicago 70s
 
+---
+
 - [ ] Music Genres
     - [ ] Metal
         - [ ] Industrial Metal
 
+---
+
 - [ ] Literatures
     - [ ] Europe
         - [ ] Dante's Inferno
+
+---
 
 - [X] Punk Cultures
     - [X] Cyber Punk
@@ -377,6 +412,8 @@
     - [X] Cryo Punk
     - [X] Jungle Punk
 
+---
+
 - [X] Legacy Nvim Themes
     - [X] sorbet
     - [X] retrobox
@@ -384,9 +421,13 @@
     - [X] habamax
     - [X] slate
 
+---
+
 - [ ] Paintings
     - [ ] Raphael
         - [ ] Madonna del Cardellino
+
+---
 
 - [X] Kanagawa
     - [X] Paper
@@ -399,6 +440,8 @@
         - [X] Storm
         - [X] Sunset
 
+---
+
 - [ ] Gruvbox
     - [ ] gruvbox dark
     - [ ] gruvbox dark-hard
@@ -410,6 +453,8 @@
     - [ ] gruvbox material-dark-soft
     - [ ] gruvbox
 
+---
+
 - [ ] fox
     - [ ] nightfox
     - [ ] duskfox
@@ -417,11 +462,15 @@
     - [ ] terafox
     - [ ] carbonfox
 
+---
+
 - [ ] catppuccin
     - [ ] base16-catppuccin
     - [ ] base16-catppuccin-macchiato
     - [ ] base16-catppuccin-mocha
     - [ ] base16-da-one-ocean
+
+---
 
 - [X] Visual Dopamine Detox (Low Blue Color Reliance)
     - [X] 1998term

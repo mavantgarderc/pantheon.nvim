@@ -390,6 +390,9 @@ return {
                 -- NEW GENESIS
                 elseif colorscheme_name:match("new%-genesis") then
                   category = "dc/new-genesis"
+                  -- SUPER FAMILY
+                elseif colorscheme_name:match("super%-family") then
+                  category = "dc/super-family"
                 -- WATCHMEN
                 elseif colorscheme_name:match("watchmen") then
                   category = "dc/watchmen"
