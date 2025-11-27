@@ -80,25 +80,25 @@
         - [X] The Entity (Life – Earth itself)
         - [X] Umbrax (Invisible Emotional Spectrum)
 
-    - [ ] Injustice League
+    - [X] Injustice League
         - [X] Bizarro
         - [X] Black Adam
         - [X] Black Manta
         - [X] Brainiac
-        - [ ] Captain Cold
-        - [ ] Cheetah
+        - [X] Captain Cold
+        - [X] Cheetah
         - [X] Deathstroke
-        - [ ] Giganta
-        - [ ] Gorilla Grodd
+        - [X] Giganta
+        - [X] Gorilla Grodd
         - [X] Joker
         - [X] Killer Croc
-        - [ ] Killer Frost
+        - [X] Killer Frost
         - [X] Lex Luthor
-        - [ ] Mister Terrible
-        - [ ] Mr. Freeze
-        - [ ] Multi-Man
-        - [ ] Nocturna
-        - [ ] Penguin
+        - [X] Mister Terrible
+        - [X] Mr. Freeze
+        - [X] Multi-Man
+        - [X] Nocturna
+        - [X] Penguin
         - [X] Sinestro
         - [X] Two-Face
 
