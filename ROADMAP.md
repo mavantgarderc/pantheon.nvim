@@ -128,9 +128,11 @@
         - [X] Martian Manhunter
         - [X] Mera
         - [X] Mr. Terrific
+        - [X] Raven
         - [X] Red Tornado
         - [X] Shazam
         - [X] Spectre
+        - [ ] Starfire
         - [X] Superman
         - [X] Wonder Woman
         - [X] Zatanna
@@ -220,19 +222,6 @@
         - [X] Mister Miracle
         - [X] Orion
         - [X] Takion
-
-    - [ ] Titans
-        - [ ] Aquagirl
-        - [ ] Beat Boy
-        - [ ] Bette Kane
-        - [ ] Dawn Granger
-        - [ ] Nightwing
-        - [ ] Kon-El
-        - [ ] Raven
-        - [ ] Starfire
-        - [ ] Kid Flash
-        - [ ] Wonder Boy
-        - [ ] Wonder Girl
 
     - [ ] Super Family
         - [ ] Clark Kent
