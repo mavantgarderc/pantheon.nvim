@@ -3,32 +3,26 @@
 - [ ] DC Comics
 
     - [ ] Arkham Asylum
-        - [ ] Amadeus Arkham
-        - [ ] Black Mask
-        - [ ] Calendar Man
-        - [ ] Captain Boomerang
-        - [ ] Clay Face
-        - [ ] Death Shot
-        - [ ] Firefly
-        - [ ] Gorilla Grodd
-        - [ ] Gypsy
-        - [ ] Harley Quinn
-        - [ ] Hush
-        - [ ] James Gordon Jr.
-        - [ ] Joker
-        - [ ] Katana
-        - [ ] Killer Croc
-        - [ ] Manbat
-        - [ ] Mr. Freeze
-        - [ ] Neo Joker
-        - [ ] Poison Ivy
-        - [ ] Prometheus
-        - [ ] Scarecrow
-        - [ ] Sofia Falcone
-        - [ ] Solomon Grundy
-        - [ ] The Penguin
-        - [ ] The Riddler
-        - [ ] Two Face
+        - [X] Amadeus Arkham
+        - [X] Black Mask
+        - [X] Calendar Man
+        - [X] Captain Boomerang
+        - [X] Clay Face
+        - [X] Death Shot
+        - [X] Firefly
+        - [X] Gypsy
+        - [X] Harley Quinn
+        - [X] Hush
+        - [X] James Gordon Jr.
+        - [X] Katana
+        - [X] Manbat
+        - [X] Neo Joker
+        - [X] Poison Ivy
+        - [X] Prometheus
+        - [X] Scarecrow
+        - [X] Sofia Falcone
+        - [X] Solomon Grundy
+        - [X] The Riddler
         - [ ] Vixen
         - [ ] White Knight (Lewis Bayard)
 
