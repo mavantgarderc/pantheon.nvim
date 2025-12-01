@@ -1,509 +1,1301 @@
 # PrismPunk
 
+- [ ] Alternative Comics
+  - [ ] Image Comics
+    - [ ] Spawn
+    - [ ] Saga
+    - [ ] Invincible
+    - [ ] The Walking Dead
+    - [ ] Witchblade
+    - [ ] The Darkness
+    - [ ] Savage Dragon
+    - [ ] Haunt
+    - [ ] Chew
+    - [ ] Paper Girls
+    - [ ] Deadly Class
+    - [ ] Black Science
+    - [ ] East of West
+    - [ ] Descender
+    - [ ] Monstress
+    - [ ] Radiant Black
+    - [ ] Fire Power
+    - [ ] The Wicked + The Divine
+    - [ ] Middlewest
+    - [ ] Nailbiter
+
+  - [ ] Dark Horse Comics
+    - [ ] Hellboy
+    - [ ] Sin City
+    - [ ] 300
+    - [ ] The Mask
+    - [ ] BPRD
+    - [ ] Abe Sapien
+    - [ ] Umbrella Academy
+    - [ ] Concrete
+    - [ ] Aliens
+    - [ ] Predator
+    - [ ] Usagi Yojimbo
+    - [ ] Barb Wire
+    - [ ] The Goon
+    - [ ] Lady Killer
+    - [ ] Black Hammer
+    - [ ] Polar
+    - [ ] Baltimore
+    - [ ] American Gods
+    - [ ] Conan
+    - [ ] Ghost
+
+  - [ ] Vertigo (DC Imprint)
+    - [ ] Preacher
+    - [ ] Fables
+    - [ ] Transmetropolitan
+    - [ ] Y: The Last Man
+    - [ ] 100 Bullets
+    - [ ] Swamp Thing (Vertigo Era)
+    - [ ] Hellblazer
+    - [ ] The Invisibles
+    - [ ] Lucifer
+    - [ ] Animal Man
+    - [ ] Books of Magic
+    - [ ] Doom Patrol (Morrison)
+    - [ ] iZombie
+    - [ ] Pride of Baghdad
+    - [ ] DMZ
+    - [ ] Scalped
+    - [ ] Ex Machina
+    - [ ] Northlanders
+    - [ ] American Vampire
+    - [ ] The Unwritten
+
+  - [ ] IDW Publishing
+    - [ ] Locke & Key
+    - [ ] 30 Days of Night
+    - [ ] Teenage Mutant Ninja Turtles (IDW)
+    - [ ] Judge Dredd
+    - [ ] Transformers
+    - [ ] GI Joe
+    - [ ] Godzilla
+    - [ ] Wynonna Earp
+    - [ ] The Cape
+    - [ ] Kill Shakespeare
+    - [ ] V-Wars
+    - [ ] October Faction
+    - [ ] Canto
+    - [ ] Star Trek
+    - [ ] Ghostbusters
+
+  - [ ] Boom! Studios
+    - [ ] Something is Killing the Children
+    - [ ] Once & Future
+    - [ ] The Woods
+    - [ ] Lumberjanes
+    - [ ] Mouse Guard
+    - [ ] Bone Parish
+    - [ ] Irredeemable
+    - [ ] Incorruptible
+    - [ ] Giant Days
+    - [ ] Klaus
+    - [ ] Firefly
+    - [ ] Buffy the Vampire Slayer
+    - [ ] Angel
+    - [ ] Power Rangers
+    - [ ] We Only Find Them When They're Dead
+
+  - [ ] Aftershock Comics
+    - [ ] Animosity
+    - [ ] Roughneck
+    - [ ] Babyteeth
+    - [ ] The Plot
+    - [ ] Dark Red
+    - [ ] A Walk Through Hell
+    - [ ] Relay
+    - [ ] Patience! Conviction! Revenge!
+    - [ ] Wrong Earth
+
+  - [ ] Valiant Comics
+    - [ ] Bloodshot
+    - [ ] X-O Manowar
+    - [ ] Harbinger
+    - [ ] Archer & Armstrong
+    - [ ] Shadowman
+    - [ ] Ninjak
+    - [ ] Rai
+    - [ ] Eternal Warrior
+    - [ ] Quantum and Woody
+    - [ ] Divinity
+
+  - [ ] Avatar Press
+    - [ ] Crossed
+    - [ ] Über
+    - [ ] Black Summer
+    - [ ] No Hero
+    - [ ] Gravel
+    - [ ] God is Dead
+    - [ ] Providence
+    - [ ] Neonomicon
+
+  - [ ] Top Shelf Productions
+    - [ ] From Hell
+    - [ ] League of Extraordinary Gentlemen
+    - [ ] March Trilogy
+    - [ ] Blankets
+    - [ ] Essex County
+    - [ ] Lost Girls
+    - [ ] Black Hole
+    - [ ] The Playwright
+
+  - [ ] Other Independent
+    - [ ] Bone (Cartoon Books)
+    - [ ] Cerebus (Aardvark-Vanaheim)
+    - [ ] Scott Pilgrim (Oni Press)
+    - [ ] The Maxx (originally Image)
+    - [ ] Madman (various publishers)
+    - [ ] Astro City (various publishers)
+    - [ ] Nexus (various publishers)
+    - [ ] American Splendor (various publishers)
+    - [ ] Love and Rockets (Fantagraphics)
+    - [ ] Ghost World (Fantagraphics)
+    - [ ] Eightball (Fantagraphics)
+    - [ ] Acme Novelty Library (Fantagraphics)
+    - [ ] Persepolis (Pantheon)
+    - [ ] Maus (Pantheon)
+    - [ ] Fun Home (Mariner Books)
+
+---
+
 - [ ] DC Comics
+  - [x] Arkham Asylum
+    - [x] Amadeus Arkham
+    - [x] Black Mask
+    - [x] Calendar Man
+    - [x] Captain Boomerang
+    - [x] Clay Face
+    - [x] Death Shot
+    - [x] Firefly
+    - [x] Gypsy
+    - [x] Harley Quinn
+    - [x] Hush
+    - [x] James Gordon Jr.
+    - [x] Katana
+    - [x] Manbat
+    - [x] Neo Joker
+    - [x] Poison Ivy
+    - [x] Prometheus
+    - [x] Scarecrow
+    - [x] Sofia Falcone
+    - [x] Solomon Grundy
+    - [x] The Riddler
+    - [x] Vixen
+    - [x] White Knight (Lewis Bayard)
 
-    - [ ] Arkham Asylum
-        - [X] Amadeus Arkham
-        - [X] Black Mask
-        - [X] Calendar Man
-        - [X] Captain Boomerang
-        - [X] Clay Face
-        - [X] Death Shot
-        - [X] Firefly
-        - [X] Gypsy
-        - [X] Harley Quinn
-        - [X] Hush
-        - [X] James Gordon Jr.
-        - [X] Katana
-        - [X] Manbat
-        - [X] Neo Joker
-        - [X] Poison Ivy
-        - [X] Prometheus
-        - [X] Scarecrow
-        - [X] Sofia Falcone
-        - [X] Solomon Grundy
-        - [X] The Riddler
-        - [ ] Vixen
-        - [ ] White Knight (Lewis Bayard)
+  - [x] Bat Family
+    - [x] Azrael
+    - [x] Alfred Pennyworth
+    - [x] Oracle (Barbara Gordon)
+    - [x] Batgirl
+    - [x] Batman 1000000
+    - [x] Batman Beyond
+    - [x] Batman Classic
+    - [x] Batman, Dark Knight
+    - [x] Batwoman
+    - [x] Bruce Wayne
+    - [x] Blackbat (Orphan)
+    - [x] Cat Woman
+    - [x] Huntress
+    - [x] James Gordon
+    - [x] Lucius Fox
+    - [x] Nightwing
+    - [x] Red Hood
+    - [x] Red Robin
+    - [x] Robin
+    - [x] Selina Kyle
 
-    - [X] Bat Family
-        - [X] Azrael
-        - [X] Alfred Pennyworth
-        - [X] Oracle (Barbara Gordon)
-        - [X] Batgirl
-        - [X] Batman 1000000
-        - [X] Batman Beyond
-        - [X] Batman Classic
-        - [X] Batman, Dark Knight
-        - [X] Batwoman
-        - [X] Bruce Wayne
-        - [X] Blackbat (Orphan)
-        - [X] Cat Woman
-        - [X] Huntress
-        - [X] James Gordon
-        - [X] Lucius Fox
-        - [X] Nightwing
-        - [X] Red Hood
-        - [X] Red Robin
-        - [X] Robin
-        - [X] Selina Kyle
+  - [x] Crime Syndicate
+    - [x] Black Siren
+    - [x] Deadeye
+    - [x] Deathstorm
+    - [x] Dr. Chaos
+    - [x] Grid
+    - [x] Johnny Quick
+    - [x] Martian
+    - [x] Owlman
+    - [x] Power Ring
+    - [x] Sea King
+    - [x] Superwoman
+    - [x] Ultraman
 
-    - [X] Crime Syndicate
-        - [X] Black Siren
-        - [X] Deadeye
-        - [X] Deathstorm
-        - [X] Dr. Chaos
-        - [X] Grid
-        - [X] Johnny Quick
-        - [X] Martian
-        - [X] Owlman
-        - [X] Power Ring
-        - [X] Sea King
-        - [X] Superwoman
-        - [X] Ultraman
+  - [x] Emotional Entities
+    - [x] Adara (Hope)
+    - [x] Butcher (Rage)
+    - [x] Ion (Willpower)
+    - [x] Nekron (Death)
+    - [x] Ophidian (Avarice)
+    - [x] Parallax (Fear)
+    - [x] Predator (Love)
+    - [x] Proselyte (Compassion)
+    - [x] Relic (Light primordial)
+    - [x] The Entity (Life – Earth itself)
+    - [x] Umbrax (Invisible Emotional Spectrum)
 
-    - [X] Emotional Entities
-        - [X] Adara (Hope)
-        - [X] Butcher (Rage)
-        - [X] Ion (Willpower)
-        - [X] Nekron (Death)
-        - [X] Ophidian (Avarice)
-        - [X] Parallax (Fear)
-        - [X] Predator (Love)
-        - [X] Proselyte (Compassion)
-        - [X] Relic (Light primordial)
-        - [X] The Entity (Life – Earth itself)
-        - [X] Umbrax (Invisible Emotional Spectrum)
+  - [x] Injustice League
+    - [x] Bizarro
+    - [x] Black Adam
+    - [x] Black Manta
+    - [x] Brainiac
+    - [x] Captain Cold
+    - [x] Cheetah
+    - [x] Deathstroke
+    - [x] Giganta
+    - [x] Gorilla Grodd
+    - [x] Joker
+    - [x] Killer Croc
+    - [x] Killer Frost
+    - [x] Lex Luthor
+    - [x] Mister Terrible
+    - [x] Mr. Freeze
+    - [x] Multi-Man
+    - [x] Nocturna
+    - [x] Penguin
+    - [x] Sinestro
+    - [x] Two-Face
 
-    - [X] Injustice League
-        - [X] Bizarro
-        - [X] Black Adam
-        - [X] Black Manta
-        - [X] Brainiac
-        - [X] Captain Cold
-        - [X] Cheetah
-        - [X] Deathstroke
-        - [X] Giganta
-        - [X] Gorilla Grodd
-        - [X] Joker
-        - [X] Killer Croc
-        - [X] Killer Frost
-        - [X] Lex Luthor
-        - [X] Mister Terrible
-        - [X] Mr. Freeze
-        - [X] Multi-Man
-        - [X] Nocturna
-        - [X] Penguin
-        - [X] Sinestro
-        - [X] Two-Face
+  - [x] Justice League
+    - [x] Adam Strange
+    - [x] Aquaman
+    - [x] Batman
+    - [x] Black Canary
+    - [x] Blue Beetle
+    - [x] Booster Gold
+    - [x] Captain Atom
+    - [x] Constantine
+    - [x] Cyborg
+    - [x] Dr. Fate
+    - [x] Etrigan
+    - [x] Firestorm
+    - [x] Flash
+    - [x] Green Arrow
+    - [x] Green-Lantern (Guy Gardner)
+    - [x] Green-Lantern (Hal Jordan)
+    - [x] Green-Lantern (Jessica Cruz)
+    - [x] Green-Lantern (John Stewart)
+    - [x] Green-Lantern (Kyle Raner)
+    - [x] Hawkgirl
+    - [x] Hawkman
+    - [x] Lobo
+    - [x] Martian Manhunter
+    - [x] Mera
+    - [x] Mr. Terrific
+    - [x] Raven
+    - [x] Red Tornado
+    - [x] Shazam
+    - [x] Spectre
+    - [x] Starfire
+    - [x] Superman
+    - [x] Wonder Woman
+    - [x] Zatanna
 
-    - [X] Justice League
-        - [X] Adam Strange
-        - [X] Aquaman
-        - [X] Batman
-        - [X] Black Canary
-        - [X] Blue Beetle
-        - [X] Booster Gold
-        - [X] Captain Atom
-        - [X] Constantine
-        - [X] Cyborg
-        - [X] Dr. Fate
-        - [X] Etrigan
-        - [X] Firestorm
-        - [X] Flash
-        - [X] Green Arrow
-        - [X] Green-Lantern (Guy Gardner)
-        - [X] Green-Lantern (Hal Jordan)
-        - [X] Green-Lantern (Jessica Cruz)
-        - [X] Green-Lantern (John Stewart)
-        - [X] Green-Lantern (Kyle Raner)
-        - [X] Hawkgirl
-        - [X] Hawkman
-        - [X] Lobo
-        - [X] Martian Manhunter
-        - [X] Mera
-        - [X] Mr. Terrific
-        - [X] Raven
-        - [X] Red Tornado
-        - [X] Shazam
-        - [X] Spectre
-        - [X] Starfire
-        - [X] Superman
-        - [X] Wonder Woman
-        - [X] Zatanna
+  - [x] Lantern Corps
+    - [x] Black
+    - [x] Blue
+    - [x] Gold
+    - [x] Green
+    - [x] Indigo
+    - [x] Orange
+    - [x] Phantom
+      - [x] Balanced
+      - [x] Chaos
+      - [x] Corrupted
+    - [x] Red
+    - [x] Ultra-Violet
+      - [x] Veiled
+      - [x] Spectral
+    - [x] Violet
+    - [x] White
+    - [x] Yellow
 
-    - [X] Lantern Corps
-        - [X] Black
-        - [X] Blue
-        - [X] Gold
-        - [X] Green
-        - [X] Indigo
-        - [X] Orange
-        - [X] Phantom
-            - [X] Balanced
-            - [X] Chaos
-            - [X] Corrupted
-        - [X] Red
-        - [X] Ultra-Violet
-            - [X] Veiled
-            - [X] Spectral
-        - [X] Violet
-        - [X] White
-        - [X] Yellow
+  - [ ] Lanterns
+    - [ ] Black Lantern Black Hand (post-resurrection)
+    - [ ] Black Lantern Hal Jordan (Blackest Night)
+    - [ ] Black Lantern Superman (Earth-2)
+    - [ ] Black/White Hybrid Black Hand
+    - [ ] Blue Lantern Brother Warth
+    - [ ] Blue Lantern Saint Walker
+    - [ ] Darkstar Lantern (John Stewart – future)
+    - [ ] Green Lantern Alan Scott (Golden Age)
+    - [ ] Green Lantern Sodam Yat (Ion host)
+    - [ ] Green/Red Hybrid Guy Gardner
+    - [ ] Green/White Hybrid Kyle Rayner
+    - [ ] Green/Yellow Hybrid Hal Jordan
+    - [ ] Indigo Lantern Black Hand (William Hand)
+    - [ ] Indigo Lantern Indigo-1
+    - [ ] Orange Lantern Larfleeze (Agent Orange)
+    - [ ] Parallax (Hal Jordan possessed)
+    - [ ] Phantom Lantern Frank Laminski
+    - [ ] Red Lantern Atrocitus
+    - [ ] Red Lantern Bleez
+    - [ ] Red Lantern Dex-Starr
+    - [ ] Red Lantern Guy Gardner (temporary)
+    - [ ] Red Lantern Hal Jordan (Future State)
+    - [ ] Red Lantern Supergirl (Red Daughter)
+    - [ ] Star Sapphire Carol Ferris
+    - [ ] Star Sapphire Predator (Love Entity host)
+    - [ ] The First Lantern (Volthoom)
+    - [ ] Ultraviolet Lantern Sinestro (Umbrax)
+    - [ ] Violet Lantern Fatality (Yrra Cynril)
+    - [ ] White Lantern Anti-Monitor
+    - [ ] White Lantern Deadman (Boston Brand)
+    - [ ] White Lantern Nekron
+    - [ ] White Lantern Prime (Kyle Rayner)
+    - [ ] White Lantern Sinestro
+    - [ ] White Lantern Swamp Thing
+    - [ ] Yellow Lantern Arkillo
+    - [ ] Yellow Lantern Scarecrow (Jonathan Crane)
+    - [ ] Yellow Lantern Sinestro (Sinestro Corps founder)
 
-    - [ ] Lanterns
-        - [ ] Black Lantern Black Hand (post-resurrection)
-        - [ ] Black Lantern Hal Jordan (Blackest Night)
-        - [ ] Black Lantern Superman (Earth-2)
-        - [ ] Black/White Hybrid Black Hand
-        - [ ] Blue Lantern Brother Warth
-        - [ ] Blue Lantern Saint Walker
-        - [ ] Darkstar Lantern (John Stewart – future)
-        - [ ] Green Lantern Alan Scott (Golden Age)
-        - [ ] Green Lantern Sodam Yat (Ion host)
-        - [ ] Green/Red Hybrid Guy Gardner
-        - [ ] Green/White Hybrid Kyle Rayner
-        - [ ] Green/Yellow Hybrid Hal Jordan
-        - [ ] Indigo Lantern Black Hand (William Hand)
-        - [ ] Indigo Lantern Indigo-1
-        - [ ] Orange Lantern Larfleeze (Agent Orange)
-        - [ ] Parallax (Hal Jordan possessed)
-        - [ ] Phantom Lantern Frank Laminski
-        - [ ] Red Lantern Atrocitus
-        - [ ] Red Lantern Bleez
-        - [ ] Red Lantern Dex-Starr
-        - [ ] Red Lantern Guy Gardner (temporary)
-        - [ ] Red Lantern Hal Jordan (Future State)
-        - [ ] Red Lantern Supergirl (Red Daughter)
-        - [ ] Star Sapphire Carol Ferris
-        - [ ] Star Sapphire Predator (Love Entity host)
-        - [ ] The First Lantern (Volthoom)
-        - [ ] Ultraviolet Lantern Sinestro (Umbrax)
-        - [ ] Violet Lantern Fatality (Yrra Cynril)
-        - [ ] White Lantern Anti-Monitor
-        - [ ] White Lantern Deadman (Boston Brand)
-        - [ ] White Lantern Nekron
-        - [ ] White Lantern Prime (Kyle Rayner)
-        - [ ] White Lantern Sinestro
-        - [ ] White Lantern Swamp Thing
-        - [ ] Yellow Lantern Arkillo
-        - [ ] Yellow Lantern Scarecrow (Jonathan Crane)
-        - [ ] Yellow Lantern Sinestro (Sinestro Corps founder)
+  - [x] League of Assasins
+    - [x] Athanasia Al Ghul
+    - [x] Bane
+    - [x] Black Spider
+    - [x] Blank
+    - [x] Lady Shiva
+    - [x] Nyssa Raatko
+    - [x] Ra's Al Ghul
+    - [x] Talia Al Ghul
 
-    - [X] League of Assasins
-        - [X] Athanasia Al Ghul
-        - [X] Bane
-        - [X] Black Spider
-        - [X] Blank
-        - [X] Lady Shiva
-        - [X] Nyssa Raatko
-        - [X] Ra's Al Ghul
-        - [X] Talia Al Ghul
+  - [x] New Gods of Apokolips
+    - [x] Desaad
+    - [x] Darkseid
+    - [x] Grayven
+    - [x] Heggra
+    - [x] Kalibak
+    - [x] Pythia
+    - [x] Yuga Khan
 
-    - [X] New Gods of Apokolips
-        - [X] Desaad
-        - [X] Darkseid
-        - [X] Grayven
-        - [X] Heggra
-        - [X] Kalibak
-        - [X] Pythia
-        - [X] Yuga Khan
+  - [x] New Gods of New Genesis
+    - [x] Big Barda
+    - [x] Highfather
+    - [x] Lightray
+    - [x] Metron
+    - [x] Mister Miracle
+    - [x] Orion
+    - [x] Takion
 
-    - [X] New Gods of New Genesis
-        - [X] Big Barda
-        - [X] Highfather
-        - [X] Lightray
-        - [X] Metron
-        - [X] Mister Miracle
-        - [X] Orion
-        - [X] Takion
+  - [x] Super Family
+    - [x] Clark Kent
+    - [x] Composite Superman
+    - [x] Conner Kent
+    - [x] Dreamer
+    - [x] Eradicator
+    - [x] Jonathan Kent
+    - [x] Lois Lane
+    - [x] Lucy Lane
+    - [x] Martha Kent
+    - [x] Power Girl
+    - [x] Steel
+    - [x] Superboy
+    - [x] Superman Classic
+    - [x] Superman Kingdom Come
+    - [x] Superman Modern
 
-    - [X] Super Family
-        - [X] Clark Kent
-        - [X] Composite Superman
-        - [X] Conner Kent
-        - [X] Dreamer
-        - [X] Eradicator
-        - [X] Jonathan Kent
-        - [X] Lois Lane
-        - [X] Lucy Lane
-        - [X] Martha Kent
-        - [X] Power Girl
-        - [X] Steel
-        - [X] Superboy
-        - [X] Superman Classic
-        - [X] Superman Kingdom Come
-        - [X] Superman Modern
-
-    - [X] Watchmen
-        - [X] Dr. Manhattan
-        - [X] Nite Owl
-        - [X] Ozymandias
-        - [X] Rorschach
-        - [X] Silk Spectre
-        - [X] The Comedian
+  - [x] Watchmen
+    - [x] Dr. Manhattan
+    - [x] Nite Owl
+    - [x] Ozymandias
+    - [x] Rorschach
+    - [x] Silk Spectre
+    - [x] The Comedian
 
 ---
 
 - [ ] Marvel Comics
-    - [ ] Avengers
-        - [ ] Ant-Man
-        - [ ] Anti Vision
-        - [ ] Black Panther
-        - [ ] Black Widow
-        - [ ] Black Widow 2099
-        - [ ] Blade
-        - [ ] Blue Marvel
-        - [ ] Bucky Barnes
-        - [ ] Captain America
-        - [ ] Captain America 2099
-        - [ ] Captain Marvel
-        - [ ] Captain Universe
-        - [ ] Doctor Strange
-        - [ ] Elektra
-        - [ ] Emma Frost
-        - [ ] Enchantress
-        - [ ] Hawkeye
-        - [ ] Hawkeye 2099
-        - [ ] Hulkling
-        - [ ] Iron Fist
-        - [ ] Iron Man
-        - [ ] Iron Man 2099
-        - [ ] Jarvis
-        - [ ] Quicksilver
-        - [ ] Sam Wilson
-        - [ ] Scarlet Witch
-        - [ ] Thor
-        - [ ] Vision
-        - [ ] War Machine
+  - [ ] Avengers
+    - [ ] Ant-Man
+    - [ ] Anti Vision
+    - [ ] Black Panther
+    - [ ] Black Widow
+    - [ ] Black Widow 2099
+    - [ ] Blade
+    - [ ] Blue Marvel
+    - [ ] Bucky Barnes
+    - [ ] Captain America
+    - [ ] Captain America 2099
+    - [ ] Captain Marvel
+    - [ ] Captain Universe
+    - [ ] Doctor Strange
+    - [ ] Elektra
+    - [ ] Emma Frost
+    - [ ] Enchantress
+    - [ ] Hawkeye
+    - [ ] Hawkeye 2099
+    - [ ] Hulkling
+    - [ ] Iron Fist
+    - [ ] Iron Man
+    - [ ] Iron Man 2099
+    - [ ] Jarvis
+    - [ ] Quicksilver
+    - [ ] Sam Wilson
+    - [ ] Scarlet Witch
+    - [ ] Thor
+    - [ ] Vision
+    - [ ] War Machine
 
-    - [ ] Fantastic Four
-        - [ ] Dr. Doom
-        - [ ] Franklin Richards
-        - [ ] Human Torch
-        - [ ] Invisible Woman
-        - [ ] Mr. Fantastic
-        - [ ] Silver Surfer
-        - [ ] Thing
-        - [ ] Valeria Richards
+  - [ ] Fantastic Four
+    - [ ] Dr. Doom
+    - [ ] Franklin Richards
+    - [ ] Human Torch
+    - [ ] Invisible Woman
+    - [ ] Mr. Fantastic
+    - [ ] Silver Surfer
+    - [ ] Thing
+    - [ ] Valeria Richards
 
-    - [ ] Guardians of Galaxy
-        - [ ] Drax, the Destroyer
-        - [ ] Gamora
-        - [ ] Groot
-        - [ ] Nova
-        - [ ] Rocket Raccoon
-        - [ ] Star Lord
-        - [ ] Yondu
+  - [ ] Guardians of Galaxy
+    - [ ] Drax, the Destroyer
+    - [ ] Gamora
+    - [ ] Groot
+    - [ ] Nova
+    - [ ] Rocket Raccoon
+    - [ ] Star Lord
+    - [ ] Yondu
 
-    - [ ] X-Men
-        - [ ] Rogue
-
----
-
-- [X] TMNT
-    - [X] Leonardo
-    - [X] Raphael
-    - [X] Donatello
-    - [X] Michelangelo
-    - [X] The Last Ronin
-    - [X] Master Splinter
-    - [X] Casey Jones
-    - [X] April O'neal
-    - [X] Shredder
+  - [ ] X-Men
+    - [ ] Rogue
 
 ---
 
-- [ ] Alternative Comics
-    - [ ] Sandman
-
----
-
-- Animations
-    - [ ] Ben 10
-
----
-
-- [ ] Video Games
-    - [ ] Elden Ring
-    - [ ] Rayman Legends
-
----
-
-- [ ] Album Covers
-    - [ ] American HipHop
-        - [ ] J. Cole, KOD
-
----
-
-- [ ] Mythology
-    - [ ] Norse Myths
-        - [ ] Jormungandr
-
----
-
-- [ ] Sports
-    - [ ] Basketball
-        - [ ] NBA
-            - [ ] Golden State Warriors
+- [x] TMNT
+  - [x] Leonardo
+  - [x] Raphael
+  - [x] Donatello
+  - [x] Michelangelo
+  - [x] The Last Ronin
+  - [x] Master Splinter
+  - [x] Casey Jones
+  - [x] April O'neal
+  - [x] Shredder
 
 ---
 
 - [ ] Art Movements
-    - [ ] European Art
-        - [ ] Brutalism
+  - [ ] Ancient & Classical
+    - [ ] Ancient Egyptian Art
+    - [ ] Ancient Greek Art
+    - [ ] Ancient Roman Art
+    - [ ] Byzantine Art
+    - [ ] Romanesque
+    - [ ] Gothic
+    - [ ] Islamic Art (Golden Age)
+
+  - [ ] Renaissance & Early Modern (1400-1800)
+    - [ ] Early Renaissance
+    - [ ] High Renaissance
+    - [ ] Northern Renaissance
+    - [ ] Mannerism
+    - [ ] Baroque
+    - [ ] Rococo
+    - [ ] Neoclassicism
+
+  - [ ] 19th Century
+    - [ ] Romanticism
+    - [ ] Realism
+    - [ ] Pre-Raphaelite Brotherhood
+    - [ ] Impressionism
+    - [ ] Post-Impressionism
+    - [ ] Symbolism
+    - [ ] Art Nouveau
+    - [ ] Arts and Crafts Movement
+    - [ ] Tonalism
+    - [ ] Luminism
+    - [ ] Hudson River School
+    - [ ] Barbizon School
+    - [ ] Orientalism
+    - [ ] Academic Art
+
+  - [ ] Early 20th Century (1900-1945)
+    - [ ] Fauvism
+    - [ ] Expressionism
+    - [ ] Cubism
+    - [ ] Futurism
+    - [ ] Constructivism
+    - [ ] Suprematism
+    - [ ] De Stijl (Neoplasticism)
+    - [ ] Bauhaus
+    - [ ] Dada
+    - [ ] Surrealism
+    - [ ] Art Deco
+    - [ ] Precisionism
+    - [ ] Social Realism
+    - [ ] Mexican Muralism
+    - [ ] Orphism
+    - [ ] Vorticism
+    - [ ] Rayonism
+    - [ ] Synchromism
+
+  - [ ] Mid 20th Century (1945-1970)
+    - [ ] Abstract Expressionism
+    - [ ] Color Field Painting
+    - [ ] Hard-Edge Painting
+    - [ ] Pop Art
+    - [ ] Op Art
+    - [ ] Kinetic Art
+    - [ ] Minimalism
+    - [ ] Arte Povera
+    - [ ] Nouveau Réalisme
+    - [ ] Fluxus
+    - [ ] Cobra
+    - [ ] Tachisme
+    - [ ] Art Informel
+    - [ ] Lyrical Abstraction
+
+  - [ ] Late 20th Century (1970-2000)
+    - [ ] Conceptual Art
+    - [ ] Photorealism
+    - [ ] Hyperrealism
+    - [ ] Neo-Expressionism
+    - [ ] Transavantgarde
+    - [ ] Neo-Geo
+    - [ ] Appropriation Art
+    - [ ] Neo-Pop
+    - [ ] YBAs (Young British Artists)
+    - [ ] Graffiti Art
+    - [ ] Street Art
+    - [ ] Installation Art
+    - [ ] Land Art (Earth Art)
+    - [ ] Performance Art
+    - [ ] Video Art
+    - [ ] Digital Art
+
+  - [ ] Contemporary (2000-Present)
+    - [ ] Post-Internet Art
+    - [ ] New Aesthetics
+    - [ ] Relational Aesthetics
+    - [ ] Metamodernism
+    - [ ] Stuckism
+    - [ ] Superflat
+    - [ ] Lowbrow (Pop Surrealism)
+    - [ ] Urban Contemporary
+    - [ ] Neo-Minimalism
+
+  - [ ] Design Movements
+    - [ ] Brutalism
+    - [ ] Memphis Group
+    - [ ] Postmodernism (Design)
+    - [ ] Deconstructivism
+    - [ ] Streamline Moderne
+    - [ ] International Style
+    - [ ] Metabolist
+    - [ ] High-Tech Architecture
+    - [ ] Organic Architecture
+
+  - [ ] Digital & Internet Age
+    - [ ] Vaporwave
+    - [ ] Seapunk
+    - [ ] Cyberdelic
+    - [ ] Glitch Art
+    - [ ] ASCII Art
+    - [ ] Pixel Art Movement
+    - [ ] NFT Art
+    - [ ] Generative Art
+    - [ ] AI Art
 
 ---
 
 - [ ] History
-    - [ ] Europe
-        - [ ] Roman Empire
+  - [ ] Africa
+    - [ ] Ancient Egypt (Old Kingdom)
+    - [ ] Ancient Egypt (Middle Kingdom)
+    - [ ] Ancient Egypt (New Kingdom)
+    - [ ] Ptolemaic Egypt
+    - [ ] Kingdom of Kush
+    - [ ] Ancient Carthage
+    - [ ] Kingdom of Aksum
+    - [ ] Mali Empire
+    - [ ] Songhai Empire
+    - [ ] Kingdom of Ghana
+    - [ ] Great Zimbabwe
+    - [ ] Zulu Kingdom
+    - [ ] Ethiopian Empire
+    - [ ] Benin Empire
+    - [ ] Ashanti Empire
 
----
+  - [ ] Europe
+    - [ ] Roman Empire
+    - [ ] Ancient Greece (Classical Period)
+    - [ ] Ancient Greece (Hellenistic Period)
+    - [ ] Byzantine Empire
+    - [ ] Holy Roman Empire
+    - [ ] Viking Age
+    - [ ] Medieval England
+    - [ ] Medieval France
+    - [ ] Spanish Empire
+    - [ ] Portuguese Empire
+    - [ ] Ottoman Empire
+    - [ ] Venetian Republic
+    - [ ] Kievan Rus
+    - [ ] Polish-Lithuanian Commonwealth
+    - [ ] Habsburg Empire
+    - [ ] Napoleonic France
+    - [ ] British Empire
+    - [ ] Russian Empire
+    - [ ] Weimar Republic
+    - [ ] Soviet Union
+    - [ ] Third Reich
+    - [ ] Belle Époque France
 
-- [ ] Cultures
-    - [ ] Asia
-        - [ ] Persia
+  - [ ] Asia
+    - [ ] Ancient Mesopotamia (Sumer)
+    - [ ] Akkadian Empire
+    - [ ] Babylonian Empire
+    - [ ] Assyrian Empire
+    - [ ] Persian Empire (Achaemenid)
+    - [ ] Persian Empire (Sassanid)
+    - [ ] Maurya Empire
+    - [ ] Gupta Empire
+    - [ ] Mughal Empire
+    - [ ] Ancient China (Shang Dynasty)
+    - [ ] Ancient China (Zhou Dynasty)
+    - [ ] Qin Dynasty
+    - [ ] Han Dynasty
+    - [ ] Tang Dynasty
+    - [ ] Song Dynasty
+    - [ ] Yuan Dynasty (Mongol)
+    - [ ] Ming Dynasty
+    - [ ] Qing Dynasty
+    - [ ] Mongol Empire
+    - [ ] Khmer Empire
+    - [ ] Srivijaya Empire
+    - [ ] Majapahit Empire
+    - [ ] Feudal Japan (Heian Period)
+    - [ ] Feudal Japan (Kamakura Period)
+    - [ ] Feudal Japan (Muromachi Period)
+    - [ ] Feudal Japan (Sengoku Period)
+    - [ ] Tokugawa Shogunate (Edo Period)
+    - [ ] Meiji Restoration Japan
+    - [ ] Korean Three Kingdoms
+    - [ ] Joseon Dynasty
+    - [ ] Timurid Empire
+    - [ ] Safavid Empire
+    - [ ] Ottoman Empire (Asia Minor)
 
----
+  - [ ] Americas
+    - [ ] Olmec Civilization
+    - [ ] Maya Civilization
+    - [ ] Aztec Empire
+    - [ ] Inca Empire
+    - [ ] Teotihuacan
+    - [ ] Toltec Civilization
+    - [ ] Mississippian Culture
+    - [ ] Ancestral Puebloans
+    - [ ] Moche Civilization
+    - [ ] Nazca Culture
+    - [ ] Tiwanaku Empire
+    - [ ] Wari Empire
+    - [ ] Muisca Confederation
+    - [ ] Colonial Spanish America
+    - [ ] Colonial Portuguese America
+    - [ ] Wild West (American Frontier)
+    - [ ] American Revolution
+    - [ ] American Civil War
+    - [ ] Gilded Age America
+    - [ ] Roaring Twenties
+    - [ ] Great Depression Era
+    - [ ] Post-War America (1950s)
 
-- [ ] Cities
-    - [ ] America
-        - [ ] Chicago 70s
+  - [ ] Oceania
+    - [ ] Aboriginal Australia (Dreamtime)
+    - [ ] Maori New Zealand
+    - [ ] Polynesian Navigation Era
+    - [ ] Easter Island (Rapa Nui)
+    - [ ] Hawaiian Kingdom
+    - [ ] Melanesian Cultures
+    - [ ] Micronesian Cultures
 
----
-
-- [ ] Music Genres
-    - [ ] Metal
-        - [ ] Industrial Metal
-
----
-
-- [ ] Literatures
-    - [ ] Europe
-        - [ ] Dante's Inferno
-
----
-
-- [X] Punk Cultures
-    - [X] Cyber Punk
-    - [X] Steam Punk
-    - [X] Diesel Punk
-    - [X] Solar Punk
-    - [X] Tech Punk
-    - [X] Clock Punk
-    - [X] Atom Punk
-    - [X] Bio Punk
-    - [X] Deco Punk
-    - [X] Stone Punk
-    - [X] Splatter Punk
-    - [X] Nano Punk
-    - [X] Aqua Punk
-    - [X] Gothic Punk
-    - [X] Junk Punk
-    - [X] Acid Punk
-    - [X] Dusk Punk
-    - [X] Cryo Punk
-    - [X] Jungle Punk
-
----
-
-- [X] Legacy Nvim Themes
-    - [X] sorbet
-    - [X] retrobox
-    - [X] quiet
-    - [X] habamax
-    - [X] slate
+  - [ ] Cross-Continental
+    - [ ] Bronze Age
+    - [ ] Iron Age
+    - [ ] Age of Exploration
+    - [ ] Age of Enlightenment
+    - [ ] Industrial Revolution
+    - [ ] World War I
+    - [ ] Interwar Period
+    - [ ] World War II
+    - [ ] Cold War
+    - [ ] Space Race
+    - [ ] Digital Revolution
 
 ---
 
 - [ ] Paintings
-    - [ ] Raphael
-        - [ ] Madonna del Cardellino
+  - [ ] Italian Renaissance Masters
+    - [ ] Leonardo-Mona-Lisa
+    - [ ] Leonardo-The-Last-Supper
+    - [ ] Leonardo-Vitruvian-Man
+    - [ ] Leonardo-Lady-with-an-Ermine
+    - [ ] Michelangelo-Creation-of-Adam
+    - [ ] Michelangelo-The-Last-Judgment
+    - [ ] Michelangelo-Doni-Tondo
+    - [ ] Raphael-School-of-Athens
+    - [ ] Raphael-Sistine-Madonna
+    - [ ] Raphael-Madonna-del-Cardellino
+    - [ ] Raphael-The-Transfiguration
+    - [ ] Botticelli-The-Birth-of-Venus
+    - [ ] Botticelli-Primavera
+    - [ ] Titian-Assumption-of-the-Virgin
+    - [ ] Titian-Venus-of-Urbino
+    - [ ] Caravaggio-The-Calling-of-St-Matthew
+    - [ ] Caravaggio-Judith-Beheading-Holofernes
+    - [ ] Caravaggio-Supper-at-Emmaus
+
+  - [ ] Northern Renaissance
+    - [ ] Van-Eyck-Arnolfini-Portrait
+    - [ ] Van-Eyck-Ghent-Altarpiece
+    - [ ] Bosch-Garden-of-Earthly-Delights
+    - [ ] Bosch-The-Haywain-Triptych
+    - [ ] Bruegel-The-Tower-of-Babel
+    - [ ] Bruegel-Hunters-in-the-Snow
+    - [ ] Bruegel-The-Peasant-Wedding
+    - [ ] Dürer-Self-Portrait-at-28
+    - [ ] Dürer-Melencolia-I
+    - [ ] Holbein-The-Ambassadors
+
+  - [ ] Baroque Masters
+    - [ ] Rembrandt-The-Night-Watch
+    - [ ] Rembrandt-The-Anatomy-Lesson
+    - [ ] Rembrandt-Self-Portrait-with-Two-Circles
+    - [ ] Vermeer-Girl-with-a-Pearl-Earring
+    - [ ] Vermeer-The-Milkmaid
+    - [ ] Vermeer-View-of-Delft
+    - [ ] Velázquez-Las-Meninas
+    - [ ] Velázquez-Portrait-of-Pope-Innocent-X
+    - [ ] Rubens-The-Descent-from-the-Cross
+    - [ ] Rubens-The-Garden-of-Love
+
+  - [ ] Romanticism
+    - [ ] Delacroix-Liberty-Leading-the-People
+    - [ ] Delacroix-The-Death-of-Sardanapalus
+    - [ ] Géricault-The-Raft-of-the-Medusa
+    - [ ] Turner-The-Fighting-Temeraire
+    - [ ] Turner-Rain-Steam-and-Speed
+    - [ ] Friedrich-Wanderer-above-the-Sea-of-Fog
+    - [ ] Friedrich-The-Sea-of-Ice
+    - [ ] Goya-The-Third-of-May-1808
+    - [ ] Goya-Saturn-Devouring-His-Son
+    - [ ] Blake-The-Ancient-of-Days
+
+  - [ ] Impressionism
+    - [ ] Monet-Impression-Sunrise
+    - [ ] Monet-Water-Lilies-Series
+    - [ ] Monet-Rouen-Cathedral-Series
+    - [ ] Monet-Haystacks-Series
+    - [ ] Renoir-Bal-du-Moulin-de-la-Galette
+    - [ ] Renoir-Luncheon-of-the-Boating-Party
+    - [ ] Degas-The-Dance-Class
+    - [ ] Degas-L'Absinthe
+    - [ ] Manet-Olympia
+    - [ ] Manet-Le-Déjeuner-sur-l'herbe
+    - [ ] Pissarro-Boulevard-Montmartre
+    - [ ] Sisley-The-Bridge-at-Villeneuve-la-Garenne
+    - [ ] Morisot-The-Cradle
+    - [ ] Caillebotte-Paris-Street-Rainy-Day
+
+  - [ ] Post-Impressionism
+    - [ ] Van-Gogh-Starry-Night
+    - [ ] Van-Gogh-Sunflowers
+    - [ ] Van-Gogh-The-Bedroom
+    - [ ] Van-Gogh-Café-Terrace-at-Night
+    - [ ] Van-Gogh-Wheatfield-with-Crows
+    - [ ] Cézanne-Mont-Sainte-Victoire
+    - [ ] Cézanne-The-Card-Players
+    - [ ] Cézanne-Still-Life-with-Apples
+    - [ ] Gauguin-Where-Do-We-Come-From
+    - [ ] Gauguin-The-Yellow-Christ
+    - [ ] Gauguin-Tahitian-Women-on-the-Beach
+    - [ ] Seurat-A-Sunday-on-La-Grande-Jatte
+    - [ ] Toulouse-Lautrec-At-the-Moulin-Rouge
+
+  - [ ] Symbolism & Art Nouveau
+    - [ ] Klimt-The-Kiss
+    - [ ] Klimt-Portrait-of-Adele-Bloch-Bauer-I
+    - [ ] Klimt-The-Tree-of-Life
+    - [ ] Mucha-The-Slav-Epic
+    - [ ] Mucha-Zodiac
+    - [ ] Moreau-The-Apparition
+    - [ ] Redon-Cyclops
+    - [ ] Böcklin-Isle-of-the-Dead
+
+  - [ ] Early Modernism
+    - [ ] Picasso-Les-Demoiselles-d'Avignon
+    - [ ] Picasso-Guernica
+    - [ ] Picasso-The-Old-Guitarist
+    - [ ] Picasso-The-Weeping-Woman
+    - [ ] Matisse-The-Dance
+    - [ ] Matisse-The-Red-Studio
+    - [ ] Matisse-Woman-with-a-Hat
+    - [ ] Kandinsky-Composition-VII
+    - [ ] Kandinsky-Yellow-Red-Blue
+    - [ ] Mondrian-Composition-with-Red-Blue-and-Yellow
+    - [ ] Mondrian-Broadway-Boogie-Woogie
+    - [ ] Malevich-Black-Square
+    - [ ] Malevich-White-on-White
+
+  - [ ] Surrealism
+    - [ ] Dalí-The-Persistence-of-Memory
+    - [ ] Dalí-The-Elephants
+    - [ ] Dalí-The-Temptation-of-St-Anthony
+    - [ ] Magritte-The-Son-of-Man
+    - [ ] Magritte-The-Treachery-of-Images
+    - [ ] Magritte-Golconda
+    - [ ] Ernst-The-Elephant-Celebes
+    - [ ] Miró-The-Farm
+    - [ ] Miró-Harlequin's-Carnival
+
+  - [ ] American Classics
+    - [ ] Hopper-Nighthawks
+    - [ ] Hopper-Gas
+    - [ ] Hopper-Morning-Sun
+    - [ ] Wood-American-Gothic
+    - [ ] Whistler-Arrangement-in-Grey-and-Black
+    - [ ] Sargent-Madame-X
+    - [ ] Cassatt-The-Child's-Bath
+    - [ ] Homer-The-Gulf-Stream
+    - [ ] Pollock-No-5-1948
+    - [ ] Pollock-Autumn-Rhythm
+    - [ ] Rothko-Orange-Red-Yellow
+    - [ ] Warhol-Campbell's-Soup-Cans
+    - [ ] Warhol-Marilyn-Diptych
+    - [ ] Lichtenstein-Whaam!
+    - [ ] Hopper-Room-in-New-York
+
+  - [ ] Other Notable Artists
+    - [ ] Munch-The-Scream
+    - [ ] Munch-Madonna
+    - [ ] Schiele-The-Embrace
+    - [ ] Kollwitz-The-Survivors
+    - [ ] Kahlo-The-Two-Fridas
+    - [ ] Kahlo-Self-Portrait-with-Thorn-Necklace
+    - [ ] Rivera-Man-at-the-Crossroads
+    - [ ] O'Keeffe-Jimson-Weed
+    - [ ] O'Keeffe-Sky-Above-Clouds
+    - [ ] Bacon-Three-Studies-for-Figures-at-the-Base-of-a-Crucifixion
+    - [ ] Freud-Benefits-Supervisor-Sleeping
+    - [ ] Hockney-A-Bigger-Splash
+    - [ ] Richter-Betty
+    - [ ] Basquiat-Untitled-1982
 
 ---
 
-- [X] Kanagawa
-    - [X] Paper
-        - [X] Crimson Night
-        - [X] Dawn
-        - [X] Dragon
-        - [X] Eclipse
-        - [X] Nightfall
-        - [X] Obsidian
-        - [X] Storm
-        - [X] Sunset
+- [ ] Music Genres
+  - [ ] Rock & Derivatives
+    - [ ] Rock-and-Roll
+    - [ ] Classic Rock
+    - [ ] Hard Rock
+    - [ ] Progressive Rock
+    - [ ] Psychedelic Rock
+    - [ ] Glam Rock
+    - [ ] Art Rock
+    - [ ] Arena Rock
+    - [ ] Southern Rock
+    - [ ] Garage Rock
+    - [ ] Surf Rock
+    - [ ] Rockabilly
+    - [ ] Blues Rock
+    - [ ] Folk Rock
+    - [ ] Indie Rock
+    - [ ] Alternative Rock
+    - [ ] Post-Rock
+    - [ ] Math Rock
+    - [ ] Noise Rock
+    - [ ] Shoegaze
+    - [ ] Dream Pop
+    - [ ] Britpop
+    - [ ] Grunge
+    - [ ] Post-Grunge
+
+  - [ ] Metal & Subgenres
+    - [ ] Heavy Metal
+    - [ ] Thrash Metal
+    - [ ] Death Metal
+    - [ ] Black Metal
+    - [ ] Doom Metal
+    - [ ] Sludge Metal
+    - [ ] Stoner Metal
+    - [ ] Power Metal
+    - [ ] Progressive Metal
+    - [ ] Symphonic Metal
+    - [ ] Gothic Metal
+    - [ ] Industrial Metal
+    - [ ] Nu Metal
+    - [ ] Metalcore
+    - [ ] Deathcore
+    - [ ] Djent
+    - [ ] Folk Metal
+    - [ ] Viking Metal
+    - [ ] Blackgaze
+    - [ ] Drone Metal
+    - [ ] Post-Metal
+
+  - [ ] Punk & Hardcore
+    - [ ] Punk Rock
+    - [ ] Post-Punk
+    - [ ] Hardcore Punk
+    - [ ] Anarcho-Punk
+    - [ ] Crust Punk
+    - [ ] D-Beat
+    - [ ] Pop Punk
+    - [ ] Skate Punk
+    - [ ] Street Punk
+    - [ ] Horror Punk
+    - [ ] Psychobilly
+    - [ ] Cowpunk
+    - [ ] Grindcore
+    - [ ] Powerviolence
+    - [ ] Screamo
+    - [ ] Emo
+    - [ ] Emocore
+    - [ ] Post-Hardcore
+
+  - [ ] Electronic & Dance
+    - [ ] Deep House
+    - [ ] Tech House
+    - [ ] Progressive House
+    - [ ] Techno
+    - [ ] Detroit Techno
+    - [ ] Minimal Techno
+    - [ ] Trance
+    - [ ] Psytrance
+    - [ ] Goa Trance
+    - [ ] Drum and Bass
+    - [ ] Jungle
+    - [ ] Dubstep
+    - [ ] Brostep
+    - [ ] Riddim
+    - [ ] Breakbeat
+    - [ ] Big Beat
+    - [ ] Trip Hop
+    - [ ] Downtempo
+    - [ ] Chillout
+    - [ ] Ambient
+    - [ ] Dark Ambient
+    - [ ] IDM (Intelligent Dance Music)
+    - [ ] Glitch
+    - [ ] Synthwave
+    - [ ] Vaporwave
+    - [ ] Future Bass
+    - [ ] Trap (Electronic)
+    - [ ] Hardstyle
+    - [ ] Gabber
+    - [ ] Speedcore
+    - [ ] UK Garage
+    - [ ] Grime
+    - [ ] Electro
+    - [ ] Electroclash
+    - [ ] Industrial (Electronic)
+    - [ ] EBM (Electronic Body Music)
+    - [ ] Witch House
+
+  - [ ] Hip-Hop & Rap
+    - [ ] Old School Hip-Hop
+    - [ ] Golden Age Hip-Hop
+    - [ ] Boom Bap
+    - [ ] Conscious Hip-Hop
+    - [ ] Gangsta Rap
+    - [ ] G-Funk
+    - [ ] West Coast Hip-Hop
+    - [ ] East Coast Hip-Hop
+    - [ ] Southern Hip-Hop
+    - [ ] Trap (Hip-Hop)
+    - [ ] Drill
+    - [ ] Mumble Rap
+    - [ ] Cloud Rap
+    - [ ] Lo-fi Hip-Hop
+    - [ ] Jazz Rap
+    - [ ] Alternative Hip-Hop
+    - [ ] Underground Hip-Hop
+    - [ ] Horrorcore
+    - [ ] Crunk
+    - [ ] Hyphy
+    - [ ] Chopped and Screwed
+
+  - [ ] Jazz & Blues
+    - [ ] Traditional Jazz
+    - [ ] Swing
+    - [ ] Bebop
+    - [ ] Cool Jazz
+    - [ ] Hard Bop
+    - [ ] Modal Jazz
+    - [ ] Free Jazz
+    - [ ] Fusion
+    - [ ] Smooth Jazz
+    - [ ] Acid Jazz
+    - [ ] Nu Jazz
+    - [ ] Delta Blues
+    - [ ] Chicago Blues
+    - [ ] Electric Blues
+    - [ ] Blues Rock
+    - [ ] Soul Blues
+
+  - [ ] Soul, Funk & R&B
+    - [ ] Soul
+    - [ ] Neo Soul
+    - [ ] Northern Soul
+    - [ ] Funk
+    - [ ] P-Funk
+    - [ ] Funk Rock
+    - [ ] R&B
+    - [ ] Contemporary R&B
+    - [ ] Quiet Storm
+    - [ ] New Jack Swing
+    - [ ] Motown
+
+  - [ ] Pop & Mainstream
+    - [ ] Pop
+    - [ ] Synthpop
+    - [ ] Electropop
+    - [ ] Dance-Pop
+    - [ ] Teen Pop
+    - [ ] K-Pop
+    - [ ] J-Pop
+    - [ ] Bubblegum Pop
+    - [ ] Power Pop
+    - [ ] Bedroom Pop
+    - [ ] Hyperpop
+
+  - [ ] Folk & Country
+    - [ ] Folk
+    - [ ] Contemporary Folk
+    - [ ] Folk Punk
+    - [ ] Neofolk
+    - [ ] Dark Folk
+    - [ ] Country
+    - [ ] Outlaw Country
+    - [ ] Alt-Country
+    - [ ] Bluegrass
+    - [ ] Americana
+    - [ ] Country Rock
+    - [ ] Honky Tonk
+
+  - [ ] Classical & Orchestral
+    - [ ] Baroque Music
+    - [ ] Classical Period
+    - [ ] Romantic Period
+    - [ ] Modern Classical
+    - [ ] Contemporary Classical
+    - [ ] Minimalism (Classical)
+    - [ ] Serialism
+    - [ ] Opera
+    - [ ] Chamber Music
+    - [ ] Symphonic
+
+  - [ ] Latin & World
+    - [ ] Reggae
+    - [ ] Dub
+    - [ ] Dancehall
+    - [ ] Ska
+    - [ ] Salsa
+    - [ ] Bachata
+    - [ ] Merengue
+    - [ ] Cumbia
+    - [ ] Bossa Nova
+    - [ ] Samba
+    - [ ] Tango
+    - [ ] Flamenco
+    - [ ] Fado
+    - [ ] Afrobeat
+    - [ ] Highlife
+    - [ ] Soukous
+    - [ ] Mbalax
+    - [ ] Reggaeton
+    - [ ] Latin Trap
+
+  - [ ] Alternative & Experimental
+    - [ ] Avant-Garde
+    - [ ] Experimental
+    - [ ] Noise
+    - [ ] Power Noise
+    - [ ] Musique Concrète
+    - [ ] Drone
+    - [ ] Dark Wave
+    - [ ] Coldwave
+    - [ ] Ethereal Wave
+    - [ ] Gothic Rock
+    - [ ] Deathrock
+    - [ ] Post-Industrial
+    - [ ] Neofolk
+    - [ ] Martial Industrial
+    - [ ] Dungeon Synth
+    - [ ] Vaporwave
+    - [ ] Seapunk
+    - [ ] Phonk
+    - [ ] Breakcore
+    - [ ] Speedcore
+    - [ ] Harsh Noise Wall
+
+  - [ ] Misc & Fusion
+    - [ ] Chillwave
+    - [ ] Future Garage
+    - [ ] Footwork
+    - [ ] Juke
+    - [ ] Vogue
+    - [ ] Ballroom
+    - [ ] New Wave
+    - [ ] Synth-punk
+    - [ ] No Wave
+    - [ ] Krautrock
+    - [ ] Space Rock
+    - [ ] Stoner Rock
+    - [ ] Desert Rock
+    - [ ] Yacht Rock
+    - [ ] City Pop
+    - [ ] Shibuya-kei
+    - [ ] Hauntology
+    - [ ] Hardvapour
+
+---
+
+- [ ] Album Covers
+  - [ ] American HipHop
+    - [ ] J. Cole, KOD
+
+---
+
+- [ ] Mythology
+  - [ ] Norse Myths
+    - [ ] Jormungandr
+
+---
+
+- [ ] Sports
+  - [ ] Basketball
+    - [ ] NBA
+      - [ ] Golden State Warriors
+
+---
+
+- [ ] Cities
+  - [ ] America
+    - [ ] Chicago 70s
+
+---
+
+- [ ] Literatures
+  - [ ] Europe
+    - [ ] Dante's Inferno
+
+---
+
+- [x] Punk Cultures
+  - [x] Cyber Punk
+  - [x] Steam Punk
+  - [x] Diesel Punk
+  - [x] Solar Punk
+  - [x] Tech Punk
+  - [x] Clock Punk
+  - [x] Atom Punk
+  - [x] Bio Punk
+  - [x] Deco Punk
+  - [x] Stone Punk
+  - [x] Splatter Punk
+  - [x] Nano Punk
+  - [x] Aqua Punk
+  - [x] Gothic Punk
+  - [x] Junk Punk
+  - [x] Acid Punk
+  - [x] Dusk Punk
+  - [x] Cryo Punk
+  - [x] Jungle Punk
+
+---
+
+- [x] Legacy Nvim Themes
+  - [x] sorbet
+  - [x] retrobox
+  - [x] quiet
+  - [x] habamax
+  - [x] slate
+
+---
+
+- [x] Kanagawa
+  - [x] Paper
+    - [x] Crimson Night
+    - [x] Dawn
+    - [x] Dragon
+    - [x] Eclipse
+    - [x] Nightfall
+    - [x] Obsidian
+    - [x] Storm
+    - [x] Sunset
 
 ---
 
 - [ ] Gruvbox
-    - [ ] gruvbox dark
-    - [ ] gruvbox dark-hard
-    - [ ] gruvbox dark-medium
-    - [ ] gruvbox dark-soft
-    - [ ] gruvbox material-dark
-    - [ ] gruvbox material-dark-hard
-    - [ ] gruvbox material-dark-medium
-    - [ ] gruvbox material-dark-soft
-    - [ ] gruvbox
+  - [ ] gruvbox dark
+  - [ ] gruvbox dark-hard
+  - [ ] gruvbox dark-medium
+  - [ ] gruvbox dark-soft
+  - [ ] gruvbox material-dark
+  - [ ] gruvbox material-dark-hard
+  - [ ] gruvbox material-dark-medium
+  - [ ] gruvbox material-dark-soft
+  - [ ] gruvbox
 
 ---
 
 - [ ] fox
-    - [ ] nightfox
-    - [ ] duskfox
-    - [ ] nordfox
-    - [ ] terafox
-    - [ ] carbonfox
+  - [ ] nightfox
+  - [ ] duskfox
+  - [ ] nordfox
+  - [ ] terafox
+  - [ ] carbonfox
 
 ---
 
 - [ ] catppuccin
-    - [ ] base16-catppuccin
-    - [ ] base16-catppuccin-macchiato
-    - [ ] base16-catppuccin-mocha
-    - [ ] base16-da-one-ocean
+  - [ ] base16-catppuccin
+  - [ ] base16-catppuccin-macchiato
+  - [ ] base16-catppuccin-mocha
+  - [ ] base16-da-one-ocean
 
 ---
 
-- [X] Visual Dopamine Detox (Low Blue Color Reliance)
-    - [X] 1998term
-    - [X] Ash
-    - [X] Bone
-    - [X] Bunker
-    - [X] Clay
-    - [X] Coal
-    - [X] Concrete
-    - [X] Copper
-    - [X] Dust
-    - [X] Ember
-    - [X] Fog
-    - [X] Frost
-    - [X] Glass
-    - [X] Ink
-    - [X] Iron
-    - [X] Jade
-    - [X] Linen
-    - [X] Mercury
-    - [X] Moss
-    - [X] Moth
-    - [X] Mute
-    - [X] Paper
-    - [X] Petal
-    - [X] Plaster
-    - [X] Prison
-    - [X] Rain
-    - [X] Rust
-    - [X] Scar
-    - [X] Sepia
-    - [X] Shadow
-    - [X] Silk
-    - [X] Silt
-    - [X] Slate
-    - [X] Smoke
-    - [X] Sterile
-    - [X] Stone
-    - [X] Void
-    - [X] Wool
-    - [X] Zen Kanagawa
-    - [X] Zen Paper
+- [x] Visual Dopamine Detox (Low Blue Color Reliance)
+  - [x] 1998term
+  - [x] Ash
+  - [x] Bone
+  - [x] Bunker
+  - [x] Clay
+  - [x] Coal
+  - [x] Concrete
+  - [x] Copper
+  - [x] Dust
+  - [x] Ember
+  - [x] Fog
+  - [x] Frost
+  - [x] Glass
+  - [x] Ink
+  - [x] Iron
+  - [x] Jade
+  - [x] Linen
+  - [x] Mercury
+  - [x] Moss
+  - [x] Moth
+  - [x] Mute
+  - [x] Paper
+  - [x] Petal
+  - [x] Plaster
+  - [x] Prison
+  - [x] Rain
+  - [x] Rust
+  - [x] Scar
+  - [x] Sepia
+  - [x] Shadow
+  - [x] Silk
+  - [x] Silt
+  - [x] Slate
+  - [x] Smoke
+  - [x] Sterile
+  - [x] Stone
+  - [x] Void
+  - [x] Wool
+  - [x] Zen Kanagawa
+  - [x] Zen Paper
