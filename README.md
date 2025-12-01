@@ -1,6 +1,6 @@
 # PrismPunk.nvim
 
-A Neovim colorscheme plugin inspired by legendary characters from DC, Marvel, mythology, and cinema.
+A NeoVim cclorscheme plugin including: Impressionism, Kanagawa, Michelangelo from TMNT, DecoPunk, & so many more...
 
 ## Installation
 
