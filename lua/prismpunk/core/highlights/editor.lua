@@ -111,6 +111,10 @@ function M.apply(c, _config)
   hl("SpellCap", { sp = s.diag.warning, undercurl = true })
   hl("SpellRare", { sp = s.diag.info, undercurl = true })
   hl("SpellLocal", { sp = s.diag.hint, undercurl = true })
+
+  hl("Whitespace", { fg = s.ui.nontext or nontext })
+  hl("NormalSB", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
+  hl("SignColumnSB", { fg = s.ui.line_nr, bg = s.ui.bg_dim })
 end
 
 return M
