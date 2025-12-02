@@ -458,8 +458,41 @@
     - [ ] Star Lord
     - [ ] Yondu
 
+  - [ ] Spider-Verse
+    - [ ] Miles Morales
+    - [ ] Peter B. Parker
+    - [ ] Gwen Stacy (Spider-Gwen / Ghost-Spider)
+    - [ ] Miguel O’Hara (Spider-Man 2099)
+    - [ ] Spider-Man Noir
+    - [ ] Peni Parker
+    - [ ] Peter Porker (Spider-Ham)
+    - [ ] Pavitr Prabhakar (Spider-Man India)
+    - [ ] Hobie Brown (Spider-Punk)
+    - [ ] Jessica Drew (Spider-Woman)
+    - [ ] Cindy Moon (Silk)
+    - [ ] Ben Reilly (Scarlet Spider)
+    - [ ] May "Mayday" Parker (Spider-Girl)
+    - [ ] Spider-UK
+    - [ ] Spider-Byte
+
   - [ ] X-Men
     - [ ] Rogue
+    - [ ] Wolverine
+    - [ ] Cyclops
+    - [ ] Jean Grey
+    - [ ] Storm
+    - [ ] Gambit
+    - [ ] Nightcrawler
+    - [ ] Colossus
+    - [ ] Jubilee
+    - [ ] Psylocke
+    - [ ] Emma Frost
+    - [ ] Magneto
+    - [ ] Professor X
+    - [ ] Cable
+    - [ ] Bishop
+    - [ ] Mystique
+    - [ ] Apocalypse
 
 ---
 
@@ -1159,15 +1192,668 @@
 ---
 
 - [ ] Mythology
-  - [ ] Norse Myths
-    - [ ] Jormungandr
+  - [ ] Greek Mythology
+    - [ ] Olympian Gods
+      - [ ] Zeus
+      - [ ] Hera
+      - [ ] Poseidon
+      - [ ] Demeter
+      - [ ] Athena
+      - [ ] Apollo
+      - [ ] Artemis
+      - [ ] Ares
+      - [ ] Aphrodite
+      - [ ] Hephaestus
+      - [ ] Hermes
+      - [ ] Dionysus
+      - [ ] Hestia
+    - [ ] Titans
+      - [ ] Cronus
+      - [ ] Rhea
+      - [ ] Oceanus
+      - [ ] Tethys
+      - [ ] Hyperion
+      - [ ] Theia
+      - [ ] Coeus
+      - [ ] Phoebe
+      - [ ] Mnemosyne
+      - [ ] Themis
+      - [ ] Crius
+      - [ ] Iapetus
+      - [ ] Atlas
+      - [ ] Prometheus
+      - [ ] Epimetheus
+      - [ ] Metis
+      - [ ] Leto
+      - [ ] Asteria
+      - [ ] Helios
+      - [ ] Selene
+      - [ ] Eos
+    - [ ] Primordial Deities
+      - [ ] Chaos
+      - [ ] Gaia
+      - [ ] Tartarus
+      - [ ] Eros (Primordial)
+      - [ ] Erebus
+      - [ ] Nyx
+      - [ ] Aether
+      - [ ] Hemera
+      - [ ] Uranus
+      - [ ] Pontus
+      - [ ] Ourea
+      - [ ] Phanes
+      - [ ] Ananke
+      - [ ] Chronos (Primordial Time)
+    - [ ] Underworld Deities
+      - [ ] Hades
+      - [ ] Persephone
+      - [ ] Thanatos
+      - [ ] Hypnos
+      - [ ] Charon
+      - [ ] Cerberus
+      - [ ] Hecate
+      - [ ] The Furies (Erinyes)
+      - [ ] The Fates (Moirai)
+      - [ ] Styx
+      - [ ] Acheron
+      - [ ] Lethe
+      - [ ] Phlegethon
+      - [ ] Cocytus
+      - [ ] Minos
+      - [ ] Rhadamanthus
+      - [ ] Aeacus
+    - [ ] Heroes
+      - [ ] Heracles
+      - [ ] Perseus
+      - [ ] Theseus
+      - [ ] Achilles
+      - [ ] Odysseus
+      - [ ] Jason
+      - [ ] Bellerophon
+      - [ ] Orpheus
+      - [ ] Cadmus
+      - [ ] Atalanta
+      - [ ] Castor-and-Pollux
+      - [ ] Diomedes
+      - [ ] Ajax-the-Greater
+      - [ ] Ajax-the-Lesser
+      - [ ] Patroclus
+      - [ ] Hector
+      - [ ] Aeneas
+      - [ ] Meleager
+      - [ ] Peleus
+      - [ ] Telamon
+    - [ ] Monsters and Creatures
+      - [ ] Medusa
+      - [ ] Minotaur
+      - [ ] Hydra
+      - [ ] Chimera
+      - [ ] Typhon
+      - [ ] Echidna
+      - [ ] Scylla
+      - [ ] Charybdis
+      - [ ] Sphinx
+      - [ ] Cyclopes
+      - [ ] Centaurs
+      - [ ] Sirens
+      - [ ] Harpies
+      - [ ] Gorgons
+      - [ ] Pegasus
+      - [ ] Griffin
+      - [ ] Nemean-Lion
+      - [ ] Erymanthian-Boar
+      - [ ] Stymphalian-Birds
+      - [ ] Cretan-Bull
+      - [ ] Cerynian-Hind
+      - [ ] Ladon
+      - [ ] Python
+      - [ ] Orthrus
+      - [ ] Geryon
+      - [ ] Empusa
+      - [ ] Lamia
+      - [ ] Manticore
+      - [ ] Basilisk
+    - [ ] Minor Deities and Spirits
+      - [ ] Pan
+      - [ ] Asclepius
+      - [ ] Eros (God of Love)
+      - [ ] Psyche
+      - [ ] Nike
+      - [ ] Iris
+      - [ ] Hecate
+      - [ ] Hebe
+      - [ ] Eileithyia
+      - [ ] The Muses
+      - [ ] The Graces (Charites)
+      - [ ] The Horae
+      - [ ] Morpheus
+      - [ ] Nemesis
+      - [ ] Tyche
+      - [ ] Eris
+      - [ ] Deimos
+      - [ ] Phobos
+      - [ ] Harmonia
+      - [ ] Persephone
+      - [ ] Triton
+      - [ ] Proteus
+      - [ ] Nereus
+      - [ ] The Nereids
+      - [ ] Naiads
+      - [ ] Dryads
+      - [ ] Oreads
+      - [ ] Oceanids
+      - [ ] Satyrs
+      - [ ] Sileni
+      - [ ] Nymphs
+    - [ ] Legendary Artifacts
+      - [ ] Aegis
+      - [ ] Thunderbolt-of-Zeus
+      - [ ] Trident-of-Poseidon
+      - [ ] Helm-of-Darkness
+      - [ ] Golden-Fleece
+      - [ ] Caduceus
+      - [ ] Winged-Sandals-of-Hermes
+      - [ ] Bow-of-Artemis
+      - [ ] Lyre-of-Apollo
+      - [ ] Shield-of-Achilles
+      - [ ] Sword-of-Perseus
+      - [ ] Adamantine-Sickle
+      - [ ] Cornucopia
+      - [ ] Pandora's-Box
+      - [ ] Apple-of-Discord
+      - [ ] Thread-of-Ariadne
+
+  - [ ] Norse Mythology
+    - [ ] Aesir Gods
+      - [ ] Odin
+      - [ ] Thor
+      - [ ] Frigg
+      - [ ] Baldur
+      - [ ] Tyr
+      - [ ] Heimdall
+      - [ ] Bragi
+      - [ ] Idun
+      - [ ] Vidar
+      - [ ] Vali
+      - [ ] Forseti
+      - [ ] Ullr
+      - [ ] Hodr
+      - [ ] Hermod
+      - [ ] Magni
+      - [ ] Modi
+    - [ ] Vanir Gods
+      - [ ] Freyr
+      - [ ] Freyja
+      - [ ] Njord
+      - [ ] Nerthus
+      - [ ] Gullveig
+      - [ ] Kvasir
+    - [ ] Giants (Jotnar)
+      - [ ] Ymir
+      - [ ] Surtr
+      - [ ] Thrym
+      - [ ] Utgard-Loki
+      - [ ] Skrymir
+      - [ ] Hrungnir
+      - [ ] Geirrod
+      - [ ] Thiazi
+      - [ ] Skadi
+      - [ ] Mimir
+      - [ ] Angrboda
+      - [ ] Bergelmir
+      - [ ] Hyrrokkin
+    - [ ] Trickster and Chaos
+      - [ ] Loki
+      - [ ] Sigyn
+      - [ ] Hel
+      - [ ] Fenrir
+      - [ ] Jormungandr
+      - [ ] Sleipnir
+      - [ ] Narfi
+      - [ ] Vali (Loki's son)
+    - [ ] Valkyries and Warriors
+      - [ ] Brunhilde
+      - [ ] Gunnr
+      - [ ] Hildr
+      - [ ] Gondul
+      - [ ] Skogul
+      - [ ] Rota
+      - [ ] Sigrdrífa
+      - [ ] Kara
+    - [ ] Heroes and Legendary Figures
+      - [ ] Sigurd
+      - [ ] Beowulf
+      - [ ] Ragnar-Lothbrok
+      - [ ] Ivar-the-Boneless
+      - [ ] Bjorn-Ironside
+      - [ ] Erik-the-Red
+      - [ ] Leif-Erikson
+      - [ ] Starkad
+      - [ ] Hrolf-Kraki
+    - [ ] Creatures and Monsters
+      - [ ] Nidhogg
+      - [ ] Ratatoskr
+      - [ ] The-Four-Stags
+      - [ ] Eikthyrnir
+      - [ ] Heidrun
+      - [ ] Garmr
+      - [ ] Sköll
+      - [ ] Hati
+      - [ ] Draugr
+      - [ ] Fossegrim
+      - [ ] Huldra
+      - [ ] Trolls
+      - [ ] Dwarves
+      - [ ] Dark-Elves
+      - [ ] Light-Elves
+      - [ ] Norns
+      - [ ] Lindworm
+      - [ ] Sea-Serpents
+      - [ ] Kraken
+    - [ ] Cosmic Entities and Places
+      - [ ] Yggdrasil
+      - [ ] The-Nine-Realms
+      - [ ] Asgard
+      - [ ] Midgard
+      - [ ] Vanaheim
+      - [ ] Jotunheim
+      - [ ] Alfheim
+      - [ ] Svartalfheim
+      - [ ] Niflheim
+      - [ ] Muspelheim
+      - [ ] Helheim
+      - [ ] Bifrost
+      - [ ] Valhalla
+      - [ ] Folkvangr
+      - [ ] Well-of-Urd
+      - [ ] Well-of-Mimir
+      - [ ] Hvergelmir
+    - [ ] Legendary Artifacts
+      - [ ] Mjolnir
+      - [ ] Gungnir
+      - [ ] Draupnir
+      - [ ] Gleipnir
+      - [ ] Brisingamen
+      - [ ] Gjallarhorn
+      - [ ] Tyrfing
+      - [ ] Gram
+      - [ ] Andvaranaut
+      - [ ] Skíðblaðnir
+      - [ ] Naglfar
+      - [ ] Gullinbursti
+      - [ ] Hildisvini
+  - [ ] Japanese Mythology
+    - [ ] Major Kami (Shinto Deities)
+      - [ ] Amaterasu
+      - [ ] Tsukuyomi
+      - [ ] Susanoo
+      - [ ] Izanagi
+      - [ ] Izanami
+      - [ ] Ame-no-Uzume
+      - [ ] Inari
+      - [ ] Hachiman
+      - [ ] Raijin
+      - [ ] Fujin
+      - [ ] Ryujin
+      - [ ] Ebisu
+      - [ ] Daikokuten
+      - [ ] Benzaiten
+      - [ ] Bishamonten
+      - [ ] Fukurokuju
+      - [ ] Jurojin
+      - [ ] Hotei
+      - [ ] Kagutsuchi
+      - [ ] Ōkuninushi
+      - [ ] Sarutahiko
+      - [ ] Ame-no-Tajikarao
+      - [ ] Konohanasakuya-hime
+      - [ ] Toyotama-hime
+    - [ ] Yokai (Supernatural Creatures)
+      - [ ] Kitsune
+      - [ ] Tengu
+      - [ ] Oni
+      - [ ] Kappa
+      - [ ] Tanuki
+      - [ ] Nekomata
+      - [ ] Bakeneko
+      - [ ] Inugami
+      - [ ] Jorōgumo
+      - [ ] Yuki-onna
+      - [ ] Rokurokubi
+      - [ ] Noppera-bo
+      - [ ] Kuchisake-onna
+      - [ ] Gashadokuro
+      - [ ] Nurikabe
+      - [ ] Tsukumogami
+      - [ ] Kodama
+      - [ ] Nue
+      - [ ] Raiju
+      - [ ] Baku
+      - [ ] Kamaitachi
+      - [ ] Ushi-oni
+      - [ ] Tsuchigumo
+      - [ ] Akaname
+      - [ ] Azuki-arai
+    - [ ] Dragons and Serpents
+      - [ ] Yamata-no-Orochi
+      - [ ] Mizuchi
+      - [ ] Tatsu
+      - [ ] Watatsumi
+    - [ ] Heroes and Legendary Figures
+      - [ ] Momotaro
+      - [ ] Kintaro
+      - [ ] Yamato-Takeru
+      - [ ] Urashima-Taro
+      - [ ] Minamoto-no-Yorimitsu
+      - [ ] Minamoto-no-Yoshitsune
+      - [ ] Benkei
+      - [ ] Tomoe-Gozen
+      - [ ] Jimmu
+    - [ ] Legendary Artifacts
+      - [ ] Kusanagi-no-Tsurugi
+      - [ ] Yata-no-Kagami
+      - [ ] Yasakani-no-Magatama
+      - [ ] Ame-no-Habakiri
+      - [ ] Tonbogiri
+  - [ ] Persian Mythology
+    - [ ] Ahuras (Good Deities)
+      - [ ] Ahura-Mazda
+      - [ ] Mithra
+      - [ ] Anahita
+      - [ ] Sraosha
+      - [ ] Atar
+      - [ ] Rashnu
+      - [ ] Spenta-Mainyu
+      - [ ] Amesha-Spentas
+      - [ ] Vohu-Manah
+      - [ ] Asha-Vahishta
+      - [ ] Khshathra-Vairya
+      - [ ] Spenta-Armaiti
+      - [ ] Haurvatat
+      - [ ] Ameretat
+    - [ ] Daevas (Evil Spirits)
+      - [ ] Ahriman (Angra-Mainyu)
+      - [ ] Aeshma
+      - [ ] Aka-Manah
+      - [ ] Druj
+      - [ ] Indra (Persian version)
+      - [ ] Jahi
+      - [ ] Zarich
+      - [ ] Taromaiti
+    - [ ] Heroes and Legendary Figures
+      - [ ] Rostam
+      - [ ] Sohrab
+      - [ ] Zal
+      - [ ] Simurgh
+      - [ ] Kavi-Usan
+      - [ ] Jamshid
+      - [ ] Fereydun
+      - [ ] Zahhak
+      - [ ] Esfandiyar
+      - [ ] Garshasp
+      - [ ] Manuchehr
+    - [ ] Creatures and Beasts
+      - [ ] Simurgh
+      - [ ] Huma
+      - [ ] Roc (Rukh)
+      - [ ] Manticore
+      - [ ] Div
+      - [ ] Peri
+      - [ ] Azi-Dahaka
+      - [ ] Gavaevodata
+      - [ ] Haoma
+      - [ ] Chamrosh
+      - [ ] Karkadann
+    - [ ] Cosmic Entities
+      - [ ] Saoshyant
+      - [ ] Fravashi
+      - [ ] Chinvat-Bridge
+
+  - [ ] Chinese Mythology
+    - [ ] Supreme and Celestial Deities
+      - [ ] Yuanshi-Tianzun
+      - [ ] Jade-Emperor
+      - [ ] Three-Pure-Ones
+      - [ ] Shangdi
+      - [ ] Tian
+      - [ ] Xi-Wangmu (Queen Mother of the West)
+      - [ ] Dongwanggong
+      - [ ] Pangu
+      - [ ] Nuwa
+      - [ ] Fuxi
+      - [ ] Shennong
+      - [ ] Yellow-Emperor (Huangdi)
+      - [ ] Guan-Yu
+      - [ ] Zhong-Kui
+    - [ ] Buddhist Deities (Chinese)
+      - [ ] Guanyin
+      - [ ] Amitabha
+      - [ ] Maitreya
+      - [ ] Four-Heavenly-Kings
+      - [ ] Samantabhadra
+      - [ ] Manjusri
+      - [ ] Ksitigarbha
+    - [ ] Nature and Element Deities
+      - [ ] Dragon-King-of-the-East-Sea
+      - [ ] Dragon-King-of-the-South-Sea
+      - [ ] Dragon-King-of-the-West-Sea
+      - [ ] Dragon-King-of-the-North-Sea
+      - [ ] Lei-Gong (Thunder God)
+      - [ ] Dian-Mu (Lightning Goddess)
+      - [ ] Feng-Bo (Wind God)
+      - [ ] Yu-Shi (Rain God)
+    - [ ] Underworld Deities
+      - [ ] Yanluo-Wang (King Yama)
+      - [ ] Ten-Kings-of-Hell
+      - [ ] Meng-Po
+      - [ ] Ox-Head-and-Horse-Face
+      - [ ] Black-and-White-Impermanence
+    - [ ] Immortals and Sages
+      - [ ] Eight-Immortals
+        - [ ] He-Xiangu
+        - [ ] Cao-Guojiu
+        - [ ] Li-Tieguai
+        - [ ] Lan-Caihe
+        - [ ] Lu-Dongbin
+        - [ ] Han-Xiangzi
+        - [ ] Zhang-Guolao
+        - [ ] Zhongli-Quan
+      - [ ] Laozi
+      - [ ] Chang'e
+      - [ ] Houyi
+      - [ ] Erlang-Shen
+    - [ ] Legendary Heroes (Journey to the West)
+      - [ ] Sun-Wukong (Monkey King)
+      - [ ] Tang-Sanzang (Xuanzang)
+      - [ ] Zhu-Bajie (Pigsy)
+      - [ ] Sha-Wujing (Sandy)
+      - [ ] Baijing-Dragon-Horse
+    - [ ] Dragons
+      - [ ] Azure-Dragon
+      - [ ] Yellow-Dragon
+      - [ ] Chinese-Dragon (Long)
+      - [ ] Fucanglong
+      - [ ] Tianlong
+      - [ ] Shenlong
+      - [ ] Dilong
+      - [ ] Yinglong
+      - [ ] Jiaolong
+      - [ ] Panlong
+      - [ ] Qinglong
+      - [ ] Zhulong
+    - [ ] Four Symbols
+      - [ ] Azure-Dragon (East)
+      - [ ] Vermillion-Bird (South)
+      - [ ] White-Tiger (West)
+      - [ ] Black-Tortoise (North)
+    - [ ] Mythical Creatures
+      - [ ] Phoenix (Fenghuang)
+      - [ ] Qilin
+      - [ ] Pixiu
+      - [ ] Bai-Ze
+      - [ ] Xiezhi
+      - [ ] Luduan
+      - [ ] Bixi
+      - [ ] Taotie
+      - [ ] Hundun
+      - [ ] Qiongqi
+      - [ ] Taowu
+      - [ ] Nine-Tailed-Fox
+      - [ ] Nian
+      - [ ] Bingfeng
+      - [ ] Jingwei
+      - [ ] Kun
+      - [ ] Peng
+    - [ ] Legendary Artifacts
+      - [ ] Ruyi-Jingu-Bang
+      - [ ] Golden-Cudgel
+      - [ ] Elixir-of-Immortality
+      - [ ] Peaches-of-Immortality
+      - [ ] Cintamani
+  - [ ] Egyptian Mythology
+    - [ ] Major Gods
+      - [ ] Ra
+      - [ ] Amun
+      - [ ] Amun-Ra
+      - [ ] Osiris
+      - [ ] Isis
+      - [ ] Horus
+      - [ ] Set
+      - [ ] Anubis
+      - [ ] Thoth
+      - [ ] Ptah
+      - [ ] Hathor
+      - [ ] Bastet
+      - [ ] Sekhmet
+      - [ ] Nephthys
+      - [ ] Ma'at
+      - [ ] Nut
+      - [ ] Geb
+      - [ ] Shu
+      - [ ] Tefnut
+      - [ ] Khnum
+      - [ ] Sobek
+      - [ ] Khonsu
+      - [ ] Atum
+      - [ ] Bes
+      - [ ] Taweret
+      - [ ] Min
+      - [ ] Montu
+      - [ ] Neith
+      - [ ] Serqet
+      - [ ] Wadjet
+      - [ ] Nekhbet
+    - [ ] Underworld Deities
+      - [ ] Osiris (Lord of the Dead)
+      - [ ] Anubis (Guide of Souls)
+      - [ ] Ammit
+      - [ ] The-42-Judges
+      - [ ] Wepwawet
+      - [ ] Sokar
+    - [ ] Primordial Deities
+      - [ ] Nun
+      - [ ] Naunet
+      - [ ] Heh
+      - [ ] Hauhet
+      - [ ] Kek
+      - [ ] Kauket
+      - [ ] Amun (Primordial)
+      - [ ] Amaunet
+    - [ ] Pharaohs as Divine
+      - [ ] Narmer
+      - [ ] Khufu
+      - [ ] Khafre
+      - [ ] Menkaure
+      - [ ] Akhenaten
+      - [ ] Tutankhamun
+      - [ ] Ramesses-II
+      - [ ] Cleopatra-VII
+    - [ ] Mythical Creatures
+      - [ ] Sphinx
+      - [ ] Bennu (Phoenix)
+      - [ ] Apep (Apophis)
+      - [ ] Serpopard
+      - [ ] Griffin (Egyptian)
+      - [ ] Ba (Soul Bird)
+      - [ ] Akh
+      - [ ] Satet
+      - [ ] Am-heh
+    - [ ] Sacred Animals
+      - [ ] Scarab-Beetle
+      - [ ] Cobra
+      - [ ] Falcon
+      - [ ] Ibis
+      - [ ] Cat
+      - [ ] Crocodile
+      - [ ] Hippopotamus
+      - [ ] Jackal
+      - [ ] Ram
+      - [ ] Bull (Apis)
+    - [ ] Legendary Artifacts
+      - [ ] Ankh
+      - [ ] Eye-of-Horus
+      - [ ] Eye-of-Ra
+      - [ ] Was-Scepter
+      - [ ] Djed-Pillar
+      - [ ] Crook-and-Flail
+      - [ ] Feather-of-Ma'at
+      - [ ] Book-of-the-Dead
+      - [ ] Book-of-Thoth
+
+- [ ] Cross-Cultural Archetypes
+  - [ ] Cosmic Axis and World Trees
+    - [ ] Yggdrasil (Norse)
+    - [ ] Axis-Mundi
+    - [ ] World-Tree (Generic)
+    - [ ] Tree-of-Life (Kabbalah)
+    - [ ] Jian-Mu (Chinese)
+    - [ ] Kalpavriksha (Hindu)
+    - [ ] Ashvattha (Hindu Sacred Fig)
+    - [ ] Irminsul (Germanic)
+    - [ ] Sacred-Oak (Slavic)
+    - [ ] Ceiba-Tree (Mayan)
+    - [ ] Mount-Meru (Hindu/Buddhist)
+    - [ ] Mount-Olympus (Greek)
+    - [ ] Mount-Kunlun (Chinese)
+    - [ ] Cosmic-Mountain
+    - [ ] World-Pillar
+    - [ ] Skambha (Vedic Cosmic Pillar)
 
 ---
 
 - [ ] Sports
   - [ ] Basketball
     - [ ] NBA
+      - [ ] Atlanta Hawks
+      - [ ] Boston Celtics
+      - [ ] Brooklyn Nets
+      - [ ] Charlotte Hornets
+      - [ ] Chicago Bulls
+      - [ ] Cleveland Cavaliers
+      - [ ] Dallas Mavericks
+      - [ ] Denver Nuggets
+      - [ ] Detroit Pistons
       - [ ] Golden State Warriors
+      - [ ] Houston Rockets
+      - [ ] Indiana Pacers
+      - [ ] Los Angeles Clippers
+      - [ ] Los Angeles Lakers
+      - [ ] Memphis Grizzlies
+      - [ ] Miami Heat
+      - [ ] Milwaukee Bucks
+      - [ ] Minnesota Timberwolves
+      - [ ] New Orleans Pelicans
+      - [ ] New York Knicks
+      - [ ] Oklahoma City Thunder
+      - [ ] Orlando Magic
+      - [ ] Philadelphia 76ers
+      - [ ] Phoenix Suns
+      - [ ] Portland Trail Blazers
+      - [ ] Sacramento Kings
+      - [ ] San Antonio Spurs
+      - [ ] Toronto Raptors
+      - [ ] Utah Jazz
+      - [ ] Washington Wizards
 
 ---
 
@@ -1179,7 +1865,20 @@
 
 - [ ] Literatures
   - [ ] Europe
-    - [ ] Dante's Inferno
+    - [ ] The Divine Comedy (full triptych, Dante Alighieri)
+    - [ ] Inferno
+    - [ ] Prgatorio
+    - [ ] Paradiso
+    - [ ] The Iliad (Homer)
+    - [ ] The Odyssey (Homer)
+    - [ ] The Aeneid (Virgil)
+    - [ ] The Count of Monte Cristo (Alexandre Dumas)
+    - [ ] War and Peace (Leo Tolstoy)
+    - [ ] Crime and Punishment (Fyodor Dostoevsky)
+    - [ ] The Brothers Karamazov (Fyodor Dostoevsky)
+    - [ ] Notes from Underground (Fyodor Dostoevsky)
+    - [ ] If on a winter’s night a traveler (Italo Calvino)
+    - [ ] One Hundred Years of Solitude (Gabriel García Márquez)
 
 ---
 
