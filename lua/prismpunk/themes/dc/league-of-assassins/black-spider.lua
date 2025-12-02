@@ -356,7 +356,7 @@ return {
     base0A = palette.spider_venom,
     base0B = palette.web_neon,
     base0C = palette.toxic_emerald,
-    base0D = palette.immortal_teal,
+    base0D = palette.term_white,
     base0E = palette.fatal_red,
     base0F = palette.widow_rage,
   },

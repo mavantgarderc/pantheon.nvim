@@ -351,7 +351,7 @@ return {
     base05 = palette.solar_orange,
     base06 = palette.starfire_skin,
     base07 = palette.starfire_skin,
-    base08 = palette.radiantheat,
+    base08 = palette.radiant_heat,
     base09 = palette.tamaran_gold,
     base0A = palette.starbolt_green,
     base0B = palette.tamaran_emerald,

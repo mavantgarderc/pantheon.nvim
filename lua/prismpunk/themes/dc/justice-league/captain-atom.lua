@@ -208,7 +208,7 @@ return {
     base07 = palette.fg_light,
     base08 = palette.quantumCore,
     base09 = palette.energySurge,
-    base0A = palette.atomSilver,
+    base0A = palette.atomicGlow,
     base0B = palette.plasmaBright,
     base0C = palette.plasmaBright,
     base0D = palette.plasmaBlue,
