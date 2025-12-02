@@ -14,11 +14,14 @@ function M.setup(user_config)
 
   -- Auto-load theme if specified (skip if already loaded by colorscheme command)
   if opts and opts.theme then
-    local success, err = loader.load(opts.theme, {
-      force_reload = true,
-      skip_if_loaded = false, -- setup() always loads
-    })
-    if not success then vim.notify("[prismpunk] Failed to load theme: " .. tostring(err), vim.log.levels.ERROR) end
+    vim.g.colors_name = "prismpunk"
+    vim.schedule(function()
+      local success, err = loader.load(opts.theme, {
+        force_reload = false,
+        skip_if_loaded = false,
+      })
+      if not success then vim.notify("[prismpunk] Failed to load theme: " .. tostring(err), vim.log.levels.ERROR) end
+    end)
   end
 
   return opts

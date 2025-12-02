@@ -21,6 +21,17 @@ local cache_stats = {
   misses = 0,
 }
 
+--- Debug profiling helper
+--- @param label string
+--- @param start_ns integer|nil
+local function debug_profile(label, start_ns)
+  local debug_cfg = config.options.debug or {}
+  if not debug_cfg.profile_startup or not start_ns then return end
+
+  local elapsed_ms = (vim.loop.hrtime() - start_ns) / 1e6
+  vim.notify(string.format("[prismpunk] %s: %.2fms", label, elapsed_ms), vim.log.levels.INFO)
+end
+
 --- @return table
 function M.get_cache_stats()
   local palette_stats = palette.get_cache_stats()
@@ -30,20 +41,6 @@ function M.get_cache_stats()
     highlight_hits = cache_stats.hits,
     highlight_misses = cache_stats.misses,
   }
-end
-
---- Compute highlight cache key
---- @param theme_path string
---- @param palette_table table
---- @param opts table
---- @return string
-local function highlight_cache_key(theme_path, palette_table, opts)
-  local key_parts = {
-    theme_path,
-    vim.inspect(palette_table),
-    vim.inspect(opts),
-  }
-  return vim.fn.sha256(table.concat(key_parts, "||"))
 end
 
 --- Get disk cache path for highlights
@@ -147,6 +144,10 @@ local function resolve_theme_module(spec)
 end
 
 --- Compute highlight cache key (MORE STABLE)
+--- @param theme_path string
+--- @param palette_table table
+--- @param opts table
+--- @return string
 local function highlight_cache_key(theme_path, palette_table, opts)
   local cache_opts = {
     gutter = opts.gutter,
@@ -253,12 +254,16 @@ function M.load(theme_spec, opts)
   if opts.force_reload then palette.clear_cache() end
 
   local palette_table
-  ok, palette_table = pcall(
-    palette.create_palette,
-    palette_universe,
-    palette_name,
-    theme_module.palette and theme_module.palette.overrides
-  )
+  do
+    local start_ns = (config.options.debug and config.options.debug.profile_startup) and vim.loop.hrtime() or nil
+    ok, palette_table = pcall(
+      palette.create_palette,
+      palette_universe,
+      palette_name,
+      theme_module.palette and theme_module.palette.overrides
+    )
+    debug_profile("Create palette", start_ns)
+  end
 
   if not ok then return false, string.format("[prismpunk] Failed to load palette: %s", tostring(palette_table)) end
 
@@ -269,10 +274,12 @@ function M.load(theme_spec, opts)
       cache_stats.hits = cache_stats.hits + 1
       local cached = highlight_cache[cache_key]
 
-      highlights.apply(cached.theme, config.options)
+      local start_ns = (config.options.debug and config.options.debug.profile_startup) and vim.loop.hrtime() or nil
 
+      highlights.apply(cached.theme, config.options)
       apply_terminals(theme_module, palette_table)
 
+      debug_profile("Apply from in-memory cache", start_ns)
       loaded_theme = theme_key
 
       return true, cached.theme
@@ -301,10 +308,12 @@ function M.load(theme_spec, opts)
         cache_stats.hits = cache_stats.hits + 1
         highlight_cache[cache_key] = disk_cached
 
-        highlights.apply(disk_cached.theme, config.options)
+        local start_ns = (config.options.debug and config.options.debug.profile_startup) and vim.loop.hrtime() or nil
 
+        highlights.apply(disk_cached.theme, config.options)
         apply_terminals(theme_module, palette_table)
 
+        debug_profile("Apply from disk cache", start_ns)
         loaded_theme = theme_key
 
         return true, disk_cached.theme
@@ -314,6 +323,7 @@ function M.load(theme_spec, opts)
 
   cache_stats.misses = cache_stats.misses + 1
 
+  local start_ns_full = (config.options.debug and config.options.debug.profile_startup) and vim.loop.hrtime() or nil
   local theme_result
   ok, theme_result = pcall(theme_module.get, config.options, palette_table)
 
@@ -344,6 +354,7 @@ function M.load(theme_spec, opts)
 
   apply_terminals(theme_module, palette_table)
 
+  debug_profile("Cold load (theme.get + normalize + highlights + terminals)", start_ns_full)
   loaded_theme = theme_key
 
   return true, theme_result

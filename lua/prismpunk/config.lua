@@ -4,6 +4,11 @@ local M = {}
 
 --- Default configuration schema
 M.defaults = {
+  debug = {
+    enabled = false,
+    profile_startup = false,
+  },
+
   theme = nil, -- Theme name (e.g., "phantom-corrupted" or "lantern-corps/phantom-corrupted")
   gutter = true, -- Enable gutter background
   validate_contrast = false, -- Validate color contrast (opt-in)
@@ -59,6 +64,14 @@ M.options = vim.tbl_deep_extend("force", {}, M.defaults)
 
 --- Configuration schema for validation
 local schema = {
+  debug = {
+    type = "table",
+    fields = {
+      enabled = { type = "boolean" },
+      profile_startup = { type = "boolean" },
+    },
+  },
+
   theme = { type = { "string", "nil" } },
   gutter = { type = "boolean" },
   validate_contrast = { type = "boolean" },
@@ -251,4 +264,5 @@ function M.parse_theme(theme_spec)
     error(string.format("[prismpunk] Invalid theme_spec type: %s (expected string or table)", type(theme_spec)))
   end
 end
+
 return M
