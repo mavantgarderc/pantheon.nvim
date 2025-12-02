@@ -16,7 +16,20 @@ return {
       local M = {
         module = "prismpunk",
         colorscheme = "lantern-corps-phantom-corrupted",
-        opts = { theme = "dc/lantern-corps/phantom-corrupted" },
+        opts = {
+          theme = "dc/lantern-corps/phantom-corrupted",
+
+          terminals = {
+            enabled = true,
+            emulator = { "ghostty" },
+
+            ghostty = {
+              enabled = true,
+              auto_reload = true,
+              config_path = vim.fn.expand("~/.config/ghostty/themes/prismpunk.toml"),
+            },
+          },
+        },
         enabled = true,
       }
 
@@ -37,7 +50,7 @@ return {
 
         local ok, prismpunk = pcall(require, "prismpunk")
         if ok and prismpunk and prismpunk.setup then
-          prismpunk.setup({ theme = M.opts.theme })
+          prismpunk.setup(M.opts)
           vim.notify("PrismPunk theme setup completed: " .. M.opts.theme)
 
           vim.defer_fn(function()
@@ -390,7 +403,7 @@ return {
                 -- NEW GENESIS
                 elseif colorscheme_name:match("new%-genesis") then
                   category = "dc/new-genesis"
-                  -- SUPER FAMILY
+                -- SUPER FAMILY
                 elseif colorscheme_name:match("super%-family") then
                   category = "dc/super-family"
                 -- WATCHMEN
