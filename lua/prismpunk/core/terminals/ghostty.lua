@@ -54,17 +54,11 @@ M.write_config = function(theme, path)
 end
 
 local function reload_ghostty_async()
-  vim.system(
-    { "sh", "-c", "pgrep -x ghostty | xargs -r kill -USR2 || pkill -USR2 ghostty" },
-    { detach = true },
-    function(obj)
-      if obj.code ~= 0 then
-        vim.schedule(
-          function() vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN) end
-        )
-      end
+  vim.system({ "pkill", "-USR2", "ghostty" }, { detach = true }, function(obj)
+    if obj.code ~= 0 then
+      vim.schedule(function() vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN) end)
     end
-  )
+  end)
 end
 
 local function schedule_reload_debounced(delay_ms)
