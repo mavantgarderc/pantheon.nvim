@@ -7,6 +7,7 @@ local ghostty = require("prismpunk.core.terminals.ghostty")
 local alacritty = require("prismpunk.core.terminals.alacritty")
 local kitty = require("prismpunk.core.terminals.kitty")
 
+-- Apply colors to Neovim's built-in terminal
 M.apply = function(theme)
   local c = theme.colors or theme
 
@@ -32,6 +33,7 @@ M.apply = function(theme)
   -- luacheck: pop
 end
 
+-- Export to external terminal emulators (Ghostty, Alacritty, Kitty)
 M.auto_export = function(theme, config)
   if not config.terminals.enabled then return end
 
@@ -49,6 +51,22 @@ M.auto_export = function(theme, config)
         kitty.export_and_reload(theme, conf)
       end
     end
+  end
+end
+
+-- Optional: preview terminal config content for a theme
+M.preview = function(theme_name, terminal_name)
+  terminal_name = terminal_name
+
+  if terminal_name == "ghostty" then
+    return ghostty.export(theme_name)
+  elseif terminal_name == "alacritty" then
+    return alacritty.export(theme_name)
+  elseif terminal_name == "kitty" then
+    return kitty.export(theme_name)
+  else
+    vim.notify(string.format("[prismpunk] Unknown terminal: %s", terminal_name), vim.log.levels.WARN)
+    return nil
   end
 end
 

@@ -3,6 +3,9 @@ local M = {}
 local punkpalette = require("prismpunk.palette")
 local punkconf = require("prismpunk.config")
 
+local uv = vim.uv or vim.loop
+local reload_timer
+
 M.export_toml = function(theme)
   local c = theme.colors
   local lines = {
@@ -50,18 +53,44 @@ M.write_config = function(theme, path)
   return true
 end
 
+local function reload_ghostty_async()
+  vim.system(
+    { "sh", "-c", "pgrep -x ghostty | xargs -r kill -USR2 || pkill -USR2 ghostty" },
+    { detach = true },
+    function(obj)
+      if obj.code ~= 0 then
+        vim.schedule(
+          function() vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN) end
+        )
+      end
+    end
+  )
+end
+
+local function schedule_reload_debounced(delay_ms)
+  if not uv or not uv.new_timer then
+    vim.defer_fn(reload_ghostty_async, delay_ms)
+    return
+  end
+  if not reload_timer then
+    reload_timer = uv.new_timer()
+  else
+    reload_timer:stop()
+  end
+  reload_timer:start(delay_ms, 0, function()
+    reload_timer:stop()
+    vim.schedule(reload_ghostty_async)
+  end)
+end
+
 M.reload = function()
-  vim.fn.system("pgrep -x ghostty | xargs -r kill -USR2")
-  if vim.v.shell_error == 0 then return true end
-  vim.fn.system("pkill -USR2 ghostty")
-  return vim.v.shell_error == 0
+  reload_ghostty_async()
+  return true
 end
 
 M.export_and_reload = function(theme, conf)
   local success = M.write_config(theme, conf.config_path)
-  if success and conf.auto_reload then
-    if not M.reload() then vim.notify("Prismpunk: Failed to reload Ghostty automatically", vim.log.levels.WARN) end
-  end
+  if success and conf.auto_reload then schedule_reload_debounced(400) end
 end
 
 M.export = function(theme_name)
@@ -82,8 +111,7 @@ M.save = function(theme_name, output_path)
     vim.notify("Failed to load theme: " .. theme_name, vim.log.levels.ERROR)
     return
   end
-  local success = M.write_config(punkpalette.create_theme(spec), output_path)
-  if success then vim.notify("Exported to: " .. output_path, vim.log.levels.INFO) end
+  local _ = M.write_config(punkpalette.create_theme(spec), output_path)
 end
 
 return M

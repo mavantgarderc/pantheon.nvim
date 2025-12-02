@@ -104,7 +104,7 @@ M.export_and_reload = function(theme, conf)
 
   local success = M.write_config(theme, conf.config_path)
   if success then
-    vim.notify("Prismpunk: Kitty theme exported to " .. conf.config_path, vim.log.levels.INFO)
+    -- vim.notify("Prismpunk: Kitty theme exported to " .. conf.config_path, vim.log.levels.INFO)
     if conf.auto_reload then
       if not M.reload(conf.config_path) then
         vim.notify(
@@ -115,7 +115,7 @@ M.export_and_reload = function(theme, conf)
           vim.log.levels.WARN
         )
       else
-        vim.notify("Prismpunk: Kitty theme reloaded successfully!", vim.log.levels.INFO)
+        -- vim.notify("Prismpunk: Kitty theme reloaded successfully!", vim.log.levels.INFO)
       end
     end
   end
