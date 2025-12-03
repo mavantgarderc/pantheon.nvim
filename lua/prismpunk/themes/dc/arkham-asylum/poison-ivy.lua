@@ -340,7 +340,9 @@ end
 return {
   name = "Poison Ivy – Pamela Isley",
   author = "PrismPunk.nvim",
-  description = "She was human once. Now she’s the Green’s vengeance. Chlorophyll blood, toxic magenta flowers, root-brown earth, and the pale skin of corpses feeding her garden. Touch her plants and she’ll make you bloom — from the inside.",
+  description = "She was human once. Now she’s the Green’s vengeance. "
+    .. "Chlorophyll blood, toxic magenta flowers, root-brown earth, and the pale skin of corpses feeding her garden. "
+    .. "Touch her plants and she’ll make you bloom — from the inside.",
 
   base16 = {
     base00 = palette.void_black,

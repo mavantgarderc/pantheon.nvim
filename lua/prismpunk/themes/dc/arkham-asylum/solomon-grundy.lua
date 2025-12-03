@@ -340,7 +340,10 @@ end
 return {
   name = "Salomon Grundy – Born on a Monday",
   author = "PrismPunk.nvim",
-  description = "Big. Dead. Angry. Rot-green swamp flesh, graveyard gray skin, corpse-blue veins, and the moon-sick yellow of a corpse that keeps coming back. He died on a Saturday. He was reborn on a Monday. And every day in between, he just wants to crush Batman’s skull.",
+  description = "Big. Dead. Angry. Rot-green swamp flesh, graveyard gray skin, "
+    .. "corpse-blue veins, and the moon-sick yellow of a corpse that keeps coming back. "
+    .. "He died on a Saturday. He was reborn on a Monday. And every day in between, "
+    .. "he just wants to crush Batman’s skull.",
 
   base16 = {
     base00 = palette.void_black,

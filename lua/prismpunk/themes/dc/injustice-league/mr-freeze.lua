@@ -340,7 +340,8 @@ end
 return {
   name = "Injustice Mr. Freeze – Cryogenic Devotion",
   author = "PrismPunk.nvim",
-  description = "Victor Fries serves the Regime for one reason: Nora. Red goggles. Frozen heart. A man who will encase the world in ice to save the woman he loves.",
+  description = "Victor Fries serves the Regime for one reason: Nora. "
+    .. "Red goggles. Frozen heart. A man who will encase the world in ice to save the woman he loves.",
 
   base16 = {
     base00 = palette.void_black,

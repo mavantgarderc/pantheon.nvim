@@ -339,7 +339,8 @@ end
 return {
   name = "Killer Croc – Sewer King",
   author = "PrismPunk.nvim",
-  description = "He lives in the dark. Eats what falls in. Reptilian green, toxic sludge, rusted chains, and the yellow of a predator’s eyes. Welcome to the sewers, meat.",
+  description = "He lives in the dark. Eats what falls in. Reptilian green, toxic sludge, "
+    .. "rusted chains, and the yellow of a predator’s eyes. Welcome to the sewers, meat.",
 
   base16 = {
     base00 = palette.sewer_black,

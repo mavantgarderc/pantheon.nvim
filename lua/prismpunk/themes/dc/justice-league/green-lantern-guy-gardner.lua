@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Green Lantern (Guy Gardner)",
   author = "PrismPunk.nvim",
-  description = "Brash hothead, bar fighter with a ring. Loud greens, cocky golds, rage reds. Street attitude, punch-first mentality, chip on shoulder. The rebellious Lantern who argues with everyone.",
+  description = "Brash hothead, bar fighter with a ring. Loud greens, cocky golds, rage reds. "
+    .. "Street attitude, punch-first mentality, chip on shoulder. "
+    .. "The rebellious Lantern who argues with everyone.",
 
   base16 = {
     base00 = palette.bg_darkest,

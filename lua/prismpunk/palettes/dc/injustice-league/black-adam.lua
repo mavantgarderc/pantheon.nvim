@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0E0E12",
 
   lightningWhiteCore = "#E8F0FF",
-  egyptianGoldCore = "#FFD700",
-  thunderPurpleCore = "#6B4FBB",
-  ruthlessRedCore = "#C41E3A",
-  divineBlueCore = "#4169E1",
-
   lightningWhite = "#E8F0FF",
   lightningWhiteBright = "#FFFFFF",
   lightningWhiteDeep = "#D0E0F5",

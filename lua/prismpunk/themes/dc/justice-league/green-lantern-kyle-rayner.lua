@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Green Lantern (Kyle Rayner)",
   author = "PrismPunk.nvim",
-  description = "Artist visionary, unlimited imagination. Creative greens, painter blues, Ion purples, spectrum colors. Manga-inspired, comic energy, torchbearer legacy. The most creative construct maker, White Lantern destiny.",
+  description = "Artist visionary, unlimited imagination. Creative greens, painter blues, "
+    .. "Ion purples, spectrum colors. Manga-inspired, comic energy, torchbearer legacy. "
+    .. "The most creative construct maker, White Lantern destiny.",
 
   base16 = {
     base00 = palette.bg_darkest,

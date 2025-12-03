@@ -340,7 +340,8 @@ end
 return {
   name = "Composite Superman – Half God, Half Nightmare",
   author = "PrismPunk.nvim",
-  description = "Two legends. One mind. Blue hope on the left, purple terror on the right. He is everything you admire… and everything you fear.",
+  description = "Two legends. One mind. Blue hope on the left, purple terror on the right. "
+    .. "He is everything you admire… and everything you fear.",
 
   base16 = {
     base00 = palette.void_black,

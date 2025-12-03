@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#1C1827",
 
   sunsetOrangeCore = "#FF8C42",
-  twilightBlueCore = "#6B7FD7",
-  emberRedCore = "#E85D75",
-  duskVioletCore = "#A67FCF",
-  goldenHourCore = "#FFBA5A",
-
   sunsetOrange = "#FF8C42",
   sunsetOrangeBright = "#FFAA66",
   sunsetOrangeDeep = "#D97338",

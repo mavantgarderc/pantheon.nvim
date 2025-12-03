@@ -340,7 +340,8 @@ end
 return {
   name = "Martha Kent – Ma Kent",
   author = "PrismPunk.nvim",
-  description = "She didn’t raise a Superman. She raised a good man. Warm denim, Kansas wheat, barn red, and the quiet, unbreakable love that taught the world’s greatest hero how to be human.",
+  description = "She didn’t raise a Superman. She raised a good man. Warm denim, Kansas wheat, "
+    .. "barn red, and the quiet, unbreakable love that taught the world’s greatest hero how to be human.",
 
   base16 = {
     base00 = palette.void_black,

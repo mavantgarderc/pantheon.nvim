@@ -340,7 +340,8 @@ end
 return {
   name = "Jonathan Kent – Superboy Tomorrow",
   author = "PrismPunk.nvim",
-  description = "He’s still got homework, chores, and a curfew — but when the world needs saving, he’s there with a brighter blue, a warmer red, and the biggest heart in the universe.",
+  description = "He’s still got homework, chores, and a curfew — but when the world needs saving, "
+    .. "he’s there with a brighter blue, a warmer red, and the biggest heart in the universe.",
 
   base16 = {
     base00 = palette.void_black,

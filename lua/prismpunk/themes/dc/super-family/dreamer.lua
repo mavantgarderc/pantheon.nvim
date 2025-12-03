@@ -340,7 +340,8 @@ end
 return {
   name = "Dreamer – Nia Nal",
   author = "PrismPunk.nvim",
-  description = "She dreams the future in indigo and pink. Trans heroine. Legion legacy. Heart bigger than any precognition. The tomorrow she fights for is beautiful.",
+  description = "She dreams the future in indigo and pink. Trans heroine. Legion legacy. "
+    .. "Heart bigger than any precognition. The tomorrow she fights for is beautiful.",
 
   base16 = {
     base00 = palette.void_black,

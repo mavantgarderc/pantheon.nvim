@@ -340,7 +340,9 @@ end
 return {
   name = "Prometheus – The Titan Who Stole the Bat",
   author = "PrismPunk.nvim",
-  description = "He studied the Dark Knight. Learned every move. Then lit the match. Molten orange stolen fire, cold Bat-tech blue, blood-iron scars, and the ghost-white armor of a man who should be dead — but isn’t. The student has become the inferno.",
+  description = "He studied the Dark Knight. Learned every move. Then lit the match. "
+    .. "Molten orange stolen fire, cold Bat-tech blue, blood-iron scars, "
+    .. "and the ghost-white armor of a man who should be dead — but isn’t. The student has become the inferno.",
 
   base16 = {
     base00 = palette.void_black,

@@ -125,7 +125,12 @@ M.get = function(opts, plt)
     },
 
     vcs = { added = plt.leprechaun_green, removed = plt.love_red, changed = plt.trick_or_treat },
-    diff = { add = plt.spring_fever, change = plt.leprechaun_green, delete = plt.heart_attack, text = plt.jackolantern },
+    diff = {
+      add = plt.spring_fever,
+      change = plt.leprechaun_green,
+      delete = plt.heart_attack,
+      text = plt.jackolantern,
+    },
     diag = {
       ok = plt.spring_fever,
       error = plt.bleeding_heart,
@@ -340,7 +345,9 @@ end
 return {
   name = "Calendar Man – Julian Gregory Day",
   author = "PrismPunk.nvim",
-  description = "Cheap party-store colors weaponized. Neon pink hearts, toxic lime clovers, radioactive orange pumpkins, and screaming yellow countdowns. Every day is a holiday. Every holiday is a murder scene.",
+  description = "Cheap party-store colors weaponized."
+    .. "Neon pink hearts, toxic lime clovers, radioactive orange pumpkins, and screaming yellow countdowns. "
+    .. "Every day is a holiday. Every holiday is a murder scene.",
 
   base16 = {
     base00 = palette.void_black,

@@ -182,7 +182,8 @@ end
 return {
   name = "Crime Syndicate – Grid",
   author = "PrismPunk.nvim",
-  description = "Earth-3’s sentient internet. A god-level psychic AI that invades your brain through every screen and turns free will into an obsolete concept.",
+  description = "Earth-3’s sentient internet. A god-level psychic AI that invades your brain through "
+    .. "every screen and turns free will into an obsolete concept.",
 
   base16 = {
     base00 = palette.bg_darkest,

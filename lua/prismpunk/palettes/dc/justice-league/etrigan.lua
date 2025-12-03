@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0F0A08",
 
   hellfireOrangeCore = "#FF6B35",
-  demonRedCore = "#DC2626",
-  brimstoneYellowCore = "#FBBF24",
-  infernalPurpleCore = "#A855F7",
-  sulfurYellowCore = "#EAB308",
-
   hellfireOrange = "#FF6B35",
   hellfireOrangeBright = "#FF8C5E",
   hellfireOrangeDeep = "#E8551F",

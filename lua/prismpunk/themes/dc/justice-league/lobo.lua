@@ -237,7 +237,8 @@ end
 return {
   name = "Justice League – Lobo (Real Main Man Edition)",
   author = "PrismPunk.nvim",
-  description = "No fraggin’ purple. Just blood, chrome, cigar ash, and the smell of burnt ozone. That’s how the Main Man rolls.",
+  description = "No fraggin’ purple. Just blood, chrome, cigar ash, "
+    .. "and the smell of burnt ozone. That’s how the Main Man rolls.",
 
   base16 = {
     base00 = palette.space_void,

@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Green Lantern (Jessica Cruz)",
   author = "PrismPunk.nvim",
-  description = "Anxiety warrior, courage from fear. Gentle greens growing stronger, calming teals for inner peace, soft hope glows. Breathing through panic, fighting darkness with light. The bravest Lantern of all.",
+  description = "Anxiety warrior, courage from fear. Gentle greens growing stronger, "
+    .. "calming teals for inner peace, soft hope glows. Breathing through panic, "
+    .. "fighting darkness with light. The bravest Lantern of all.",
 
   base16 = {
     base00 = palette.bg_darkest,

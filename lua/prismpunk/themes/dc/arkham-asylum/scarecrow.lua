@@ -345,7 +345,9 @@ end
 return {
   name = "Scarecrow – Jonathan Crane",
   author = "PrismPunk.nvim",
-  description = "Breathe in the fear toxin. Burlap brown, toxic green gas, nightmare purple hallucinations, and the rust-red of old blood. Every character you type is another scream in the dark. He’s already inside your mind.",
+  description = "Breathe in the fear toxin. Burlap brown, toxic green gas, "
+    .. "nightmare purple hallucinations, and the rust-red of old blood."
+    .. "Every character you type is another scream in the dark. He’s already inside your mind.",
 
   base16 = {
     base00 = palette.void_black,

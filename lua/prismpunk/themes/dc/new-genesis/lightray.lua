@@ -343,7 +343,8 @@ end
 return {
   name = "New Gods – Lightray",
   author = "PrismPunk.nvim",
-  description = "Solor, the Shining One. Blinding white-gold sunlight, electric cyan speed, and the uncontainable joy of New Genesis made visible.",
+  description = "Solor, the Shining One. Blinding white-gold sunlight, electric cyan speed, "
+    .. "and the uncontainable joy of New Genesis made visible.",
 
   base16 = {
     base00 = palette.genesis_void,

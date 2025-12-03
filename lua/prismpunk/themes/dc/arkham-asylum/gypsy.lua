@@ -340,7 +340,9 @@ end
 return {
   name = "Mad Gypsy – Laura Lambert",
   author = "PrismPunk.nvim",
-  description = "The girl who sees too much. Fractured violet visions, fever-pink prophecies, cracked cyan futures, and blood on every tarot card. She doesn’t predict your death. She remembers it.",
+  description = "The girl who sees too much. Fractured violet visions, "
+    .. "fever-pink prophecies, cracked cyan futures, and blood on every tarot card. "
+    .. "She doesn’t predict your death. She remembers it.",
 
   base16 = {
     base00 = palette.void_black,

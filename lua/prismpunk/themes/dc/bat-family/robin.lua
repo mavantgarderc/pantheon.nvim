@@ -351,7 +351,9 @@ end
 return {
   name = "Bat-Family – Robin (Damian Wayne)",
   author = "PrismPunk.nvim",
-  description = "I'm the son of Batman! The League of Assassins' heir with Robin red, league green, katana steel, and the arrogance of Ra's al Ghul's grandson. Trained by Talia, destined for greatness.",
+  description = "I'm the son of Batman! The League of Assassins' heir with Robin red, "
+    .. "league green, katana steel, and the arrogance of Ra's al Ghul's grandson. "
+    .. "Trained by Talia, destined for greatness.",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -340,7 +340,8 @@ end
 return {
   name = "Black Spider – Eight Eyes, One Sting",
   author = "PrismPunk.nvim",
-  description = "He was a hero once. Now he’s the League’s venomous shadow. Black armor, blood-red hourglass, venom-green webs. You’ll never see him coming.",
+  description = "He was a hero once. Now he’s the League’s venomous shadow. "
+    .. "Black armor, blood-red hourglass, venom-green webs. You’ll never see him coming.",
 
   base16 = {
     base00 = palette.void_black,

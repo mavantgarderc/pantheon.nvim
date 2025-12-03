@@ -343,7 +343,8 @@ end
 return {
   name = "Emotional Entity – Proselyte (Compassion)",
   author = "PrismPunk.nvim",
-  description = "The squid-shaped god of the Indigo Tribe. It feels your pain. It forgives your rage. It teaches mercy in a universe that knows none.",
+  description = "The squid-shaped god of the Indigo Tribe. It feels your pain. "
+    .. "It forgives your rage. It teaches mercy in a universe that knows none.",
 
   base16 = {
     base00 = palette.compassion_void,

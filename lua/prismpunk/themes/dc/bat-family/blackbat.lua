@@ -340,7 +340,9 @@ end
 return {
   name = "Black Bat – Orphan",
   author = "PrismPunk.nvim",
-  description = "Cassandra Cain. Raised as a living weapon. Speaks with her body. Sees your soul before you move. Silent midnight, ghost-white eyes, and the red of violence she can never fully escape.",
+  description = "Cassandra Cain. Raised as a living weapon. Speaks with her body. "
+    .. "Sees your soul before you move. Silent midnight, ghost-white eyes, "
+    .. "and the red of violence she can never fully escape.",
 
   base16 = {
     base00 = palette.void_black,

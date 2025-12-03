@@ -351,7 +351,10 @@ end
 return {
   name = "Injustice League – Brainiac",
   author = "PrismPunk.nvim",
-  description = "12th-level intellect, Coluan collector. Neural green networks, alien purple intelligence, data matrix streams. Mind control psychic, skull ship technology, bottle cities preserved. Cold calculation, emotionless logic, specimen collection. Resistance is futile—knowledge will be assimilated.",
+  description = "12th-level intellect, Coluan collector. Neural green networks, "
+    .. "alien purple intelligence, data matrix streams. Mind control psychic, "
+    .. "skull ship technology, bottle cities preserved. Cold calculation, emotionless logic, "
+    .. "specimen collection. Resistance is futile—knowledge will be assimilated.",
 
   base16 = {
     base00 = palette.bg_darkest,

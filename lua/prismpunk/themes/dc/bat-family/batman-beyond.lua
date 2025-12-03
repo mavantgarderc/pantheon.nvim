@@ -351,7 +351,8 @@ end
 return {
   name = "Future – Batman Beyond",
   author = "PrismPunk.nvim",
-  description = "Terry McGinnis in Neo-Gotham. Cyberpunk future red suit, neon cyan holograms, matrix green code, and Wayne-Tech gold circuits. Schway!",
+  description = "Terry McGinnis in Neo-Gotham. Cyberpunk future red suit, "
+    .. "neon cyan holograms, matrix green code, and Wayne-Tech gold circuits. Schway!",
 
   base16 = {
     base00 = palette.bg_darkest,

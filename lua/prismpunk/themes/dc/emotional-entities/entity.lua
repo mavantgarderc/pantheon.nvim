@@ -343,7 +343,8 @@ end
 return {
   name = "Emotional Entity – The Entity (Life / Earth)",
   author = "PrismPunk.nvim",
-  description = "The ultimate White Lantern. The living planet Earth itself — awakened and wearing the white ring.",
+  description = "The ultimate White Lantern. "
+    .. "The living planet Earth itself — awakened and wearing the white ring.",
 
   base16 = {
     base00 = palette.earth_void,

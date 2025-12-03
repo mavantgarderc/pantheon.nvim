@@ -351,7 +351,8 @@ end
 return {
   name = "Justice League – Booster Gold",
   author = "PrismPunk.nvim",
-  description = "Greatest hero you've never heard of! Time-traveling showboat with sponsor deals, fame-seeking ego, and Skeets the robot sidekick.",
+  description = "Greatest hero you've never heard of! Time-traveling showboat with sponsor deals, "
+    .. "fame-seeking ego, and Skeets the robot sidekick.",
 
   base16 = {
     base00 = palette.bg_darkest,

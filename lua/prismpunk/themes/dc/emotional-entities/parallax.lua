@@ -357,7 +357,9 @@ end
 return {
   name = "Emotional Entity – Parallax (Fear)",
   author = "PrismPunk.nvim",
-  description = "The insect-headed god of fear. The living embodiment of terror that corrupted the greatest Green Lantern. Yellow light that makes willpower shatter.",
+  description = "The insect-headed god of fear. "
+    .. "The living embodiment of terror that corrupted the greatest Green Lantern. "
+    .. "Yellow light that makes willpower shatter.",
 
   base16 = {
     base00 = palette.fearVoid,

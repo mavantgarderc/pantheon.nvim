@@ -340,7 +340,9 @@ end
 return {
   name = "Neo Joker – The New Queen",
   author = "PrismPunk.nvim",
-  description = "She inherited the laugh. Upgraded it. Neon purple circuits, toxic green venom, ultraviolet blacklight, and Arkham-white chrome. The old clown is dead. Long live the Queen.",
+  description = "She inherited the laugh. Upgraded it. "
+    .. "Neon purple circuits, toxic green venom, ultraviolet blacklight, and Arkham-white chrome. "
+    .. "The old clown is dead. Long live the Queen.",
 
   base16 = {
     base00 = palette.void_black,

@@ -340,7 +340,9 @@ end
 return {
   name = "Superman – Modern Era",
   author = "PrismPunk.nvim",
-  description = "He’s a father now. A husband. A man who comes home for dinner. Deep cinematic blue, warm red, and a golden shield that still means hope — just a little older, a little wiser, and still the greatest hero Earth has ever known.",
+  description = "He’s a father now. A husband. A man who comes home for dinner. Deep cinematic blue, "
+    .. "warm red, and a golden shield that still means hope — just a little older, a little wiser, "
+    .. "and still the greatest hero Earth has ever known.",
 
   base16 = {
     base00 = palette.void_black,

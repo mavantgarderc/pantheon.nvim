@@ -1,4 +1,3 @@
-local color = require("prismpunk.utils.color")
 local palette = require("prismpunk.palettes.dc.apokolips.yugakhan")
 
 local M = {}
@@ -343,7 +342,9 @@ end
 return {
   name = "Apokolips – Yuga Khan",
   author = "PrismPunk.nvim",
-  description = "The First. The Last. The one who imprisoned the Old Gods and broke the Source itself. Cold cosmic teal and absolute black. There is no warmth here — only the end.",
+  description = "The First. The Last."
+    .. "The one who imprisoned the Old Gods and broke the Source itself. "
+    .. "Cold cosmic teal and absolute black. There is no warmth here — only the end.",
 
   base16 = {
     base00 = palette.absolute_void,

@@ -1482,6 +1482,7 @@
       - [ ] Naglfar
       - [ ] Gullinbursti
       - [ ] Hildisvini
+
   - [ ] Japanese Mythology
     - [ ] Major Kami (Shinto Deities)
       - [ ] Amaterasu

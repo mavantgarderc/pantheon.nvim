@@ -340,7 +340,8 @@ end
 return {
   name = "Injustice Penguin – Emperor of Crime",
   author = "PrismPunk.nvim",
-  description = "In the One Earth Regime, the Penguin doesn’t waddle. He rules. Gold monocle. Purple waistcoat. A cigar in one hand, the city in the other.",
+  description = "In the One Earth Regime, the Penguin doesn’t waddle. He rules. "
+    .. "Gold monocle. Purple waistcoat. A cigar in one hand, the city in the other.",
 
   base16 = {
     base00 = palette.void_black,

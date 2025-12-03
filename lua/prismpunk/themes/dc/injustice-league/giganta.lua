@@ -340,7 +340,8 @@ end
 return {
   name = "Giganta – Colossal Queen",
   author = "PrismPunk.nvim",
-  description = "She was small once. They laughed. Now cities tremble beneath her feet. Orange titan skin, atomic red hair, purple savage strength.",
+  description = "She was small once. They laughed. Now cities tremble beneath her feet. "
+    .. "Orange titan skin, atomic red hair, purple savage strength.",
 
   base16 = {
     base00 = palette.void_black,

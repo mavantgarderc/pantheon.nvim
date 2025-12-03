@@ -59,7 +59,7 @@ M.reload = function(path)
   path = vim.fn.expand(path or "~/.config/kitty/prismpunk.conf")
 
   -- method I: kitty @ set-colors (if running inside Kitty)
-  local result = vim.fn.system("kitty @ set-colors --all --configured " .. vim.fn.shellescape(path) .. " 2>&1")
+  local result = vim.fn.system("kitty @ set-colors --all --configured " .. vim.fn.shellescape(path) .. " 2>&1") -- luacheck: ignore
   if vim.v.shell_error == 0 then return true end
 
   -- method II: KITTY_LISTEN_ON socket
@@ -114,7 +114,7 @@ M.export_and_reload = function(theme, conf)
             .. "3. Or restart Kitty manually",
           vim.log.levels.WARN
         )
-      else
+        -- else
         -- vim.notify("Prismpunk: Kitty theme reloaded successfully!", vim.log.levels.INFO)
       end
     end

@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#08111A",
 
   coralRedCore = "#E63946",
-  aquaTealCore = "#06D6A0",
-  oceanBlueCore = "#118AB2",
-  pearlWhiteCore = "#F0F4F8",
-  royalGoldCore = "#FFD60A",
-
   coralRed = "#E63946",
   coralRedBright = "#FF5A67",
   coralRedDeep = "#C72A36",

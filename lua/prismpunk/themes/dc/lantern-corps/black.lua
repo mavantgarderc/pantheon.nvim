@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Black (Death)",
   author = "PrismPunk.nvim",
-  description = "The blackest night falls from the skies, the darkness grows as all light dies. We crave your heart and your demise. By my black hand, the dead shall rise!",
+  description = "The blackest night falls from the skies, the darkness grows as all light dies. "
+    .. "We crave your heart and your demise. By my black hand, the dead shall rise!",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -340,7 +340,8 @@ end
 return {
   name = "Clark Kent – The Last Son of Krypton",
   author = "PrismPunk.nvim",
-  description = "He’s faster than a speeding bullet, more powerful than a locomotive, and somehow still makes time to help you carry groceries. Blue, red, and golden hope.",
+  description = "He’s faster than a speeding bullet, more powerful than a locomotive, "
+    .. "and somehow still makes time to help you carry groceries. Blue, red, and golden hope.",
 
   base16 = {
     base00 = palette.void_black,

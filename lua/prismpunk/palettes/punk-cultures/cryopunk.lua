@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0E1419",
 
   glacierBlueCore = "#6FB3D2",
-  frostCyanCore = "#66D9EF",
-  crystalBlueCore = "#82AAFF",
-  arcticWhiteCore = "#D4E7F5",
-  frozenPurpleCore = "#A89BE3",
-
   glacierBlue = "#6FB3D2",
   glacierBlueBright = "#91C9E3",
   glacierBlueDeep = "#5C9AB8",

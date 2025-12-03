@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Red Robin",
   author = "PrismPunk.nvim",
-  description = "Tim Drake, the detective Robin. World's greatest detective gold, Young Justice blue, Teen Titans teal, and bo staff mastery.",
+  description = "Tim Drake, the detective Robin. World's greatest detective gold, "
+    .. "Young Justice blue, Teen Titans teal, and bo staff mastery.",
 
   base16 = {
     base00 = palette.bg_darkest,

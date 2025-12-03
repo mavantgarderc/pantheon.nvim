@@ -340,7 +340,10 @@ end
 return {
   name = "Amadeus Arkham – The Founder",
   author = "PrismPunk.nvim",
-  description = "He built the asylum to cure madness. Then carved his mother’s name into his own flesh with a razor. Victorian blood, institutional green, and the endless scream of a man who became the first patient of the tomb he designed.",
+  description = "He built the asylum to cure madness. "
+    .. "Then carved his mother’s name into his own flesh with a razor."
+    .. "Victorian blood, institutional green, and the endless scream of "
+    .. "a man who became the first patient of the tomb he designed.",
 
   base16 = {
     base00 = palette.void_black,

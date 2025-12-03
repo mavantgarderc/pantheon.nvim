@@ -5,7 +5,7 @@ local M = {}
 M.get = function(opts, plt)
   return {
     modes = {
-      normal = plt.sonicGold, -- lethal golden scream
+      normal = plt.sonicGold,
       insert = plt.bronzeResonance,
       visual = plt.deepAbyss,
       replace = plt.sonicGold,

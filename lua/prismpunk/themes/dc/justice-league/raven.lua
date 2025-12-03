@@ -340,7 +340,8 @@ end
 return {
   name = "Raven – Daughter of Trigon",
   author = "PrismPunk.nvim",
-  description = "She keeps the rage of a four-eyed demon lord locked behind pale skin and a midnight cloak. One slip… and the world ends.",
+  description = "She keeps the rage of a four-eyed demon lord locked behind pale skin "
+    .. "and a midnight cloak. One slip… and the world ends.",
 
   base16 = {
     base00 = palette.void_black,

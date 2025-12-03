@@ -340,7 +340,8 @@ end
 return {
   name = "New Gods – Orion",
   author = "PrismPunk.nvim",
-  description = "The Dog of War. Crimson rage of Apokolips. Golden honor of New Genesis. Violet storm of the Astro-Force. He is fury barely contained — and victory hard-won.",
+  description = "The Dog of War. Crimson rage of Apokolips. Golden honor of New Genesis. "
+    .. "Violet storm of the Astro-Force. He is fury barely contained — and victory hard-won.",
 
   base16 = {
     base00 = palette.apokolips_void,

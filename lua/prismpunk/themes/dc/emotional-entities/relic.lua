@@ -343,7 +343,8 @@ end
 return {
   name = "Emotional Entity – Relic (Life / White Light)",
   author = "PrismPunk.nvim",
-  description = "The White Entity. The first lantern. The source of all emotion, all light, all life. Before the spectrum was split, there was only Relic.",
+  description = "The White Entity. The first lantern. The source of all emotion, all light, all life. "
+    .. "Before the spectrum was split, there was only Relic.",
 
   base16 = {
     base00 = palette.life_void,

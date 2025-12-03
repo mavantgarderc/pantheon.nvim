@@ -340,7 +340,8 @@ end
 return {
   name = "Blank – The Assassin With No Name",
   author = "PrismPunk.nvim",
-  description = "He has no face. No file. No mercy. Just a white mask and a red dot that appears right before you stop existing.",
+  description = "He has no face. No file. No mercy. "
+    .. "Just a white mask and a red dot that appears right before you stop existing.",
 
   base16 = {
     base00 = palette.void_black,

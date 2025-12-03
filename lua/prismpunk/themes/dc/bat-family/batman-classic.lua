@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Batman Classic",
   author = "PrismPunk.nvim",
-  description = "I am vengeance, I am the night, I am Batman! Classic dark knight with iconic gold emblem and justice-gray readability.",
+  description = "I am vengeance, I am the night, I am Batman! "
+    .. "Classic dark knight with iconic gold emblem and justice-gray readability.",
 
   base16 = {
     base00 = palette.bg_darkest,

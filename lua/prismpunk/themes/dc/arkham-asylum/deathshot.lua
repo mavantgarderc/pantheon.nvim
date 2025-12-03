@@ -340,7 +340,9 @@ end
 return {
   name = "Deathshot – Floyd Lawton",
   author = "PrismPunk.nvim",
-  description = "One man. One rifle. One bullet. Zero mercy. Cold gunmetal, blood-red targeting laser, and the sterile white of a signed death warrant. Floyd Lawton never misses.",
+  description = "One man. One rifle. One bullet. Zero mercy. "
+    .. "Cold gunmetal, blood-red targeting laser, and the sterile white of a signed death warrant."
+    .. "Floyd Lawton never misses.",
 
   base16 = {
     base00 = palette.void_black,

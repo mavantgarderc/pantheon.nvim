@@ -5,9 +5,9 @@ local M = {}
 M.get = function(opts, plt)
   return {
     modes = {
-      normal = plt.venomTubes, -- toxic green dominance
-      insert = plt.bloodRed, -- pure rage
-      visual = plt.venomRed, -- venom overload
+      normal = plt.venomTubes,
+      insert = plt.bloodRed,
+      visual = plt.venomRed,
       replace = plt.rageRed,
       command = plt.warningOrange,
     },
@@ -34,7 +34,7 @@ M.get = function(opts, plt)
       bg_visual = plt.venomRed,
       bg_statusline = plt.suitSteel,
 
-      border = plt.venomTubes, -- glowing venom border
+      border = plt.venomTubes,
       header1 = plt.bloodRed,
       header2 = plt.venomTubes,
       special = plt.infoBlue,

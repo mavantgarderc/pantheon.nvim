@@ -340,7 +340,9 @@ end
 return {
   name = "Clayface – Basil Karlo",
   author = "PrismPunk.nvim",
-  description = "A living nightmare of wet clay and stolen faces. Toxic green Renuyu, rotting brown mud, corpse-white flesh, and the endless drip of something that was once human. He doesn’t just kill — he becomes you.",
+  description = "A living nightmare of wet clay and stolen faces. "
+    .. "Toxic green Renuyu, rotting brown mud, corpse-white flesh, "
+    .. "and the endless drip of something that was once human. He doesn’t just kill — he becomes you.",
 
   base16 = {
     base00 = palette.void_black,
