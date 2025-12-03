@@ -351,7 +351,8 @@ end
 return {
   name = "Gotham – Catwoman",
   author = "PrismPunk.nvim",
-  description = "I'm Catwoman. Hear me roar. Selina Kyle's sleek black catsuit, emerald heists, passionate purple mystery, and those hypnotic cat eyes. A complicated love with the Bat.",
+  description = "I'm Catwoman. Hear me roar. Selina Kyle's sleek black catsuit, "
+    .. "emerald heists, passionate purple mystery, and those hypnotic cat eyes. A complicated love with the Bat.",
 
   base16 = {
     base00 = palette.bg_darkest,

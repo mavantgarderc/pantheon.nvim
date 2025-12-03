@@ -343,7 +343,8 @@ end
 return {
   name = "Apokolips – Kalibak (Toxic-Yellow Overcharge)",
   author = "PrismPunk.nvim",
-  description = "The beast went full nuclear meltdown. Toxic green + searing yellow radiation = unstoppable savage fury.",
+  description = "The beast went full nuclear meltdown. "
+    .. "Toxic green + searing yellow radiation = unstoppable savage fury.",
 
   base16 = {
     base00 = palette.waste_void,

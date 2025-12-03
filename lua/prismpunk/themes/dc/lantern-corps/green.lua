@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Green (Willpower)",
   author = "PrismPunk.nvim",
-  description = "In brightest day, in blackest night, no evil shall escape my sight. Let those who worship evil's might, beware my power, Green Lantern's light!",
+  description = "In brightest day, in blackest night, no evil shall escape my sight. "
+    .. "Let those who worship evil's might, beware my power, Green Lantern's light!",
 
   base16 = {
     base00 = palette.bg_darkest,

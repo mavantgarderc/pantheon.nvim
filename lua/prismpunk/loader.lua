@@ -350,7 +350,9 @@ function M.load(theme_spec, opts)
   end
 
   ok, _ = pcall(highlights.apply, theme_result, config.options) -- luacheck: ignore
-  if not ok then return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) end -- luachec: ignore
+  if not ok then -- luachec: ignore
+    return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) -- luacheck: ignore
+  end
 
   apply_terminals(theme_module, palette_table)
 

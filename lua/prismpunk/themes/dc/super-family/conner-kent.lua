@@ -126,7 +126,13 @@ M.get = function(opts, plt)
 
     vcs = { added = plt.hope_teal, removed = plt.kon_red, changed = plt.ttk_teal },
     diff = { add = plt.hope_teal, change = plt.solar_white, delete = plt.rage_red, text = plt.kon_teal },
-    diag = { ok = plt.hope_teal, error = plt.rage_red, warning = plt.kon_red, info = plt.kon_teal, hint = plt.ttk_teal },
+    diag = {
+      ok = plt.hope_teal,
+      error = plt.rage_red,
+      warning = plt.kon_red,
+      info = plt.kon_teal,
+      hint = plt.ttk_teal,
+    },
 
     term = {
       black = plt.void_black,
@@ -334,7 +340,8 @@ end
 return {
   name = "Conner Kent – Superboy",
   author = "PrismPunk.nvim",
-  description = "He was made in a lab to replace Superman. He chose to be his own hero instead. Black leather, red S, electric teal TTK, and the attitude of a teenage clone who finally found a family.",
+  description = "He was made in a lab to replace Superman. He chose to be his own hero instead. "
+    .. "Black leather, red S, electric teal TTK, and the attitude of a teenage clone who finally found a family.",
 
   base16 = {
     base00 = palette.void_black,

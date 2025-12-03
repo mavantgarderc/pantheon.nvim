@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Zatanna",
   author = "PrismPunk.nvim",
-  description = "Mistress of Magic, stage magician supreme. Mystic purple spells, magician white tuxedo, stage gold glamour. Backwards incantations, top hat violet, card red tricks. Zatara's daughter, Justice League Dark. !kcigam sdrawkcab eht",
+  description = "Mistress of Magic, stage magician supreme. Mystic purple spells, magician white tuxedo, "
+    .. "stage gold glamour. Backwards incantations, top hat violet, card red tricks. "
+    .. "Zatara's daughter, Justice League Dark. !kcigam sdrawkcab eht",
 
   base16 = {
     base00 = palette.bg_darkest,

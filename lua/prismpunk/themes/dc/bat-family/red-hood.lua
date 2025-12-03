@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Red Hood",
   author = "PrismPunk.nvim",
-  description = "Jason Todd's revenge. Crime Alley red, Lazarus Pit green resurrection, crowbar steel, and the outlaw who doesn't play by Bruce's rules.",
+  description = "Jason Todd's revenge. Crime Alley red, Lazarus Pit green resurrection, "
+    .. "crowbar steel, and the outlaw who doesn't play by Bruce's rules.",
 
   base16 = {
     base00 = palette.bg_darkest,

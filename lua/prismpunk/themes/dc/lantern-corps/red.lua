@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Red (Rage)",
   author = "PrismPunk.nvim",
-  description = "With blood and rage of crimson red, ripped from a corpse so freshly dead, together with our hellish hate, we'll burn you all—that is your fate!",
+  description = "With blood and rage of crimson red, ripped from a corpse so freshly dead, "
+    .. "together with our hellish hate, we'll burn you all—that is your fate!",
 
   base16 = {
     base00 = palette.bg_darkest,

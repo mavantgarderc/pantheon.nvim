@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Blue (Hope)",
   author = "PrismPunk.nvim",
-  description = "In fearful day, in raging night, with strong hearts full our souls ignite, when all seems lost in the war of light, look to the stars for hope burns bright!",
+  description = "In fearful day, in raging night, with strong hearts full our souls ignite, "
+    .. "when all seems lost in the war of light, look to the stars for hope burns bright!",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -339,7 +339,9 @@ end
 return {
   name = "White Knight – Lewis Bayard",
   author = "PrismPunk.nvim",
-  description = "He wears sterile white armor and wields a scalpel made of faith. Antiseptic teal light, surgical steel blue, and the cold crimson of righteous amputation. Gotham is sick. He is the cure — whether it wants to be or not.",
+  description = "He wears sterile white armor and wields a scalpel made of faith. "
+    .. "Antiseptic teal light, surgical steel blue, and the cold crimson of righteous amputation. Gotham is sick. "
+    .. "He is the cure — whether it wants to be or not.",
 
   base16 = {
     base00 = palette.void_black,

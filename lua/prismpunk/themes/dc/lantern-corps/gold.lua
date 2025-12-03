@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Gold (Godlike)",
   author = "PrismPunk.nvim",
-  description = "I serve the fallen, broken light, that glows yet dimmer with the night. The flame burns low that's bright in Hell... Beware my fate.",
+  description = "I serve the fallen, broken light, that glows yet dimmer with the night. "
+    .. "The flame burns low that's bright in Hell... Beware my fate.",
 
   base16 = {
     base00 = palette.bg_darkest,

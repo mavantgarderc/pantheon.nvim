@@ -340,7 +340,9 @@ end
 return {
   name = "Joker – Chaos Incarnate",
   author = "PrismPunk.nvim",
-  description = "Not a clown. A walking punchline written in acid and blood. Sick green, psychotic purple, arterial red, and the yellow of a grin that never blinks. This theme is what happens when sanity dies laughing.",
+  description = "Not a clown. A walking punchline written in acid and blood. "
+    .. "Sick green, psychotic purple, arterial red, and the yellow of a grin that never blinks. "
+    .. "This theme is what happens when sanity dies laughing.",
 
   base16 = {
     base00 = palette.abyss_black,

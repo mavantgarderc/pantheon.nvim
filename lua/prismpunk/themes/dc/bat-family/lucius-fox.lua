@@ -351,7 +351,9 @@ end
 return {
   name = "Wayne Tech – Lucius Fox",
   author = "PrismPunk.nvim",
-  description = "Mr. Fox, CEO of Wayne Enterprises Applied Sciences. Executive gray suit, blueprint blue schematics, innovation gold patents, and LED green circuit boards. Professional engineering excellence.",
+  description = "Mr. Fox, CEO of Wayne Enterprises Applied Sciences. "
+    .. "Executive gray suit, blueprint blue schematics, innovation gold patents, "
+    .. "and LED green circuit boards. Professional engineering excellence.",
 
   base16 = {
     base00 = palette.bg_darkest,

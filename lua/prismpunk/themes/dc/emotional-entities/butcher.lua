@@ -264,7 +264,9 @@ end
 return {
   name = "Emotional Entity – Butcher (Rage)",
   author = "PrismPunk.nvim",
-  description = "The bull-headed god of slaughter. Its horns drip with the blood of dead galaxies. It does not speak. It only screams.",
+  description = "The bull-headed god of slaughter. "
+    .. "Its horns drip with the blood of dead galaxies. "
+    .. "It does not speak. It only screams.",
 
   base16 = {
     base00 = palette.goreBlack,

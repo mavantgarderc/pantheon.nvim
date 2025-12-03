@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Nightwing",
   author = "PrismPunk.nvim",
-  description = "The original Robin, now the acrobat of Blüdhaven. Flying Grayson blue, escrima sticks, and wingding precision.",
+  description = "The original Robin, now the acrobat of Blüdhaven. "
+    .. "Flying Grayson blue, escrima sticks, and wingding precision.",
 
   base16 = {
     base00 = palette.bg_darkest,

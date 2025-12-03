@@ -340,7 +340,9 @@ end
 return {
   name = "Superman – Classic",
   author = "PrismPunk.nvim",
-  description = "Primary blue. Primary red. Sunshine yellow. The original. The one every kid on Earth knows can catch them if they fall. Truth. Justice. And the brightest smile in comics.",
+  description = "Primary blue. Primary red. Sunshine yellow. The original. "
+    .. "The one every kid on Earth knows can catch them if they fall. Truth. Justice. "
+    .. "And the brightest smile in comics.",
 
   base16 = {
     base00 = palette.void_black,

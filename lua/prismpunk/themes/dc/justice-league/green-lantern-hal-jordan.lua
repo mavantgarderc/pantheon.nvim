@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Green Lantern (Hal Jordan)",
   author = "PrismPunk.nvim",
-  description = "Fearless test pilot, cocky hero, Silver Age legend. Brightest day, blackest night—no evil escapes his sight. Jet stream blues, confident gold, emerald will. The greatest Green Lantern.",
+  description = "Fearless test pilot, cocky hero, Silver Age legend. Brightest day, "
+    .. "blackest night—no evil escapes his sight. Jet stream blues, confident gold, "
+    .. "emerald will. The greatest Green Lantern.",
 
   base16 = {
     base00 = palette.bg_darkest,

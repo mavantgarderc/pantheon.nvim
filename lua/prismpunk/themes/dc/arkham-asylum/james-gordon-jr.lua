@@ -340,7 +340,9 @@ end
 return {
   name = "James Gordon Jr. – The Good Son (High Contrast)",
   author = "PrismPunk.nvim",
-  description = "Same perfect monster. Now with surgical precision readability. Brighter whites, electric teal, screaming red blood, and ice-cold grays. You’ll see every character — just like he sees every scream.",
+  description = "Same perfect monster. Now with surgical precision readability. "
+    .. "Brighter whites, electric teal, screaming red blood, and ice-cold grays. "
+    .. "You’ll see every character — just like he sees every scream.",
 
   base16 = {
     base00 = palette.void_black,

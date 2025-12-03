@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Mr. Terrific",
   author = "PrismPunk.nvim",
-  description = "Third-smartest man alive. Michael Holt, genius inventor, Olympic athlete. Fair Play white and black, T-sphere red tech, holographic blue displays, intelligence gold. Data green analysis, tech cyan interfaces. No superpowers—pure excellence.",
+  description = "Third-smartest man alive. Michael Holt, genius inventor, Olympic athlete. "
+    .. "Fair Play white and black, T-sphere red tech, holographic blue displays, intelligence gold. "
+    .. "Data green analysis, tech cyan interfaces. No superpowers—pure excellence.",
 
   base16 = {
     base00 = palette.bg_darkest,

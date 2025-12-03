@@ -340,7 +340,9 @@ end
 return {
   name = "Vixen – Mari McCabe",
   author = "PrismPunk.nvim",
-  description = "She wears the Tantu Totem. She speaks with the voice of every beast that ever walked, flew, or crawled. Jungle emerald, savanna gold, sunset orange, and the electric blue surge of pure animal spirit. The hunt is on.",
+  description = "She wears the Tantu Totem. She speaks with the voice of every beast that ever walked, "
+    .. "flew, or crawled. Jungle emerald, savanna gold, sunset orange, "
+    .. "and the electric blue surge of pure animal spirit. The hunt is on.",
 
   base16 = {
     base00 = palette.void_black,

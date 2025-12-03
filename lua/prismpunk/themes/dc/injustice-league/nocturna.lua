@@ -340,7 +340,8 @@ end
 return {
   name = "Nocturna – True Nightshade",
   author = "PrismPunk.nvim",
-  description = "She doesn’t sparkle. She doesn’t forgive. She drains you under ultraviolet light and leaves you cold. This is the real Nocturna.",
+  description = "She doesn’t sparkle. She doesn’t forgive. "
+    .. "She drains you under ultraviolet light and leaves you cold. This is the real Nocturna.",
 
   base16 = {
     base00 = palette.void_black,

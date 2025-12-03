@@ -351,7 +351,9 @@ end
 return {
   name = "Space Heroes – Adam Strange",
   author = "PrismPunk.nvim",
-  description = "Zeta-Beam flash! Stranded on Rann, champion in red. Ray-gun blaster, quantum teleportation, Alanna's pink love, alien violet skies, and three red moons. Earth archaeologist turned cosmic defender.",
+  description = "Zeta-Beam flash! Stranded on Rann, champion in red. "
+    .. "Ray-gun blaster, quantum teleportation, Alanna's pink love, alien violet skies, "
+    .. "and three red moons. Earth archaeologist turned cosmic defender.",
 
   base16 = {
     base00 = palette.bg_darkest,

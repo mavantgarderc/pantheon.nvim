@@ -340,7 +340,8 @@ end
 return {
   name = "Superman – Kingdom Come",
   author = "PrismPunk.nvim",
-  description = "He returned from exile with silver in his hair and blood on his shield. Older. Sadder. Stronger. The world broke him once. Never again.",
+  description = "He returned from exile with silver in his hair and blood on his shield. "
+    .. "Older. Sadder. Stronger. The world broke him once. Never again.",
 
   base16 = {
     base00 = palette.void_black,

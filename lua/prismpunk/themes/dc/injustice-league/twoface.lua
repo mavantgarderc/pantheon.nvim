@@ -351,7 +351,9 @@ end
 return {
   name = "Injustice League – Two-Face",
   author = "PrismPunk.nvim",
-  description = "Half pristine Harvey Dent courtroom navy, half acid-scarred Two-Face chaos. The coin decides—heads justice blue, tails rage red. Split personality, dual identity, fractured mind. Violet chaos meets steel fate. This is what happens when you lose the coin toss forever.",
+  description = "Half pristine Harvey Dent courtroom navy, half acid-scarred Two-Face chaos. "
+    .. "The coin decides—heads justice blue, tails rage red. Split personality, dual identity, "
+    .. "fractured mind. Violet chaos meets steel fate. This is what happens when you lose the coin toss forever.",
 
   base16 = {
     base00 = palette.bg_darkest,

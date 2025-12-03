@@ -340,7 +340,8 @@ end
 return {
   name = "Captain Boomerang – Digger Harkness",
   author = "PrismPunk.nvim",
-  description = "Cheap beer neon, takeaway grease, and the ugliest blue jacket in Gotham. He’s a walking pub brawl with exploding boomerangs. Straya, c***!",
+  description = "Cheap beer neon, takeaway grease, and the ugliest blue jacket in Gotham. "
+    .. "He’s a walking pub brawl with exploding boomerangs. Straya, c***!",
 
   base16 = {
     base00 = palette.void_black,

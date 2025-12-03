@@ -340,7 +340,8 @@ end
 return {
   name = "Athanasia al Ghul – Daughter of the Demon",
   author = "PrismPunk.nvim",
-  description = "She wears the white mask of death and the green of the Lazarus Pit. The League kneels. The world will follow.",
+  description = "She wears the white mask of death and the green of the Lazarus Pit. "
+    .. "The League kneels. The world will follow.",
 
   base16 = {
     base00 = palette.void_black,

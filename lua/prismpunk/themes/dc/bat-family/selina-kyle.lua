@@ -351,7 +351,8 @@ end
 return {
   name = "Gotham – Selina Kyle (Femme Fatale)",
   author = "PrismPunk.nvim",
-  description = "Velvet elegance and diamond heists. Seduction pink lipstick, passion red desire, emerald jewel thefts, and champagne luxury. The femme fatale who stole Bruce's heart.",
+  description = "Velvet elegance and diamond heists. Seduction pink lipstick, passion red desire, "
+    .. "emerald jewel thefts, and champagne luxury. The femme fatale who stole Bruce's heart.",
 
   base16 = {
     base00 = palette.bg_darkest,

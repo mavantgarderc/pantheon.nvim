@@ -340,7 +340,8 @@ end
 return {
   name = "Sinestro – Korugar Eternal",
   author = "PrismPunk.nvim",
-  description = "Purple is the color of Korugar. Purple is the color of Sinestro. All other rings were tools. This is his truth.",
+  description = "Purple is the color of Korugar. Purple is the "
+    .. "color of Sinestro. All other rings were tools. This is his truth.",
 
   base16 = {
     base00 = palette.void_black,

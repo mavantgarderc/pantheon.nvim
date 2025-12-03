@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Red Tornado",
   author = "PrismPunk.nvim",
-  description = "Android hero with a human heart. RED metallic body, yellow costume trim, white tornado winds. John Smith seeking family, T.O. Morrow's creation learning emotions. Warm quest for humanity, cold exterior hiding caring soul. Red winds, not blue storms.",
+  description = "Android hero with a human heart. RED metallic body, yellow costume trim, "
+    .. "white tornado winds. John Smith seeking family, T.O. Morrow's creation learning emotions. "
+    .. "Warm quest for humanity, cold exterior hiding caring soul. Red winds, not blue storms.",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -339,7 +339,9 @@ end
 return {
   name = "Harley Quinn – Harleen Quinzel",
   author = "PrismPunk.nvim",
-  description = "Red and black diamonds, bubblegum violence, toxic love, and a laugh that cracks glass. She’s not crazy — she’s just in love. With a clown. And a mallet. And explosions.",
+  description = "Red and black diamonds, bubblegum violence, "
+    .. "toxic love, and a laugh that cracks glass. She’s not crazy — she’s just in love. "
+    .. "With a clown. And a mallet. And explosions.",
 
   base16 = {
     base00 = palette.void_black,

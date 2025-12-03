@@ -343,7 +343,8 @@ end
 return {
   name = "New Gods – Big Barda",
   author = "PrismPunk.nvim",
-  description = "The greatest warrior who chose love over tyranny. Royal blue might, molten gold honor, and now the living red of her iconic battle suit.",
+  description = "The greatest warrior who chose love over tyranny. "
+    .. "Royal blue might, molten gold honor, and now the living red of her iconic battle suit.",
 
   base16 = {
     base00 = palette.fury_void,

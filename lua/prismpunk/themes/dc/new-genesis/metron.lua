@@ -128,7 +128,12 @@ M.get = function(opts, plt)
     },
 
     vcs = { added = plt.singularity_glow, removed = plt.term_red, changed = plt.eternity_pulse },
-    diff = { add = plt.singularity_glow, change = plt.mobius_current, delete = plt.term_red, text = plt.chronal_energy },
+    diff = {
+      add = plt.singularity_glow,
+      change = plt.mobius_current,
+      delete = plt.term_red,
+      text = plt.chronal_energy,
+    },
     diag = {
       ok = plt.singularity_glow,
       error = plt.term_red,
@@ -343,7 +348,8 @@ end
 return {
   name = "New Gods – Metron",
   author = "PrismPunk.nvim",
-  description = "The eternal observer beyond time and allegiance. Absolute zero violet, sterile silver, and the merciless blue-white of pure knowledge.",
+  description = "The eternal observer beyond time and allegiance. Absolute zero violet, "
+    .. "sterile silver, and the merciless blue-white of pure knowledge.",
 
   base16 = {
     base00 = palette.metron_void,

@@ -345,7 +345,8 @@ end
 return {
   name = "Nyssa Raatko – The Blade That Remembers",
   author = "PrismPunk.nvim",
-  description = "She died in the Pit. She came back wrong. Black leather, blood-wine, and poison-violet eyes. The League’s most elegant nightmare.",
+  description = "She died in the Pit. She came back wrong. Black leather, "
+    .. "blood-wine, and poison-violet eyes. The League’s most elegant nightmare.",
 
   base16 = {
     base00 = palette.void_black,

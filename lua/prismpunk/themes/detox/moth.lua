@@ -138,7 +138,6 @@ M.get = function(opts, plt)
       black = plt.nightVoid,
       red = plt.lampBright,
       green = plt.dustBright,
-      green = plt.dustBright,
       yellow = plt.dustLightest,
       blue = plt.nightVoid,
       magenta = plt.moonCore,

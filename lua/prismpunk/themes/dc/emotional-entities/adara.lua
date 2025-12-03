@@ -294,7 +294,8 @@ end
 return {
   name = "Emotional Entity – Adara (Hope)",
   author = "PrismPunk.nvim",
-  description = "Three heads. One voice. The dragon that sings tomorrow into being. Hope is not gentle. Hope is absolute.",
+  description = "Three heads. One voice. The dragon that sings tomorrow into being. "
+    .. "Hope is not gentle. Hope is absolute.",
 
   base16 = {
     base00 = palette.voidWhite,

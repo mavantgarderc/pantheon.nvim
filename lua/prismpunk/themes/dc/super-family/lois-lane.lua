@@ -340,7 +340,8 @@ end
 return {
   name = "Lois Lane – Front Page Justice",
   author = "PrismPunk.nvim",
-  description = "She doesn’t fly. She doesn’t have heat vision. She has a press pass and a complete disregard for personal safety. Navy, crimson, and the violet fire of truth.",
+  description = "She doesn’t fly. She doesn’t have heat vision. She has a press pass and a "
+    .. "complete disregard for personal safety. Navy, crimson, and the violet fire of truth.",
 
   base16 = {
     base00 = palette.void_black,
