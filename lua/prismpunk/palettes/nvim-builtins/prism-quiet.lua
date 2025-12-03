@@ -38,7 +38,7 @@ return {
 
   errorRed = "#ff005f",
   warningAmber = "#ffaf00",
-  infoСyan = "#00afff",
+  infoCyan = "#00afff",
   hintGreen = "#00af5f",
 
   quietWhite = "#dadada",

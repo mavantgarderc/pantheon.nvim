@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0E0C0A",
 
   holyGoldCore = "#D4A017",
-  consecratedBlueCore = "#1E3A8A",
-  flameRedCore = "#DC2626",
-  sacredWhiteCore = "#F8F8FF",
-  judgmentRedCore = "#B91C1C",
-
   holyGold = "#D4A017",
   holyGoldBright = "#E5B730",
   holyGoldDeep = "#B8860B",

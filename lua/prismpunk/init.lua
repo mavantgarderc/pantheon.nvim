@@ -14,7 +14,7 @@ function M.setup(user_config)
 
   -- Auto-load theme if specified (skip if already loaded by colorscheme command)
   if opts and opts.theme then
-    vim.g.colors_name = "prismpunk"
+    vim.g.colors_name = "prismpunk" -- luarcheck: ignore
     vim.schedule(function()
       local success, err = loader.load(opts.theme, {
         force_reload = false,

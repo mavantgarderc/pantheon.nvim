@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0E110E",
 
   lexcorpGreenCore = "#00A86B",
-  techPurpleCore = "#7C3AED",
-  kryptoniteGreenCore = "#00FF7F",
-  wealthGoldCore = "#FFD700",
-  intellectBlueCore = "#4A9EFF",
-
   lexcorpGreen = "#00A86B",
   lexcorpGreenBright = "#00C87F",
   lexcorpGreenDeep = "#008858",

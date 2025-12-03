@@ -19,7 +19,7 @@ return {
 
   escrimalBlue = "#00aaff",
   nightwingBlue = "#1e90ff",
-  blüdhavenBlue = "#4169e1",
+  bludhavenblue = "#4169e1",
   acrobatCyan = "#00ddff",
   flyingGrayson = "#56b6c2",
 
