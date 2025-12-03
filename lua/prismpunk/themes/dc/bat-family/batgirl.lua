@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Batgirl",
   author = "PrismPunk.nvim",
-  description = "Oracle's daughter, Gotham's genius vigilante. Purple cape, golden utility belt, and Clocktower blue intelligence.",
+  description = "Oracle's daughter, Gotham's genius vigilante. "
+    .. "Purple cape, golden utility belt, and Clocktower blue intelligence.",
 
   base16 = {
     base00 = palette.bg_darkest,

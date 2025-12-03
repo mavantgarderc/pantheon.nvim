@@ -125,7 +125,12 @@ M.get = function(opts, plt)
     },
 
     vcs = { added = plt.purge_gold, removed = plt.purge_red, changed = plt.eradicator_gold },
-    diff = { add = plt.purge_gold, change = plt.kryptonian_flame, delete = plt.judgment_red, text = plt.apocalypse_red },
+    diff = {
+      add = plt.purge_gold,
+      change = plt.kryptonian_flame,
+      delete = plt.judgment_red,
+      text = plt.apocalypse_red,
+    },
     diag = {
       ok = plt.purge_gold,
       error = plt.purge_red,
@@ -340,7 +345,8 @@ end
 return {
   name = "Eradicator – Last Son of Extinction",
   author = "PrismPunk.nvim",
-  description = "He does not protect. He does not forgive. He purges impurity with blood-red judgment and molten gold fire. Krypton died so he could live. You are next.",
+  description = "He does not protect. He does not forgive. He purges impurity with blood-red "
+    .. "judgment and molten gold fire. Krypton died so he could live. You are next.",
 
   base16 = {
     base00 = palette.void_black,

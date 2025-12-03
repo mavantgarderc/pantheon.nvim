@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0E1114",
 
   terminalGreenCore = "#00FF41",
-  dataBlueCore = "#4A9EFF",
-  networkPurpleCore = "#9D4EDD",
-  signalOrangeCore = "#FF9500",
-  alertAmberCore = "#FFC107",
-
   terminalGreen = "#00FF41",
   terminalGreenBright = "#5AFF7A",
   terminalGreenDeep = "#00D635",

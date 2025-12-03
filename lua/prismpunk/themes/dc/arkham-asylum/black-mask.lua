@@ -340,7 +340,9 @@ end
 return {
   name = "Black Mask – Roman Sionis",
   author = "PrismPunk.nvim",
-  description = "A carved obsidian mask and a heart full of sadistic rage. Blood-red torture, cold mafia grays, and the glint of a switchblade in Gotham's underworld. Roman Sionis doesn't just kill—he makes you beg first.",
+  description = "A carved obsidian mask and a heart full of sadistic rage."
+    .. "Blood-red torture, cold mafia grays, and the glint of a switchblade in Gotham's underworld."
+    .. "Roman Sionis doesn't just kill—he makes you beg first.",
 
   base16 = {
     base00 = palette.void_black,

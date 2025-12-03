@@ -186,7 +186,8 @@ end
 return {
   name = "Crime Syndicate – Deadeye",
   author = "PrismPunk.nvim",
-  description = "Earth-3’s Deadshot. One bullet, one kill, from three continents away. Cold, precise, and always watching through the scope.",
+  description = "Earth-3’s Deadshot. One bullet, one kill, from three continents away. "
+    .. "Cold, precise, and always watching through the scope.",
 
   base16 = {
     base00 = palette.bg_darkest,

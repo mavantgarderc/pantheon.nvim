@@ -340,7 +340,9 @@ end
 return {
   name = "Man-Bat – Kirk Langstrom",
   author = "PrismPunk.nvim",
-  description = "A man who wanted to soar. Now a blind, screaming monster in the dark. Blood-red eyes, leathery brown wings, sickly serum yellow, and the ultrasonic white of a beast that still thinks it’s human.",
+  description = "A man who wanted to soar. "
+    .. "Now a blind, screaming monster in the dark. Blood-red eyes, leathery brown wings, "
+    .. "sickly serum yellow, and the ultrasonic white of a beast that still thinks it’s human.",
 
   base16 = {
     base00 = palette.void_black,

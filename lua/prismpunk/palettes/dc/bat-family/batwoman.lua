@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#11090C",
 
   crimsonRedCore = "#DC143C",
-  scarletOrangeCore = "#FF4500",
-  tacticalGrayCore = "#708090",
-  fierceMagentaCore = "#E91E63",
-  bloodRedCore = "#8B0000",
-
   crimsonRed = "#DC143C",
   crimsonRedBright = "#FF1744",
   crimsonRedDeep = "#B71C1C",

@@ -351,7 +351,10 @@ end
 return {
   name = "Injustice League – Black Manta",
   author = "PrismPunk.nvim",
-  description = "Deep-sea terror, Aquaman's nemesis. Laser red helmet eyes, sonar cyan tech, abyssal ocean depths. High-tech underwater assassin, crushing pressure darkness, torpedo orange weapons. Blood hatred vendetta, armor silver plating, bioluminescent glow. From the black depths—death rises.",
+  description = "Deep-sea terror, Aquaman's nemesis. Laser red helmet eyes, sonar cyan tech, "
+    .. "abyssal ocean depths. High-tech underwater assassin, crushing pressure darkness, "
+    .. "torpedo orange weapons. Blood hatred vendetta, armor silver plating, bioluminescent glow. "
+    .. "From the black depths—death rises.",
 
   base16 = {
     base00 = palette.bg_darkest,

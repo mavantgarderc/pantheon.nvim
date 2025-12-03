@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Shazam",
   author = "PrismPunk.nvim",
-  description = "The World's Mightiest Mortal. Champion red suit, thunder gold lightning, Zeus blue power, white cape purity. SHAZAM! Solomon's wisdom, Hercules' strength, Atlas' stamina, Zeus' power, Achilles' courage, Mercury's speed. Magic word, transformation, kid hero with god-tier might.",
+  description = "The World's Mightiest Mortal. Champion red suit, thunder gold lightning, Zeus blue power, "
+    .. "white cape purity. SHAZAM! Solomon's wisdom, Hercules' strength, Atlas' stamina, Zeus' power, "
+    .. "Achilles' courage, Mercury's speed. Magic word, transformation, kid hero with god-tier might.",
 
   base16 = {
     base00 = palette.bg_darkest,

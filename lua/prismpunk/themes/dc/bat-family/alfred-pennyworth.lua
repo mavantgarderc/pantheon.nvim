@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Alfred Pennyworth",
   author = "PrismPunk.nvim",
-  description = "Why do we fall, sir? So we can learn to pick ourselves up. The loyal butler with wisdom gold, Wayne manor elegance, tea time tan, and British dignity.",
+  description = "Why do we fall, sir? So we can learn to pick ourselves up. "
+    .. "The loyal butler with wisdom gold, Wayne manor elegance, tea time tan, and British dignity.",
 
   base16 = {
     base00 = palette.bg_darkest,

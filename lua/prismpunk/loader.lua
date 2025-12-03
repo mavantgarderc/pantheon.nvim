@@ -349,8 +349,10 @@ function M.load(theme_spec, opts)
     save_to_disk_cache(cache_key, cache_data)
   end
 
-  ok, _ = pcall(highlights.apply, theme_result, config.options)
-  if not ok then return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) end
+  ok, _ = pcall(highlights.apply, theme_result, config.options) -- luacheck: ignore
+  if not ok then -- luachec: ignore
+    return false, string.format("[prismpunk] Failed to apply highlights: %s", tostring(_)) -- luacheck: ignore
+  end
 
   apply_terminals(theme_module, palette_table)
 

@@ -345,7 +345,8 @@ end
 return {
   name = "Injustice Captain Cold – Absolute Zero Enforcer",
   author = "PrismPunk.nvim",
-  description = "In Superman’s Regime, Captain Cold doesn’t steal. He executes. One shot from the cold gun and you’re a statue. Forever.",
+  description = "In Superman’s Regime, Captain Cold doesn’t steal. He executes. "
+    .. "One shot from the cold gun and you’re a statue. Forever.",
 
   base16 = {
     base00 = palette.void_black,

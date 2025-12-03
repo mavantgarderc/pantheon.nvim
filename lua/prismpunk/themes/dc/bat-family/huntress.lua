@@ -351,7 +351,8 @@ end
 return {
   name = "Gotham – Huntress",
   author = "PrismPunk.nvim",
-  description = "Violet vengeance. Crossbow white bolts, electric cyan tracking, Gotham gold streets. The Huntress stalks the night.",
+  description = "Violet vengeance. Crossbow white bolts, electric cyan tracking, "
+    .. "Gotham gold streets. The Huntress stalks the night.",
 
   base16 = {
     base00 = palette.bg_darkest,

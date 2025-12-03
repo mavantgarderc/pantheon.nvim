@@ -34,7 +34,7 @@ M.get = function(opts, plt)
       bg_cursorline = plt.bg_mid,
       bg_cursorline_alt = plt.bg_light,
       bg_search = plt.wingdingGold,
-      bg_visual = plt.blüdhavenBlue,
+      bg_visual = plt.bludhavenblue,
       bg_statusline = plt.bg_light,
       border = plt.bg_alt4,
       header1 = plt.escrimalBlue,
@@ -109,7 +109,7 @@ M.get = function(opts, plt)
       number = plt.titanSteel,
       operator = plt.dickGraysonTeal,
       parameter = plt.fg_mid,
-      preproc = plt.blüdhavenBlue,
+      preproc = plt.bludhavenblue,
       punct = plt.fg_mid,
       regex = plt.wingdingGold,
       statement = plt.nightwingBlue,
@@ -149,7 +149,7 @@ M.get = function(opts, plt)
       green = plt.robinGreen,
       yellow = plt.wingdingGold,
       blue = plt.nightwingBlue,
-      magenta = plt.blüdhavenBlue,
+      magenta = plt.bludhavenblue,
       cyan = plt.acrobatCyan,
       white = plt.fg_light,
       black_bright = color(plt.bg_alt3):brighten(0.6):to_hex(),
@@ -157,7 +157,7 @@ M.get = function(opts, plt)
       green_bright = color(plt.robinGreen):brighten(0.1):to_hex(),
       yellow_bright = color(plt.wingdingGold):brighten(0.2):to_hex(),
       blue_bright = color(plt.nightwingBlue):brighten(0.3):to_hex(),
-      magenta_bright = color(plt.blüdhavenBlue):brighten(0.2):to_hex(),
+      magenta_bright = color(plt.bludhavenblue):brighten(0.2):to_hex(),
       cyan_bright = color(plt.acrobatCyan):brighten(0.1):to_hex(),
       white_bright = color(plt.fg_light):brighten(0.2):to_hex(),
       indexed1 = plt.escrimalBlue,
@@ -179,14 +179,14 @@ M.get = function(opts, plt)
       ["@string"] = plt.flyingGrayson,
       ["@string.documentation"] = plt.flyingGrayson,
       ["@string.regex"] = plt.wingdingGold,
-      ["@string.escape"] = plt.blüdhavenBlue,
+      ["@string.escape"] = plt.bludhavenblue,
       ["@string.special"] = plt.acrobatCyan,
       ["@string.special.symbol"] = plt.dickGraysonTeal,
       ["@string.special.url"] = plt.acrobatCyan,
       ["@string.special.path"] = plt.dickGraysonTeal,
 
       ["@character"] = plt.flyingGrayson,
-      ["@character.special"] = plt.blüdhavenBlue,
+      ["@character.special"] = plt.bludhavenblue,
 
       ["@number"] = plt.titanSteel,
       ["@number.float"] = plt.titanSteel,
@@ -196,7 +196,7 @@ M.get = function(opts, plt)
       ["@function"] = plt.acrobatCyan,
       ["@function.builtin"] = plt.acrobatCyan,
       ["@function.call"] = plt.acrobatCyan,
-      ["@function.macro"] = plt.blüdhavenBlue,
+      ["@function.macro"] = plt.bludhavenblue,
       ["@function.method"] = plt.dickGraysonTeal,
       ["@function.method.call"] = plt.dickGraysonTeal,
 
@@ -215,8 +215,8 @@ M.get = function(opts, plt)
       ["@keyword.repeat"] = plt.nightwingBlue,
       ["@keyword.conditional"] = plt.nightwingBlue,
       ["@keyword.exception"] = plt.batfamilyRed,
-      ["@keyword.directive"] = plt.blüdhavenBlue,
-      ["@keyword.directive.define"] = plt.blüdhavenBlue,
+      ["@keyword.directive"] = plt.bludhavenblue,
+      ["@keyword.directive.define"] = plt.bludhavenblue,
 
       ["@conditional"] = plt.nightwingBlue,
       ["@conditional.ternary"] = plt.nightwingBlue,
@@ -288,7 +288,7 @@ M.get = function(opts, plt)
       ["@diff.delta"] = plt.wingdingGold,
 
       ["@none"] = "none",
-      ["@conceal"] = plt.blüdhavenBlue,
+      ["@conceal"] = plt.bludhavenblue,
       ["@spell"] = plt.fg_lightest,
       ["@nospell"] = "none",
 
@@ -308,7 +308,7 @@ M.get = function(opts, plt)
       ["@property.toml"] = plt.flyingGrayson,
       ["@function.builtin.bash"] = plt.acrobatCyan,
       ["@string.regexp"] = plt.wingdingGold,
-      ["@character.special.regex"] = plt.blüdhavenBlue,
+      ["@character.special.regex"] = plt.bludhavenblue,
     },
 
     lsp = {
@@ -351,7 +351,8 @@ end
 return {
   name = "Bat-Family – Nightwing",
   author = "PrismPunk.nvim",
-  description = "The original Robin, now the acrobat of Blüdhaven. Flying Grayson blue, escrima sticks, and wingding precision.",
+  description = "The original Robin, now the acrobat of Blüdhaven. "
+    .. "Flying Grayson blue, escrima sticks, and wingding precision.",
 
   base16 = {
     base00 = palette.bg_darkest,
@@ -368,7 +369,7 @@ return {
     base0B = palette.robinGreen,
     base0C = palette.acrobatCyan,
     base0D = palette.nightwingBlue,
-    base0E = palette.blüdhavenBlue,
+    base0E = palette.bludhavenblue,
     base0F = palette.escrimalBlue,
   },
 

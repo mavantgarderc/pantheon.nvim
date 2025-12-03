@@ -351,7 +351,10 @@ end
 return {
   name = "Justice League – The Spectre",
   author = "PrismPunk.nvim",
-  description = "Spirit of Vengeance, Death incarnate. Corpse pale skin, void purple judgment, divine gold authority, death blue finality. Jim Corrigan's ghost, cosmic omnipotence, sin crimson wrath. Supernatural enforcer, no mercy, absolute justice. Green hood minimal—this is death's realm.",
+  description = "Spirit of Vengeance, Death incarnate. Corpse pale skin, void purple judgment, "
+    .. "divine gold authority, death blue finality. Jim Corrigan's ghost, cosmic omnipotence, "
+    .. "sin crimson wrath. Supernatural enforcer, no mercy, absolute justice. "
+    .. "Green hood minimal—this is death's realm.",
 
   base16 = {
     base00 = palette.bg_darkest,

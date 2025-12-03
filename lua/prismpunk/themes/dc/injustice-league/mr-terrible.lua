@@ -340,7 +340,8 @@ end
 return {
   name = "Injustice Mr. Terrific – Regime Enforcer",
   author = "PrismPunk.nvim",
-  description = "Fair Play is obsolete. Order is mandatory. The third-smartest man alive now runs the neural network that keeps the world in line.",
+  description = "Fair Play is obsolete. Order is mandatory. "
+    .. "The third-smartest man alive now runs the neural network that keeps the world in line.",
 
   base16 = {
     base00 = palette.void_black,

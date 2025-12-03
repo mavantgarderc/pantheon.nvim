@@ -357,7 +357,8 @@ end
 return {
   name = "Emotional Entity – Ophidian (Avarice)",
   author = "PrismPunk.nvim",
-  description = "The orange serpent of greed. It wants your soul. It wants your code. It wants everything. And it will never have enough.",
+  description = "The orange serpent of greed. It wants your soul. It wants your code. "
+    .. "It wants everything. And it will never have enough.",
 
   base16 = {
     base00 = palette.greedVoid,

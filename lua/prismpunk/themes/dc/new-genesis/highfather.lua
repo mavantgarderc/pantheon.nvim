@@ -354,7 +354,8 @@ end
 return {
   name = "New Gods – Highfather",
   author = "PrismPunk.nvim",
-  description = "Izaya the Inheritor. The voice of the Source. Pure white divinity, sacred gold wisdom, and the infinite blue of universal truth.",
+  description = "Izaya the Inheritor. The voice of the Source. Pure white divinity, "
+    .. "sacred gold wisdom, and the infinite blue of universal truth.",
 
   base16 = {
     base00 = palette.source_void,

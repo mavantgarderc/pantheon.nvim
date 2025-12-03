@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Indigo (Compassion)",
   author = "PrismPunk.nvim",
-  description = "Tor lorek san, bor nakka mur, Natromo faan tornek wot ur. Ter Lantern ker lo Abin Sur, Taan lek lek nok – Formorrow Sur!",
+  description = "Tor lorek san, bor nakka mur, Natromo faan tornek wot ur. "
+    .. "Ter Lantern ker lo Abin Sur, Taan lek lek nok – Formorrow Sur!",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -351,7 +351,9 @@ end
 return {
   name = "Firestorm",
   author = "PrismPunk.nvim",
-  description = "Nuclear fusion unleashed. Ronnie Raymond and Professor Stein merged into one—atomic fire, molecular transmutation, and quantum energy. Orange flames meet golden sparks, cyan shifts, and purple intellect. The Nuclear Man burns bright.",
+  description = "Nuclear fusion unleashed. Ronnie Raymond and Professor Stein merged into one—atomic fire, "
+    .. "molecular transmutation, and quantum energy. Orange flames meet golden sparks, cyan shifts, "
+    .. "and purple intellect. The Nuclear Man burns bright.",
 
   base16 = {
     base00 = palette.bg_darkest,

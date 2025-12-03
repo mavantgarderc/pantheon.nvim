@@ -340,7 +340,9 @@ end
 return {
   name = "Hush – Thomas Elliot",
   author = "PrismPunk.nvim",
-  description = "A childhood betrayal carved into flesh. Cold scalpels, blood that won’t clot, antiseptic white bandages over a face that screams in silence. He doesn’t speak. He just cuts. Again. And again. And again.",
+  description = "A childhood betrayal carved into flesh. "
+    .. "Cold scalpels, blood that won’t clot, antiseptic white bandages over a face that screams in silence. "
+    .. "He doesn’t speak. He just cuts. Again. And again. And again.",
 
   base16 = {
     base00 = palette.void_black,

@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#111914",
 
   jungleGreenCore = "#4ADE80",
-  vineGreenCore = "#22C55E",
-  canopyTealCore = "#14B8A6",
-  tropicalOrangeCore = "#FB923C",
-  sunbeamYellowCore = "#FCD34D",
-
   jungleGreen = "#4ADE80",
   jungleGreenBright = "#6EE7A0",
   jungleGreenDeep = "#3ABD6B",

@@ -351,7 +351,9 @@ end
 return {
   name = "Justice League – Constantine",
   author = "PrismPunk.nvim",
-  description = "Hellblazer, chain-smoking conman mage. Cigarette amber smoke, trench coat tan, hellfire orange demons, blood red rituals. London punk roots, damned purple soul, working-class occult. Cynical bastard who tricks the devil himself.",
+  description = "Hellblazer, chain-smoking conman mage. Cigarette amber smoke, trench coat tan, "
+    .. "hellfire orange demons, blood red rituals. London punk roots, damned purple soul, working-class occult. "
+    .. "Cynical bastard who tricks the devil himself.",
 
   base16 = {
     base00 = palette.bg_darkest,

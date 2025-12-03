@@ -340,7 +340,9 @@ end
 return {
   name = "Riddler – Edward Nygma",
   author = "PrismPunk.nvim",
-  description = "Emerald question marks, electric lime puzzles, and deep violet genius. He doesn’t want your money. He wants your mind. Fail the riddle and the trap springs. Answer correctly… and he’ll just make the next one harder.",
+  description = "Emerald question marks, electric lime puzzles, and deep violet genius. "
+    .. "He doesn’t want your money. He wants your mind. Fail the riddle and the trap springs. "
+    .. "Answer correctly… and he’ll just make the next one harder.",
 
   base16 = {
     base00 = palette.void_black,

@@ -340,7 +340,8 @@ end
 return {
   name = "Injustice Killer Frost – Ice Queen of the Regime",
   author = "PrismPunk.nvim",
-  description = "She used to be human. Now she’s a blizzard with a smile. Corpse-pale skin, electric cryo-blue hair, and a heart colder than absolute zero.",
+  description = "She used to be human. Now she’s a blizzard with a smile. "
+    .. "Corpse-pale skin, electric cryo-blue hair, and a heart colder than absolute zero.",
 
   base16 = {
     base00 = palette.void_black,

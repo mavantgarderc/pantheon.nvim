@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#100F14",
 
   acidGreenCore = "#39FF14",
-  neonPinkCore = "#FF10F0",
-  toxicCyanCore = "#00FFFF",
-  bioOrangeCore = "#FF6B35",
-  radioactiveLimeCore = "#CCFF00",
-
   acidGreen = "#39FF14",
   acidGreenBright = "#5FFF3D",
   acidGreenDeep = "#2BD60F",

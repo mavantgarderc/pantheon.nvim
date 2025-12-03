@@ -1,4 +1,3 @@
--- lua/prismpunk/themes/dc/emotional-entities/umbrax.lua
 local color = require("prismpunk.utils.color")
 local palette = require("prismpunk.palettes.dc.emotional-entities.umbrax")
 
@@ -241,7 +240,8 @@ end
 return {
   name = "Emotional Entity – Umbrax (Death)",
   author = "PrismPunk.nvim",
-  description = "The unseen Black Entity. The ultraviolet devourer that ended the White Light. There is no life here. Only the silence after the last heartbeat.",
+  description = "The unseen Black Entity. The ultraviolet devourer that ended the White Light. "
+    .. "There is no life here. Only the silence after the last heartbeat.",
 
   base16 = {
     base00 = palette.death_void,

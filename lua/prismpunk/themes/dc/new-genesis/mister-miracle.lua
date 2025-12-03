@@ -340,7 +340,8 @@ end
 return {
   name = "New Gods – Mister Miracle",
   author = "PrismPunk.nvim",
-  description = "Scott Free. Nuclear yellow. Radioactive green. Blood-red cape. Hot-magenta escape trail no other god will ever touch. Freedom made visible.",
+  description = "Scott Free. Nuclear yellow. Radioactive green. Blood-red cape. "
+    .. "Hot-magenta escape trail no other god will ever touch. Freedom made visible.",
 
   base16 = {
     base00 = palette.apokolips_void,

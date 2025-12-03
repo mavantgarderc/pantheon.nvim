@@ -343,7 +343,8 @@ end
 return {
   name = "Emotional Entity – Predator (Love)",
   author = "PrismPunk.nvim",
-  description = "The violet predator of the Star Sapphire Corps. Love as a cosmic hunter — fierce, protective, all-consuming.",
+  description = "The violet predator of the Star Sapphire Corps. "
+    .. "Love as a cosmic hunter — fierce, protective, all-consuming.",
 
   base16 = {
     base00 = palette.love_void,

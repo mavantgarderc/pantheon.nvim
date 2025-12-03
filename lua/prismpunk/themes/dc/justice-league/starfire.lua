@@ -340,7 +340,8 @@ end
 return {
   name = "Starfire – Princess of Tamaran",
   author = "PrismPunk.nvim",
-  description = "She came from the stars with a heart full of love and hands full of starbolts. Golden skin, emerald fire, violet eyes that burn brighter than any sun.",
+  description = "She came from the stars with a heart full of love and hands full of starbolts. "
+    .. "Golden skin, emerald fire, violet eyes that burn brighter than any sun.",
 
   base16 = {
     base00 = palette.void_black,

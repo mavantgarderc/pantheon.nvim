@@ -125,7 +125,12 @@ M.get = function(opts, plt)
     },
 
     vcs = { added = plt.command_blue, removed = plt.reactor_red, changed = plt.lane_gray },
-    diff = { add = plt.command_blue, change = plt.energy_white, delete = plt.kryptonian_red, text = plt.superwoman_red },
+    diff = {
+      add = plt.command_blue,
+      change = plt.energy_white,
+      delete = plt.kryptonian_red,
+      text = plt.superwoman_red,
+    },
     diag = {
       ok = plt.command_blue,
       error = plt.kryptonian_red,
@@ -340,7 +345,8 @@ end
 return {
   name = "Lucy Lane – Superwoman",
   author = "PrismPunk.nvim",
-  description = "Lois’s little sister in a stolen red-field suit. Military precision, glowing crimson power, and a black shield that never belonged to her. She wanted to be the hero. She became the weapon.",
+  description = "Lois’s little sister in a stolen red-field suit. Military precision, glowing crimson "
+    .. "power, and a black shield that never belonged to her. She wanted to be the hero. She became the weapon.",
 
   base16 = {
     base00 = palette.void_black,

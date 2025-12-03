@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#0F0F0F",
 
   tacticalOrangeCore = "#FF6B35",
-  steelGrayCore = "#708090",
-  militaryGreenCore = "#4A5F4A",
-  lethalRedCore = "#B91C1C",
-  operativeBlackCore = "#1A1A1A",
-
   tacticalOrange = "#FF6B35",
   tacticalOrangeBright = "#FF8C5E",
   tacticalOrangeDeep = "#E8551F",

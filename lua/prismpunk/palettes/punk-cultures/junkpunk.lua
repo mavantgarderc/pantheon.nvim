@@ -20,10 +20,6 @@ return {
 
   rustOrangeCore = "#CC7832",
   copperCore = "#B87333",
-  steelBlueCore = "#5C8A9D",
-  oilSlickCore = "#2D5016",
-  sparkYellowCore = "#D4A520",
-
   rustOrange = "#CC7832",
   rustOrangeBright = "#E89650",
   rustOrangeDeep = "#A55F28",

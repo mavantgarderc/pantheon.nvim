@@ -182,7 +182,8 @@ end
 return {
   name = "Crime Syndicate – Martian",
   author = "PrismPunk.nvim",
-  description = "He is the hole where your identity used to be. Colors lie. Reality is negotiable. Borders now behave.",
+  description = "He is the hole where your identity used to be. Colors lie. "
+    .. "Reality is negotiable. Borders now behave.",
 
   base16 = {
     base00 = palette.bg_darkest,

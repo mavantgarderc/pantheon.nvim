@@ -340,7 +340,8 @@ end
 return {
   name = "Supergirl – Kara Zor-El",
   author = "PrismPunk.nvim",
-  description = "She lost everything. Then she found Earth — and chose joy. Brighter blues, hotter reds, gold that actually shines. This is the Girl of Steel who smiles while saving the world.",
+  description = "She lost everything. Then she found Earth — and chose joy. Brighter blues, "
+    .. "hotter reds, gold that actually shines. This is the Girl of Steel who smiles while saving the world.",
 
   base16 = {
     base00 = palette.void_black,

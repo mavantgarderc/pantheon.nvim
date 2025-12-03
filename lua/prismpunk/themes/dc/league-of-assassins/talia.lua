@@ -207,7 +207,8 @@ end
 return {
   name = "League of Assassins – Talia al Ghul",
   author = "PrismPunk.nvim",
-  description = "She loves you. She will kill you. She will cry over your corpse. And she will do it all in perfect emerald silence.",
+  description = "She loves you. She will kill you. She will cry over your corpse. "
+    .. "And she will do it all in perfect emerald silence.",
 
   base16 = {
     base00 = palette.cosmicBlack,

@@ -343,7 +343,9 @@ end
 return {
   name = "Apokolips – Heggra",
   author = "PrismPunk.nvim",
-  description = "The murdered Queen-Mother. Crimson royalty, poisoned gold, and the blackest throne in the multiverse.",
+  description = "The murdered Queen-Mother. "
+    .. "Crimson royalty, poisoned gold, "
+    .. "and the blackest throne in the multiverse.",
 
   base16 = {
     base00 = palette.heggra_void,

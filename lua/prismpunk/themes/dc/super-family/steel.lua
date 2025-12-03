@@ -1,4 +1,3 @@
--- lua/prismpunk/themes/dc/super-family-steel.lua
 local color = require("prismpunk.utils.color")
 local palette = require("prismpunk.palettes.dc.super-family.steel")
 
@@ -341,7 +340,8 @@ end
 return {
   name = "Steel – John Henry Irons",
   author = "PrismPunk.nvim",
-  description = "He built the armor himself. Forged the legend with his own hands. Steel-gray might, glowing red S, and the unbreakable heart of the man who stood up when Superman fell.",
+  description = "He built the armor himself. Forged the legend with his own hands. "
+    .. "Steel-gray might, glowing red S, and the unbreakable heart of the man who stood up when Superman fell.",
 
   base16 = {
     base00 = palette.void_black,

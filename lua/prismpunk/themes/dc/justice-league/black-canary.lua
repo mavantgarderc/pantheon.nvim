@@ -351,7 +351,9 @@ end
 return {
   name = "Birds of Prey – Black Canary",
   author = "PrismPunk.nvim",
-  description = "Dinah Lance's Canary Cry! Bright yellow suit, sonic scream waves, platinum blonde hair, leather jacket black, and Birds of Prey green. Star City's songbird with a deadly voice.",
+  description = "Dinah Lance's Canary Cry! Bright yellow suit, sonic scream waves, "
+    .. "platinum blonde hair, leather jacket black, and Birds of Prey green. "
+    .. "Star City's songbird with a deadly voice.",
 
   base16 = {
     base00 = palette.bg_darkest,

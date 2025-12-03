@@ -333,7 +333,8 @@ end
 return {
   name = "Justice League – Cyborg",
   author = "PrismPunk.nvim",
-  description = "Half man. Half machine. Full hero. Titanium, Mother Box violet, and a heart that refuses to be silenced.",
+  description = "Half man. Half machine. Full hero. Titanium, Mother Box violet, "
+    .. "and a heart that refuses to be silenced.",
 
   base16 = {
     base00 = palette.bg_darkest,

@@ -345,7 +345,9 @@ end
 return {
   name = "Firefly – Garfield Lynns",
   author = "PrismPunk.nvim",
-  description = "He doesn’t kill with fire. He worships it. Screaming orange inferno, toxic green jet fuel, molten yellow, and the white-hot core of pure arson. Everything burns. Everything must burn.",
+  description = "He doesn’t kill with fire. He worships it. "
+    .. "Screaming orange inferno, toxic green jet fuel, molten yellow, "
+    .. "and the white-hot core of pure arson. Everything burns. Everything must burn.",
 
   base16 = {
     base00 = palette.void_black,

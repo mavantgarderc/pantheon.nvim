@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#020204",
 
   quantumBlueCore = "#00D9FF",
-  neuralPurpleCore = "#9D4EDD",
-  voidCyanCore = "#00FFFF",
-  cosmicGoldCore = "#FFD700",
-  stellarWhiteCore = "#E8F0FF",
-
   quantumBlue = "#00D9FF",
   quantumBlueBright = "#33E6FF",
   quantumBlueDeep = "#00B3D9",

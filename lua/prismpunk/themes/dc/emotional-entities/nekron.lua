@@ -218,7 +218,8 @@ end
 return {
   name = "Emotional Entity – Nekron (Death)",
   author = "PrismPunk.nvim",
-  description = "The Black. Lord of the dead. Wielder of the ultimate darkness. The entity that ended all life in the universe — and then brought it back wrong.",
+  description = "The Black. Lord of the dead. Wielder of the ultimate darkness. "
+    .. "The entity that ended all life in the universe — and then brought it back wrong.",
 
   base16 = {
     base00 = palette.blackVoid,

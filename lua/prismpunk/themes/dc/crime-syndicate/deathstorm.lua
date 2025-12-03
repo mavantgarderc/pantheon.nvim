@@ -181,7 +181,8 @@ end
 return {
   name = "Crime Syndicate – Deathstorm",
   author = "PrismPunk.nvim",
-  description = "The walking corpse of Firestorm. His flames are blood-red decay. His core leaks radioactive gold. Everything burns cold.",
+  description = "The walking corpse of Firestorm. His flames are blood-red decay. "
+    .. "His core leaks radioactive gold. Everything burns cold.",
 
   base16 = {
     base00 = palette.bg_darkest,

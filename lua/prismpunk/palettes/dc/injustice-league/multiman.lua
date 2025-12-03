@@ -19,11 +19,6 @@ return {
   bg_alt4 = "#121212",
 
   mutationPurpleCore = "#9D4EDD",
-  resurrectionGreenCore = "#00FF7F",
-  chaosRedCore = "#DC143C",
-  fluxBlueCore = "#4169E1",
-  deathGrayCore = "#708090",
-
   mutationPurple = "#9D4EDD",
   mutationPurpleBright = "#C77DFF",
   mutationPurpleDeep = "#7B2CBF",

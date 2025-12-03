@@ -340,7 +340,8 @@ end
 return {
   name = "Gorilla Grodd – Ape God-King",
   author = "PrismPunk.nvim",
-  description = "Bow to Grodd. His mind is fire. His crown is gold. His will is unbreakable. You are already his puppet.",
+  description = "Bow to Grodd. His mind is fire. His crown is gold. "
+    .. "His will is unbreakable. You are already his puppet.",
 
   base16 = {
     base00 = palette.void_black,

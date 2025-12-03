@@ -340,7 +340,8 @@ end
 return {
   name = "Lady Shiva – Goddess of Death",
   author = "PrismPunk.nvim",
-  description = "She needs no sword. She needs no gun. Every finger is a killing strike. Black gi. Crimson blood. Jade venom. The perfect predator.",
+  description = "She needs no sword. She needs no gun. Every finger is a killing strike. "
+    .. "Black gi. Crimson blood. Jade venom. The perfect predator.",
 
   base16 = {
     base00 = palette.void_black,

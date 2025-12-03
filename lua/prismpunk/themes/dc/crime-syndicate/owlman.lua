@@ -336,7 +336,8 @@ end
 return {
   name = "Crime Syndicate – Owlman (Ancient Terror)",
   author = "PrismPunk.nvim",
-  description = "The owl that walks as a man. The thing from the moor that was never human. Cornish nightmares made flesh.",
+  description = "The owl that walks as a man. The thing from the moor that was never human. "
+    .. "Cornish nightmares made flesh.",
 
   base16 = {
     base00 = palette.bg_darkest,

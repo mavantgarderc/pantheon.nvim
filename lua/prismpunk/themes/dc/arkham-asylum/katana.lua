@@ -340,7 +340,10 @@ end
 return {
   name = "Katana – Tatsu Yamashiro",
   author = "PrismPunk.nvim",
-  description = "A widow’s grief forged into steel. Crimson silk, mourning black, ghost-white ash, and the cold jade of souls screaming inside the Soultaker blade. Every line of code is a cut. Every cut is eternal.",
+  description = "A widow’s grief forged into steel."
+    .. "Crimson silk, mourning black, ghost-white ash, "
+    .. "and the cold jade of souls screaming inside the Soultaker blade. "
+    .. "Every line of code is a cut. Every cut is eternal.",
 
   base16 = {
     base00 = palette.void_black,

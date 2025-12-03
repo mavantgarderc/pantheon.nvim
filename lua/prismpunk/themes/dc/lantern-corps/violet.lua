@@ -351,7 +351,8 @@ end
 return {
   name = "Lantern Corps – Violet (Love)",
   author = "PrismPunk.nvim",
-  description = "For hearts long lost and full of fright, for those alone in blackest night, accept our hopes, our love, our might!",
+  description = "For hearts long lost and full of fright, for those alone in blackest night, "
+    .. "accept our hopes, our love, our might!",
 
   base16 = {
     base00 = palette.bg_darkest,

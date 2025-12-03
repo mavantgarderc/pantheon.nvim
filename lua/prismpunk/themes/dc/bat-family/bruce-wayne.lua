@@ -351,7 +351,8 @@ end
 return {
   name = "Wayne Manor – Bruce Wayne (Dark Academia)",
   author = "PrismPunk.nvim",
-  description = "The scholar billionaire. Wayne Manor library leather, ancient philosophy books, oak desk studies, and burgundy wine. Dark academia elegance.",
+  description = "The scholar billionaire. Wayne Manor library leather, ancient philosophy books, "
+    .. "oak desk studies, and burgundy wine. Dark academia elegance.",
 
   base16 = {
     base00 = palette.bg_darkest,

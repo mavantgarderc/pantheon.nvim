@@ -340,7 +340,8 @@ end
 return {
   name = "James Gordon",
   author = "PrismPunk.nvim",
-  description = "The last honest cop in Gotham. Trench-coat khaki, rainy blues, red beacons, and the unquenchable yellow of the Bat-Signal. He never stops. Neither should you.",
+  description = "The last honest cop in Gotham. Trench-coat khaki, rainy blues, "
+    .. "red beacons, and the unquenchable yellow of the Bat-Signal. He never stops. Neither should you.",
 
   base16 = {
     base00 = palette.gotham_night,

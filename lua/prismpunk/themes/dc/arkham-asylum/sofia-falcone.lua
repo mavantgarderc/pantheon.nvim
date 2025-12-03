@@ -340,7 +340,9 @@ end
 return {
   name = "Sofia Falcone – The Hangman",
   author = "PrismPunk.nvim",
-  description = "Daughter of Carmine Falcone. Heir to an empire built on corpses. Black silk suits, blood-red manicured nails, and Roman gold that still drips with yesterday’s betrayals. She doesn’t ask twice. She hangs you once — and makes the whole city watch.",
+  description = "Daughter of Carmine Falcone. Heir to an empire built on corpses. "
+    .. "Black silk suits, blood-red manicured nails, and Roman gold that still drips with yesterday’s betrayals. "
+    .. "She doesn’t ask twice. She hangs you once — and makes the whole city watch.",
 
   base16 = {
     base00 = palette.void_black,

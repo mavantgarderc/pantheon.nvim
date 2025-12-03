@@ -340,7 +340,8 @@ end
 return {
   name = "Cheetah – Primal Goddess",
   author = "PrismPunk.nvim",
-  description = "She was a woman once. Now she is the hunt. Golden fur under moonlight, cursed emerald eyes, and the endless hunger of Urzkartaga.",
+  description = "She was a woman once. Now she is the hunt. Golden fur under moonlight, "
+    .. "cursed emerald eyes, and the endless hunger of Urzkartaga.",
 
   base16 = {
     base00 = palette.void_black,

@@ -345,7 +345,9 @@ end
 return {
   name = "New Gods – Takion",
   author = "PrismPunk.nvim",
-  description = "Joshua Saunders became the living Source. Infinite white-gold light, cosmic cyan currents, and magenta waves of distorted time. This theme is the universe speaking through code.",
+  description = "Joshua Saunders became the living Source. Infinite white-gold light, "
+    .. "cosmic cyan currents, and magenta waves of distorted time. "
+    .. "This theme is the universe speaking through code.",
 
   base16 = {
     base00 = palette.source_void,
