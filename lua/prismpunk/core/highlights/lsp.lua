@@ -68,8 +68,15 @@ function M.apply(c, _config)
   hl("LspInfoTitle", { fg = s.syn.keyword, bold = true })
   hl("LspInlayHintType", { link = "LspInlayHint" })
   hl("LspInlayHintParameter", { link = "LspInlayHint" })
+  hl("LspLens", { fg = s.syn.comment })
+  hl("LspProgressFg", { fg = s.syn.type })
 
   hl("LspSignatureActiveParameter", { fg = s.syn.func, underline = true })
+
+  hl("@lsp.type.field", { fg = s.syn.variable })
+  hl("@lsp.type.value", { fg = s.syn.constant })
+  hl("@lsp.type.unit", { fg = s.syn.number })
+  hl("@lsp.type.expression", { fg = s.ui.fg })
 
   ---------------------------------------------------------------------------
   -- LEGACY LspDiagnostics* COMPATIBILITY
