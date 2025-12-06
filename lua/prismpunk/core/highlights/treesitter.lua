@@ -1,4 +1,3 @@
--- treesitter.lua
 local M = {}
 
 local hl = require("prismpunk.core.highlights").hl
