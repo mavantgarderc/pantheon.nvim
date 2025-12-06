@@ -3,10 +3,8 @@ local palette = require("prismpunk.palettes.tmnt.shredder")
 
 local M = {}
 
----@param opts table
----@param plt table
----@return table
 M.get = function(opts, plt)
+  plt = plt or palette
   return {
     modes = {
       normal = plt.bladeSteelCore,
@@ -15,68 +13,6 @@ M.get = function(opts, plt)
       replace = plt.crimsonRage,
       command = plt.armorSilver,
     },
-
-    ui = {
-      fg = plt.fg_lightest,
-      fg_dim = plt.fg_light,
-      fg_dimmer = plt.fg_mid,
-      fg_dark = plt.fg_dark,
-      fg_reverse = plt.bg_alt1,
-      bg_m4 = plt.bg_alt4,
-      bg_m3 = plt.bg_alt3,
-      bg_m2 = plt.bg_darkest,
-      bg_m1 = plt.bg_darker,
-      bg_dim = plt.bg_darker,
-      bg = plt.bg_darkest,
-      bg_p1 = plt.bg_dark,
-      bg_p2 = plt.bg_mid,
-      bg_gutter = opts.gutter and plt.bg_light or "none",
-      bg_cursorline = plt.bg_dark,
-      bg_cursorline_alt = plt.bg_mid,
-      bg_search = plt.footSoldier,
-      bg_visual = plt.bg_mid,
-      bg_statusline = plt.bg_light,
-      border = plt.bladeSteelCore,
-      header1 = plt.armorSilverBright,
-      header2 = plt.crimsonRage,
-      special = plt.vengeanceViolet,
-      nontext = plt.helmetDarkDeep,
-      whitespace = plt.bg_lightest,
-      win_separator = plt.bladeSteelCore,
-      indent = plt.bg_lighter,
-      indent_scope = plt.bladeSteelCore,
-      picker = plt.crimsonRage,
-      yank = plt.spikesSilverSharp,
-      mark = plt.vengeanceViolet,
-      scrollbar = plt.bg_lighter,
-      tabline = {
-        bg = plt.bg_darkest,
-        fg_selected = plt.fg_lightest,
-        bg_selected = plt.bg_dark,
-        fg_inactive = plt.fg_dark,
-        bg_inactive = plt.bg_darkest,
-        fg_alternate = plt.armorSilverBright,
-        bg_alternate = plt.bg_darkest,
-        indicator = plt.bladeSteelCore,
-      },
-      pmenu = {
-        fg = plt.fg_light,
-        fg_sel = plt.fg_lightest,
-        fg_border = plt.shuriken,
-        bg_border = plt.bg_light,
-        bg = plt.bg_light,
-        bg_sel = plt.bg_lighter,
-        bg_sbar = plt.bg_light,
-        bg_thumb = plt.bladeSteelCore,
-      },
-      float = {
-        fg = plt.fg_light,
-        bg = plt.bg_darker,
-        fg_border = plt.bladeSteelCore,
-        bg_border = plt.bg_darker,
-      },
-    },
-
     accent = {
       accent1 = plt.bladeSteelCore,
       accent2 = plt.crimsonRage,
@@ -85,7 +21,6 @@ M.get = function(opts, plt)
       accent5 = plt.vengeanceViolet,
       invert = plt.bg_light,
     },
-
     rainbow = {
       rainbow1 = plt.armorSilverBright,
       rainbow2 = plt.bladeSteelBright,
@@ -95,7 +30,56 @@ M.get = function(opts, plt)
       rainbow6 = plt.vengeanceVioletBright,
       rainbow7 = plt.darkPowerBright,
     },
-
+    ui = {
+      bg = plt.bg_darkest,
+      bg_cursorline = plt.bg_dark,
+      bg_dim = plt.bg_darkest,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_highlight = plt.bg_mid,
+      bg_m1 = plt.bg_darker,
+      bg_m2 = plt.bg_dark,
+      bg_m3 = plt.bg_mid,
+      bg_m4 = plt.bg_light,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      bg_visual = plt.bg_mid,
+      border = plt.bladeSteelCore,
+      cursorline = plt.bg_dark,
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_reverse = plt.bg_alt1,
+      indent = plt.bg_lighter,
+      indent_scope = plt.bladeSteelCore,
+      line_nr = plt.bg_lightest,
+      line_nr_active = plt.fg_lightest,
+      line_nr_dim = plt.bg_lighter,
+      nontext = plt.helmetDarkDeep,
+      selection = plt.bg_mid,
+      win_separator = plt.bladeSteelCore,
+      float = {
+        bg = plt.bg_darker,
+        bg_border = plt.bg_darker,
+        fg = plt.fg_light,
+        fg_border = plt.bladeSteelCore,
+      },
+      pmenu = {
+        bg = plt.bg_light,
+        bg_border = plt.bg_light,
+        bg_sbar = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_thumb = plt.bladeSteelCore,
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+      },
+      tabline = {
+        bg = plt.bg_darkest,
+        bg_inactive = plt.bg_darkest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        fg_selected = plt.fg_lightest,
+      },
+    },
     syn = {
       attribute = plt.crimsonRage,
       boolean = plt.footClanRed,
@@ -112,37 +96,31 @@ M.get = function(opts, plt)
       preproc = plt.vengeanceViolet,
       punct = plt.fg_dark,
       regex = plt.darkPowerCore,
+      special = plt.vengeanceViolet,
       statement = plt.bladeSteelCore,
       string = plt.evilGreen,
       symbol = plt.spikesSilverSharp,
       type = plt.armorSilverCore,
       variable = plt.fg_lightest,
-      special = plt.vengeanceViolet,
-      special2 = plt.crimsonRage,
-      special3 = plt.darkPower,
     },
-
-    vcs = {
-      added = plt.evilGreen,
-      removed = plt.crimsonRage,
-      changed = plt.footClanRed,
+    diag = {
+      error = plt.dangerRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      ok = plt.successGreen,
+      hint = plt.shadowPurple,
     },
-
     diff = {
       add = plt.evilGreen,
       change = plt.footClanRed,
       delete = plt.crimsonRage,
       text = plt.shadowPurple,
     },
-
-    diag = {
-      ok = plt.successGreen,
-      error = plt.dangerRed,
-      warning = plt.warningAmber,
-      info = plt.infoBlue,
-      hint = plt.shadowPurple,
+    vcs = {
+      added = plt.evilGreen,
+      changed = plt.footClanRed,
+      removed = plt.crimsonRage,
     },
-
     term = {
       black = plt.helmetDarkDeep,
       red = plt.crimsonRageCore,
@@ -160,190 +138,6 @@ M.get = function(opts, plt)
       magenta_bright = color(plt.vengeanceVioletBright):brighten(0.2):to_hex(),
       cyan_bright = color(plt.shadowPurpleBright):brighten(0.2):to_hex(),
       white_bright = color(plt.armorSilverBright):brighten(0.2):to_hex(),
-      indexed1 = plt.crimsonRage,
-      indexed2 = plt.bladeSteelCore,
-    },
-
-    treesitter = {
-      ["@comment"] = plt.shuriken,
-      ["@comment.documentation"] = plt.shurikenSharp,
-      ["@comment.error"] = plt.dangerRed,
-      ["@comment.warning"] = plt.warningAmber,
-      ["@comment.todo"] = plt.crimsonRage,
-      ["@comment.note"] = plt.vengeanceViolet,
-
-      ["@constant"] = plt.armorSilver,
-      ["@constant.builtin"] = plt.armorSilver,
-      ["@constant.macro"] = plt.crimsonRage,
-
-      ["@string"] = plt.evilGreen,
-      ["@string.documentation"] = plt.evilGreen,
-      ["@string.regex"] = plt.darkPowerCore,
-      ["@string.escape"] = plt.crimsonRageCore,
-      ["@string.special"] = plt.evilGreenBright,
-      ["@string.special.symbol"] = plt.spikesSilverSharp,
-      ["@string.special.url"] = plt.shadowPurple,
-      ["@string.special.path"] = plt.evilGreen,
-
-      ["@character"] = plt.evilGreen,
-      ["@character.special"] = plt.crimsonRage,
-
-      ["@number"] = plt.crimsonRageCore,
-      ["@number.float"] = plt.crimsonRageCore,
-
-      ["@boolean"] = plt.footClanRed,
-
-      ["@function"] = plt.shadowPurple,
-      ["@function.builtin"] = plt.shadowPurple,
-      ["@function.call"] = plt.shadowPurple,
-      ["@function.macro"] = plt.vengeanceViolet,
-      ["@function.method"] = plt.shadowPurpleBright,
-      ["@function.method.call"] = plt.shadowPurpleBright,
-
-      ["@constructor"] = plt.armorSilverCore,
-
-      ["@parameter"] = plt.fg_mid,
-      ["@parameter.builtin"] = plt.fg_light,
-
-      ["@keyword"] = plt.bladeSteelCore,
-      ["@keyword.coroutine"] = plt.vengeanceViolet,
-      ["@keyword.function"] = plt.bladeSteelCore,
-      ["@keyword.operator"] = plt.spikesSilver,
-      ["@keyword.return"] = plt.bladeSteelCore,
-      ["@keyword.import"] = plt.vengeanceViolet,
-      ["@keyword.storage"] = plt.bladeSteelCore,
-      ["@keyword.repeat"] = plt.bladeSteelCore,
-      ["@keyword.conditional"] = plt.bladeSteelCore,
-      ["@keyword.exception"] = plt.crimsonRageBright,
-      ["@keyword.directive"] = plt.vengeanceViolet,
-      ["@keyword.directive.define"] = plt.vengeanceViolet,
-
-      ["@conditional"] = plt.bladeSteelCore,
-      ["@conditional.ternary"] = plt.bladeSteelCore,
-
-      ["@repeat"] = plt.bladeSteelCore,
-
-      ["@label"] = plt.crimsonRage,
-
-      ["@operator"] = plt.spikesSilver,
-
-      ["@exception"] = plt.crimsonRageBright,
-
-      ["@variable"] = plt.fg_lightest,
-      ["@variable.builtin"] = plt.bladeSteelBright,
-      ["@variable.parameter"] = plt.fg_mid,
-      ["@variable.member"] = plt.fg_light,
-
-      ["@type"] = plt.armorSilverCore,
-      ["@type.builtin"] = plt.armorSilverCore,
-      ["@type.definition"] = plt.armorSilverCore,
-      ["@type.qualifier"] = plt.bladeSteelCore,
-
-      ["@attribute"] = plt.crimsonRage,
-      ["@attribute.builtin"] = plt.crimsonRage,
-
-      ["@property"] = plt.fg_light,
-
-      ["@field"] = plt.fg_light,
-
-      ["@module"] = plt.armorSilverCore,
-      ["@module.builtin"] = plt.armorSilverCore,
-
-      ["@namespace"] = plt.armorSilverCore,
-      ["@namespace.builtin"] = plt.armorSilverCore,
-
-      ["@punctuation.delimiter"] = plt.fg_dark,
-      ["@punctuation.bracket"] = plt.fg_dark,
-      ["@punctuation.special"] = plt.vengeanceViolet,
-
-      ["@tag"] = plt.bladeSteelCore,
-      ["@tag.attribute"] = plt.crimsonRage,
-      ["@tag.delimiter"] = plt.spikesSilver,
-      ["@tag.builtin"] = plt.bladeSteelCore,
-
-      ["@markup.strong"] = { fg = plt.armorSilverBright, bold = true },
-      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
-      ["@markup.strikethrough"] = { fg = plt.shuriken, strikethrough = true },
-      ["@markup.underline"] = { fg = plt.vengeanceViolet, underline = true },
-      ["@markup.heading"] = plt.armorSilverBright,
-      ["@markup.heading.1"] = plt.armorSilverBright,
-      ["@markup.heading.2"] = plt.crimsonRage,
-      ["@markup.heading.3"] = plt.shadowPurple,
-      ["@markup.heading.4"] = plt.footClanRed,
-      ["@markup.heading.5"] = plt.vengeanceViolet,
-      ["@markup.heading.6"] = plt.darkPower,
-      ["@markup.quote"] = plt.shuriken,
-      ["@markup.math"] = plt.crimsonRageCore,
-      ["@markup.link"] = plt.shadowPurple,
-      ["@markup.link.label"] = plt.shadowPurpleBright,
-      ["@markup.link.url"] = plt.shadowPurple,
-      ["@markup.raw"] = plt.evilGreen,
-      ["@markup.raw.block"] = plt.evilGreen,
-      ["@markup.list"] = plt.bladeSteelCore,
-      ["@markup.list.checked"] = plt.evilGreen,
-      ["@markup.list.unchecked"] = plt.shuriken,
-
-      ["@diff.plus"] = plt.evilGreen,
-      ["@diff.minus"] = plt.crimsonRage,
-      ["@diff.delta"] = plt.footClanRed,
-
-      ["@none"] = "none",
-      ["@conceal"] = plt.helmetDarkDeep,
-      ["@spell"] = plt.fg_lightest,
-      ["@nospell"] = "none",
-
-      ["@lsp.type.property.lua"] = plt.fg_light,
-      ["@constructor.python"] = plt.armorSilverCore,
-      ["@constructor.javascript"] = plt.armorSilverCore,
-      ["@constructor.typescript"] = plt.armorSilverCore,
-      ["@namespace.rust"] = plt.armorSilverCore,
-      ["@type.qualifier.rust"] = plt.bladeSteelCore,
-      ["@constant.macro.c"] = plt.crimsonRage,
-      ["@constant.macro.cpp"] = plt.crimsonRage,
-      ["@namespace.go"] = plt.armorSilverCore,
-      ["@property.css"] = plt.shadowPurpleBright,
-      ["@type.css"] = plt.bladeSteelCore,
-      ["@label.json"] = plt.crimsonRage,
-      ["@field.yaml"] = plt.shadowPurpleBright,
-      ["@property.toml"] = plt.shadowPurpleBright,
-      ["@function.builtin.bash"] = plt.shadowPurple,
-      ["@string.regexp"] = plt.darkPowerCore,
-      ["@character.special.regex"] = plt.crimsonRage,
-    },
-
-    lsp = {
-      ["@lsp.type.class"] = plt.armorSilverCore,
-      ["@lsp.type.interface"] = plt.armorSilverCore,
-      ["@lsp.type.struct"] = plt.armorSilverCore,
-      ["@lsp.type.enum"] = plt.armorSilverCore,
-      ["@lsp.type.enumMember"] = plt.armorSilver,
-      ["@lsp.type.property"] = plt.fg_light,
-      ["@lsp.type.namespace"] = plt.armorSilverCore,
-
-      ["@lsp.type.macro"] = plt.crimsonRage,
-      ["@lsp.type.decorator"] = plt.crimsonRage,
-
-      ["@lsp.type.builtinType"] = plt.armorSilverCore,
-      ["@lsp.type.selfParameter"] = plt.bladeSteelBright,
-      ["@lsp.type.typeParameter"] = plt.armorSilverCore,
-
-      ["@lsp.type.array"] = plt.armorSilverCore,
-      ["@lsp.type.object"] = plt.armorSilverCore,
-      ["@lsp.type.key"] = plt.fg_light,
-      ["@lsp.type.null"] = plt.armorSilver,
-      ["@lsp.type.enumConstant"] = plt.armorSilver,
-
-      ["@lsp.type.event"] = plt.armorSilverCore,
-      ["@lsp.type.regexp"] = plt.darkPowerCore,
-      ["@lsp.type.unresolvedReference"] = plt.armorSilverCore,
-
-      ["@lsp.mod.deprecated"] = { fg = plt.helmetDark, strikethrough = true },
-      ["@lsp.mod.readonly"] = plt.armorSilver,
-      ["@lsp.mod.async"] = plt.bladeSteelCore,
-      ["@lsp.mod.static"] = plt.bladeSteelBright,
-      ["@lsp.mod.abstract"] = plt.armorSilverCore,
-      ["@lsp.mod.defaultLibrary"] = plt.armorSilverCore,
-      ["@lsp.mod.documentation"] = plt.shurikenSharp,
     },
   }
 end
@@ -352,7 +146,6 @@ return {
   name = "TMNT – Shredder",
   author = "PrismPunk.nvim",
   description = "Master of evil — bladed armor, crimson rage, Foot Clan leader.",
-
   base16 = {
     base00 = palette.bg_darkest,
     base01 = palette.bg_darker,
@@ -371,7 +164,6 @@ return {
     base0E = palette.vengeanceViolet,
     base0F = palette.helmetDark,
   },
-
   palette = palette,
   get = M.get,
 }

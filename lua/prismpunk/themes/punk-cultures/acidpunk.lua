@@ -3,10 +3,9 @@ local palette = require("prismpunk.palettes.punk-cultures.acidpunk")
 
 local M = {}
 
----@param opts table
----@param plt table
----@return table
 M.get = function(opts, plt)
+  plt = plt or palette
+
   return {
     modes = {
       normal = plt.acidGreenCore,
@@ -14,67 +13,6 @@ M.get = function(opts, plt)
       visual = plt.toxicCyanCore,
       replace = plt.dripMagentaCore,
       command = plt.radioactiveLimeCore,
-    },
-
-    ui = {
-      fg = plt.fg_lightest,
-      fg_dim = plt.fg_light,
-      fg_dimmer = plt.fg_mid,
-      fg_dark = plt.fg_dark,
-      fg_reverse = plt.bg_alt1,
-      bg_m4 = plt.bg_alt4,
-      bg_m3 = plt.bg_alt3,
-      bg_m2 = plt.bg_darkest,
-      bg_m1 = plt.bg_darker,
-      bg_dim = plt.bg_darker,
-      bg = plt.bg_darkest,
-      bg_p1 = plt.bg_dark,
-      bg_p2 = plt.bg_mid,
-      bg_gutter = opts.gutter and plt.bg_light or "none",
-      bg_cursorline = plt.bg_dark,
-      bg_cursorline_alt = plt.bg_mid,
-      bg_search = plt.radioactiveLimeDeep,
-      bg_visual = plt.bg_mid,
-      bg_statusline = plt.bg_light,
-      border = plt.currentGray,
-      header1 = plt.acidGreenBright,
-      header2 = plt.neonPinkBright,
-      special = plt.electricPurple,
-      nontext = plt.bg_lightest,
-      whitespace = plt.bg_lightest,
-      win_separator = plt.currentGray,
-      indent = plt.bg_lighter,
-      indent_scope = plt.acidGreenCore,
-      picker = plt.radioactiveLime,
-      yank = plt.chemicalYellowBright,
-      mark = plt.toxicCyan,
-      scrollbar = plt.bg_lighter,
-      tabline = {
-        bg = plt.bg_darkest,
-        fg_selected = plt.fg_lightest,
-        bg_selected = plt.bg_dark,
-        fg_inactive = plt.fg_dark,
-        bg_inactive = plt.bg_darkest,
-        fg_alternate = plt.acidGreenBright,
-        bg_alternate = plt.bg_darkest,
-        indicator = plt.acidGreenCore,
-      },
-      pmenu = {
-        fg = plt.fg_light,
-        fg_sel = plt.fg_lightest,
-        fg_border = plt.currentGray,
-        bg_border = plt.bg_light,
-        bg = plt.bg_light,
-        bg_sel = plt.bg_lighter,
-        bg_sbar = plt.bg_light,
-        bg_thumb = plt.currentGrayLight,
-      },
-      float = {
-        fg = plt.fg_light,
-        bg = plt.bg_darker,
-        fg_border = plt.currentGray,
-        bg_border = plt.bg_darker,
-      },
     },
 
     accent = {
@@ -96,51 +34,103 @@ M.get = function(opts, plt)
       rainbow7 = plt.bioOrangeBright,
     },
 
+    ui = {
+      bg = plt.bg_darkest,
+      bg_cursorline = plt.bg_dark,
+      bg_dim = plt.bg_darkest,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_highlight = plt.bg_mid,
+      bg_m1 = plt.bg_darker,
+      bg_m2 = plt.bg_dark,
+      bg_m3 = plt.bg_mid,
+      bg_m4 = plt.bg_light,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      bg_visual = plt.bg_mid,
+      border = plt.neonGray,
+      cursorline = plt.bg_dark,
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_reverse = plt.bg_alt1,
+      indent = plt.bg_lighter,
+      indent_scope = plt.acidGreenCore,
+      line_nr = plt.bg_lightest,
+      line_nr_active = plt.fg_lightest,
+      line_nr_dim = plt.bg_lighter,
+      nontext = plt.bg_lightest,
+      selection = plt.bg_mid,
+      win_separator = plt.neonGray,
+
+      float = {
+        bg = plt.bg_darker,
+        bg_border = plt.bg_darker,
+        fg = plt.fg_light,
+        fg_border = plt.neonGray,
+      },
+
+      pmenu = {
+        bg = plt.bg_light,
+        bg_border = plt.bg_light,
+        bg_sbar = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_thumb = plt.neonGrayLight,
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+      },
+
+      tabline = {
+        bg = plt.bg_darkest,
+        bg_inactive = plt.bg_darkest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        fg_selected = plt.fg_lightest,
+      },
+    },
+
     syn = {
-      attribute = plt.radioactiveLime,
-      boolean = plt.toxicCyan,
+      attribute = plt.radioactiveLimeCore,
+      boolean = plt.toxicCyanCore,
       comment = plt.neonGray,
-      constant = plt.labWhite,
+      constant = plt.labWhiteCore,
       deprecated = plt.voidBlack,
       func = plt.neonPinkCore,
       identifier = plt.fg_lightest,
       keyword = plt.acidGreenCore,
       method = plt.neonPinkBright,
-      number = plt.labWhite,
+      number = plt.labWhiteCore,
       operator = plt.radioactiveLimeCore,
       parameter = plt.fg_mid,
       preproc = plt.electricPurpleCore,
       punct = plt.fg_dark,
-      regex = plt.spillViolet,
+      regex = plt.spillVioletCore,
+      special = plt.electricPurpleCore,
       statement = plt.acidGreenCore,
       string = plt.neonPinkCore,
-      symbol = plt.radioactiveLime,
+      symbol = plt.radioactiveLimeCore,
       type = plt.toxicCyanCore,
       variable = plt.fg_lightest,
-      special = plt.electricPurple,
-      special2 = plt.bioOrange,
-      special3 = plt.glowBlue,
     },
 
-    vcs = {
-      added = plt.biohazardGreenCore,
-      removed = plt.dripMagentaCore,
-      changed = plt.chemicalYellowCore,
+    diag = {
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      ok = plt.successGreen,
+      hint = plt.electricPurpleCore,
     },
 
     diff = {
       add = plt.biohazardGreenCore,
       change = plt.chemicalYellowCore,
       delete = plt.dripMagentaCore,
-      text = plt.electricPurple,
+      text = plt.electricPurpleCore,
     },
 
-    diag = {
-      ok = plt.successGreen,
-      error = plt.errorRed,
-      warning = plt.warningAmber,
-      info = plt.infoBlue,
-      hint = plt.electricPurple,
+    vcs = {
+      added = plt.biohazardGreenCore,
+      changed = plt.chemicalYellowCore,
+      removed = plt.dripMagentaCore,
     },
 
     term = {
@@ -152,6 +142,7 @@ M.get = function(opts, plt)
       magenta = plt.neonPinkCore,
       cyan = plt.glowBlueCore,
       white = plt.labWhiteCore,
+
       black_bright = color(plt.bg_darker):brighten(0.5):to_hex(),
       red_bright = color(plt.dripMagentaBright):brighten(0.15):to_hex(),
       green_bright = color(plt.acidGreenBright):brighten(0.15):to_hex(),
@@ -160,190 +151,6 @@ M.get = function(opts, plt)
       magenta_bright = color(plt.neonPinkBright):brighten(0.15):to_hex(),
       cyan_bright = color(plt.glowBlueBright):brighten(0.15):to_hex(),
       white_bright = plt.labWhiteBright,
-      indexed1 = plt.acidGreen,
-      indexed2 = plt.radioactiveLime,
-    },
-
-    treesitter = {
-      ["@comment"] = plt.neonGray,
-      ["@comment.documentation"] = plt.neonGrayLight,
-      ["@comment.error"] = plt.errorRed,
-      ["@comment.warning"] = plt.warningAmber,
-      ["@comment.todo"] = plt.radioactiveLimeBright,
-      ["@comment.note"] = plt.electricPurple,
-
-      ["@constant"] = plt.labWhite,
-      ["@constant.builtin"] = plt.labWhiteCore,
-      ["@constant.macro"] = plt.radioactiveLime,
-
-      ["@string"] = plt.neonPinkCore,
-      ["@string.documentation"] = plt.neonPinkCore,
-      ["@string.regex"] = plt.spillViolet,
-      ["@string.escape"] = plt.chemicalYellowBright,
-      ["@string.special"] = plt.neonPinkBright,
-      ["@string.special.symbol"] = plt.radioactiveLime,
-      ["@string.special.url"] = plt.toxicCyan,
-      ["@string.special.path"] = plt.neonPinkCore,
-
-      ["@character"] = plt.neonPinkCore,
-      ["@character.special"] = plt.radioactiveLime,
-
-      ["@number"] = plt.labWhite,
-      ["@number.float"] = plt.labWhiteCore,
-
-      ["@boolean"] = plt.toxicCyan,
-
-      ["@function"] = plt.neonPinkCore,
-      ["@function.builtin"] = plt.neonPinkCore,
-      ["@function.call"] = plt.neonPinkCore,
-      ["@function.macro"] = plt.electricPurpleCore,
-      ["@function.method"] = plt.neonPinkBright,
-      ["@function.method.call"] = plt.neonPinkBright,
-
-      ["@constructor"] = plt.toxicCyanCore,
-
-      ["@parameter"] = plt.fg_mid,
-      ["@parameter.builtin"] = plt.fg_light,
-
-      ["@keyword"] = plt.acidGreenCore,
-      ["@keyword.coroutine"] = plt.electricPurpleCore,
-      ["@keyword.function"] = plt.acidGreenCore,
-      ["@keyword.operator"] = plt.radioactiveLimeCore,
-      ["@keyword.return"] = plt.acidGreenCore,
-      ["@keyword.import"] = plt.electricPurpleCore,
-      ["@keyword.storage"] = plt.acidGreenCore,
-      ["@keyword.repeat"] = plt.acidGreenCore,
-      ["@keyword.conditional"] = plt.acidGreenCore,
-      ["@keyword.exception"] = plt.dripMagentaCore,
-      ["@keyword.directive"] = plt.electricPurpleCore,
-      ["@keyword.directive.define"] = plt.electricPurpleCore,
-
-      ["@conditional"] = plt.acidGreenCore,
-      ["@conditional.ternary"] = plt.acidGreenCore,
-
-      ["@repeat"] = plt.acidGreenCore,
-
-      ["@label"] = plt.radioactiveLime,
-
-      ["@operator"] = plt.radioactiveLimeCore,
-
-      ["@exception"] = plt.dripMagentaCore,
-
-      ["@variable"] = plt.fg_lightest,
-      ["@variable.builtin"] = plt.acidGreenBright,
-      ["@variable.parameter"] = plt.fg_mid,
-      ["@variable.member"] = plt.fg_light,
-
-      ["@type"] = plt.toxicCyanCore,
-      ["@type.builtin"] = plt.toxicCyanCore,
-      ["@type.definition"] = plt.toxicCyanCore,
-      ["@type.qualifier"] = plt.acidGreenCore,
-
-      ["@attribute"] = plt.radioactiveLime,
-      ["@attribute.builtin"] = plt.radioactiveLime,
-
-      ["@property"] = plt.fg_light,
-
-      ["@field"] = plt.fg_light,
-
-      ["@module"] = plt.toxicCyanCore,
-      ["@module.builtin"] = plt.toxicCyanCore,
-
-      ["@namespace"] = plt.toxicCyanCore,
-      ["@namespace.builtin"] = plt.toxicCyanCore,
-
-      ["@punctuation.delimiter"] = plt.fg_dark,
-      ["@punctuation.bracket"] = plt.fg_dark,
-      ["@punctuation.special"] = plt.radioactiveLimeCore,
-
-      ["@tag"] = plt.acidGreenCore,
-      ["@tag.attribute"] = plt.radioactiveLime,
-      ["@tag.delimiter"] = plt.radioactiveLimeCore,
-      ["@tag.builtin"] = plt.acidGreenCore,
-
-      ["@markup.strong"] = { fg = plt.acidGreenBright, bold = true },
-      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
-      ["@markup.strikethrough"] = { fg = plt.neonGray, strikethrough = true },
-      ["@markup.underline"] = { fg = plt.electricPurple, underline = true },
-      ["@markup.heading"] = plt.acidGreenBright,
-      ["@markup.heading.1"] = plt.acidGreenBright,
-      ["@markup.heading.2"] = plt.neonPinkBright,
-      ["@markup.heading.3"] = plt.toxicCyanBright,
-      ["@markup.heading.4"] = plt.radioactiveLimeBright,
-      ["@markup.heading.5"] = plt.electricPurpleBright,
-      ["@markup.heading.6"] = plt.chemicalYellowBright,
-      ["@markup.quote"] = plt.neonGray,
-      ["@markup.math"] = plt.labWhite,
-      ["@markup.link"] = plt.toxicCyan,
-      ["@markup.link.label"] = plt.toxicCyanBright,
-      ["@markup.link.url"] = plt.toxicCyan,
-      ["@markup.raw"] = plt.neonPinkCore,
-      ["@markup.raw.block"] = plt.neonPinkCore,
-      ["@markup.list"] = plt.acidGreenCore,
-      ["@markup.list.checked"] = plt.biohazardGreenCore,
-      ["@markup.list.unchecked"] = plt.neonGray,
-
-      ["@diff.plus"] = plt.biohazardGreenCore,
-      ["@diff.minus"] = plt.dripMagentaCore,
-      ["@diff.delta"] = plt.chemicalYellowCore,
-
-      ["@none"] = "none",
-      ["@conceal"] = plt.bg_lightest,
-      ["@spell"] = plt.fg_lightest,
-      ["@nospell"] = "none",
-
-      ["@lsp.type.property.lua"] = plt.fg_light,
-      ["@constructor.python"] = plt.toxicCyanCore,
-      ["@constructor.javascript"] = plt.toxicCyanCore,
-      ["@constructor.typescript"] = plt.toxicCyanCore,
-      ["@namespace.rust"] = plt.toxicCyanCore,
-      ["@type.qualifier.rust"] = plt.acidGreenCore,
-      ["@constant.macro.c"] = plt.radioactiveLime,
-      ["@constant.macro.cpp"] = plt.radioactiveLime,
-      ["@namespace.go"] = plt.toxicCyanCore,
-      ["@property.css"] = plt.neonPinkBright,
-      ["@type.css"] = plt.acidGreenCore,
-      ["@label.json"] = plt.radioactiveLime,
-      ["@field.yaml"] = plt.neonPinkBright,
-      ["@property.toml"] = plt.neonPinkBright,
-      ["@function.builtin.bash"] = plt.neonPinkCore,
-      ["@string.regexp"] = plt.spillViolet,
-      ["@character.special.regex"] = plt.radioactiveLime,
-    },
-
-    lsp = {
-      ["@lsp.type.class"] = plt.toxicCyanCore,
-      ["@lsp.type.interface"] = plt.toxicCyanCore,
-      ["@lsp.type.struct"] = plt.toxicCyanCore,
-      ["@lsp.type.enum"] = plt.toxicCyanCore,
-      ["@lsp.type.enumMember"] = plt.labWhiteCore,
-      ["@lsp.type.property"] = plt.fg_light,
-      ["@lsp.type.namespace"] = plt.toxicCyanCore,
-
-      ["@lsp.type.macro"] = plt.radioactiveLime,
-      ["@lsp.type.decorator"] = plt.radioactiveLime,
-
-      ["@lsp.type.builtinType"] = plt.toxicCyanCore,
-      ["@lsp.type.selfParameter"] = plt.acidGreenBright,
-      ["@lsp.type.typeParameter"] = plt.toxicCyanCore,
-
-      ["@lsp.type.array"] = plt.toxicCyanCore,
-      ["@lsp.type.object"] = plt.toxicCyanCore,
-      ["@lsp.type.key"] = plt.fg_light,
-      ["@lsp.type.null"] = plt.labWhiteCore,
-      ["@lsp.type.enumConstant"] = plt.labWhiteCore,
-
-      ["@lsp.type.event"] = plt.toxicCyanCore,
-      ["@lsp.type.regexp"] = plt.spillViolet,
-      ["@lsp.type.unresolvedReference"] = plt.toxicCyanCore,
-
-      ["@lsp.mod.deprecated"] = { fg = plt.voidBlack, strikethrough = true },
-      ["@lsp.mod.readonly"] = plt.labWhiteCore,
-      ["@lsp.mod.async"] = plt.acidGreenCore,
-      ["@lsp.mod.static"] = plt.acidGreenBright,
-      ["@lsp.mod.abstract"] = plt.toxicCyanCore,
-      ["@lsp.mod.defaultLibrary"] = plt.toxicCyanCore,
-      ["@lsp.mod.documentation"] = plt.neonGrayLight,
     },
   }
 end

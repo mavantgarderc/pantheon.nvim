@@ -3,10 +3,8 @@ local palette = require("prismpunk.palettes.punk-cultures.clockpunk")
 
 local M = {}
 
----@param opts table
----@param plt table
----@return table
 M.get = function(opts, plt)
+  plt = plt or palette
   return {
     modes = {
       normal = plt.silverGearCore,
@@ -15,68 +13,6 @@ M.get = function(opts, plt)
       replace = plt.rubyJewelCore,
       command = plt.celestialBlueCore,
     },
-
-    ui = {
-      fg = plt.fg_lightest,
-      fg_dim = plt.fg_light,
-      fg_dimmer = plt.fg_mid,
-      fg_dark = plt.fg_dark,
-      fg_reverse = plt.bg_alt1,
-      bg_m4 = plt.bg_alt4,
-      bg_m3 = plt.bg_alt3,
-      bg_m2 = plt.bg_darkest,
-      bg_m1 = plt.bg_darker,
-      bg_dim = plt.bg_darker,
-      bg = plt.bg_darkest,
-      bg_p1 = plt.bg_dark,
-      bg_p2 = plt.bg_mid,
-      bg_gutter = opts.gutter and plt.bg_light or "none",
-      bg_cursorline = plt.bg_dark,
-      bg_cursorline_alt = plt.bg_mid,
-      bg_search = plt.sapphireJewelDeep,
-      bg_visual = plt.bg_mid,
-      bg_statusline = plt.bg_light,
-      border = plt.mechanismGray,
-      header1 = plt.whiteGoldBright,
-      header2 = plt.moonsilverBright,
-      special = plt.sapphireJewel,
-      nontext = plt.bg_lightest,
-      whitespace = plt.bg_lightest,
-      win_separator = plt.mechanismGray,
-      indent = plt.bg_lighter,
-      indent_scope = plt.silverGearCore,
-      picker = plt.sapphireJewel,
-      yank = plt.whiteGoldBright,
-      mark = plt.emeraldJewel,
-      scrollbar = plt.bg_lighter,
-      tabline = {
-        bg = plt.bg_darkest,
-        fg_selected = plt.fg_lightest,
-        bg_selected = plt.bg_dark,
-        fg_inactive = plt.fg_dark,
-        bg_inactive = plt.bg_darkest,
-        fg_alternate = plt.moonsilverBright,
-        bg_alternate = plt.bg_darkest,
-        indicator = plt.silverGearCore,
-      },
-      pmenu = {
-        fg = plt.fg_light,
-        fg_sel = plt.fg_lightest,
-        fg_border = plt.mechanismGray,
-        bg_border = plt.bg_light,
-        bg = plt.bg_light,
-        bg_sel = plt.bg_lighter,
-        bg_sbar = plt.bg_light,
-        bg_thumb = plt.mechanismGrayLight,
-      },
-      float = {
-        fg = plt.fg_light,
-        bg = plt.bg_darker,
-        fg_border = plt.mechanismGray,
-        bg_border = plt.bg_darker,
-      },
-    },
-
     accent = {
       accent1 = plt.silverGearCore,
       accent2 = plt.sapphireJewelCore,
@@ -85,7 +21,6 @@ M.get = function(opts, plt)
       accent5 = plt.celestialBlueCore,
       invert = plt.bg_light,
     },
-
     rainbow = {
       rainbow1 = plt.moonsilverBright,
       rainbow2 = plt.whiteGoldBright,
@@ -95,54 +30,97 @@ M.get = function(opts, plt)
       rainbow6 = plt.celestialBlueBright,
       rainbow7 = plt.platinumWhiteBright,
     },
-
+    ui = {
+      bg = plt.bg_darkest,
+      bg_cursorline = plt.bg_dark,
+      bg_dim = plt.bg_darkest,
+      bg_gutter = opts.gutter and plt.bg_light or "none",
+      bg_highlight = plt.bg_mid,
+      bg_m1 = plt.bg_darker,
+      bg_m2 = plt.bg_dark,
+      bg_m3 = plt.bg_mid,
+      bg_m4 = plt.bg_light,
+      bg_p1 = plt.bg_dark,
+      bg_p2 = plt.bg_mid,
+      bg_statusline = plt.bg_light,
+      bg_visual = plt.bg_mid,
+      border = plt.mechanismGray,
+      cursorline = plt.bg_dark,
+      fg = plt.fg_lightest,
+      fg_dim = plt.fg_light,
+      fg_reverse = plt.bg_alt1,
+      indent = plt.bg_lighter,
+      indent_scope = plt.silverGearCore,
+      line_nr = plt.bg_lightest,
+      line_nr_active = plt.fg_lightest,
+      line_nr_dim = plt.bg_lighter,
+      nontext = plt.bg_lightest,
+      selection = plt.bg_mid,
+      win_separator = plt.mechanismGray,
+      float = {
+        bg = plt.bg_darker,
+        bg_border = plt.bg_darker,
+        fg = plt.fg_light,
+        fg_border = plt.mechanismGray,
+      },
+      pmenu = {
+        bg = plt.bg_light,
+        bg_border = plt.bg_light,
+        bg_sbar = plt.bg_light,
+        bg_sel = plt.bg_lighter,
+        bg_thumb = plt.mechanismGrayLight,
+        fg = plt.fg_light,
+        fg_sel = plt.fg_lightest,
+      },
+      tabline = {
+        bg = plt.bg_darkest,
+        bg_inactive = plt.bg_darkest,
+        bg_selected = plt.bg_dark,
+        fg_inactive = plt.fg_dark,
+        fg_selected = plt.fg_lightest,
+      },
+    },
     syn = {
-      attribute = plt.whiteGold,
-      boolean = plt.sapphireJewel,
+      attribute = plt.whiteGoldCore,
+      boolean = plt.sapphireJewelCore,
       comment = plt.mechanismGray,
-      constant = plt.platinumWhite,
+      constant = plt.platinumWhiteCore,
       deprecated = plt.shadowBlack,
       func = plt.emeraldJewelCore,
       identifier = plt.fg_lightest,
       keyword = plt.silverGearCore,
       method = plt.emeraldJewelBright,
-      number = plt.platinumWhite,
+      number = plt.platinumWhiteCore,
       operator = plt.moonsilverCore,
       parameter = plt.fg_mid,
       preproc = plt.celestialBlueCore,
       punct = plt.fg_dark,
-      regex = plt.sapphireJewel,
+      regex = plt.sapphireJewelCore,
+      special = plt.sapphireJewelCore,
       statement = plt.silverGearCore,
       string = plt.emeraldJewelCore,
-      symbol = plt.whiteGold,
+      symbol = plt.whiteGoldCore,
       type = plt.tickSilverCore,
       variable = plt.fg_lightest,
-      special = plt.sapphireJewel,
-      special2 = plt.rubyJewel,
-      special3 = plt.whiteGold,
     },
-
-    vcs = {
-      added = plt.emeraldJewelCore,
-      removed = plt.rubyJewelCore,
-      changed = plt.tockGoldCore,
+    diag = {
+      error = plt.errorRed,
+      warning = plt.warningAmber,
+      info = plt.infoBlue,
+      ok = plt.successGreen,
+      hint = plt.sapphireJewelCore,
     },
-
     diff = {
       add = plt.emeraldJewelCore,
       change = plt.tockGoldCore,
       delete = plt.rubyJewelCore,
-      text = plt.sapphireJewel,
+      text = plt.sapphireJewelCore,
     },
-
-    diag = {
-      ok = plt.successGreen,
-      error = plt.errorRed,
-      warning = plt.warningAmber,
-      info = plt.infoBlue,
-      hint = plt.sapphireJewel,
+    vcs = {
+      added = plt.emeraldJewelCore,
+      changed = plt.tockGoldCore,
+      removed = plt.rubyJewelCore,
     },
-
     term = {
       black = plt.bg_darkest,
       red = plt.rubyJewelCore,
@@ -160,190 +138,6 @@ M.get = function(opts, plt)
       magenta_bright = color(plt.tickSilverBright):brighten(0.15):to_hex(),
       cyan_bright = color(plt.moonsilverBright):brighten(0.15):to_hex(),
       white_bright = plt.starlightBright,
-      indexed1 = plt.whiteGold,
-      indexed2 = plt.sapphireJewel,
-    },
-
-    treesitter = {
-      ["@comment"] = plt.mechanismGray,
-      ["@comment.documentation"] = plt.mechanismGrayLight,
-      ["@comment.error"] = plt.errorRed,
-      ["@comment.warning"] = plt.warningAmber,
-      ["@comment.todo"] = plt.whiteGoldBright,
-      ["@comment.note"] = plt.sapphireJewel,
-
-      ["@constant"] = plt.platinumWhite,
-      ["@constant.builtin"] = plt.platinumWhiteCore,
-      ["@constant.macro"] = plt.whiteGold,
-
-      ["@string"] = plt.emeraldJewelCore,
-      ["@string.documentation"] = plt.emeraldJewelCore,
-      ["@string.regex"] = plt.sapphireJewel,
-      ["@string.escape"] = plt.moonsilverBright,
-      ["@string.special"] = plt.emeraldJewelBright,
-      ["@string.special.symbol"] = plt.whiteGold,
-      ["@string.special.url"] = plt.celestialBlue,
-      ["@string.special.path"] = plt.emeraldJewelCore,
-
-      ["@character"] = plt.emeraldJewelCore,
-      ["@character.special"] = plt.whiteGold,
-
-      ["@number"] = plt.platinumWhite,
-      ["@number.float"] = plt.platinumWhiteCore,
-
-      ["@boolean"] = plt.sapphireJewel,
-
-      ["@function"] = plt.emeraldJewelCore,
-      ["@function.builtin"] = plt.emeraldJewelCore,
-      ["@function.call"] = plt.emeraldJewelCore,
-      ["@function.macro"] = plt.celestialBlueCore,
-      ["@function.method"] = plt.emeraldJewelBright,
-      ["@function.method.call"] = plt.emeraldJewelBright,
-
-      ["@constructor"] = plt.tickSilverCore,
-
-      ["@parameter"] = plt.fg_mid,
-      ["@parameter.builtin"] = plt.fg_light,
-
-      ["@keyword"] = plt.silverGearCore,
-      ["@keyword.coroutine"] = plt.celestialBlueCore,
-      ["@keyword.function"] = plt.silverGearCore,
-      ["@keyword.operator"] = plt.moonsilverCore,
-      ["@keyword.return"] = plt.silverGearCore,
-      ["@keyword.import"] = plt.celestialBlueCore,
-      ["@keyword.storage"] = plt.silverGearCore,
-      ["@keyword.repeat"] = plt.silverGearCore,
-      ["@keyword.conditional"] = plt.silverGearCore,
-      ["@keyword.exception"] = plt.rubyJewelCore,
-      ["@keyword.directive"] = plt.celestialBlueCore,
-      ["@keyword.directive.define"] = plt.celestialBlueCore,
-
-      ["@conditional"] = plt.silverGearCore,
-      ["@conditional.ternary"] = plt.silverGearCore,
-
-      ["@repeat"] = plt.silverGearCore,
-
-      ["@label"] = plt.whiteGold,
-
-      ["@operator"] = plt.moonsilverCore,
-
-      ["@exception"] = plt.rubyJewelCore,
-
-      ["@variable"] = plt.fg_lightest,
-      ["@variable.builtin"] = plt.silverGearBright,
-      ["@variable.parameter"] = plt.fg_mid,
-      ["@variable.member"] = plt.fg_light,
-
-      ["@type"] = plt.tickSilverCore,
-      ["@type.builtin"] = plt.tickSilverCore,
-      ["@type.definition"] = plt.tickSilverCore,
-      ["@type.qualifier"] = plt.silverGearCore,
-
-      ["@attribute"] = plt.whiteGold,
-      ["@attribute.builtin"] = plt.whiteGold,
-
-      ["@property"] = plt.fg_light,
-
-      ["@field"] = plt.fg_light,
-
-      ["@module"] = plt.tickSilverCore,
-      ["@module.builtin"] = plt.tickSilverCore,
-
-      ["@namespace"] = plt.tickSilverCore,
-      ["@namespace.builtin"] = plt.tickSilverCore,
-
-      ["@punctuation.delimiter"] = plt.fg_dark,
-      ["@punctuation.bracket"] = plt.fg_dark,
-      ["@punctuation.special"] = plt.moonsilverCore,
-
-      ["@tag"] = plt.silverGearCore,
-      ["@tag.attribute"] = plt.whiteGold,
-      ["@tag.delimiter"] = plt.moonsilverCore,
-      ["@tag.builtin"] = plt.silverGearCore,
-
-      ["@markup.strong"] = { fg = plt.moonsilverBright, bold = true },
-      ["@markup.italic"] = { fg = plt.fg_light, italic = true },
-      ["@markup.strikethrough"] = { fg = plt.mechanismGray, strikethrough = true },
-      ["@markup.underline"] = { fg = plt.sapphireJewel, underline = true },
-      ["@markup.heading"] = plt.whiteGoldBright,
-      ["@markup.heading.1"] = plt.whiteGoldBright,
-      ["@markup.heading.2"] = plt.moonsilverBright,
-      ["@markup.heading.3"] = plt.sapphireJewelBright,
-      ["@markup.heading.4"] = plt.emeraldJewelBright,
-      ["@markup.heading.5"] = plt.celestialBlueBright,
-      ["@markup.heading.6"] = plt.platinumWhiteBright,
-      ["@markup.quote"] = plt.mechanismGray,
-      ["@markup.math"] = plt.platinumWhite,
-      ["@markup.link"] = plt.celestialBlue,
-      ["@markup.link.label"] = plt.celestialBlueBright,
-      ["@markup.link.url"] = plt.celestialBlue,
-      ["@markup.raw"] = plt.emeraldJewelCore,
-      ["@markup.raw.block"] = plt.emeraldJewelCore,
-      ["@markup.list"] = plt.silverGearCore,
-      ["@markup.list.checked"] = plt.emeraldJewelCore,
-      ["@markup.list.unchecked"] = plt.mechanismGray,
-
-      ["@diff.plus"] = plt.emeraldJewelCore,
-      ["@diff.minus"] = plt.rubyJewelCore,
-      ["@diff.delta"] = plt.tockGoldCore,
-
-      ["@none"] = "none",
-      ["@conceal"] = plt.bg_lightest,
-      ["@spell"] = plt.fg_lightest,
-      ["@nospell"] = "none",
-
-      ["@lsp.type.property.lua"] = plt.fg_light,
-      ["@constructor.python"] = plt.tickSilverCore,
-      ["@constructor.javascript"] = plt.tickSilverCore,
-      ["@constructor.typescript"] = plt.tickSilverCore,
-      ["@namespace.rust"] = plt.tickSilverCore,
-      ["@type.qualifier.rust"] = plt.silverGearCore,
-      ["@constant.macro.c"] = plt.whiteGold,
-      ["@constant.macro.cpp"] = plt.whiteGold,
-      ["@namespace.go"] = plt.tickSilverCore,
-      ["@property.css"] = plt.emeraldJewelBright,
-      ["@type.css"] = plt.silverGearCore,
-      ["@label.json"] = plt.whiteGold,
-      ["@field.yaml"] = plt.emeraldJewelBright,
-      ["@property.toml"] = plt.emeraldJewelBright,
-      ["@function.builtin.bash"] = plt.emeraldJewelCore,
-      ["@string.regexp"] = plt.sapphireJewel,
-      ["@character.special.regex"] = plt.whiteGold,
-    },
-
-    lsp = {
-      ["@lsp.type.class"] = plt.tickSilverCore,
-      ["@lsp.type.interface"] = plt.tickSilverCore,
-      ["@lsp.type.struct"] = plt.tickSilverCore,
-      ["@lsp.type.enum"] = plt.tickSilverCore,
-      ["@lsp.type.enumMember"] = plt.platinumWhiteCore,
-      ["@lsp.type.property"] = plt.fg_light,
-      ["@lsp.type.namespace"] = plt.tickSilverCore,
-
-      ["@lsp.type.macro"] = plt.whiteGold,
-      ["@lsp.type.decorator"] = plt.whiteGold,
-
-      ["@lsp.type.builtinType"] = plt.tickSilverCore,
-      ["@lsp.type.selfParameter"] = plt.silverGearBright,
-      ["@lsp.type.typeParameter"] = plt.tickSilverCore,
-
-      ["@lsp.type.array"] = plt.tickSilverCore,
-      ["@lsp.type.object"] = plt.tickSilverCore,
-      ["@lsp.type.key"] = plt.fg_light,
-      ["@lsp.type.null"] = plt.platinumWhiteCore,
-      ["@lsp.type.enumConstant"] = plt.platinumWhiteCore,
-
-      ["@lsp.type.event"] = plt.tickSilverCore,
-      ["@lsp.type.regexp"] = plt.sapphireJewel,
-      ["@lsp.type.unresolvedReference"] = plt.tickSilverCore,
-
-      ["@lsp.mod.deprecated"] = { fg = plt.shadowBlack, strikethrough = true },
-      ["@lsp.mod.readonly"] = plt.platinumWhiteCore,
-      ["@lsp.mod.async"] = plt.silverGearCore,
-      ["@lsp.mod.static"] = plt.silverGearBright,
-      ["@lsp.mod.abstract"] = plt.tickSilverCore,
-      ["@lsp.mod.defaultLibrary"] = plt.tickSilverCore,
-      ["@lsp.mod.documentation"] = plt.mechanismGrayLight,
     },
   }
 end
@@ -352,7 +146,6 @@ return {
   name = "Punk – Clockpunk",
   author = "PrismPunk.nvim",
   description = "Renaissance precision — silver gears, jeweled mechanisms, astronomical elegance, celestial time.",
-
   base16 = {
     base00 = palette.bg_darkest,
     base01 = palette.bg_darker,
@@ -371,7 +164,6 @@ return {
     base0E = palette.sapphireJewelCore,
     base0F = palette.silverGearCore,
   },
-
   palette = palette,
   get = M.get,
 }
