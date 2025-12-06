@@ -107,14 +107,18 @@ function M.apply(c, _config)
   hl("Title", { fg = s.syn.keyword, bold = true })
   hl("Conceal", { fg = s.syn.comment })
 
-  hl("SpellBad", { sp = s.diag.error, undercurl = true })
-  hl("SpellCap", { sp = s.diag.warning, undercurl = true })
+  hl("SpellBad", { sp = s.diag.error, undercurl = false })
+  hl("SpellCap", { sp = s.diag.warning, undercurl = false })
   hl("SpellRare", { sp = s.diag.info, undercurl = true })
   hl("SpellLocal", { sp = s.diag.hint, undercurl = true })
 
   hl("Whitespace", { fg = s.ui.nontext or nontext })
   hl("NormalSB", { fg = s.ui.fg_dim, bg = s.ui.bg_dim })
   hl("SignColumnSB", { fg = s.ui.line_nr, bg = s.ui.bg_dim })
+
+  hl("Terminal", { fg = s.ui.fg, bg = s.ui.bg })
+  hl("TerminalNormal", { fg = s.ui.fg, bg = s.ui.bg })
+  hl("@terminal", { fg = s.ui.fg })
 end
 
 return M

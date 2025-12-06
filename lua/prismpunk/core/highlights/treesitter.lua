@@ -7,6 +7,7 @@ function M.apply(c, config)
   local s = c
   local styles = (config and config.styles) or {}
   local var_style = styles.variables or {}
+  local param_style = styles.parameters or {}
 
   hl("@variable", vim.tbl_extend("force", { fg = s.syn.variable }, var_style))
   hl("@variable.builtin", { fg = s.syn.constant })
@@ -81,7 +82,7 @@ function M.apply(c, config)
   hl("@punctuation.bracket", { fg = s.syn.operator })
   hl("@punctuation.special", { fg = s.syn.special })
 
-  hl("@comment", { link = "Comment" })
+  hl("@comment", { link = "Comment", italic = true })
   hl("@comment.documentation", { fg = s.syn.comment })
 
   hl("@comment.error", { fg = s.diag.error })
@@ -155,7 +156,30 @@ function M.apply(c, config)
   hl("@text.danger", { fg = s.diag.error })
   hl("@text.todo", { link = "@comment.todo" })
 
-  hl("@spell", { link = "SpellBad" })
+  hl("@spell", { link = "Normal" })
+
+  hl("@parameter", vim.tbl_extend("force", { fg = s.syn.variable }, param_style))
+  hl("@parameter.reference", { fg = s.syn.variable })
+
+  hl("@comment", { link = "Comment", italic = true })
+  hl("@comment.todo", { fg = s.syn.special, bold = true })
+  hl("@todo", { fg = s.syn.special, bold = true, undercurl = false })
+
+  hl("@text.literal.block.markdown", { fg = s.syn.string })
+  hl("@text.literal.markdown_inline", { fg = s.syn.string })
+  hl("@markup.code", { fg = s.syn.string })
+  hl("@markup.inline", { fg = s.ui.fg })
+  hl("@markup.block", { fg = s.syn.type })
+
+  hl("@punctuation.special.method", { fg = s.syn.operator })
+  hl("@punctuation.special.property", { fg = s.syn.operator })
+
+  hl("@spell", { link = "Normal" })
+
+  hl("@text.danger", { fg = s.diag.error })
+  hl("@text.success", { fg = s.diff.add })
+
+  hl("@markup.underline", { underline = true })
 end
 
 return M
